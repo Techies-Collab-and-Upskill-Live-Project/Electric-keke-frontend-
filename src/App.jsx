@@ -30,6 +30,7 @@ import AdminLayout from "./shared-layout/AdminLayout";
 import UserManagement from "./components/Admin/UserManagement";
 import FinancialManagement from "./components/Admin/FinancialManagement";
 import { Link } from "react-router-dom";
+import ChartSection from "./components/ChartSection/Chart";
 
 function App() {
   const {
@@ -93,6 +94,8 @@ function App() {
             </Route>
           </Route>
           {/* protected routes */}
+
+          <Route path="/chart" element={<ChartSection />} />
           <Route
             path="*"
             element={
