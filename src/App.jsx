@@ -42,6 +42,8 @@ import FinancialManagement from "./pages/admin/FinancialManagement";
 // error
 import InternalServer from "./pages/error-pages/InternalServer";
 import Transaction from "./pages/transaction/Transaction";
+// drivers tracking
+import DriversTracking from "./pages/Drivers-page/DriversTracking";
 
 function App() {
   const {
@@ -121,6 +123,9 @@ function App() {
               </div>
             }
           />
+
+          {/* driver pages */}
+          <Route path="/drivers-tracking" element={<DriversTracking />} />
         </Routes>
       </div>
     </>
