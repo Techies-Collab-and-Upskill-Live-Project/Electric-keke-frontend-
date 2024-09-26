@@ -1,14 +1,11 @@
 import { X, PhoneCall } from "lucide-react";
 import { useState } from "react";
 
-const Choose = () => {
-    const [closePopup, setClosePopup] = useState(false);
-
-    const handleClose = () => {
-        setClosePopup(!closePopup);
-    }
+const Choose = ({ open, onClose, children }) => {
   return (
-    <div className={`"m-auto absolute top-[50%] left-[50%] bg-white -translate-x-[50%] -translate-y-[50%] px-[30px] py-[15px] rounded-md w-[400px] flex gap-5" ${closePopup ? "hidden" : "flex"}`}>
+    <div className={`fixed inset-0 justify-center items-center transition-colors 
+    ${open ? "visible bg-black/20 scale-100 opacity-100" : "invisible scale-125 opacity-0"}`} 
+    onClick={(e) => e.stopPropagation()}>
         <div className="flex flex-col text-center items-center justify-center">
         <div className="flex flex-col text-center items-center justify-center">
             <h1 className="font-bold text-[18px]">Choose Your Preferred Call <br /> Option</h1>
@@ -26,13 +23,10 @@ const Choose = () => {
             </div>
         </div>
         </div>
-        <X className="bg-gray-300 rounded-full p-[5px] cursor-pointer" onClick={handleClose} />
+        <X className="bg-gray-300 rounded-full p-[5px] cursor-pointer" onClick={onClose} />
+        {children}
     </div>
   )
 }
 
 export default Choose;
-
-export const handleOpen = () => {
-    setClosePopup(!closePopup);
-}

@@ -6,15 +6,11 @@ import Choose from "./components/Choose";
 import {useState} from "react";
 
 const DriversTracking = () => {
-  const [openPopup, setOpenPopup] = useState(false);
+  const [open, setOpen] = useState(false);
 
-    const handleOpen = () => {
-        setOpenPopup(!openPopup);
-    }
   return (
-    <section className="px-[50px] relative backdrop-blur-xl">
+    <section className="px-[50px]">
       <div className="flex gap-2 justify-center mt-[30px] w-full">
-        <Choose className={`flex`} />
       <div className="">
       <h1 className="font-bold text-[18px]">Locate passenger</h1>
       <div className="flex gap-3">
@@ -89,12 +85,15 @@ const DriversTracking = () => {
 
         <div className="flex gap-3">
           <Button styles="font-bold rounded-md bg-[#E8F4E8]" title={"N3000"} />
-          <Button styles="bg-[#77BB77] font-sm text-white bg-[#77BB77] rounded-full" title={"Start trip"} onClick={handleOpen} />
+          <Button styles="font-sm text-white bg-[#77BB77] rounded-full" title={"Start trip"} onClick={() => setOpen(true)} />
         </div>
         </div>
         </div>
         </div>
       </div>
+
+      <Choose open={open} onClose={() => setOpen(false)}>
+      </Choose>
     </section>
   )
 }
