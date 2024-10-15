@@ -14,7 +14,10 @@ const Home = () => {
   useTitle("Home");
 
   return (
-    <Section blurHeader={true}>
+    <Section
+      blurHeader={true}
+      mobileHeaderStyle="mobile-header mobile-header-abs"
+    >
       <Hero />
       <PageBriefing />
       <Services />

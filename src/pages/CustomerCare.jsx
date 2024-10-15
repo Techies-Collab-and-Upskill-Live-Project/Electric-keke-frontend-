@@ -1,20 +1,34 @@
-import Messaging from "../components/xp/Messaging";
-import ChatBoard from "../components/xp/ChatBoard";
+import { ChatBoard, Messaging } from "@/features/contact";
 import Section from "../layouts/Section";
-import React from "react";
+import Heading from "@/components/Heading";
+import Btn from "@/components/btn/Btn";
+import { ArrowLeft } from "lucide-react";
+import TypingBoard from "@/features/contact/components/TypingBoard";
+import { goBack } from "@/utils/goBack";
 
 const CustomerCare = () => {
   return (
-    <Section darkLogo={true}>
+    <Section darkLogo={true} mobileHeaderStyle="mobile-header">
       <div className="home-pad py-5 md:pt-[145px]">
-        <div className="border-b-2 border-b-pgreen">
-          <h2 className="text-2xl lg:text-5xl font-bold text-center font-josefin">
-            Help & Support Center
-          </h2>
-          <p className="text-center text-2xl font-nunito">Customer Service</p>
+        <div className="flex items-start gap-x-3">
+          <Btn
+            icon={<ArrowLeft color="black" size={24} />}
+            styling="size-6 bg-transparent p-0"
+            onClick={goBack}
+          />
+
+          <Heading
+            title="Help & Support Center"
+            tclass="font-bold text-xl md:text-[2rem] font-josefin"
+            description="Customer Sevice"
+            dclass="text-sm md:text-base mt-1"
+          />
         </div>
-        <ChatBoard />
-        <Messaging />
+
+        <div className="border py-8">
+          <ChatBoard />
+          <TypingBoard styling="h-[84px] mt-5 flex-center px-6 py-4" />
+        </div>
       </div>
     </Section>
   );

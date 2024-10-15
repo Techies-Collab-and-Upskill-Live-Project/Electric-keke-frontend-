@@ -3,6 +3,7 @@ import CustomModal from "@/components/CustomModal";
 import FormRow from "../forms/FormRow";
 import Heading from "../Heading";
 import Choose from "../Choose";
+import CheckBox from "../forms/CheckBox";
 
 const ConfirmRideModal = ({ isModalOpen, openModal, closeModal }) => {
   const { showAlert } = dispatchables();
@@ -22,32 +23,32 @@ const ConfirmRideModal = ({ isModalOpen, openModal, closeModal }) => {
       isModalOpen={isModalOpen}
       modalStyling="modal__confirm"
     >
-      <Heading className="text-center" title="Confirm Payment" />
+      <Heading
+        className="text-center"
+        title="Confirm Payment"
+        tclass="font-josefin font-bold text-[2rem]"
+      />
       <form
         className="space-y-2 md:space-y-6"
         onSubmit={(e) => e.preventDefault()}
       >
-        <FormRow
-          formRowContainer="flex items-center gap-x-9 p-4"
-          type="checkbox"
-          showSecureText={false}
+        <CheckBox
+          styling="flex items-center gap-x-9 p-4"
           label={
             <>
               I received the exact amount of money: <b>3000 NGN</b>
             </>
           }
-          labelClass="text-sm md:text-eiteen"
+          labelStyle="text-sm md:text-eiteen"
         />
-        <FormRow
-          formRowContainer="flex items-center gap-x-9 p-4"
-          type="checkbox"
-          showSecureText={false}
+        <CheckBox
+          styling="flex items-center gap-x-9 p-4"
           label={
             <>
               transaction memo contains this payment ref: <b>ZX3489</b>
             </>
           }
-          labelClass="text-sm md:text-eiteen"
+          labelStyle="text-sm md:text-eiteen"
         />
 
         <div>

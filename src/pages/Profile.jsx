@@ -7,7 +7,12 @@ import GroupedModals from "@/components/GroupedModals";
 import Btn from "@/components/btn/Btn";
 import Choose from "@/components/Choose";
 import { useNavigate } from "react-router-dom";
-import { MyProfile, ProfileManagementForm, Tree } from "@/features/profile";
+import {
+  MyProfile,
+  ProfileManagementForm,
+  ProfilePhoto,
+  Tree,
+} from "@/features/profile";
 import { useModal } from "@/hooks/useModal";
 
 const Profile = () => {
@@ -32,7 +37,7 @@ const Profile = () => {
         />
       )}
 
-      <Section darkLogo={true}>
+      <Section darkLogo={true} mobileHeaderStyle="mobile-header">
         <div className="profile-section">
           <div className="profile-glow" />
 
@@ -51,23 +56,19 @@ const Profile = () => {
               </h2>
             </div>
 
-            <Choose
-              containerClass="flex-center gap-2"
-              btnClass="bg-transparent size-5 p-0 md:size-10"
-              icon1={<Edit />}
-              icon2={<SettingIcon />}
-              handleChoice1={() => setEditProfile(true)}
-              handleChoice2={() => navigate("/settings")}
-            />
+            {!editProfile && (
+              <Choose
+                containerClass="flex-center gap-2"
+                btnClass="bg-transparent size-5 p-0 md:size-10"
+                icon1={<Edit />}
+                icon2={<SettingIcon />}
+                handleChoice1={() => setEditProfile(true)}
+                handleChoice2={() => navigate("/settings")}
+              />
+            )}
           </div>
 
-          <div className="prof-photo">
-            <img
-              src="/persons/profile.jpeg"
-              alt="profile"
-              className="prof-photo-main"
-            />
-          </div>
+          <ProfilePhoto styling="prof-photo" />
 
           {editProfile ? (
             <ProfileManagementForm

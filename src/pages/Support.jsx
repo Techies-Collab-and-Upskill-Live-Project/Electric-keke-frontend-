@@ -10,7 +10,10 @@ const Support = () => {
   const { support } = useSelector((state) => state.global);
 
   return (
-    <Section blurHeader={true}>
+    <Section
+      blurHeader={true}
+      mobileHeaderStyle="mobile-header mobile-header-abs"
+    >
       <Hero type="support" />
 
       <div className="support-intersect">

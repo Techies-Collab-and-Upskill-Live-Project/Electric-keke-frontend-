@@ -1,7 +1,9 @@
-import Rate from "@/components/xp/Rate";
 import { useEffect, useState } from "react";
-import Heading from "../Heading";
-import ReviewForm from "@/features/booking/components/ReviewForm";
+import Heading from "@/components/Heading";
+import Rate from "./Rate";
+import { useRating } from "../hooks/useRating";
+import { ProfilePhoto } from "@/features/profile";
+import ReviewForm from "./ReviewForm";
 
 const starSize = (mediaSize) => {
   return mediaSize > 0 && mediaSize < 768
@@ -11,9 +13,8 @@ const starSize = (mediaSize) => {
     : 50;
 };
 
-const RateRiderModal = ({ setRateDriver }) => {
-  const [rate, setRate] = useState(0);
-  const [comment, setComment] = useState(false);
+const RateRiderModal = ({ setRateDriver, closeModal }) => {
+  const { rate, comment, rateTheDriver } = useRating();
   const [mediaSize, setMediaSize] = useState(window.outerWidth);
 
   useEffect(() => {
@@ -26,20 +27,11 @@ const RateRiderModal = ({ setRateDriver }) => {
     );
   }, []);
 
-  const rateTheDriver = (item) => {
-    setRate(item);
-    setComment(true);
-  };
-
   return (
     <>
       {!comment && (
-        <div className="size-[103px] rounded-full border mx-auto">
-          <img
-            src="/persons/rider1.png"
-            alt="rider"
-            className="size-full rounded-full"
-          />
+        <div className="mx-auto size-[103px]">
+          <ProfilePhoto styling="rounded-full size-full" />
         </div>
       )}
 
@@ -53,9 +45,9 @@ const RateRiderModal = ({ setRateDriver }) => {
           />
         )}
         <Heading
-          className="text-nowrap mt-6 text-center border-8 w-full"
+          className="text-nowrap mt-6 text-center w-full"
           title={comment ? "Great!" : "Rate Your Experience"}
-          tclass="text-xl md:text-[40px] text-center"
+          tclass="text-xl md:text-[40px] text-center font-bold"
           description={comment && "Tell us a bit more about your ride"}
           dclass="text-xs md:text-3xl mt-6"
         />
@@ -68,7 +60,13 @@ const RateRiderModal = ({ setRateDriver }) => {
         )}
       </div>
 
-      {comment && <ReviewForm rateValue={rate} setRateDriver={setRateDriver} />}
+      {comment && (
+        <ReviewForm
+          rateValue={rate}
+          setRateDriver={setRateDriver}
+          closeModal={closeModal}
+        />
+      )}
     </>
   );
 };

@@ -26,9 +26,8 @@ const Contribution = () => {
         >
           <Heading
             title={contribution.title}
-            tclass="font-josefin !text-[2rem]"
+            tclass="font-josefin text-[2rem] font-bold"
             description={contribution.desc}
-            type="about"
             dclass="text-neutral-500 text-base tablet:text-xl laptop:text-2xl mt-7"
           />
         </motion.div>

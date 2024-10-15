@@ -1,13 +1,22 @@
 import Section from "@/layouts/Section";
 import useTitle from "@/hooks/useTitle";
 import Footer from "@/components/Footer";
-import { Connected, Contribution, Hero, PageBriefing, Testimonial } from "@/features/landing";
+import {
+  Connected,
+  Contribution,
+  Hero,
+  PageBriefing,
+  Testimonial,
+} from "@/features/landing";
 
 const Earn = () => {
   useTitle("Earn");
 
   return (
-    <Section blurHeader={true}>
+    <Section
+      blurHeader={true}
+      mobileHeaderStyle="mobile-header mobile-header-abs"
+    >
       <Hero type="earn" />
       <PageBriefing type="earn" />
       <Contribution />

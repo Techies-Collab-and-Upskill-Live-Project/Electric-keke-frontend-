@@ -14,23 +14,15 @@ const NewRideModal = ({ isModalOpen, openModal, closeModal }) => {
   const { showAlert } = dispatchables();
 
   const acceptRide = async () => {
-    // const rideToUpdateData = rideStatusUpdateRequest("accepted");
-
     try {
-      // accept ride and navigate to tracking page
-      // const data = await UpdateBooking(rideToUpdateData);
-      // get passenger details
       addItemToLs("passenger", {
         fullname: "Passenger",
       });
-      // rideStatusLsUpdate("accepted");
 
       await closeModal();
-      navigate("/tracking");
+      navigate("/tracking/rider");
     } catch (error) {
-      // catch error
       showAlert(error.message);
-      navigate("/tracking");
     }
   };
 

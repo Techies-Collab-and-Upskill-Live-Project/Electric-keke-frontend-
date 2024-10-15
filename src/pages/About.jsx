@@ -10,7 +10,10 @@ import Section from "@/layouts/Section";
 
 const About = () => {
   return (
-    <Section blurHeader={true}>
+    <Section
+      blurHeader={true}
+      mobileHeaderStyle="mobile-header mobile-header-abs"
+    >
       <Hero type="about" />
       <PageBriefing type="about" />
       <StandOut />

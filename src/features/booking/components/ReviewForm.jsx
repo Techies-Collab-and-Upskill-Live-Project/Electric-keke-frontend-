@@ -1,19 +1,23 @@
 import { deletItemFromLs } from "../../../utils/ls";
 import dispatchables from "../../../utils/dispatchables";
-import Btn from "../shared/btn/Btn";
 import { useRef } from "react";
+import Btn from "@/components/btn/Btn";
+import { useNavigate } from "react-router-dom";
 
-const ReviewForm = ({ rateValue, setRateDriver }) => {
+const ReviewForm = ({ rateValue, setRateDriver, closeModal }) => {
+  const navigate = useNavigate();
   const commentRef = useRef();
   const { showAlert } = dispatchables();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     showAlert(`${rateValue} ${commentRef.current.value} ride complete`);
     deletItemFromLs("book-data");
     deletItemFromLs("rider");
     deletItemFromLs("current-ride");
     setRateDriver(false);
+    await closeModal();
+    navigate("/");
   };
 
   return (

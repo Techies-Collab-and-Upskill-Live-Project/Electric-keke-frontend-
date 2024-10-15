@@ -2,7 +2,6 @@ import Congrats from "@/assets/svg/Congrats";
 import React from "react";
 import Heading from "../Heading";
 import Btn from "../btn/Btn";
-import { UnlockScroll } from "@/utils/ScrollLock";
 
 const Welldone = ({ closeModal }) => {
   return (

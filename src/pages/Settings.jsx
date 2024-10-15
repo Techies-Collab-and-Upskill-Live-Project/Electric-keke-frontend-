@@ -18,7 +18,7 @@ const Settings = () => {
         closeModal={closeModal}
       />
 
-      <Section withDesktopHeader={false}>
+      <Section withDesktopHeader={false} mobileHeaderStyle="mobile-header">
         <div className="setting">
           <SettingHeader />
           <div className="setting-container">

@@ -35,8 +35,12 @@ const Driver = () => {
         closeModal={closeModal}
       />
 
-      <Section darkLogo>
+      <Section darkLogo mobileHeaderStyle="mobile-header">
         <div className="driver-board">
+          <p className="text-error text-center text-xs md:text-xl font-semibold">
+            To continue receiving cash trips, Kindly pay your outstanding debt
+            of 5,000
+          </p>
           <div className="driver">
             {/* <ToggleStats /> */}
             <Choose

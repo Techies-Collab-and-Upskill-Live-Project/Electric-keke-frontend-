@@ -6,14 +6,13 @@ const EarnRequirements = () => {
     <>
       <Heading
         title="Requirements"
-        tclass="text-eco-neutral font-josefin"
-        type="about"
+        tclass="font-josefin text-[2rem] font-bold"
       />
       <ul className="list-disc pl-4 mt-7">
         {earn_requirements.map((item, index) => (
           <li
             key={index}
-            className="text-base md:text-xl lg:text-2xl text-neutral-500 font-montserrat"
+            className="text-base md:text-xl lg:text-2xl text-neutral-500"
           >
             {item}
           </li>

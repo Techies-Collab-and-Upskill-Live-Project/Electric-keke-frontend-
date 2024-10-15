@@ -26,7 +26,7 @@ const Rate = ({ rate, handleClick, statik, className, size = 20 }) => {
             onMouseEnter={() => setShow(true)}
           >
             {[1, 2, 3, 4, 5].map((item) => (
-              <div className="border" key={item}>
+              <div key={item}>
                 <Star
                   key={item}
                   rated={rate >= item ? true : false}

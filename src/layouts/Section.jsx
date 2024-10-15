@@ -6,10 +6,11 @@ const Section = ({
   darkLogo,
   blurHeader,
   withDesktopHeader = true,
+  mobileHeaderStyle,
 }) => {
   return (
     <>
-      <MobileHeader blur={blurHeader} />
+      <MobileHeader blur={blurHeader} mobileHeaderStyle={mobileHeaderStyle} />
       {withDesktopHeader && <Header darkLogo={darkLogo} blur={blurHeader} />}
       <section>{children}</section>
     </>

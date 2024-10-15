@@ -668,7 +668,11 @@ h2 {
   } */
 
 .mobile-header {
-  @apply flex items-center justify-between px-[15px] py-3 md:hidden absolute z-50 w-full bg-neutral/[6%] backdrop-blur-3xl h-16
+  @apply flex items-center justify-between px-[15px] py-3 md:hidden w-full bg-neutral/[6%] backdrop-blur-3xl h-16
+}
+
+.mobile-header-abs {
+  @apply absolute z-50;
 }
 
 .mobile-navigation {
@@ -773,7 +777,7 @@ h2 {
 /* DRIVER */
 
 .driver-board {
-  @apply home-pad pt-[43px] md:pt-[10rem] pb-16;
+  @apply home-pad md:pt-[10rem] pb-16;
 }
 
 .driver {
@@ -978,7 +982,7 @@ h2 {
 
 
 .profile-management-input {
-  @apply border border-neutral-400 px-[10px] rounded-m h-[64px] w-full bg-white
+  @apply border border-basic px-[10px] rounded-m h-[64px] w-full bg-white
 }
 
 
@@ -1097,7 +1101,7 @@ h2 {
 
 /********************* settings ************/
 .setting {
-  @apply mt-16 md:mt-0 pb-20 tablet:pb-[109px] home-pad relative min-h-screen
+  @apply pb-20 tablet:pb-[109px] home-pad relative min-h-screen
 }
 
 .setting-header {
@@ -1224,7 +1228,7 @@ h2 {
 }
 
 .person-details {
-  @apply flex items-center py-2 px-2 md:px-4 justify-between bg-basic-200
+  @apply flex items-center py-2 px-2 md:px-4 justify-between bg-basic-100 rounded-sm
 }
 
 .person-photo-container {
@@ -1233,10 +1237,6 @@ h2 {
 
 .person-photo {
   @apply size-full object-cover object-center rounded-full
-}
-
-.person-credentials {
-  @apply flex items-center justify-between mt-2 md:mt-0 w-[72%]
 }
 
 .person-name {
@@ -1276,16 +1276,12 @@ h2 {
 
 
 /******************* transaction ***********/
-.transaction-board {
-  @apply pt-5 md:pt-10 pb-20 md:pb-40
+.board__payment-for {
+  @apply px-5 md:pl-[7.5rem] md:pr-10 w-full md:w-[55vw] bg-white md:board-shadow pt-10 h-fit md:h-screen md:sticky top-0
 }
 
-.payment-for-board {
-  @apply px-5 md:pl-[7.5rem] md:pr-10 w-full md:w-[55vw] bg-white md:board-shadow transaction-board
-}
-
-.payment-method {
-  @apply transaction-board px-5 md:pl-10 w-full md:w-[45vw]
+.board__payment-method {
+  @apply px-5 md:pl-10 w-full md:w-[45vw] pt-10
 }
 
 .payment-form {
@@ -1297,7 +1293,7 @@ h2 {
 }
 
 .payment-input {
-  @apply w-full rounded-[6px] h-14 border border-modal px-5 mt-2
+  @apply w-full rounded-sm h-14 border border-neutral-300 px-5 mt-2
 }
 
 .transaction-head {
@@ -1305,7 +1301,7 @@ h2 {
 }
 
 .ride-trip {
-  @apply md:grid md:grid-cols-12 items-center border
+  @apply md:grid md:grid-cols-12 items-center
 }
 
 .ride-trip-label {
@@ -1316,13 +1312,13 @@ h2 {
   @apply my-5 md:my-10 space-y-3 md:space-y-0
 }
 
-/* .ride-location {
+.ride-trip-location {
   @apply location-shadow bg-white rounded-[14px] h-14 md:h-[70px] px-5 flex items-center ml-2 w-auto md:col-span-10
-} */
+}
 
 /******************** personal info ***************/
 .profile-section {
-  @apply px-3 md:px-[7.5rem] pt-[100px] md:pt-[152px] pb-[200px] relative overflow-hidden
+  @apply px-3 md:px-[7.5rem] pt-4 md:pt-[152px] pb-[200px] relative overflow-hidden
 }
 
 .profile-glow {
@@ -1334,12 +1330,9 @@ h2 {
 }
 
 .prof-photo {
-  @apply size-[162px] rounded-full border mt-5 mb-12 relative
+  @apply size-[100px] md:size-[164px] rounded-full border mt-6 md:mt-8 mb-8 md:mb-10 relative
 }
 
-.prof-photo-main {
-  @apply size-full object-cover object-center rounded-full
-}
 
 .prof-form-body {
   @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-9 gap-x-[50px]

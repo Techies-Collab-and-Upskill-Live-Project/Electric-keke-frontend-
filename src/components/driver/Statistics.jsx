@@ -92,7 +92,7 @@ const Statistics = () => {
           <div className="w-[252px] flex items-center gap-1">
             <p className="text-2xl font-bold">30%</p>
 
-            <p className="text-xs text-neutral">
+            <p className="text-xs text-neutral-500">
               Your performance for this is 30% better compare to last week
             </p>
           </div>

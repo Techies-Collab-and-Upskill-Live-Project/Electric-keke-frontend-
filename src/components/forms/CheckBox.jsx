@@ -1,4 +1,4 @@
-const CheckBox = ({ label, name, styling, text, textStyle }) => {
+const CheckBox = ({ label, labelStyle, name, styling, text, textStyle }) => {
   return (
     <div className={styling}>
       <input type="checkbox" name={name} className="align-baseline" />

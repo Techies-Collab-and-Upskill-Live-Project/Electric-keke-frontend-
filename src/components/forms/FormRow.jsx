@@ -10,6 +10,7 @@ const FormRow = ({
   handleChange,
   styling,
   icon,
+  iconPosition,
   inputclass,
   placeholder,
   showInputAlert,
@@ -25,7 +26,7 @@ const FormRow = ({
 
       <div className="relative">
         {icon && (
-          <div className="absolute top-1/2 -translate-y-1/2 left-3">{icon}</div>
+          <div className={`absolute top-1/2 -translate-y-1/2 ${iconPosition || 'left-3'}`}>{icon}</div>
         )}
 
         <input

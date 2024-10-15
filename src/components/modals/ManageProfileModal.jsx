@@ -31,7 +31,7 @@ const ManageProfileModal = () => {
       <Heading
         className="text-center"
         title={title}
-        tclass="text-eiteen"
+        tclass="font-bold text-2xl md:text-[2rem]"
         dclass="text-sm"
       />
 

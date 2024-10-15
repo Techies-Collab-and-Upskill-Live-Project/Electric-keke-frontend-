@@ -5,17 +5,22 @@ import { getItemFromLs } from "../../../utils/ls";
 import Heading from "@/components/Heading";
 import ProgressLine from "@/components/ProgressLine";
 import { LogoPlain } from "@/assets/svg/Logo";
+import Btn from "@/components/btn/Btn";
+import { ArrowLeft } from "lucide-react";
+import { goBack } from "@/utils/goBack";
 
 const PaymentFor = () => {
   const [currentRide, setCurrentRide] = useState(getItemFromLs("current-ride"));
 
   return (
-    <div className="payment-for-board">
+    <div className="board__payment-for">
       <div>
         <div className="transaction-head">
-          <div>
-            <Spear color="black" />
-          </div>
+          <Btn
+            icon={<ArrowLeft color="black" />}
+            styling="bg-transparent p-0 size-6"
+            onClick={goBack}
+          />
           <LogoPlain logoStyling="w-20 h-14" />
         </div>
 
@@ -23,8 +28,8 @@ const PaymentFor = () => {
           <Heading
             title="Payment"
             description="How would you like to make your payment "
-            tclass="font-josefin"
-            dclass="mt-3"
+            tclass="font-josefin text-[2rem] font-bold"
+            dclass="mt-3 text-sm"
           />
 
           <div className="trip-detail">
@@ -40,7 +45,7 @@ const PaymentFor = () => {
             <p className="font-semibold text-xs md:text-base">
               Total Cost of ride
             </p>
-            <div className="ride-fare">#{currentRide?.price || 300}</div>
+            <div className="ride-fare">NGN{currentRide?.price || 300}</div>
           </div>
         </div>
       </div>

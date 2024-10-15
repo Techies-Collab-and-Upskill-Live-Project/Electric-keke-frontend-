@@ -6,12 +6,12 @@ import Btn from "./btn/Btn";
 import { useCurrentUser } from "@/hooks/useCurrentUser";
 import { HeroSmallInfo } from "./SmallInfo";
 
-const MobileHeader = ({ blur }) => {
+const MobileHeader = ({ blur, mobileHeaderStyle }) => {
   const user = useCurrentUser();
   const { pathname } = useLocation();
 
   return (
-    <header className="mobile-header">
+    <header className={mobileHeaderStyle}>
       {pathname !== "/schedule-ride" && <MobileNav blur={blur} />}
 
       {pathname === "/schedule-ride" && (
@@ -27,7 +27,7 @@ const MobileHeader = ({ blur }) => {
               <Link to="/notification">
                 <div className="header__icon">
                   <span className="indicator" />
-                  <Bell color={blur ? "white" : 'black'} size={24} />
+                  <Bell color={blur ? "white" : "black"} size={24} />
                 </div>
               </Link>
 

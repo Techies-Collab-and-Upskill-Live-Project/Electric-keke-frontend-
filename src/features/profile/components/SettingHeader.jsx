@@ -1,17 +1,21 @@
 import React from "react";
 import { SmallInfo } from "@/components/SmallInfo";
-import Spear from "@/assets/svg/Spear";
 import { useCurrentUser } from "@/hooks/useCurrentUser";
+import { goBack } from "@/utils/goBack";
+import { ArrowLeft } from "lucide-react";
+import Btn from "@/components/btn/Btn";
 
 const SettingHeader = () => {
   const user = useCurrentUser();
   return (
     <header className="setting-header">
       <div className="flex items-center gap-6">
-        <div className="cursor-pointer" onClick={() => history.back()}>
-          <Spear color="red" />
-        </div>
-        
+        <Btn
+          icon={<ArrowLeft color="black" />}
+          styling="bg-transparent"
+          onClick={goBack}
+        />
+
         <SmallInfo
           styling="border border-neutral-500 pr-[10px] w-[183px] md:w-[303px] min-h-12 md:min-h-[88px]"
           fullname={user?.fullname}

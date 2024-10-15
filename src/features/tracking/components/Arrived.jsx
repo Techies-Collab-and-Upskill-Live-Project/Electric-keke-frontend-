@@ -5,9 +5,9 @@ const Arrived = () => {
     <div className="mt-8">
       <Heading
         title="You've Arrived"
-        tclass="font-josefin"
+        tclass="font-josefin font-bold text-[2rem]"
         description="You've reached the drop off location"
-        dclass="text-sm mt-3"
+        dclass="text-sm mt-3 text-neutral-500"
       />
 
       <div className="mt-6 mb-8 min-h-[262px] flex gap-x-[10px]">

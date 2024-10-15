@@ -1,35 +1,24 @@
 import FormRow from "@/components/forms/FormRow";
-import dispatchables from "../../../utils/dispatchables";
 import Btn from "@/components/btn/Btn";
+import CheckBox from "@/components/forms/CheckBox";
+import CardInformation from "./CardInformation";
+import { RateRiderModal } from "@/features/booking";
+import { RideCompletedModal } from "..";
 
 const PaymentForm = () => {
-  const { openModalWithContent } = dispatchables();
   return (
     <form className="payment-form">
       <div className="flex flex-col gap-y-10 mb-10">
         <div className="pay-form-rows">
-          <FormRow
-            label="Card Information"
-            labelClass="font-semibold text-base"
-          >
-            <input type="text" name="card" className="payment-input" />
-
-            <div className="flex items-center">
-              <input
-                type="text"
-                name="expire"
-                className="payment-input !mt-0"
-              />
-              <input type="text" name="cvv" className="payment-input !mt-0" />
-            </div>
-          </FormRow>
+          <CardInformation />
 
           <FormRow
             label="Card holder name"
+            labelClass="font-medium text-base"
             placeholder="Susan Michael"
             inputclass="payment-input"
-            labelClass="font-semibold text-base"
           />
+
           <FormRow
             label="Country or Region"
             placeholder="Nigeria"
@@ -38,20 +27,22 @@ const PaymentForm = () => {
           />
         </div>
 
-        <div className="border border-basic-prime rounded-[6px] pl-5 pr-16 py-3">
-          <FormRow
-            type="checkbox"
-            label="Securely save my information for 1 - click checkout "
-            formRowContainer="flex border gap-5 items-start"
+        <div className="border border-neutral-300 rounded-sm pl-5 pr-16 py-3">
+          <CheckBox
+            label="Securely save my information for 1 -click checkout"
+            styling="flex gap-5 items-start"
+            text={
+              <>
+                Pay faster on <span className="text-blue-700">flutterwave</span>{" "}
+                and everywhere Link is accepted.
+              </>
+            }
+            textStyle="text-xs mt-5"
           />
         </div>
       </div>
 
-      <Btn
-        text="Pay Now"
-        styling="w-full btn--hero btn--primary"
-        // handleClick={() => openModalWithContent("Pay for ride")}
-      />
+      <RideCompletedModal />
     </form>
   );
 };

@@ -1,4 +1,4 @@
-import Btn from "../btn/Btn";
+import Btn from "../../../../components/btn/Btn";
 
 const Messaging = () => {
   return (

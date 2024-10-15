@@ -27,14 +27,16 @@ const ProtectedRoute = () => {
         <Route path="financial-management" element={<FinancialManagement />} />
         <Route path="settings" element={<InProgress />} />
       </Route>
+
       <Route path="/driver/:id" element={<Driver />} />
+      
       <Route path="/schedule-ride" element={<Schedule />} />
       <Route path="/riders" element={<Riders />}>
         <Route index element={<RiderIndex />} />
         <Route path=":id" element={<RiderInfo />} />
       </Route>
       <Route path="/notification" element={<Notification />} />
-      <Route path="/tracking" element={<Tracking />} />
+      <Route path="/tracking/*" element={<Tracking />} />
       <Route path="/profile/:id" element={<Profile />} />
       <Route path="/settings" element={<Settings />} />
       <Route path="/customer-care" element={<CustomerCare />} />
