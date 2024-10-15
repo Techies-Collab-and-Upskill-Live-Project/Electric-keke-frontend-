@@ -930,8 +930,13 @@ h2 {
 }
 
 .upload__icon {
-  @apply size-[78px] md:size-[7.5rem] rounded-full bg-[#E8F4E8] flex-center
+  @apply size-[78px] md:size-[7.5rem] rounded-full bg-[#E8F4E8] flex-center absolute inset-0 top-0 left-0 pointer-events-none
 }
+
+.upload__input {
+  @apply size-[78px] md:size-[7.5rem] rounded-full border relative overflow-hidden;
+}
+
 
 .upload__text {
   @apply text-xs md:text-sm font-medium text-center mt-6

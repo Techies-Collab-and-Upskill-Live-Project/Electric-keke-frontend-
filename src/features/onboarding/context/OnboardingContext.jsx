@@ -1,24 +1,14 @@
-import { addItemToLs, getItemFromLs } from "@/utils/ls";
+import { useModal } from "@/hooks/useModal";
 import { createContext, useContext, useState } from "react";
 
 const OnboardingContext = createContext();
 
 export const OnboardingProvider = ({ children }) => {
-  const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
-
-  const openUploadModal = () => {
-    console.log(isUploadModalOpen);
-    setIsUploadModalOpen(true);
-  };
-
-  const closeUploadModal = () => {
-    console.log(isUploadModalOpen)
-    setIsUploadModalOpen(false);
-  };
+  const { isModalOpen, openModal, closeModal, setIsModalOpen } = useModal();
 
   return (
     <OnboardingContext.Provider
-      value={{ isUploadModalOpen, openUploadModal, closeUploadModal }}
+      value={{ isModalOpen, openModal, closeModal, setIsModalOpen }}
     >
       {children}
     </OnboardingContext.Provider>

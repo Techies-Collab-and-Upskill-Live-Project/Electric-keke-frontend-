@@ -7,8 +7,7 @@ import { useGlobalOnboardContext } from "@/features/onboarding/context/Onboardin
 import CustomModal from "@/components/CustomModal";
 
 const UploadImageModal = ({ nextProcess }) => {
-  const { isUploadModalOpen, closeUploadModal, openUploadModal } =
-    useGlobalOnboardContext();
+  const { isModalOpen, openModal, closeModal } = useGlobalOnboardContext();
   const { showAlert } = dispatchables();
 
   const handleUpload = ({}) => {
@@ -21,17 +20,17 @@ const UploadImageModal = ({ nextProcess }) => {
     } else {
       showAlert("back license");
     }
-    closeUploadModal();
+    closeModal();
     nextProcess();
   };
 
   return (
     <CustomModal
       modalStyling="modal__upload"
-      // customCloseFunc={closeUploadModal}
-      isModalOpen={isUploadModalOpen}
-      openModal={openUploadModal}
-      closeModal={closeUploadModal}
+      isModalOpen={isModalOpen}
+      openModal={openModal}
+      closeModal={closeModal}
+      showCloseBtn={false}
     >
       <div className="modal__upload-container">
         <div className="modal__upload-dropzone">
@@ -40,8 +39,16 @@ const UploadImageModal = ({ nextProcess }) => {
               Drag and drop Images to upload
             </h3>
 
-            <div className="upload__icon">
-              <Upload />
+            <div className="upload__input">
+              <input
+                type="file"
+                className="size-full"
+                accept=".jpg,.png"
+              />
+
+              <div className="upload__icon">
+                <Upload />
+              </div>
             </div>
 
             <Btn

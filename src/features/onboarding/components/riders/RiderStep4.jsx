@@ -5,7 +5,7 @@ import { driver_authProcess } from "@/constants";
 import { useGlobalOnboardContext } from "@/features/onboarding/context/OnboardingContext";
 
 const RiderStep4 = ({ nextProcess, prevProcess }) => {
-  const { openUploadModal } = useGlobalOnboardContext();
+  const { openModal } = useGlobalOnboardContext();
 
   return (
     <RiderShared nextProcess={nextProcess}>
@@ -32,7 +32,7 @@ const RiderStep4 = ({ nextProcess, prevProcess }) => {
           <Btn
             text="Upload Driver's License"
             styling="btn btn--primary btn__driverauth"
-            onClick={openUploadModal}
+            onClick={openModal}
           />
         </div>
       </div>
