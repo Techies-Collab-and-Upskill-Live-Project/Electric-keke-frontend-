@@ -1,36 +1,12 @@
-import { testimonies } from "../../../constants";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import Direction from "../../../components/Direction";
 import Testimony from "./Testimony";
+import { testimonies } from "../constants";
+import { useTestmony } from "../hooks/useTestimony";
 
 const TestimonialDisplay = ({ type }) => {
-  const [currentTestimony, setCurrentTestimony] = useState(0);
-
-  useEffect(() => {
-    const lastTestimony = testimonies[type].length - 1;
-    if (currentTestimony > lastTestimony) {
-      setCurrentTestimony(0);
-    }
-    if (currentTestimony < 0) {
-      setCurrentTestimony(lastTestimony);
-    }
-  }, [currentTestimony]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTestimony((prev) => prev + 1);
-    }, 8000);
-    return () => {
-      clearTimeout(interval);
-    };
-  }, []);
-
-  const nextTestimony = (type) => {
-    type === "increment"
-      ? setCurrentTestimony((prev) => prev + 1)
-      : setCurrentTestimony((prev) => prev - 1);
-  };
+  const { currentTestimony, nextTestimony } = useTestmony(testimonies[type]);
 
   return (
     <div className="testimonials-display">

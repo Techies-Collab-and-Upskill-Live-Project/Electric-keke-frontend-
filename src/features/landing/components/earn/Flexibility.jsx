@@ -1,6 +1,6 @@
 import Heading from "@/components/Heading";
-import { flexibility_text } from "@/constants";
 import { motion } from "framer-motion";
+import { flexibility_text } from "../../constants";
 
 const Flexibility = () => {
   return (

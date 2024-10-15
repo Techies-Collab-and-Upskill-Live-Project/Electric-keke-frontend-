@@ -11,10 +11,10 @@ export const useModal = () => {
   useEffect(() => {
     if (isModalOpen) {
       LockScroll();
-      // console.log("locked");
+      console.log("locked");
     } else {
       UnlockScroll();
-      // console.log("unlocked");
+      console.log("unlocked");
     }
   }, [isModalOpen]);
 

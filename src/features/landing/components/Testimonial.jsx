@@ -1,4 +1,4 @@
-import { testimonial_title } from "../../../constants";
+import { testimonial_title } from "../constants";
 import TestimonialDisplay from "./TestimonialDisplay";
 import Heading from "@/components/Heading";
 

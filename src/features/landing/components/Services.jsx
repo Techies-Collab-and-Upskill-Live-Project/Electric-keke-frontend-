@@ -1,7 +1,7 @@
-import { about_descriptions, about_titles, services } from "@/constants";
 import Heading from "@/components/Heading";
 import Service from "./Service";
 import RegularList from "@/components/_design-patterns/RegularList";
+import { about_descriptions, about_titles, services } from "../constants";
 
 const Services = ({ type = "main" }) => {
   return (

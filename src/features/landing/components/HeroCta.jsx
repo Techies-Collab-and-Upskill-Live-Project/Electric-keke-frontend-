@@ -6,7 +6,7 @@ import { useCurrentUser } from "@/hooks/useCurrentUser";
 import { memo } from "react";
 import Btn from "@/components/btn/Btn";
 import Togglers from "@/components/Togglers";
-import ChooseModal from "@/features/booking/components/ChooseModal";
+import { ChooseModal } from "@/features/booking";
 
 const HeroCta = ({ type }) => {
   const user = useCurrentUser();

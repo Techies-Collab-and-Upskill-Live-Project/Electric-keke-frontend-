@@ -6,12 +6,12 @@ import { useAreInputsFilled } from "../../hooks/useAreInputsFilled";
 import { useGlobalAuthContext } from "@/contexts/AuthContext";
 import { addItemToLs } from "@/utils/ls";
 import Btn from "@/components/btn/Btn";
-import { onboarding_descs } from "@/constants";
 import ForgetTab from "../ForgetTab";
 import OnboardFormRows from "../OnboardFormRows";
 import Google from "../../assets/svg/Google";
 import dispatchables from "@/utils/dispatchables";
 import { LoginUser } from "../../services";
+import { onboarding_descs } from "../../constants";
 
 const Login = ({ nextProcess, prevProcess }) => {
   const navigate = useNavigate();
@@ -75,7 +75,7 @@ const Login = ({ nextProcess, prevProcess }) => {
 
               <Btn
                 text="Continue with Google"
-                styling="w-full h-14 rounded-full bg-white shadow-md text-black"
+                styling="w-full h-14 rounded-full bg-white shadow-md text-black font-medium gap-x-6"
                 icon={<Google />}
               />
             </div>

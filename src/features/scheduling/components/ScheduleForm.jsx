@@ -1,11 +1,11 @@
-import { useState } from "react";
 import FormRow from "@/components/forms/FormRow";
-import DatePicker from "@/components/DatePicker";
-import CustomSelectItem from "@/components/CustomSelectItem";
 import SelectInput from "@/components/SelectInput";
-import generateTime from "@/utils/generateTime";
-import generateCount from "@/utils/generateCount";
 import Choose from "@/components/Choose";
+import FormDate from "@/components/forms/FormDate";
+import FormSelect from "@/components/forms/FormSelect";
+import generateTime from "../utils/generateTime";
+import generateCount from "../utils/generateCount";
+import { type_of_goods } from "../constants";
 
 const ScheduleForm = ({
   scheduleType,
@@ -14,93 +14,72 @@ const ScheduleForm = ({
   handleChange,
   setQuantity,
   setTime,
-  setScheduleFormData,
+  choseToShareRide,
 }) => {
   return (
     <form className="schedule-form" onSubmit={(e) => e.preventDefault()}>
       <FormRow
         name="origin"
         label="Enter Your Location"
-        formRowContainer="font-inter"
+        styling="font-inter"
         value={scheduleFormData.origin}
         handleChange={handleChange}
-        inputclass="schedule-input"
+        inputclass="schedule-input w-full"
       />
+
       <FormRow
         name="destination"
         label="Enter Your Destination"
-        formRowContainer="font-inter"
+        styling="font-inter"
         value={scheduleFormData.destination}
         handleChange={handleChange}
-        inputclass="schedule-input"
+        inputclass="schedule-input w-full"
       />
-      <FormRow
+
+      <FormDate
         label="Select Date"
-        children={<DatePicker handleDate={handleDate} />}
-        formRowContainer="font-inter"
-        inputclass="schedule-input"
+        styling="font-inter flex flex-col"
+        dateStyle="schedule-input w-full"
+        handleDate={handleDate}
       />
-      <FormRow
+
+      <FormSelect
         label="Select Time"
-        // value={scheduleFormData.time}
-        children={
-          <SelectInput
-            placeholder="00:00"
-            label="Time"
-            formRowContainer="font-inter"
-            handleFunc={setTime}
-            children={<CustomSelectItem items={generateTime()} />}
-          />
-        }
-        inputclass="schedule-input"
+        itemsList={generateTime()}
+        selectStyle="schedule-input"
+        handleSelect={setTime}
       />
-      <FormRow
+
+      <FormSelect
         label={
           scheduleType === "ride" ? "Number of Passengers" : "Number of Goods"
         }
-        children={
-          <SelectInput
-            placeholder="01"
-            label={scheduleType === "ride" ? "total persons" : "total goods"}
-            handleFunc={setQuantity}
-            children={<CustomSelectItem items={generateCount()} />}
-          />
-        }
-        formRowContainer="font-inter"
-        inputclass="schedule-input"
+        itemsList={generateCount()}
+        styling="font-inter"
+        selectStyle="schedule-input"
+        handleSelect={setQuantity}
       />
+
       {scheduleType === "ride" ? (
-        <FormRow
-          label="Share a Ride"
-          children={
-            <div className="flex items-end justify-between gap-4 border">
-              <Choose
-                choice1txt="Yes"
-                choice2txt="No"
-                handleChoice1={() =>
-                  setScheduleFormData((prev) => ({ ...prev, share: "Yes" }))
-                }
-                handleChoice2={() =>
-                  setScheduleFormData((prev) => ({ ...prev, share: "No" }))
-                }
-              />
-            </div>
-          }
-          formRowContainer="font-inter"
-          inputclass="schedule-input"
-        />
+        <div>
+          <span>Share a ride?</span>
+
+          <Choose
+            containerClass="schedule-input flex-center !p-0 !border-none gap-x-[30px]"
+            choice1txt="Yes"
+            choice2txt="No"
+            btnClass="h-full btn w-1/2 bg-transparent border text-black border-basic"
+            handleChoice1={() => choseToShareRide("Yes")}
+            handleChoice2={() => choseToShareRide("No")}
+          />
+        </div>
       ) : (
-        <FormRow
+        <FormSelect
+          itemsList={type_of_goods}
           label="Type of goods (no hazardous or illegal goods accepted)"
-          children={
-            <SelectInput
-              placeholder="Select from the options below"
-              label="Goods Category"
-            />
-          }
-          labelClass="text-xs tablet:text-xs"
-          formRowContainer="font-inter"
-          inputclass="schedule-input"
+          labelStyle="text-xs tablet:text-xs"
+          styling="font-inter"
+          selectStyle="schedule-input"
         />
       )}
     </form>

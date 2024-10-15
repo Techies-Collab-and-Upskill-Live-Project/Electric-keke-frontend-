@@ -2,27 +2,33 @@ import React, { useState } from "react";
 import Section from "../layouts/Section";
 import Edit from "../assets/svg/Edit";
 import SettingIcon from "../assets/svg/SettingIcon";
-import MyProfile from "../features/profile/components/MyProfile";
-import ProfileManagementForm from "../features/profile/components/ProfileManagementForm";
 import Spear from "../assets/svg/Spear";
 import GroupedModals from "@/components/GroupedModals";
 import Btn from "@/components/btn/Btn";
 import Choose from "@/components/Choose";
 import { useNavigate } from "react-router-dom";
-import { LockScroll, UnlockScroll } from "@/utils/ScrollLock";
+import { MyProfile, ProfileManagementForm, Tree } from "@/features/profile";
+import { useModal } from "@/hooks/useModal";
 
 const Profile = () => {
+  const { isModalOpen, openModal, closeModal, setIsModalOpen } = useModal();
   const [editProfile, setEditProfile] = useState(false);
   const [success, setSuccess] = useState(false);
 
   const navigate = useNavigate();
+
+  const saveData = () => {
+    setSuccess(true);
+    openModal();
+  };
 
   return (
     <>
       {success && (
         <GroupedModals
           type="edit-profile"
-          customClose={() => setSuccess(false)}
+          isModalOpen={isModalOpen}
+          closeModal={closeModal}
         />
       )}
 
@@ -65,22 +71,14 @@ const Profile = () => {
 
           {editProfile ? (
             <ProfileManagementForm
-              cancelEdit={() => {
-                UnlockScroll();
-                setEditProfile(false);
-              }}
-              saveData={() => {
-                LockScroll();
-                setSuccess(true);
-              }}
+              cancelEdit={() => setEditProfile(false)}
+              saveData={saveData}
             />
           ) : (
             <MyProfile />
           )}
 
-          <div className="absolute right-0 -bottom-36 md:top-[846px] h-[456px] -z-20">
-            <img src="/profile-tree.png" alt="profile-tree" />
-          </div>
+          <Tree />
         </div>
       </Section>
     </>

@@ -1,5 +1,5 @@
-import { stand_out_text } from "@/constants";
 import Heading from "@/components/Heading";
+import { stand_out_text } from "../../constants";
 
 const StandOut = () => {
   return (
@@ -9,7 +9,7 @@ const StandOut = () => {
       <div className="text-center">
         <Heading
           title="Why We Stand Out!"
-          tclass="max-w-[623px] mx-auto text-center service-heading font-josefin text-white"
+          tclass="page-brief__title text-white"
           description={stand_out_text}
           dclass="mt-3 md:mt-7 text-center text-base tablet:text-2xl text-white"
           type="about"

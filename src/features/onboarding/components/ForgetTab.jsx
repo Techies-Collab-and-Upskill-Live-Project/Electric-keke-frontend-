@@ -1,19 +1,21 @@
+import CheckBox from "@/components/forms/CheckBox";
 import { Link } from "react-router-dom";
 
 const ForgetTab = ({ nextProcess }) => {
-
   return (
-    <div className="forget-tab">
-      <div className="flex gap-2">
-        <input type="checkbox" name="remember" id="remember" />
-        <label htmlFor="remember">Remember me</label>
-      </div>
+    <div className="forget-tab text-sm md:text-base laptop:text-eiteen">
+      <CheckBox
+        styling="flex gap-x-2 items-center"
+        name="remember"
+        label="Remember me"
+      />
+
       <Link
         onClick={() => {
           nextProcess();
         }}
       >
-        <p className="font-semibold">Forgot Password?</p>
+        <p className="font-semibold text-basic ">Forgot Password?</p>
       </Link>
     </div>
   );

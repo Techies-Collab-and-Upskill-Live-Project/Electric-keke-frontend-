@@ -19,7 +19,6 @@ const dispatchables = () => {
   const dispatch = useDispatch();
 
   const chooseOtpMethod = (method) => {
-    console.log(method);
     dispatch(changeInputValue({ key: "message_type", value: method }));
   };
 

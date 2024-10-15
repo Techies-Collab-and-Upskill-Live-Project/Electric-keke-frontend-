@@ -4,10 +4,10 @@ import SharedStep from "../../layouts/SharedStep";
 import dispatchables from "@/utils/dispatchables";
 import { getItemFromLs } from "@/utils/ls";
 import Btn from "@/components/btn/Btn";
-import { onboarding_descs } from "@/constants";
 import { useAreInputsFilled } from "../../hooks/useAreInputsFilled"
 import OnboardFormRows from "../OnboardFormRows";
 import { ResetPassword } from "../../services";
+import { onboarding_descs } from "../../constants";
 
 const NewPassword = ({ nextProcess, prevProcess }) => {
   const { password, re_password } = useSelector((state) => state.formData);
@@ -17,6 +17,7 @@ const NewPassword = ({ nextProcess, prevProcess }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('jose')
     try {
       const { detail } = await ResetPassword({
         username: getItemFromLs("user-email"),
@@ -24,10 +25,14 @@ const NewPassword = ({ nextProcess, prevProcess }) => {
         re_password,
       });
       showAlert(detail);
+
       nextProcess();
+      console.log('nest process')
     } catch (error) {
       console.log(error);
       showAlert("error reseting passcode");
+    } finally {
+      location.reload();
     }
   };
 

@@ -5,8 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Person from "../features/tracking/components/Person";
 import TrackDetails from "../features/tracking/components/TrackDetails";
 import { LogoPlain } from "@/assets/svg/Logo";
-import { GetListOfBookings, UpdateBooking } from "../features/booking/services";
-import { useUpdateBooking } from "../hooks/useUpdateBooking";
+import { useUpdateBooking } from "@/hooks/useUpdateBooking";
 // import { rideStatusUpdateRequest } from "../features/booking/services/abstracts";
 
 import Btn from "@/components/btn/Btn";

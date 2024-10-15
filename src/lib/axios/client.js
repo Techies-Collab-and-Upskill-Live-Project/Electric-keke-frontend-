@@ -4,11 +4,11 @@ import {
   clearLs,
   deletItemFromLs,
   getItemFromLs,
-} from "../utils/ls";
-import isTokenValid from "./auth/checkJwtValidity";
-import refreshAccess from "./auth/refreshAccess";
-import CustomError from "./custom-error/CustomError";
+} from "../../utils/ls";
+import isTokenValid from "../../services/checkJwtValidity";
+import CustomError from "../../services/custom-error/CustomError";
 import { base_url } from "@/constants/uri";
+import RefreshAccess from "@/services/RefreshAccess";
 
 const client = axios.create({
   // baseURL: "/api",
@@ -53,7 +53,7 @@ export const clientRequest = async ({ ...options }) => {
 
       try {
         const { access: accessToken, refresh: refreshToken } =
-          await refreshAccess();
+          await RefreshAccess();
 
         addItemToLs("accessToken", accessToken);
         addItemToLs("refreshToken", refreshToken);

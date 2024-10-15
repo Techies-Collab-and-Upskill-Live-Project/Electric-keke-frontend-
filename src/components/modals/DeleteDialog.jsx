@@ -1,7 +1,7 @@
 import dispatchables from "@/utils/dispatchables";
 import { useNavigate } from "react-router-dom";
 import DialogModal from "./DialogModal";
-import { DeleteAccount } from "@/services/auth";
+import { DeleteAccount } from "@/services/DeleteAccount";
 
 const DeleteDialog = () => {
   const { showAlert, loading, unloading } = dispatchables();

@@ -12,6 +12,7 @@ import Loader from "./components/loaders/Loader";
 import NotFound from "./pages/NotFound";
 import Onboarding from "./pages/Onboarding";
 import Alert from "./components/Alert";
+import Balls from "./components/_custom-loaders/balls/Balls";
 
 function App() {
   const {
@@ -42,6 +43,17 @@ function App() {
           <Route path="/*" element={<ProtectedRoute />} />
           <Route path="/ie/:id" element={<InternalServer />} />
           <Route path="*" element={<NotFound />} />
+          <Route
+            path="/test"
+            element={
+              <section className="w-full h-screen">
+                <button className="p-2 relative after:absolute after:bg-green-300 after:inset-0 after:z-0">
+                  <h6 className="z-10 relative">BUTTON </h6>
+                </button>
+                <Balls />
+              </section>
+            }
+          />
         </Routes>
       </div>
     </>

@@ -7,7 +7,7 @@ import { Calendar } from "./ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { useState } from "react";
 
-function DatePicker({ handleDate }) {
+function DatePicker({ handleDate, styling }) {
   const [date, setDate] = useState();
 
   return (
@@ -15,9 +15,8 @@ function DatePicker({ handleDate }) {
       <PopoverTrigger asChild>
         <Button
           variant={"outline"}
-          className={cn(
-            "border border-pgreen rounded-[6px] h-[64px] w-full max-w-96",
-            !date && "text-muted-foreground"
+          className={cn(!date && "text-muted-foreground",
+            styling
           )}
         >
           {date ? format(date, "PPP") : <span>Pick a date</span>}

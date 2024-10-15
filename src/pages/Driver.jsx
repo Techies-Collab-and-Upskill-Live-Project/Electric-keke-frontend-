@@ -2,7 +2,6 @@ import Section from "../layouts/Section";
 import { useEffect, useState } from "react";
 import Statistics from "../components/driver/Statistics";
 import dispatchables from "../utils/dispatchables";
-import { GetListOfBookings } from "../features/booking/services";
 import { addItemToLs } from "../utils/ls";
 import NewRideModal from "@/features/booking/components/NewRideModal";
 import { useModal } from "@/hooks/useModal";

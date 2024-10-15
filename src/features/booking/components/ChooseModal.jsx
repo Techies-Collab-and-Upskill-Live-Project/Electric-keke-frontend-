@@ -38,7 +38,11 @@ const ChooseModal = ({ type }) => {
       {rideForm ? (
         <RideForm />
       ) : (
-        <ChooseMain type={type} goToInputRideDetails={goToInputRideDetails} />
+        <ChooseMain
+          type={type}
+          goToInputRideDetails={goToInputRideDetails}
+          closeModal={closeModal}
+        />
       )}
     </CustomModal>
   );

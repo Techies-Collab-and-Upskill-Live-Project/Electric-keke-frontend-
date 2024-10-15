@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useGlobalAuthContext } from "../contexts/AuthContext";
 import AdminLayout from "./AdminLayout";
@@ -8,8 +8,6 @@ import FinancialManagement from "../pages/admin/FinancialManagement";
 import Notification from "@/pages/Notification";
 import Profile from "../pages/Profile";
 import Riders from "../pages/Riders";
-import RiderIndex from "../features/booking/components/RiderIndex";
-import RiderInfo from "../features/booking/components/RiderInfo";
 import UserManagement from "../pages/admin/UserManagement";
 import InProgress from "../pages/InProgress";
 import Tracking from "@/pages/Tracking";
@@ -17,6 +15,7 @@ import ChatConnect from "@/pages/ChatConnect";
 import Schedule from "@/pages/Schedule";
 import Settings from "@/pages/Settings";
 import Transaction from "@/pages/Transaction";
+import { RiderIndex, RiderInfo } from "@/features/booking";
 
 const ProtectedRoute = () => {
   const { isAuthenticated } = useGlobalAuthContext();

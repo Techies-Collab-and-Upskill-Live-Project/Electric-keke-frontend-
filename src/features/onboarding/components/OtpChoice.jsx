@@ -1,15 +1,14 @@
-import React from "react";
-import { useSelector } from "react-redux";
 import dispatchables from "@/utils/dispatchables";
+import { useSelector } from "react-redux";
 
 const OtpChoice = ({ title, icon }) => {
+  const { chooseOtpMethod } = dispatchables();
   const formData = useSelector((state) => state.formData);
-  const {} = dispatchables();
 
   return (
     <div
       key={title}
-      className={`otp-opt ${
+      className={`onboarding-inputfield flex items-center gap-x-2 cursor-pointer ${
         title.toLowerCase() === formData.message_type && "bg-basic-200"
       }`}
       onClick={() => chooseOtpMethod(title.toLowerCase())}

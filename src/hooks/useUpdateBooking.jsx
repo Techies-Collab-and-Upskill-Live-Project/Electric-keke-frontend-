@@ -1,5 +1,5 @@
+import { GetListOfBookings } from "@/services/GetListOfBookings";
 import { addItemToLs, getItemFromLs } from "../utils/ls";
-import { GetListOfBookings } from "../features/booking/services";
 import { useEffect } from "react";
 
 export const useUpdateBooking = (status, setCurrentRide) => {

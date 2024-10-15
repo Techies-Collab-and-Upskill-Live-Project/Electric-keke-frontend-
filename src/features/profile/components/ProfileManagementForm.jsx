@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import { useOutletContext } from "react-router-dom";
 import FormRow from "../../../components/forms/FormRow";
-import DatePicker from "../../../components/DatePicker";
-import SelectInput from "../../../components/SelectInput";
 import { states } from "../../../constants";
-import CustomSelectItem from "../../../components/CustomSelectItem";
 import Choose from "../../../components/Choose";
+import FormSelect from "@/components/forms/FormSelect";
+import FormDate from "@/components/forms/FormDate";
+import { useCurrentUser } from "@/hooks/useCurrentUser";
 
 const ProfileManagementForm = ({ cancelEdit, saveData }) => {
-  const { user } = useOutletContext;
+  const user = useCurrentUser();
 
   const [profileFormData, setProfileFormData] = useState({
     firstname: "",
@@ -29,21 +28,21 @@ const ProfileManagementForm = ({ cancelEdit, saveData }) => {
           name="firstname"
           label="First Name"
           value={profileFormData.firstname}
-          formRowContainer="font-inter"
+          styling="font-inter"
           inputclass="profile-management-input"
         />
         <FormRow
           name="middlename"
           label="Middle Name"
           value={profileFormData.middlename}
-          formRowContainer="font-inter"
+          styling="font-inter"
           inputclass="profile-management-input"
         />
         <FormRow
           name="lastname"
           label="Last Name"
           value={profileFormData.lastname}
-          formRowContainer="font-inter"
+          styling="font-inter"
           inputclass="profile-management-input"
         />
         <FormRow
@@ -51,58 +50,56 @@ const ProfileManagementForm = ({ cancelEdit, saveData }) => {
           label="Email Address"
           type="email"
           value={profileFormData.email}
-          formRowContainer="font-inter"
+          styling="font-inter"
           inputclass="profile-management-input"
         />
         <FormRow
           name="phone"
           label="Phone Number"
           value={profileFormData.phone}
-          formRowContainer="font-inter"
+          styling="font-inter"
           inputclass="profile-management-input"
         />
-        <FormRow
-          label="Date Of Birth"
-          children={<DatePicker />}
-          formRowContainer="font-inter"
-          inputclass="profile-management-input"
+
+        <FormDate
+          styling="font-inter"
+          name="DOB"
+          label="Date of Birth"
+          dateStyle="profile-management-input"
         />
-        <FormRow
+
+        <FormSelect
+          itemsList={states}
           label="State"
-          children={
-            <SelectInput
-              children={<CustomSelectItem items={states} />}
-              handleFunc={(value) => console.log(value)}
-            />
-          }
-          formRowContainer="font-inter"
-          inputclass="profile-management-input"
+          styling="font-inter"
+          selectStyle="profile-management-input"
+          handleSelect={(value) => console.log(value)}
         />
+
         <FormRow
           name="lga"
           label="L.G.A"
-          formRowContainer="font-inter"
+          styling="font-inter"
           inputclass="profile-management-input"
         />
         <FormRow
           name="address"
           label="Address"
           value={profileFormData.address}
-          formRowContainer="font-inter"
+          styling="font-inter"
           inputclass="profile-management-input"
         />
 
-        <div className="flex items-end gap-4 mt-[51px] border">
-          <Choose
-            choice1txt="Save"
-            choice2txt="Cancel"
-            btnClass="btn btn--lg w-1/2 max-w-[181px]"
-            addedClass1="btn--primary"
-            addedClass2="btn--secondary"
-            handleChoice1={saveData}
-            handleChoice2={cancelEdit}
-          />
-        </div>
+        <Choose
+          containerClass="flex items-end gap-4 mt-[51px]"
+          choice1txt="Save"
+          choice2txt="Cancel"
+          btnClass="btn btn--lg w-1/2 max-w-[181px]"
+          addedClass1="btn--primary"
+          addedClass2="btn--secondary"
+          handleChoice1={saveData}
+          handleChoice2={cancelEdit}
+        />
       </div>
     </form>
   );

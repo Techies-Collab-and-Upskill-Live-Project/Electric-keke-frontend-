@@ -4,11 +4,11 @@ import OnboardFormRows from "../OnboardFormRows";
 import { useAreInputsFilled } from "../../hooks/useAreInputsFilled";
 import { useSelector } from "react-redux";
 import { addItemToLs } from "@/utils/ls";
-import { onboarding_descs } from "@/constants"
 import Btn from "@/components/btn/Btn";
 import dispatchables from "@/utils/dispatchables";
 import Google from "../../assets/svg/Google";
 import SharedStep from "../../layouts/SharedStep";
+import { onboarding_descs } from "../../constants";
 
 const Step1 = ({ nextProcess, prevProcess }) => {
   const { showAlert } = dispatchables();
@@ -66,7 +66,7 @@ const Step1 = ({ nextProcess, prevProcess }) => {
           <Link
             to="/onboarding/registration"
             onClick={goToLogin}
-            className="text-basic"
+            className="text-basic font-inter"
           >
             Login!
           </Link>
@@ -75,7 +75,7 @@ const Step1 = ({ nextProcess, prevProcess }) => {
         <div className="w-full max-w-[343px] mx-auto">
           <Btn
             text="Continue"
-            styling="btn btn--primary btn--lg w-full rounded-full"
+            styling="btn btn--primary btn--lg w-full rounded-full font-medium"
             disabled={isDisabled}
           />
 
@@ -83,7 +83,7 @@ const Step1 = ({ nextProcess, prevProcess }) => {
             <p className="font-bold text-center">or</p>
             <Btn
               text="Register with Google"
-              styling="btn btn--lg w-full rounded-full bg-white shadow-md text-black"
+              styling="btn btn--lg w-full rounded-full bg-white shadow-md text-black font-bold gap-x-9"
               icon={<Google />}
             />
           </div>

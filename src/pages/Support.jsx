@@ -1,10 +1,8 @@
+import Footer from "@/components/Footer";
+import { ContactSupport, Faq, Hero } from "@/features/landing";
 import useTitle from "@/hooks/useTitle";
 import Section from "@/layouts/Section";
 import { useSelector } from "react-redux";
-import Faq from "@/features/landing/components/support/Faq";
-import ContactSupport from "@/features/landing/components/support/ContactSupport";
-import Footer from "@/components/Footer";
-import Hero from "@/features/landing/components/Hero";
 
 const Support = () => {
   useTitle("Support");

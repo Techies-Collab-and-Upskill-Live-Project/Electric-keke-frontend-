@@ -2,15 +2,16 @@ import React from "react";
 import { useSelector } from "react-redux";
 import SharedStep from "../../layouts/SharedStep";
 import Btn from "@/components/btn/Btn";
-import { onboarding_descs } from "@/constants";
 import { useAreInputsFilled } from "../../hooks/useAreInputsFilled";
 import OnboardFormRows from "../OnboardFormRows";
 import { addItemToLs } from "@/utils/ls";
 import { RequestOtp } from "../../services";
+import { onboarding_descs } from "../../constants";
+import dispatchables from "@/utils/dispatchables";
 
 const ForgetPassword = ({ nextProcess, prevProcess }) => {
   const { username } = useSelector((state) => state.formData);
-
+  const { showAlert } = dispatchables();
   const isDisbaled = useAreInputsFilled(username);
 
   const handleSubmit = async (e) => {
@@ -18,7 +19,7 @@ const ForgetPassword = ({ nextProcess, prevProcess }) => {
     addItemToLs("user-email", username);
     try {
       const { detail } = await RequestOtp({ username });
-      console.log(detail);
+      showAlert(detail)
       nextProcess();
     } catch (error) {
       console.log(error);

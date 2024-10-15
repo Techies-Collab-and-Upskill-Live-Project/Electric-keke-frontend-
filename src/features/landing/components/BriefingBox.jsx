@@ -35,7 +35,6 @@ const BriefingBox = ({ brief, type }) => {
               tclass="page-brief__title title-dark"
               description={description}
               dclass="page-brief__desc"
-              type="about"
             />
             {showBtn && (
               <div className="mt-8">
@@ -60,7 +59,7 @@ const BriefingBox = ({ brief, type }) => {
         <img
           src={image}
           alt="about keke"
-          className="size-full object-contain object-center"
+          className="size-full object-cover object-center"
         />
       </motion.div>
     </div>

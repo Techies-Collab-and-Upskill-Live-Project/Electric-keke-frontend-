@@ -27,14 +27,11 @@ const MobileHeader = ({ blur }) => {
               <Link to="/notification">
                 <div className="header__icon">
                   <span className="indicator" />
-                  <Bell color={blur && "white"} size={24} />
+                  <Bell color={blur ? "white" : 'black'} size={24} />
                 </div>
               </Link>
 
-              {/* <Link to={`/profile/${user?.id}`}>
-                <div className="header__icon">{user.fullname[0]}</div>
-              </Link> */}
-              <HeroSmallInfo fullname={user?.fullname} />
+              <HeroSmallInfo fullname={user?.fullname} id={user?.id} />
             </div>
           ) : (
             <Btn

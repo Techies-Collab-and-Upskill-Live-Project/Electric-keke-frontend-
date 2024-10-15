@@ -5,7 +5,11 @@ const Meet = () => {
   return (
     <section id="meet">
       <div className="w-full">
-        <Heading title="Meet The Team" type="about" tclass="text-center" />
+        <Heading
+          title="Meet The Team"
+          tclass="page-brief__title title-dark text-center"
+          type="about"
+        />
         <TeamBoard />
       </div>
     </section>

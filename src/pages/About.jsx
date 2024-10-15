@@ -1,10 +1,12 @@
 import Footer from "@/components/Footer";
+import {
+  Hero,
+  Meet,
+  PageBriefing,
+  Services,
+  StandOut,
+} from "@/features/landing";
 import Section from "@/layouts/Section";
-import Hero from "@/features/landing/components/Hero";
-import PageBriefing from "@/features/landing/components/PageBriefing";
-import Services from "@/features/landing/components/Services";
-import Meet from "@/features/landing/components/about/Meet";
-import StandOut from "@/features/landing/components/about/StandOut";
 
 const About = () => {
   return (

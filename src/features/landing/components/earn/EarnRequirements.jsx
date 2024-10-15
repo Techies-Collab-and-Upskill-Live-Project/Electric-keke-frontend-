@@ -1,5 +1,5 @@
-import { earn_requirements } from "@/constants";
 import Heading from "@/components/Heading";
+import { earn_requirements } from "../../constants";
 
 const EarnRequirements = () => {
   return (

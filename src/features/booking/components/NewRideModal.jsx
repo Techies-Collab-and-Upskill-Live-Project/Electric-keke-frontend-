@@ -3,10 +3,11 @@ import RideDetails from "@/components/driver/RideDetails";
 import Choose from "../../../components/Choose";
 import dispatchables from "@/utils/dispatchables";
 import { rideStatusLsUpdate, rideStatusUpdateRequest } from "@/utils";
-import { UpdateBooking } from "@/features/booking/services";
 import { addItemToLs } from "@/utils/ls";
 import { useNavigate } from "react-router-dom";
 import SharedModalMap from "../layouts/SharedModalMap";
+import { UpdateBooking } from "@/services/UpdateBooking";
+import CustomModal from "@/components/CustomModal";
 
 const NewRideModal = ({ isModalOpen, openModal, closeModal }) => {
   const navigate = useNavigate();

@@ -74,6 +74,10 @@
     @apply flex items-center justify-center;
   }
 
+  .flex-spread {
+    @apply flex items-center justify-between
+  }
+
   .board-shadow {
     filter: drop-shadow(6px 0px 20px rgba(0, 0, 0, 0.3));
   }
@@ -289,13 +293,25 @@ h2 {
   @apply text-center text-sm tablet:text-eiteen mt-3 text-[#696F79]
 }
 
+
 .auth-form {
   @apply w-full md:max-w-[468px] laptop:max-w-[600px] mt-5 md:mt-14 mx-auto
 }
 
+.onboarding__verify--form {
+  @apply w-full md:max-w-[400px] mx-auto mt-5 laptop:mt-14
+}
 
-.otp-opt {
-  @apply px-4 py-2 flex items-center border-2 h-[66px] rounded-[6px] cursor-pointer
+.onboarding-label {
+  @apply text-sm md:text-eiteen text-neutral-500
+}
+
+.onboarding-inputfield {
+  @apply border border-neutral-300 px-5 rounded-sm h-[54px] w-full;
+}
+
+.onboarding-inputfield--phone {
+  @apply flex items-center gap-x-2
 }
 
 .board-pad {
@@ -330,7 +346,7 @@ h2 {
 }
 
 .hero-title {
-  @apply text-base-white text-[2rem] tablet:text-[2.89rem] laptop:text-[4rem] font-bold text-center tablet:leading-[76.8px] tracking-tighter font-josefin
+  @apply text-base-white text-[28px] tablet:text-[2.89rem] laptop:text-[4rem] font-bold text-center tablet:leading-[76.8px] tracking-tighter font-josefin
 }
 
 .hero-description {
@@ -370,7 +386,7 @@ h2 {
 }
 
 .main-image {
-  @apply w-full h-[331px] tablet:w-[48%] tablet:h-[353px] laptop:h-[454px] mt-6 md:mt-0 border
+  @apply w-full h-[331px] tablet:w-[48%] tablet:h-[353px] laptop:h-[454px] mt-6 md:mt-0
 }
 
 .gif-image {
@@ -957,16 +973,15 @@ h2 {
 
 /* input classes */
 .schedule-input {
-  @apply border border-basic px-5 rounded-[6px] h-[64px] w-full max-w-96;
+  @apply border border-basic px-5 h-[4rem] rounded-sm
 }
+
 
 .profile-management-input {
-  @apply border px-5 rounded-[6px] h-[64px] w-full;
+  @apply border border-neutral-400 px-[10px] rounded-m h-[64px] w-full bg-white
 }
 
-.auth-input {
-  @apply border border-neutral-300 px-5 rounded-[6px] h-[54px] w-full;
-}
+
 
 .profile-modal-inputs {
   @apply py-5 px-4 border border-neutral-500 h-12 md:h-16 rounded-[14px] w-full
@@ -1077,7 +1092,7 @@ h2 {
 }
 
 .switch-login {
-  @apply text-center mt-[30px] tablet:mt-10 text-eiteen
+  @apply text-center mt-[30px] tablet:mt-10 text-sm md:text-eiteen font-medium
 }
 
 /********************* settings ************/
@@ -1331,7 +1346,7 @@ h2 {
 }
 
 .edit-profile__modal {
-  @apply w-full max-w-[600px] absolute bottom-0 left-0 md:static rounded-ml
+  @apply w-full max-w-[600px] absolute bottom-0 left-0 md:relative rounded-ml
 }
 
 /************************ EXPERIMENTING EXPERIMENTAL ***************/

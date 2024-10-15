@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { connected } from "@/constants";
 import Heading from "@/components/Heading";
 import { Button } from "@/components/ui/button";
+import { connected } from "../constants";
 
 const Connected = ({ type = "main" }) => {
   return (

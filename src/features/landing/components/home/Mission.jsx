@@ -1,6 +1,6 @@
-import { mission } from "@/constants";
 import { motion } from "framer-motion";
 import Heading from "@/components/Heading";
+import { mission } from "../../constants";
 
 const Mission = () => {
   return (

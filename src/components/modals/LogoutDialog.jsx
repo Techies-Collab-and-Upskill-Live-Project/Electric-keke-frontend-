@@ -1,8 +1,8 @@
-import { Logout } from "@/services/auth";
 import DialogModal from "./DialogModal";
 import dispatchables from "@/utils/dispatchables";
 import { addItemToLs } from "@/utils/ls";
 import { useNavigate } from "react-router-dom";
+import { Logout } from "@/services/Logout";
 
 const LogoutDialog = () => {
   const { showAlert, loading, unloading } = dispatchables();

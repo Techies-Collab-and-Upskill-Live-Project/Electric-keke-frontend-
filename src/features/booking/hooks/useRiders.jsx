@@ -1,7 +1,7 @@
-import { GetAvailableRiders } from "../features/booking/services";
-import { getItemFromLs } from "../utils/ls";
+import { getItemFromLs } from "../../../utils/ls";
 import { useEffect, useState } from "react";
-import useReroute from "./useReroute";
+import useReroute from "../../../hooks/useReroute";
+import { GetAvailableRiders } from "@/features/booking/services/GetAvailableRiders";
 
 export const useRiders = (key) => {
   console.log(key);

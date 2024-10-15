@@ -1,7 +1,6 @@
-import { contribution } from "@/constants";
 import { motion } from "framer-motion";
-// import AnimateText from "../animate/AnimateText";
 import Heading from "@/components/Heading";
+import { contribution } from "../constants";
 
 const Contribution = () => {
   return (

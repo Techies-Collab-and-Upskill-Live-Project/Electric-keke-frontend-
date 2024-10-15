@@ -4,17 +4,9 @@ import PaymentMethodModal from "./modals/PaymentMethodModal";
 import LogoutDialog from "./modals/LogoutDialog";
 import DeleteDialog from "./modals/DeleteDialog";
 import Welldone from "./modals/Welldone";
+import { groupModalStyling } from "@/utils/groupModalStyling";
+import { groupModalShowBtn } from "@/constants";
 
-const groupModalStyling = (type) => {
-  const modalStyles = {
-    "Profile Management": "modal__profile",
-    "Payment Method": "modal__paymethod",
-    Logout: "modal__dialog",
-    "Delete Account": "modal__dialog",
-    "edit-profile": "edit-profile__modal",
-  };
-  return modalStyles[type];
-};
 
 const GroupedModals = ({ type, isModalOpen, closeModal }) => {
   return (
@@ -22,12 +14,13 @@ const GroupedModals = ({ type, isModalOpen, closeModal }) => {
       isModalOpen={isModalOpen}
       modalStyling={groupModalStyling(type)}
       closeModal={closeModal}
+      showCloseBtn={groupModalShowBtn[type]}
     >
       {type === "Profile Management" && <ManageProfileModal />}
       {type === "Payment Method" && <PaymentMethodModal />}
       {type === "Logout" && <LogoutDialog />}
       {type === "Delete Account" && <DeleteDialog />}
-      {type === "edit-profile" && <Welldone closeModal={customClose} />}
+      {type === "edit-profile" && <Welldone closeModal={closeModal} />}
     </CustomModal>
   );
 };

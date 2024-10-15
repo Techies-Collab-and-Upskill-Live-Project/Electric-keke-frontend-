@@ -1,9 +1,12 @@
 import { getItemFromLs } from "@/utils/ls";
 import { RequestOtp } from "../services";
 import dispatchables from "@/utils/dispatchables";
+import { useCountDownTime } from "../hooks/useCountDownTime";
 
 const ResendOtpTab = ({ verificationType }) => {
   const { showAlert } = dispatchables();
+
+  const { minutes, seconds } = useCountDownTime();
 
   const resend_otp = async () => {
     try {
@@ -30,9 +33,10 @@ const ResendOtpTab = ({ verificationType }) => {
       console.log(error);
     }
   };
+
   return (
-    <div className="flex items-center justify-between">
-      <p className="text-eiteen">
+    <div className="flex items-center justify-between text-xs">
+      <p className="md:text-base">
         Didn't receive an OTP?{" "}
         <span
           className="text-basic cursor-pointer font-nunito"
@@ -41,7 +45,9 @@ const ResendOtpTab = ({ verificationType }) => {
           Resend
         </span>
       </p>
-      <p className="text-sm">00:30</p>
+      <p className="md:text-sm">
+        {minutes < 0 ? 0 : minutes} : {seconds < 0 ? "00" : seconds}
+      </p>
     </div>
   );
 };

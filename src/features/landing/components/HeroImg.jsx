@@ -1,10 +1,10 @@
-import { getHeroImage } from "@/constants";
+import { HeroImage } from "../constants";
 
 const HeroImg = ({ type }) => {
   return (
     <div className="hero-img">
       <img
-        src={getHeroImage(type)}
+        src={HeroImage[type]}
         alt="hero_background"
         loading="lazy"
         className="size-full object-cover object-center"

@@ -1,10 +1,9 @@
 import SearchBar from "@/components/SearchBar";
 import React, { useState } from "react";
 import dispatchables from "@/utils/dispatchables";
-import ScheduleBoard from "@/features/scheduling/components/ScheduleBoard";
-import ScheduleForm from "@/features/scheduling/components/ScheduleForm";
 import Section from "@/layouts/Section";
 import Togglers from "@/components/Togglers";
+import { ScheduleBoard, ScheduleForm } from "@/features/scheduling";
 
 const Schedule = () => {
   const [scheduleType, setScheduleType] = useState("ride");
@@ -45,6 +44,10 @@ const Schedule = () => {
     setScheduleFormData({ ...scheduleFormData, quantity });
   };
 
+  const choseToShareRide = (choice) => {
+    setScheduleFormData({ ...scheduleFormData, share: choice });
+  };
+
   return (
     <Section darkLogo={true}>
       <div className="home-pad pt-20 md:pt-[132px] pb-10">
@@ -76,11 +79,11 @@ const Schedule = () => {
         <ScheduleForm
           scheduleType={scheduleType}
           scheduleFormData={scheduleFormData}
-          handleDate={handleDate}
           handleChange={handleChange}
           setTime={setTime}
           setQuantity={setQuantity}
-          setScheduleFormData={setScheduleFormData}
+          handleDate={handleDate}
+          choseToShareRide={choseToShareRide}
         />
 
         <ScheduleBoard scheduleFormData={scheduleFormData} />

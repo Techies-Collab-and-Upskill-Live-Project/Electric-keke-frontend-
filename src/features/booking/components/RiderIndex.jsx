@@ -5,7 +5,7 @@ import dispatchables from "../../../utils/dispatchables";
 import useReroute from "../../../hooks/useReroute";
 // import { GetAvailableRiders } from "../../services/bookings";
 import useTitle from "../../../hooks/useTitle";
-import { useRiders } from "../../../hooks/useRiders";
+import { useRiders } from "../hooks/useRiders";
 // import riders from '../../mock-data/riders';
 
 const RiderIndex = () => {

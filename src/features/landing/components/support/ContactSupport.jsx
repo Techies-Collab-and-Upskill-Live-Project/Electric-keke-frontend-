@@ -1,4 +1,4 @@
-import { care_socials } from "../../../../constants";
+import { care_socials } from "../../constants";
 import CareSocial from "./CareSocial";
 
 const ContactSupport = () => {

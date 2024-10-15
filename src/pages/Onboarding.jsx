@@ -1,6 +1,5 @@
+import { OnboardRegister, OnboardStartPage } from "@/features/onboarding";
 import { Routes, Route } from "react-router-dom";
-import OnboardStartPage from "@/features/onboarding/components/OnboardStartPage";
-import OnboardRegister from "@/features/onboarding/components/OnboardRegister";
 
 const Onboarding = () => {
   return (

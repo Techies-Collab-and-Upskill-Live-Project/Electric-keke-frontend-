@@ -10,8 +10,7 @@ const HeroTitle = ({ type }) => {
           }}
           animate={{ x: 0 }}
           transition={{ duration: 0.75 }}
-          // id="title"
-          className="hero-title title-transform"
+          className="hero-title"
         >
           Eco-Friendly{" "}
           <div className="relative inline-block ">

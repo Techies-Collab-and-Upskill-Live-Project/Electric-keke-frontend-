@@ -20,14 +20,11 @@ const Header = ({ darkLogo, blur }) => {
             <Link to="/notification">
               <div className="header__icon">
                 <span className="indicator" />
-                <Bell size={40} color={blur && "white"} />
+                <Bell size={40} color={darkLogo ? "black" : '#FAFAFA'} />
               </div>
             </Link>
 
-            <HeroSmallInfo
-              fullname={user?.fullname}
-              
-            />
+            <HeroSmallInfo fullname={user?.fullname} id={user?.id} />
           </div>
         ) : (
           <Btn

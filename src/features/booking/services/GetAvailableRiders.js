@@ -1,0 +1,15 @@
+import { clientRequest } from "@/lib/axios/client";
+import CustomError from "@/services/custom-error/CustomError";
+
+export const GetAvailableRiders = async () => {
+  try {
+    const { data } = await clientRequest({ url: "/bookings/riders/" });
+    console.log(data);
+    return data;
+  } catch (error) {
+    // console.log(error, 'getavailable')
+    throw new CustomError("Internal Server Error", {
+      status: error.data.status,
+    });
+  }
+};

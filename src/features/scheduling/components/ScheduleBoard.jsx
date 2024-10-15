@@ -1,6 +1,7 @@
 import Map from "@/components/Map";
 import Choose from "@/components/Choose";
 import dispatchables from "@/utils/dispatchables";
+import { ScheduleDetail, ScheduleDetailContainer } from "./ScheduleDetail";
 
 const ScheduleBoard = ({ scheduleFormData }) => {
   const { showAlert } = dispatchables();
@@ -9,51 +10,47 @@ const ScheduleBoard = ({ scheduleFormData }) => {
     <div className="schedule-dashboard">
       <h3 className="schedule-dashboard-title">Details</h3>
 
-      <div className="px-2 py-5 border-basic md:flex gap-5">
+      <div className="px-2 py-5 border border-basic md:flex gap-5 rounded-sm">
         <div className="schedule-location">
           <div className="md:flex items-start justify-between">
-            <div className="schedule-detail tablet:w-5/12 tablet:border-8">
-              <div>
-                <p className="schedule-detail-title">Your Location</p>
-                <p className="schedule-text">{scheduleFormData.origin}</p>
-              </div>
-              <div>
-                <p className="schedule-detail-title">Destination</p>
-                <p className="schedule-text">{scheduleFormData.destination}</p>
-              </div>
-            </div>
+            <ScheduleDetailContainer styling="schedule-detail w-[44%]">
+              <ScheduleDetail
+                title="Your Location"
+                text={scheduleFormData.origin}
+              />
+              <ScheduleDetail
+                title="Destination"
+                text={scheduleFormData.destination}
+              />
+            </ScheduleDetailContainer>
 
-            <div className="schedule-detail">
-              <div>
-                <p className="schedule-detail-title">Time:</p>
-                <p className="schedule-text">{scheduleFormData.time} PM</p>
-              </div>
-              <div>
-                <p className="schedule-detail-title">Passengers</p>
-                <p className="schedule-text">{scheduleFormData.quantity}</p>
-              </div>
-            </div>
+            <ScheduleDetailContainer styling="schedule-detail w-[22%]">
+              <ScheduleDetail title="Time" text={scheduleFormData.time} />
+              <ScheduleDetail
+                title="Passengers"
+                text={scheduleFormData.quantity}
+              />
+            </ScheduleDetailContainer>
 
-            <div className="schedule-detail">
-              <div>
-                <p className="schedule-detail-title">Date</p>
-                <p className="schedule-text">{scheduleFormData.date}</p>
-              </div>
-              <div>
-                <p className="schedule-detail-title">Ride Sharing</p>
-                <p className="schedule-text">{scheduleFormData.share}</p>
-              </div>
-            </div>
+            <ScheduleDetailContainer styling="schedule-detail w-[24%]">
+              <ScheduleDetail title="Date" text={scheduleFormData.date} />
+              <ScheduleDetail
+                title="Ride Sharing"
+                text={scheduleFormData.share}
+              />
+            </ScheduleDetailContainer>
           </div>
 
-          <div className="flex items-end gap-4 mt-6">
-            <Choose
-              choice1txt="Proceed"
-              choice2txt="Cancel"
-              handleChoice1={() => showAlert("processing your schedule")}
-              handleChoice2={() => showAlert("dropping changes")}
-            />
-          </div>
+          <Choose
+            containerClass="flex items-end gap-4 mt-6"
+            choice1txt="Proceed"
+            choice2txt="Cancel"
+            btnClass="btn w-[181px] h-[4rem]"
+            addedClass1="btn--primary"
+            addedClass2="btn--secondary"
+            handleChoice1={() => showAlert("processing your schedule")}
+            handleChoice2={() => showAlert("dropping changes")}
+          />
         </div>
 
         <div className="schedule-map-container">

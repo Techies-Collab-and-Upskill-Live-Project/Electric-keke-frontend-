@@ -4,12 +4,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import { addItemToLs, deletItemFromLs, getItemFromLs } from "../../../utils/ls";
 import dispatchables from "../../../utils/dispatchables";
 import Reviews from "../../../components/xp/Reviews";
-import { BookRide, GetListOfBookings } from "../services";
 import { riderParentVariant } from "../../../constants/variants";
 import LoadBooking from "./LoadBooking";
 import Btn from "@/components/btn/Btn";
 import RiderPicture from "./RiderPicture";
 import Rate from "./Rate";
+import { BookRide } from "../services/BookRide";
 
 const RiderInfo = () => {
   const { showAlert, loading, unloading } = dispatchables();

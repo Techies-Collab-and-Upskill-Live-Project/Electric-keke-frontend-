@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { rideStatusLsUpdate, rideStatusUpdateRequest } from "@/utils";
-import { UpdateBooking } from "../../booking/services";
 import dispatchables from "@/utils/dispatchables";
 import Btn from "@/components/btn/Btn";
+import { UpdateBooking } from "@/services/UpdateBooking";
 
 const TrackDetails = ({ role, origin, destination, price, status }) => {
   const navigate = useNavigate();

@@ -1,9 +1,9 @@
-import { account_types } from "@/constants";
 import Heading from "@/components/Heading";
 import { Link } from "react-router-dom";
 import RegisterAsLink from "./RegisterAsLink";
 import { addItemToLs } from "@/utils/ls";
 import RegularList from "@/components/_design-patterns/RegularList";
+import { account_types } from "../constants";
 
 const RegisterAs = () => {
   const goToLoginPage = () => {

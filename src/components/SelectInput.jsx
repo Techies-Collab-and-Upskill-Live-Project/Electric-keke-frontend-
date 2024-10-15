@@ -2,7 +2,6 @@ import {
   Select,
   SelectContent,
   SelectGroup,
-  SelectItem,
   SelectLabel,
   SelectTrigger,
   SelectValue,
@@ -13,20 +12,12 @@ export function SelectInput({
   label,
   children,
   className,
-  handleFunc
+  handleFunc,
 }) {
   return (
-    <Select
-      onValueChange={(value) => {
-        console.log(value);
-        handleFunc(value)
-      }}
-    >
+    <Select onValueChange={(value) => handleFunc(value)}>
       <SelectTrigger
-        className={
-          className ||
-          "border border-pgreen rounded-[6px] h-[64px] w-full max-w-96"
-        }
+        className={className || "border border-pgreen rounded-[6px] h-[64px]"}
       >
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>

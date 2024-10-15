@@ -5,18 +5,21 @@ const MyProfile = () => {
         <p>First Name</p>
         <div className="profile-management-input flex items-center">value</div>
       </div>
+      
       <div>
         <p>Middle Name</p>
         <div className="profile-management-input flex items-center">
           middle name
         </div>
       </div>
+
       <div>
         <p>Last Name</p>
         <div className="profile-management-input flex items-center">
           last name
         </div>
       </div>
+
       <div>
         <p>Email</p>
         <div className="profile-management-input flex items-center">email</div>

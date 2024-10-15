@@ -1,4 +1,4 @@
-import getAvatars from "../../../utils/getAvatars";
+import getAvatars from "../utils/getAvatars";
 import { motion } from "framer-motion";
 
 import React from "react";

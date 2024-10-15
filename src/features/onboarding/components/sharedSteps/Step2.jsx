@@ -1,10 +1,10 @@
 import SharedStep from "../../layouts/SharedStep";
 import { useSelector } from "react-redux";
-import { onboarding_descs } from "@/constants";
 import { useAreInputsFilled } from "../../hooks/useAreInputsFilled";
 import Assurance from "../Assurance";
 import OnboardFormRows from "../OnboardFormRows";
 import Btn from "@/components/btn/Btn";
+import { onboarding_descs } from "../../constants";
 
 const Step2 = ({ nextProcess, prevProcess }) => {
   const { phone, state, address } = useSelector((state) => state.formData);
@@ -21,7 +21,7 @@ const Step2 = ({ nextProcess, prevProcess }) => {
           <OnboardFormRows type="complete" />
         </div>
 
-        <div className="w-[343px] mx-auto">
+        <div className="w-full max-w-[343px] mx-auto">
           <Btn
             text="Continue"
             styling="btn btn--lg btn--primary w-full rounded-full mb-4"
