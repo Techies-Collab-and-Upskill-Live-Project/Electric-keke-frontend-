@@ -1,5 +1,5 @@
 // import PieChart from "../shared/PieChart";
-import Experimental from "../shared/experimental/Experimental";
+import Experimental from "../../../components/Experimental";
 
 const Analytics = () => {
   return (
@@ -8,14 +8,6 @@ const Analytics = () => {
         <p className="text-xl font-medium">Analytics</p>
       </div>
 
-      {/* <PieChart
-        data={{
-          rides: { color: "transparent", digit: 100000 },
-          deliveries: { color: "#FE981C", digit: 800000 },
-          users: { color: "#E56200", digit: 3000000 },
-        }}
-      /> */}
-      {/* experimental pie */}
       <Experimental
         data={{
           riders: { color: "transparent", cut: 20 },

@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
-import users from "../../mock-data/users";
-import finances from "../../mock-data/finances";
-import UserLoading from "../ErrorBoundary/Fallbacks/UserLoading";
+import users from "@/mock-data/users";
+import finances from "@/mock-data/finances";
 import Table, { TableContent } from "./Table";
+import UserLoading from "@/components/ErrorBoundary/Fallbacks/UserLoading";
 import {
   finance_management_tablehead,
   user_management_tablehead,
-} from "../../constants";
-import fetchContent from "../../services/admin/fetchContents";
+} from "../constants";
+import fetchContent from "../utils/fetchContents";
+import { useGlobalAdminContext } from "../context/AdminContext";
 
-const DisplayTable = ({ contentsToDisplay, contentType }) => {
+const DisplayTable = ({ contentType }) => {
+  const { contentsToDisplay } = useGlobalAdminContext();
+  console.log(contentsToDisplay)
   const [loading, setLoading] = useState(true);
-  const [contents, setClients] = useState([]);
+  const [contents, setContents] = useState([]);
 
   useEffect(() => {
     setLoading(true);
@@ -28,7 +31,7 @@ const DisplayTable = ({ contentsToDisplay, contentType }) => {
           .then((res) => res)
           .catch((err) => console.log(err));
         setLoading(false);
-        setClients(tableContents);
+        setContents(tableContents);
       } catch (error) {
         console.log(error);
       }

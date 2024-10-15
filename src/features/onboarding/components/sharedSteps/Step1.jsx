@@ -27,8 +27,7 @@ const Step1 = ({ nextProcess, prevProcess }) => {
     isCorrect ? setStandard(true) : setStandard(false);
   }, [password]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     if (!standardPassword) {
       showAlert("password does not meet requirement");
       return;
@@ -53,7 +52,7 @@ const Step1 = ({ nextProcess, prevProcess }) => {
       prevProcess={prevProcess}
       headTitle="Register Your Account"
     >
-      <form className="auth-form" onSubmit={handleSubmit}>
+      <form className="auth-form" onSubmit={(e) => e.preventDefault()}>
         <div className="space-y-7">
           <OnboardFormRows
             type="register"
@@ -77,6 +76,7 @@ const Step1 = ({ nextProcess, prevProcess }) => {
             text="Continue"
             styling="btn btn--primary btn--lg w-full rounded-full font-medium"
             disabled={isDisabled}
+            onClick={handleSubmit}
           />
 
           <div className="mt-5">

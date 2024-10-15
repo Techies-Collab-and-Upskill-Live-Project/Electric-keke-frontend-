@@ -1,5 +1,5 @@
-import { getAnalytics } from "../../utils/getAnalytics";
-import { useResource } from "../../hooks/useResource";
+import { getAnalytics } from "../../../utils/getAnalytics";
+import { useResource } from "../../../hooks/useResource";
 // import React, { useEffect } from "react";
 import CountUp from "react-countup";
 

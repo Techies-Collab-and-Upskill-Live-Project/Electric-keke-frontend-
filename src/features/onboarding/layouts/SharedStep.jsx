@@ -26,7 +26,7 @@ const SharedStep = ({
       <div className="onboarding__page--right relative">
         <div className="w-full">
           <div className="onboarding-head">
-            <LogoPlain styling="w-[122px] h-[81.33px] mx-auto" />
+            <LogoPlain styling="w-[122px] h-[81.33px] mx-auto" logoStyling="image" />
             <Heading
               className={headClass}
               title={headTitle}

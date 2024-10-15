@@ -6,6 +6,7 @@ import Btn from "./btn/Btn";
 import Bell from "@/assets/svg/Bell";
 import { HeroSmallInfo } from "./SmallInfo";
 import { useCurrentUser } from "@/hooks/useCurrentUser";
+import NotificationBell from "./NotificationBell";
 
 const Header = ({ darkLogo, blur }) => {
   const user = useCurrentUser();
@@ -18,10 +19,9 @@ const Header = ({ darkLogo, blur }) => {
         {user ? (
           <div className="header__profile-nav-board">
             <Link to="/notification">
-              <div className="header__icon">
-                <span className="indicator" />
-                <Bell size={40} color={darkLogo ? "black" : '#FAFAFA'} />
-              </div>
+              <NotificationBell
+                icon={<Bell size={40} color={darkLogo ? "black" : "#FAFAFA"} />}
+              />
             </Link>
 
             <HeroSmallInfo fullname={user?.fullname} id={user?.id} />

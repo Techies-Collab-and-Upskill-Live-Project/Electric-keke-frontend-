@@ -47,7 +47,7 @@ const Login = ({ nextProcess, prevProcess }) => {
       headTitle="Log in to your Account!"
       prevProcess={prevProcess}
     >
-      <form className="auth-form" onSubmit={handleSubmit}>
+      <form className="auth-form" onSubmit={(e) => e.preventDefault()}>
         <div className="space-y-7">
           <OnboardFormRows type="login" />
         </div>
@@ -59,6 +59,7 @@ const Login = ({ nextProcess, prevProcess }) => {
               text="Login"
               styling="btn btn--lg btn--primary w-full rounded-full"
               disabled={isDisbaled}
+              onClick={handleSubmit}
             />
 
             <div className="mt-5">

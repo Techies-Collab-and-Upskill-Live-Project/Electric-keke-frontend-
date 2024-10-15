@@ -1,5 +1,5 @@
 import React from "react";
-import RideDetails from "@/components/driver/RideDetails";
+import RideDetails from "@/features/booking/components/RideDetails";
 import Choose from "../../../components/Choose";
 import dispatchables from "@/utils/dispatchables";
 import { rideStatusLsUpdate, rideStatusUpdateRequest } from "@/utils";

@@ -1,4 +1,4 @@
-import { getItemFromLs } from "../../utils/ls";
+import { getItemFromLs } from "../../../utils/ls";
 import React from "react";
 
 const RideDetailing = ({ info, price }) => {

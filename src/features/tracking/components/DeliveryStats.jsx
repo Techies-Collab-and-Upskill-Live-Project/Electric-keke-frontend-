@@ -6,7 +6,7 @@ import TimeEstimate from "@/assets/svg/TimeEstimate";
 import Way from "@/assets/svg/Way";
 import DeliveryProcess, {
   DeliveryProcessLine,
-} from "@/components/xp/DeliveryProcess";
+} from "@/features/tracking/components/DeliveryProcess";
 import React from "react";
 
 const DeliveryStats = ({ role }) => {

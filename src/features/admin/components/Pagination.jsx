@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "../ui/button";
+import { Button } from "../../../components/ui/button";
 
 const Pagination = () => {
   const [pageLimit, setPageLimit] = useState([1, 2, 3]);
@@ -28,9 +28,8 @@ const Pagination = () => {
     }
 
     if (page <= 1) {
-      setPage(1)
+      setPage(1);
     }
-
   }, [page]);
 
   return (
@@ -49,7 +48,10 @@ const Pagination = () => {
       <div className="flex items-center gap-x-3">
         {pageLimit.map((item) => {
           return (
-            <p className={`${item === page && "border-2 px-2 rounded-sm"}`} key={item}>
+            <p
+              className={`${item === page && "border-2 px-2 rounded-sm"}`}
+              key={item}
+            >
               {item}
             </p>
           );

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import {
   user_management_tablehead,
   finance_management_tablehead,
-} from "../../constants";
+} from "../constants";
 
 export const TableContent = ({
   id,

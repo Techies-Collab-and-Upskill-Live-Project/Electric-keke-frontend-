@@ -1,6 +1,6 @@
 import React from "react";
-import DoughnutChart from "../xp/DoughnutChart";
-import ReBarCharts from "../xp/ReBarCharts";
+import DoughnutChart from "../../../components/xp/DoughnutChart";
+import ReBarCharts from "../../../components/xp/ReBarCharts";
 
 const Statistics = () => {
   const data = [

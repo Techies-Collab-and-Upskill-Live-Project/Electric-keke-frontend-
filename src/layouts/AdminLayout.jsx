@@ -1,44 +1,30 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
-import BoardManagement from "../components/admin/BoardManagement";
-import Analytics from "../components/admin/Analytics";
-import OverviewInfo from "../components/admin/OverviewInfo";
-import AdminHeader from "../components/admin/AdminHeader";
-import AdminSideBar from "@/components/admin/AdminSideBar";
+import BoardManagement from "../features/admin/components/BoardManagement";
+import Analytics from "../features/admin/components/Analytics";
+import OverviewInfo from "../features/admin/components/OverviewInfo";
+import AdminHeader from "../features/admin/components/AdminHeader";
+import AdminSideBar from "@/features/admin/components/AdminSideBar";
+import { useGlobalAdminContext } from "@/features/admin/context/AdminContext";
 
 const AdminLayout = () => {
-  const [currentAdminPage, setCurrentAdminPage] = useState("Overview");
-  const [contentsToDisplay, setContentsToDisplay] = useState("All");
-
-  const changeContentToDisplay = (content) => {
-    const display =
-      content === "Active Users"
-        ? "active"
-        : content === "Inactive Users"
-        ? "inactive"
-        : content;
-    setContentsToDisplay((prev) => (prev === display ? "All" : display));
-  };
-
+  const { currentAdminPage } = useGlobalAdminContext();
   return (
     <section>
       <AdminHeader />
 
       <div className="flex items-start gap-x-10">
-        <AdminSideBar setCurrentAdminPage={setCurrentAdminPage} />
+        <AdminSideBar />
 
         <div className="overview">
           {currentAdminPage !== "Financial Management" && <BoardManagement />}
 
-          <OverviewInfo
-            currentPage={currentAdminPage}
-            changeContentToDisplay={changeContentToDisplay}
-          />
+          <OverviewInfo />
 
           {(currentAdminPage === "Overview" ||
             currentAdminPage === "Financial Management") && <Analytics />}
 
-          <Outlet context={{ contentsToDisplay }} />
+          <Outlet />
         </div>
       </div>
     </section>
