@@ -11,7 +11,6 @@ const client = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL
 });
 
-console.log(import.meta.env.VITE_BASE_URL)
 
 client.interceptors.request.use(
   async (req) => {
