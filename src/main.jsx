@@ -2,19 +2,12 @@
 import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
-import { BrowserRouter } from "react-router-dom";
-import { Provider } from "react-redux";
-import store from "./store";
-import { AuthProvider } from "./contexts/AuthContext.jsx";
+import Providers from "./providers/index.jsx";
 
 createRoot(document.getElementById("root")).render(
   // <StrictMode>
-  <Provider store={store}>
-    <BrowserRouter>
-      <AuthProvider>
-        <App />
-      </AuthProvider>
-    </BrowserRouter>
-  </Provider>
+  <Providers>
+    <App />
+  </Providers>
   // </StrictMode>
 );
