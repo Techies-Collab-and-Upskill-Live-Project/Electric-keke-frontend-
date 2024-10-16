@@ -10,8 +10,8 @@ import RefreshAccess from "@/services/RefreshAccess";
 
 const client = axios.create({
   // baseURL: "/api",
-  baseURL: base_url,
-  // baseURL: process.env.BASE_URL
+  // baseURL: base_url,
+  baseURL: process.env.BASE_URL
 });
 
 client.interceptors.request.use(
