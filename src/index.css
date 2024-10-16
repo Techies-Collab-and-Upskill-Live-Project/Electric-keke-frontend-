@@ -714,7 +714,7 @@ h2 {
 /* h-[4.75rem] container height max */
 
 .rider-container {
-  @apply px-1 py-20 md:pt-[7.6rem] lg:pt-48 md:pb-10 home-pad
+  @apply px-1 py-20 md:pt-[7.6rem] lg:pt-[185px] md:pb-10 home-pad
 }
 
 .rider-sub-header {

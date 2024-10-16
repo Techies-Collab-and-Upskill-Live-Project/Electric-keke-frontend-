@@ -12,7 +12,7 @@ const Riders = () => {
   };
 
   return (
-    <Section darkLogo={true}>
+    <Section darkLogo={true} mobileHeaderStyle="mobile-header">
       <div className="rider-container">
         <div className="relative">
           <div className="rider-sub-header">

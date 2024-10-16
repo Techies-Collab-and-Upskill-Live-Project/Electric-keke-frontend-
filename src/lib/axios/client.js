@@ -8,8 +8,10 @@ import CustomError from "../../services/custom-error/CustomError";
 import RefreshAccess from "@/services/RefreshAccess";
 
 const client = axios.create({
-  baseURL: process.env.BASE_URL
+  baseURL: import.meta.env.VITE_BASE_URL
 });
+
+console.log(import.meta.env.VITE_BASE_URL)
 
 client.interceptors.request.use(
   async (req) => {

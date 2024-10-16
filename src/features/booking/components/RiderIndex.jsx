@@ -2,8 +2,6 @@
 import Rider from "./Rider";
 import { AnimatePresence, motion } from "framer-motion";
 import dispatchables from "../../../utils/dispatchables";
-import useReroute from "../../../hooks/useReroute";
-// import { GetAvailableRiders } from "../../services/bookings";
 import useTitle from "../../../hooks/useTitle";
 import { useRiders } from "../hooks/useRiders";
 // import riders from '../../mock-data/riders';
@@ -11,8 +9,8 @@ import { useRiders } from "../hooks/useRiders";
 const RiderIndex = () => {
   useTitle("Riders");
 
-  const { inputDataForBookingRequest, updateDriversList, chooseRider } =
-    dispatchables();
+  // const { inputDataForBookingRequest, updateDriversList, chooseRider } =
+    // dispatchables();
 
   const { isLoading, riders } = useRiders("riders");
 

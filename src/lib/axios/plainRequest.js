@@ -2,7 +2,7 @@ import axios from "axios";
 import CustomError from "@/services/custom-error/CustomError";
 
 const plainRequest = axios.create({
-  baseURL: process.env.BASE_URL
+  baseURL: import.meta.env.VITE_BASE_URL
 });
 
 const makePlainRequest = async ({ ...reqOpts }) => {
