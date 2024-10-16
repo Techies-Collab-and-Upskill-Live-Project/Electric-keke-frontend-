@@ -27,17 +27,17 @@ const RiderInfo = () => {
       console.log(booking);
       showAlert("Ride Booking Succefull, Wait a moment");
       setWaiting(true);
-
+      
       // will be emitting an event here
       // socket.emit('request-ride')
-
+      
       // this code below from here need to be extracted becosuse this showuld be only when driver accepts
       // const bookingList = await GetListOfBookings();
       // console.log(bookingList);
-
+      
       // const lastestBooking = bookingList.length - 1;
       // addItemToLs("current-ride", bookingList[lastestBooking]);
-
+      
       // deletItemFromLs("book-data");
       // navigate("/tracking");
       // from the start this is only when the driver accepts
@@ -46,6 +46,7 @@ const RiderInfo = () => {
       showAlert(`Error Booking Ride with Rider ${rider.fullname}`);
     } finally {
       unloading();
+      // setWaiting(true);
     }
   };
 

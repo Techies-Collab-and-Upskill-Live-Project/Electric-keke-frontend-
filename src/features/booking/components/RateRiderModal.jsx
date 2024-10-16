@@ -4,6 +4,7 @@ import Rate from "./Rate";
 import { useRating } from "../hooks/useRating";
 import { ProfilePhoto } from "@/features/profile";
 import ReviewForm from "./ReviewForm";
+import TransactionRatingStar from "./TransactionRatingStar";
 
 const starSize = (mediaSize) => {
   return mediaSize > 0 && mediaSize < 768
@@ -15,7 +16,7 @@ const starSize = (mediaSize) => {
 
 const RateRiderModal = ({ setRateDriver, closeModal }) => {
   const { rate, comment, rateTheDriver } = useRating();
-  const [mediaSize, setMediaSize] = useState(window.outerWidth);
+  // const [mediaSize, setMediaSize] = useState(window.outerWidth);
 
   useEffect(() => {
     window.addEventListener("resize", (e) => {
@@ -30,33 +31,24 @@ const RateRiderModal = ({ setRateDriver, closeModal }) => {
   return (
     <>
       {!comment && (
-        <div className="mx-auto size-[103px]">
+        <div className="mx-auto size-20 md:size-[103px]">
           <ProfilePhoto styling="rounded-full size-full" />
         </div>
       )}
 
-      <div className="w-full  mt-6 px-5">
-        {comment && (
-          <Rate
-            rate={rate}
-            statik
-            className="mx-auto space-x-3"
-            size={starSize(mediaSize)}
-          />
-        )}
+      <div className="w-full mt-6 px-5">
+        {comment && <TransactionRatingStar comment={comment} rate={rate} />}
+
         <Heading
-          className="text-nowrap mt-6 text-center w-full"
+          className="text-nowrap mt-6 text-center w-full text-center"
           title={comment ? "Great!" : "Rate Your Experience"}
-          tclass="text-xl md:text-[40px] text-center font-bold"
+          tclass="text-2xl md:text-[40px] font-bold m-0"
           description={comment && "Tell us a bit more about your ride"}
-          dclass="text-xs md:text-3xl mt-6"
+          dclass="text-base md:text-[28px] mt-2 text-neutral-500"
         />
+
         {!comment && (
-          <Rate
-            handleClick={rateTheDriver}
-            size={starSize(mediaSize)}
-            className="mx-auto space-x-3 mt-10"
-          />
+          <TransactionRatingStar comment={comment} handClick={rateTheDriver} rate={rate} />
         )}
       </div>
 

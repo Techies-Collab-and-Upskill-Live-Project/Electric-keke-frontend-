@@ -1,5 +1,5 @@
-import PaymentFor from "./components/PaymentFor";
-import PaymentMethod from "./components/PaymentMethod";
+import TransactionFor from "./components/TransactionFor";
+import TransactionMethod from "./components/TransactionMethod";
 import RideCompletedModal from "./components/RideCompletedModal";
 
-export { PaymentFor, PaymentMethod, RideCompletedModal };
+export { TransactionFor, TransactionMethod, RideCompletedModal };

@@ -1,4 +1,3 @@
-import Spear from "../../../assets/svg/Spear";
 import React, { useState } from "react";
 import Trip from "./Trip";
 import { getItemFromLs } from "../../../utils/ls";
@@ -9,7 +8,7 @@ import Btn from "@/components/btn/Btn";
 import { ArrowLeft } from "lucide-react";
 import { goBack } from "@/utils/goBack";
 
-const PaymentFor = () => {
+const TransactionFor = () => {
   const [currentRide, setCurrentRide] = useState(getItemFromLs("current-ride"));
 
   return (
@@ -53,4 +52,4 @@ const PaymentFor = () => {
   );
 };
 
-export default PaymentFor;
+export default TransactionFor;

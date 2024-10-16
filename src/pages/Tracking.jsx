@@ -8,8 +8,9 @@ const Tracking = () => {
   useEffect(() => {
     setTimeout(() => {
       setHasArrived(true);
-    }, 3000);
+    }, 10000);
   }, []);
+
   return (
     <Routes>
       <Route

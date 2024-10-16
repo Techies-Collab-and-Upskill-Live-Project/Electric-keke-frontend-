@@ -714,7 +714,7 @@ h2 {
 /* h-[4.75rem] container height max */
 
 .rider-container {
-  @apply px-1 py-20 md:pt-[7.6rem] lg:pt-[185px] md:pb-10 home-pad
+  @apply px-1 pb-20 pt-6 md:pt-[7.6rem] lg:pt-[185px] md:pb-10 home-pad
 }
 
 .rider-sub-header {
@@ -943,7 +943,15 @@ h2 {
 }
 
 .modal__transaction {
-  @apply w-full max-w-[600px] rounded-ml py-12
+  @apply w-full max-w-[600px] rounded-ml py-4 md:py-12 absolute bottom-0 md:relative
+}
+
+.modal__rate {
+  @apply w-full max-w-[600px] px-5 md:px-9 py-4 md:py-12 rounded-ml absolute bottom-0 md:relative
+}
+
+.transact-stars {
+  @apply w-[65%] mx-auto my-3 md:my-4 justify-between
 }
 
 .modal__profile {

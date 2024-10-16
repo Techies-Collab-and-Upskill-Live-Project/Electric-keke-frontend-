@@ -5,6 +5,7 @@ import dispatchables from "@/utils/dispatchables";
 import { getItemFromLs } from "@/utils/ls";
 import { UnlockScroll } from "@/utils/ScrollLock";
 import Btn from "@/components/btn/Btn";
+import { useAreInputsFilled } from "@/features/onboarding/hooks/useAreInputsFilled";
 
 const getPrice = async (action, time) => {
   return new Promise((resolve) => {
@@ -49,7 +50,7 @@ const BookingModalForm = () => {
   const navigate = useNavigate();
   const [showPrice, setShowPrice] = useState(false);
 
-  const isDisabled = !origin || !destination;
+  const disabled = useAreInputsFilled(origin && destination);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -76,6 +77,7 @@ const BookingModalForm = () => {
       UnlockScroll();
     }
   };
+  console.log("Come to booking modal form and fix the locka and unlockScroll")
 
   return (
     <form className="ride-request__form" onSubmit={handleSubmit}>
@@ -102,7 +104,7 @@ const BookingModalForm = () => {
       <Btn
         text={showPrice ? "Proceed" : "Confirm"}
         styling="btn btn--primary btn--lg"
-        // disabled={isDisabled}
+        disabled={disabled}
       />
     </form>
   );

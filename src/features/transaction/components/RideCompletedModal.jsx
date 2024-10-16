@@ -16,7 +16,7 @@ const RideCompletedModal = () => {
         text: "Pay now",
         styling: "btn w-full btn--primary btn--lg",
       }}
-      modalStyling="modal__transaction"
+      modalStyling={rateDriver ? "modal__rate" : "modal__transaction"}
       isModalOpen={isModalOpen}
       closeModal={closeModal}
       openModal={openModal}

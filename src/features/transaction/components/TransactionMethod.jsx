@@ -1,7 +1,7 @@
-import PaymentForm from "./PaymentForm";
+import TransactionForm from "./TransactionForm";
 import Btn from "@/components/btn/Btn";
 
-const PaymentMethod = () => {
+const TransactionMethod = () => {
   return (
     <div className="board__payment-method">
       <div className="w-full max-w-[488px]">
@@ -10,10 +10,10 @@ const PaymentMethod = () => {
           <p className="text-sm mt-8 text-center relative after:absolute after:w-[30%] after:md:w-[35%] after:h-[1px] after:bg-basic after:top-1/2 after:-translate-y-1/2 after:right-0 before:absolute before:w-[30%] before:md:w-[35%] before:h-[1px] before:bg-basic before:top-1/2 before:-translate-y-1/2 before:left-0">or pay with card</p>
         </div>
 
-        <PaymentForm />
+        <TransactionForm />
       </div>
     </div>
   );
 };
 
-export default PaymentMethod;
+export default TransactionMethod;

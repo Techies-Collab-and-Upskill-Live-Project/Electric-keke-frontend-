@@ -10,8 +10,7 @@ const ReviewForm = ({ rateValue, setRateDriver, closeModal }) => {
   const { showAlert } = dispatchables();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    showAlert(`${rateValue} ${commentRef.current.value} ride complete`);
+    showAlert('commented successfully');
     deletItemFromLs("book-data");
     deletItemFromLs("rider");
     deletItemFromLs("current-ride");
@@ -21,7 +20,7 @@ const ReviewForm = ({ rateValue, setRateDriver, closeModal }) => {
   };
 
   return (
-    <form className="w-full px-5" onSubmit={handleSubmit}>
+    <form className="w-full px-5 mt-8" onSubmit={(e) => preventDefault}>
       <label className="w-full">
         <span className="block text-base font-semibold">Comment</span>
         <textarea
@@ -29,15 +28,14 @@ const ReviewForm = ({ rateValue, setRateDriver, closeModal }) => {
           id="comment"
           cols="30"
           rows="3"
-          className="px-3 py-2 w-full resize-none"
+          className="px-3 py-2 w-full resize-none border border-neutral-300 rounded-m"
           ref={commentRef}
         />
       </label>
 
       <Btn
-        href="/"
         text="Send"
-        styling="btn btn--primary btn--lg w-full"
+        styling="btn btn--primary btn--lg w-full mt-3"
         onClick={handleSubmit}
       />
     </form>
