@@ -1,9 +1,7 @@
 import axios from "axios";
-import { base_url } from "@/constants/uri";
 import CustomError from "@/services/custom-error/CustomError";
 
 const plainRequest = axios.create({
-  // baseURL: base_url,
   baseURL: process.env.BASE_URL
 });
 

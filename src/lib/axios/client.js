@@ -5,12 +5,9 @@ import {
 } from "../../utils/ls";
 import isTokenValid from "../../services/checkJwtValidity";
 import CustomError from "../../services/custom-error/CustomError";
-import { base_url } from "@/constants/uri";
 import RefreshAccess from "@/services/RefreshAccess";
 
 const client = axios.create({
-  // baseURL: "/api",
-  // baseURL: base_url,
   baseURL: process.env.BASE_URL
 });
 
