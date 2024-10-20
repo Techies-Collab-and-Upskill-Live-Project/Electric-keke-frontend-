@@ -35,13 +35,13 @@ export const useScroll = () => {
 
   const TouchMove = (event) => {
     if (!scroll) return;
-    const difference = -(e.touches[0].clientY - scrollPos.initial);
+    const difference = -(event.touches[0].clientY - scrollPos.initial);
     setScrollPos((prev) => ({
       ...prev,
-      final: e.touches[0].clientY,
+      final: event.touches[0].clientY,
       diff: difference / 10,
     }));
-    e.currentTarget.scrollTop += scrollPos.diff;
+    event.currentTarget.scrollTop += scrollPos.diff;
   };
 
   return { MouseDown, MouseUp, MouseMove, TouchStart, TouchEnd, TouchMove };
