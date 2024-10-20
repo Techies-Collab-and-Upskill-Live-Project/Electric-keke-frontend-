@@ -1,25 +1,16 @@
-import { Button } from "./ui/button";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import Choose from "./Choose";
 
 const Direction = ({ handleClick }) => {
   return (
-    <div className="direction">
-      <Button
-        className="direction-btn"
-        onClick={() => {
-          handleClick("decrement");
-        }}
-      >
-        <img src="/arr-left.svg" alt="left direction" />
-      </Button>
-      <Button
-        className="direction-btn"
-        onClick={() => {
-          handleClick("increment");
-        }}
-      >
-        <img src="/arr-right.svg" alt="left direction" />
-      </Button>
-    </div>
+    <Choose
+      containerClass="direction"
+      icon1={<ArrowLeft color="black" />}
+      icon2={<ArrowRight color="black" />}
+      btnClass="direction-btn p-0"
+      handleChoice1={() => handleClick("decrement")}
+      handleChoice2={() => handleClick("increment")}
+    />
   );
 };
 

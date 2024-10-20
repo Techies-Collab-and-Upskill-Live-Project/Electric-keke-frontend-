@@ -1,30 +1,30 @@
 import { addItemToLs } from "../../utils/ls";
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  username: "",
-  fullname: "",
-  email: "",
-  password: "",
-  re_password: "",
-  phone: "",
-  state: "",
-  address: "",
-  message_type: "email",
-  otpValue: "",
-};
 // const initialState = {
 //   username: "",
-//   fullname: "josemaria",
-//   email: "Josemariaofurum@gmail.com",
-//   password: "New990#",
-//   re_password: "New990#",
-//   phone: "josl",
-//   state: "jsl",
-//   address: "js",
+//   fullname: "",
+//   email: "",
+//   password: "",
+//   re_password: "",
+//   phone: "",
+//   state: "",
+//   address: "",
 //   message_type: "email",
 //   otpValue: "",
 // };
+const initialState = {
+  username: "",
+  fullname: "josemaria",
+  email: "Josemariaofurum@gmail.com",
+  password: "New990#",
+  re_password: "New990#",
+  phone: "josl",
+  state: "jsl",
+  address: "js",
+  message_type: "email",
+  otpValue: "",
+};
 
 const formDataSlice = createSlice({
   name: "form-data",

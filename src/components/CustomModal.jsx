@@ -6,11 +6,16 @@ const CustomModal = ({
   children,
   trigger: Trigger,
   triggerProps,
+  modalContainerStyling,
   modalStyling,
   isModalOpen,
   openModal,
   closeModal,
   showCloseBtn = true,
+  animateMI,
+  animateMA,
+  animateMSI,
+  animateMSA,
 }) => {
   return (
     <>
@@ -19,8 +24,17 @@ const CustomModal = ({
       </ModalTrigger>
 
       {isModalOpen && (
-        <Modal styling="modal-container" onClick={() => closeModal()}>
-          <ModalSheet styling={modalStyling + " " + "modal"}>
+        <Modal
+          styling={`modal-container ${modalContainerStyling}`}
+          onClick={() => closeModal()}
+          initial={animateMI}
+          animate={animateMA}
+        >
+          <ModalSheet
+            initial={animateMSI}
+            animate={animateMSA}
+            styling={modalStyling + " " + "modal"}
+          >
             {showCloseBtn && (
               <Btn
                 icon={<XIcon />}

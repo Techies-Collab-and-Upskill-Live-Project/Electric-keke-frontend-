@@ -5,8 +5,8 @@ import dispatchables from "@/utils/dispatchables";
 import { useCurrentUser } from "@/hooks/useCurrentUser";
 import { memo } from "react";
 import Btn from "@/components/btn/Btn";
-import Togglers from "@/components/Togglers";
 import { ChooseModal } from "@/features/booking";
+import Choose from "@/components/Choose";
 
 const HeroCta = ({ type }) => {
   const user = useCurrentUser();
@@ -26,14 +26,15 @@ const HeroCta = ({ type }) => {
         <>
           {type === "main" && <ChooseModal type="ride" />}
 
-          {type === "earn" && !user && (
+          {type === "earn" && (
             <Btn
               text="Register"
               href="/onboarding/registration"
-              styling="btn--hero btn--primary w-[232px]"
+              styling="btn--hero btn--primary"
+              linkBtnWidth="w-[171px]"
               onClick={() => {
                 // showuld set the registering as in the ls as rider
-                chooseRole('Rider')
+                chooseRole("Rider");
               }}
             />
           )}
@@ -41,14 +42,19 @@ const HeroCta = ({ type }) => {
           {type === "main" && <ChooseModal type="delivery" />}
         </>
       ) : (
-        <Togglers
-          className="w-full flex-center mt-10"
-          text1="Faq"
-          text2="Contact Us"
-          isConditionTrue={support === "faq"}
-          handleClick1={() => whatSupport("faq")}
-          handleClick2={() => whatSupport("contact")}
-          color="color1"
+        <Choose
+          containerClass="w-full flex-center mt-10"
+          choice1txt="Faq"
+          choice2txt="Contact Us"
+          btnClass="border-b font-bold text-base w-[180px] p-4 rounded-none bg-transparent"
+          addedClass1={
+            support === "faq" ? "border-basic text-basic" : "text-neutral"
+          }
+          addedClass2={
+            support === "contact" ? "border-basic text-basic" : "text-neutral"
+          }
+          handleChoice1={() => whatSupport("faq")}
+          handleChoice2={() => whatSupport("contact")}
         />
       )}
     </div>

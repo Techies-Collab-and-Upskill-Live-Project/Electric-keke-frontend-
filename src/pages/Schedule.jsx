@@ -2,8 +2,8 @@ import SearchBar from "@/components/SearchBar";
 import React, { useState } from "react";
 import dispatchables from "@/utils/dispatchables";
 import Section from "@/layouts/Section";
-import Togglers from "@/components/Togglers";
 import { ScheduleBoard, ScheduleForm } from "@/features/scheduling";
+import Choose from "@/components/Choose";
 
 const Schedule = () => {
   const [scheduleType, setScheduleType] = useState("ride");
@@ -30,36 +30,30 @@ const Schedule = () => {
     });
   };
 
-  const handleDate = (value) => {
-    const date = value.toDateString();
-    setScheduleFormData({ ...scheduleFormData, date });
-  };
+  const handleDate = (value) =>
+    setScheduleFormData({ ...scheduleFormData, date: value.toDateString() });
 
-  const setTime = (time) => {
-    setScheduleFormData({ ...scheduleFormData, time });
-  };
+  const setTime = (time) => setScheduleFormData({ ...scheduleFormData, time });
 
-  const setQuantity = (quantity) => {
-    console.log(quantity);
+  const setQuantity = (quantity) =>
     setScheduleFormData({ ...scheduleFormData, quantity });
-  };
 
-  const choseToShareRide = (choice) => {
+  const choseToShareRide = (choice) =>
     setScheduleFormData({ ...scheduleFormData, share: choice });
-  };
 
   return (
-    <Section darkLogo={true}>
+    <Section darkLogo={true} mobileHeaderStyle="mobile-header">
       <div className="home-pad pt-20 md:pt-[132px] pb-10">
         <h2 className="schedule-title">Eco Schedule</h2>
-        <Togglers
-          text1="Rides"
-          text2="Delivery"
-          isConditionTrue={scheduleType === "ride"}
-          handleClick1={() => setScheduleType("ride")}
-          handleClick2={() => setScheduleType("delivery")}
-          color="color2"
-          font="font-nunito"
+
+        <Choose
+          containerClass="w-full flex-center"
+          choice1txt="Rides"
+          choice2txt="Delivery"
+          btnClass="bg-transparent border-b text-neutral-500"
+          addedClass1={scheduleType === "ride" && "border-basic"}
+          handleChoice1={() => setScheduleType("ride")}
+          handleChoice2={() => setScheduleType("delivery")}
         />
 
         <SearchBar className="hidden w-full max-w-[865px] border-2 mt-8 rounded-[40px] p-1 md:flex items-center justify-between mx-auto" />

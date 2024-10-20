@@ -16,7 +16,6 @@ const NewPassword = ({ nextProcess, prevProcess }) => {
   const isDisbaled = useAreInputsFilled(password && re_password);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
     console.log('jose')
     try {
       const { detail } = await ResetPassword({
@@ -42,7 +41,7 @@ const NewPassword = ({ nextProcess, prevProcess }) => {
       headTitle="Enter New Password"
       // prevProcess={prevProcess}
     >
-      <form className="auth-form" onSubmit={handleSubmit}>
+      <form className="auth-form" onSubmit={e => e.preventDefault()}>
         <div className="space-y-7">
           <OnboardFormRows type="new" />
         </div>
@@ -52,6 +51,7 @@ const NewPassword = ({ nextProcess, prevProcess }) => {
             text="Continue"
             styling="btn btn--primary btn--lg w-full rounded-full"
             disabled={isDisbaled}
+            onClick={handleSubmit}
           />
         </div>
       </form>

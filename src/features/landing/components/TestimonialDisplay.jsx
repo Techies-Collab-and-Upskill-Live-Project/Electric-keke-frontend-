@@ -9,7 +9,7 @@ const TestimonialDisplay = ({ type }) => {
   const { currentTestimony, nextTestimony } = useTestmony(testimonies[type]);
 
   return (
-    <div className="testimonials-display">
+    <div className="testimonials-display mt-10">
       <AnimatePresence>
         {testimonies[type].map((item, index) => {
           const initial = { x: -150, opacity: 0 };

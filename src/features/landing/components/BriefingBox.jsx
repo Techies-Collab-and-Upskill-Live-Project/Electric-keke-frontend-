@@ -3,18 +3,18 @@ import EarnRequirements from "./earn/EarnRequirements";
 import Heading from "@/components/Heading";
 import Btn from "@/components/btn/Btn";
 
-const BriefingBox = ({ brief, type }) => {
-  const {
-    briefClass,
-    introTitle,
-    title,
-    description,
-    image,
-    imgClass,
-    showBtn,
-  } = brief;
+const BriefingBox = ({
+  briefClass,
+  introTitle,
+  title,
+  description,
+  image,
+  imgClass,
+  showBtn,
+  type,
+}) => {
   return (
-    <div className="w-full tablet:flex items-center relative isolate">
+    <div className="w-full tablet:flex items-center relative isolate gap-x-6">
       <motion.div
         initial={{ opacity: 0, x: -100 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -36,6 +36,7 @@ const BriefingBox = ({ brief, type }) => {
               description={description}
               dclass="page-brief__desc"
             />
+
             {showBtn && (
               <div className="mt-8">
                 <Btn

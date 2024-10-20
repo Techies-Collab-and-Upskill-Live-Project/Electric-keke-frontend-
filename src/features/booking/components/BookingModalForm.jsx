@@ -30,7 +30,7 @@ const ModalFormInput = ({
         name={name}
         value={value}
         onChange={handleChange}
-        className="text-eiteen w-10/12"
+        className="text-eiteen w-10/12 outline-none border-none"
       />
       {showTarget && (
         <div>
@@ -73,11 +73,9 @@ const BookingModalForm = () => {
       navigate("/riders");
     } catch (error) {
       showAlert("Login to book a ride");
-    } finally {
-      UnlockScroll();
     }
   };
-  console.log("Come to booking modal form and fix the locka and unlockScroll")
+  console.log("Come to booking modal form and fix the locka and unlockScroll");
 
   return (
     <form className="ride-request__form" onSubmit={handleSubmit}>
@@ -97,7 +95,7 @@ const BookingModalForm = () => {
 
       {showPrice && (
         <div className="estimate-price">
-          <p>#{price}</p>
+          <p>NGN{price}</p>
         </div>
       )}
 

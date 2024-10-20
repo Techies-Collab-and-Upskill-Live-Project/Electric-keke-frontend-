@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { addItemToLs, deletItemFromLs, getItemFromLs } from "../../../utils/ls";
+import {  getItemFromLs } from "../../../utils/ls";
 import dispatchables from "../../../utils/dispatchables";
 import Reviews from "../../../components/xp/Reviews";
 import { riderParentVariant } from "../../../constants/variants";

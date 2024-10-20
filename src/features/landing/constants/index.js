@@ -156,3 +156,27 @@ export const about_descriptions = {
   three:
     "Eco-Ride is a forward-thinking transport and logistics service that puts the environment first. We operate electric Keke vehicles, providing both ride-hailing and delivery services that are affordable, efficient, and eco-friendly. At Eco-Ride, we believe in creating a sustainable future by reducing carbon emissions and improving air quality in our cities.",
 };
+
+export const pages_brief = {
+  main: {
+    briefClass: "w-full tablet:w-[58%]",
+    introTitle: "About Us",
+    title: about_titles.one,
+    description: about_descriptions.one,
+    image: "/about.png",
+    imgClass: "main-image",
+    showBtn: true,
+  },
+  about: {
+    briefClass: "w-full tablet:w-[52%]",
+    title: about_titles.one,
+    description: about_descriptions.three,
+    image: "/briefings/about-clip.gif",
+    imgClass: "gif-image",
+  },
+  earn: {
+    image: "/earn_about_bg.png",
+    imgClass: "earn-image",
+    type: "earn",
+  },
+};

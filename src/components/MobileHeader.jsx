@@ -5,10 +5,13 @@ import { LogoPlain, LogoWithText } from "@/assets/svg/Logo";
 import Btn from "./btn/Btn";
 import { useCurrentUser } from "@/hooks/useCurrentUser";
 import { HeroSmallInfo } from "./SmallInfo";
+import { BellIcon, SearchIcon } from "lucide-react";
+import { useGlobalNotificationContext } from "@/contexts/NotificationContext";
 
 const MobileHeader = ({ blur, mobileHeaderStyle }) => {
   const user = useCurrentUser();
   const { pathname } = useLocation();
+  const { openNotificationModal } = useGlobalNotificationContext();
 
   return (
     <header className={mobileHeaderStyle}>
@@ -24,12 +27,16 @@ const MobileHeader = ({ blur, mobileHeaderStyle }) => {
         <>
           {user ? (
             <div className="header__profile-nav-board">
-              <Link to="/notification">
-                <div className="header__icon">
-                  <span className="indicator" />
-                  <Bell color={blur ? "white" : "black"} size={24} />
-                </div>
-              </Link>
+              <Btn
+                icon={
+                  <>
+                    <span className="indicator" />
+                    <BellIcon size={24} color={blur ? "#FAFAFA" : "black"} />
+                  </>
+                }
+                styling="header__icon bg-transparent p-0"
+                onClick={openNotificationModal}
+              />
 
               <HeroSmallInfo fullname={user?.fullname} id={user?.id} />
             </div>
@@ -43,17 +50,9 @@ const MobileHeader = ({ blur, mobileHeaderStyle }) => {
         </>
       )}
 
-      {/* {pathname === "/schedule-ride" && (
-        <Btn
-          text="Search"
-          size="search"
-          icon={
-            <div className="mr-2 size-[14px]">
-              <img src="/search.svg" alt="search" className="size-full" />
-            </div>
-          }
-        />
-      )} */}
+      {pathname === "/schedule-ride" && (
+        <Btn text="Search" icon={<SearchIcon size={14} />} />
+      )}
     </header>
   );
 };

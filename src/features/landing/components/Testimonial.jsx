@@ -17,9 +17,7 @@ const Testimonial = ({ type = "main" }) => {
           animate={{ y: 0, opacity: 1 }}
         />
 
-        <div className="mt-10">
-          <TestimonialDisplay type={type} />
-        </div>
+        <TestimonialDisplay type={type} />
       </div>
     </section>
   );

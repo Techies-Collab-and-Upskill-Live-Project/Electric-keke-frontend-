@@ -1,19 +1,18 @@
 [
   {
-    "title": "Verify your email address",
-    "desc": "This allow you to retrieve your account if you loose access.",
-    "account": true
+    "subject": "Verify your email address",
+    "message": "This allow you to retrieve your account if you loose access."
   },
   {
-    "title": "Receive 30% discount for your first ride",
-    "desc": "Order your first ride or delivery with our electric keke and enjoy 30% discount."
+    "subject": "Receive 30% discount for your first ride",
+    "message": "Order your first ride or delivery with our electric keke and enjoy 30% discount."
   },
   {
-    "title": "Your ride is on it way ",
-    "desc": "your ride is on it way, driver is 5min away from the pick up location."
+    "subject": "Your ride is on it way ",
+    "message": "your ride is on it way, driver is 5min away from the pick up location."
   },
   {
-    "title": "Order confirm ",
-    "desc": "Order confirm, item picked up at 12, olorunda street, pick up time 2:45pm, item to be delivered to 45, onikan street estimated delivery time 3:30pm"
+    "subject": "Order confirm ",
+    "message": "Order confirm, item picked up at 12, olorunda street, pick up time 2:45pm, item to be delivered to 45, onikan street estimated delivery time 3:30pm"
   }
 ]

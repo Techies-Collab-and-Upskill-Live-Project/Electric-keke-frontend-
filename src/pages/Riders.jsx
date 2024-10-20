@@ -1,4 +1,3 @@
-import { AnimatePresence } from "framer-motion";
 import Section from "../layouts/Section";
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
@@ -22,9 +21,7 @@ const Riders = () => {
             <Btn styling="bg-transparent rounded-full" />
           </div>
 
-          {/* <AnimatePresence> */}
           <Outlet context={{ ridersTitle, switchRiderTitle }} />
-          {/* </AnimatePresence> */}
         </div>
       </div>
     </Section>

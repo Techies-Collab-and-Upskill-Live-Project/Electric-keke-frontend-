@@ -8,32 +8,16 @@ import Earn from "./pages/Earn";
 import Support from "./pages/Support";
 import ProtectedRoute from "./layouts/Private";
 import InternalServer from "./pages/InternalServer";
-import Loader from "./components/loaders/Loader";
 import NotFound from "./pages/NotFound";
 import Onboarding from "./pages/Onboarding";
-import Alert from "./components/Alert";
 import Balls from "./components/_custom-loaders/balls/Balls";
+import General from "./components/_general/General";
 
 function App() {
-  const {
-    alert: { show },
-    loading,
-  } = useSelector((state) => state.global);
-
   return (
     <>
       <div className="App max-w-screen-2xl overflow-hidden mx-auto relative">
-        <AnimatePresence>
-          {show && <Alert />}
-          {loading && (
-            <Loader
-              className="fixed top-5 right-5 z-50"
-              type="spin2"
-              size={30}
-            />
-          )}
-        </AnimatePresence>
-
+        <General />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

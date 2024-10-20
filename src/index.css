@@ -277,6 +277,14 @@ h2 {
   @apply absolute h-[568px] w-[769px] -top-[76px] -left-[88px] -z-50
 }
 
+.onboarding__shared-step {
+  @apply flex items-start h-screen overflow-y-scroll
+}
+
+.onboarding__shared-step::-webkit-scrollbar {
+  display: none;
+}
+
 .onboarding__page--right {
   @apply w-full sm:w-[1024px] md:w-6/12 lg:w-1/2 flex-center px-4 pb-10 relative min-h-screen
 }
@@ -609,19 +617,19 @@ h2 {
 
 /************* contribution *************/
 .contribution-section {
-  @apply py-10 tablet:py-20 px-[15px] bg-base-white
+  @apply py-10 px-4 tablet:py-20 bg-base-white
 }
 
 .contribution {
-  @apply min-h-[546px] flex flex-col tablet:flex-row items-start laptop:items-center gap-y-6 tablet:gap-x-[30px] w-full tablet:w-[80%] max-w-[1200px] mx-auto
+  @apply flex flex-col tablet:flex-row tablet:items-start laptop:items-center gap-y-6 tablet:gap-x-[30px] w-full tablet:w-[85.25390625%] max-w-[1200px] mx-auto
 }
 
 .contribution-phone {
-  @apply w-full h-[341px] tablet:w-1/2 md:h-[546px] border rounded-normal bg-gradient-to-b from-basic to-peach
+  @apply w-full h-[341px] tablet:w-[400px] tablet:aspect-[1.030927835051546/1] laptop:w-1/2 laptop:max-w-[50%] laptop:h-[546.42px] rounded-normal bg-gradient-to-b from-basic to-peach
 }
 
 .contribution-pg {
-  @apply tablet:w-1/2 order-first tablet:order-last
+  @apply tablet:w-[51%] order-first tablet:order-last
 }
 
 /**************************** meet ***************/
@@ -696,7 +704,7 @@ h2 {
 }
 
 .header__content {
-  @apply hidden md:flex items-center justify-between border border-basic-600 h-[4.75rem] rounded-[40px] px-[17px] p-2
+  @apply w-full hidden md:flex items-center justify-between border border-basic-600 h-[4.75rem] rounded-[40px] px-[17px] p-2
 }
 
 .header__content--blur {
@@ -830,25 +838,27 @@ h2 {
 
 /* MODAL */
 .modal-container {
-  @apply w-full h-screen fixed top-0 left-0 z-[1000] flex-center bg-black/50 overflow-y-scroll py-20
+  @apply w-full h-screen fixed top-0 left-0 z-[1000] bg-black/50 overflow-y-scroll
 }
 
 
 .modal {
-  @apply bg-white mx-auto
+  @apply bg-white
 }
+
+/* remove mx-auto */
 
 .modal-close-btn {
   @apply bg-neutral-300 rounded-full size-[2rem] p-0 absolute top-4 right-5
 }
 
 .modal__choose {
-  @apply w-[94%] min-h-[348px] md:w-[47%] md:max-w-[478px] rounded-[12px]
+  @apply w-full min-h-[348px] md:w-[47%] md:max-w-[478px] rounded-[12px] absolute bottom-0 left-0 md:relative
 }
 
 
 .modal-map__booking {
-  @apply w-full md:w-[617px] md:min-h-[80vh] laptop:w-[715px] py-8 md:py-10 px-5 md:px-7 rounded-[14px] md:mt-[20vh]
+  @apply w-full md:w-[617px] md:min-h-[80vh] laptop:w-[715px] py-8 md:py-10 px-5 md:px-7 rounded-[14px] md:mt-[20vh] absolute bottom-0 left-0 md:relative
 }
 
 .modal-map__request {
@@ -970,6 +980,10 @@ h2 {
   @apply w-full max-w-[600px] py-12 px-2 md:px-9 absolute bottom-0 left-0 md:relative rounded-ml
 }
 
+.modal__notification {
+  @apply w-full tablet:w-1/2 min-h-screen
+}
+
 /* .modalContainer {} */
 
 
@@ -979,15 +993,6 @@ h2 {
   @apply h-full w-full
 } */
 /* REUSABLE FORM */
-.congrats-board {
-  @apply w-full lg:w-[25.5rem] h-[16rem] rounded-md mx-auto my-[30px] tablet:mt-24 flex-center bg-white;
-}
-
-.congrats-board {
-  filter: drop-shadow(0 11px 25px rgba(0, 0, 0, 0.1)) drop-shadow(0 45px 45px rgba(0, 0, 0, 0.09));
-}
-
-
 /* input classes */
 .schedule-input {
   @apply border border-basic px-5 h-[4rem] rounded-sm

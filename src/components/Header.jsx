@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import NavBar from "./NavBar";
-import { Link } from "react-router-dom";
 import { LogoPlain } from "@/assets/svg/Logo";
 import Btn from "./btn/Btn";
-import Bell from "@/assets/svg/Bell";
 import { HeroSmallInfo } from "./SmallInfo";
 import { useCurrentUser } from "@/hooks/useCurrentUser";
-import NotificationBell from "./NotificationBell";
+import NotificationModal from "./modals/NotificationModal";
+import { BellIcon } from "lucide-react";
+import { useGlobalNotificationContext } from "@/contexts/NotificationContext";
 
 const Header = ({ darkLogo, blur }) => {
   const user = useCurrentUser();
+  const { openNotificationModal } = useGlobalNotificationContext();
+
   return (
     <header className="header">
       <div className={`header__content ${blur && "header__content--blur"}`}>
@@ -18,11 +20,16 @@ const Header = ({ darkLogo, blur }) => {
 
         {user ? (
           <div className="header__profile-nav-board">
-            <Link to="/notification">
-              <NotificationBell
-                icon={<Bell size={40} color={darkLogo ? "black" : "#FAFAFA"} />}
-              />
-            </Link>
+            <Btn
+              icon={
+                <>
+                  <span className="indicator" />
+                  <BellIcon size={40} color={blur ? "#FAFAFA" : "black"} />
+                </>
+              }
+              styling="header__icon bg-transparent p-0"
+              onClick={openNotificationModal}
+            />
 
             <HeroSmallInfo fullname={user?.fullname} id={user?.id} />
           </div>

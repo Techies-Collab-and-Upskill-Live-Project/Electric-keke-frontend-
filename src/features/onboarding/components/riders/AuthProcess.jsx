@@ -1,8 +1,11 @@
 import { useState } from "react";
-import ProcessIndicator from "./ProcessIndicator";
 import { getItemFromLs } from "@/utils/ls";
+import CustomBadge from "../../../../components/CustomBadge";
 
 const AuthProcess = () => {
+  console.log(
+    "Auth Process component, come to refactor the custome badge with regular list"
+  );
   const [processValue] = useState(getItemFromLs("onboarding-process"));
   console.log(processValue);
   return (
@@ -17,25 +20,44 @@ const AuthProcess = () => {
         ></div>
       </div>
 
-      <ProcessIndicator
-        text="1"
-        process="Identity"
-        condition={processValue >= 2}
+      <CustomBadge
+        styling="process process--shadow"
+        badgeMainStyle={`process__display ${
+          processValue >= 2 && "process--active"
+        }`}
+        badgeTextStyle="process__current"
+        badgeText="1"
+        badgeLabel="Identity"
       />
-      <ProcessIndicator
-        text="2"
-        process="License"
-        condition={processValue >= 3}
+
+      <CustomBadge
+        styling="process process--shadow"
+        badgeText="2"
+        badgeTextStyle="process__current"
+        badgeLabel="License"
+        badgeMainStyle={`process__display ${
+          processValue >= 3 && "process--active"
+        }`}
       />
-      <ProcessIndicator
-        text="3"
-        process="License"
-        condition={processValue >= 4}
+
+      <CustomBadge
+        styling="process process--shadow"
+        badgeText="3"
+        badgeTextStyle="process__current"
+        badgeLabel="License"
+        badgeMainStyle={`process__display ${
+          processValue >= 4 && "process--active"
+        }`}
       />
-      <ProcessIndicator
-        text="4"
-        process="Processing"
-        condition={processValue >= 5}
+
+      <CustomBadge
+        styling="process process--shadow"
+        badgeText="4"
+        badgeTextStyle="process__current"
+        badgeLabel="Processing"
+        badgeMainStyle={`process__display ${
+          processValue >= 5 && "process--active"
+        }`}
       />
     </div>
   );

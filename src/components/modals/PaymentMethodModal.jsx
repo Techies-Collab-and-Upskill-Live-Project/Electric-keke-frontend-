@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Heading from "../Heading";
 import MasterCard from "@/features/profile/components/MasterCard";
-import Togglers from "../Togglers";
 import CardForm from "@/features/profile/components/CardForm";
 import BankForm from "@/features/profile/components/BankForm";
 import PayModalBottom from "@/features/profile/components/PayModalBottom";
+import Choose from "../Choose";
 
 const PaymentMethodModal = () => {
   const [methodOfPayment, setMethodOfPayment] = useState("card");
@@ -34,15 +34,13 @@ const PaymentMethodModal = () => {
         </div>
       )}
 
-      <Togglers
-        color="color2"
-        isConditionTrue={methodOfPayment === "card"}
-        text1="Bank Card"
-        text2="Bank Account"
-        handleClick1={() => setMethodOfPayment("card")}
-        handleClick2={() => setMethodOfPayment("bank")}
-        className="mt-5 md:mt-10 flex items-center justify-between gap-10 max-w-[309px] mx-auto"
-        btnClassName="!pb-0 min-w-[114px] text-base font-semibold border-b-4"
+      <Choose
+        choice1txt="Bank Card"
+        choice2txt="Bank Account"
+        handleChoice1={() => setMethodOfPayment("card")}
+        handleChoice2={() => setMethodOfPayment("bank")}
+        containerClass="mt-5 md:mt-10 flex items-center justify-between gap-10 max-w-[309px] mx-auto"
+        btnClass="min-w-[114px] text-base font-semibold border-b-4"
       />
 
       {methodOfPayment === "card" && <CardForm formData={formData} />}

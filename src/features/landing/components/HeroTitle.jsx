@@ -63,7 +63,6 @@ const HeroTitle = ({ type }) => {
           }}
           animate={{ x: 0 }}
           transition={{ duration: 0.75 }}
-          id="title"
           className="hero-title title-transform"
         >
           Help & Support Center

@@ -4,10 +4,7 @@ import Btn from "@/components/btn/Btn";
 import Rate from "./Rate";
 import star_size from "../utils/star_size";
 
-
-const Rider = ({ rider }) => {
-  const { id, fullname, email, rating, plate_number, color, photo } = rider;
-
+const Rider = ({ id, fullname, email, rating, plate_number, color, photo }) => {
   const [mediaSize, setMediaSize] = useState(window.outerWidth);
 
   const { inputDataForBookingRequest, chooseRider } = dispatchables();
@@ -23,7 +20,7 @@ const Rider = ({ rider }) => {
   }, []);
 
   return (
-    <div className="rider">
+    <div className="rider" key={fullname}>
       <div className="size-full">
         <img
           src={photo}
@@ -31,6 +28,7 @@ const Rider = ({ rider }) => {
           className="size-full object-cover object-center"
         />
       </div>
+
       <div className="rider-overlay">
         <div className="rider-info">
           <h2 className="rider-name tablet:!text-2xl laptop:!text-[2rem]">
@@ -54,6 +52,15 @@ const Rider = ({ rider }) => {
           styling="rider-btn"
           onClick={() => {
             inputDataForBookingRequest("rider", email);
+            const rider = {
+              id,
+              fullname,
+              email,
+              rating,
+              plate_number,
+              color,
+              photo,
+            };
             chooseRider(rider);
           }}
         />

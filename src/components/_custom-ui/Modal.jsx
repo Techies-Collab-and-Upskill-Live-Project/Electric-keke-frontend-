@@ -1,18 +1,30 @@
+import { motion } from "framer-motion";
+
 export const ModalTrigger = ({ ...props }) => {
   return <div {...props} />;
 };
 
 export const Modal = ({ styling, ...props }) => {
+  const { initial, animate, ...restProps } = props;
   return (
-    <section
+    <motion.section
+      initial={initial}
+      animate={animate}
       className={styling}
-      {...props}
+      {...restProps}
     />
   );
 };
 
 export const ModalSheet = ({ styling, ...props }) => {
+  const { initial, animate, ...restProps } = props;
   return (
-    <div className={styling} onClick={(e) => e.stopPropagation()} {...props} />
+    <motion.div
+      initial={initial}
+      animate={animate}
+      className={styling}
+      onClick={(e) => e.stopPropagation()}
+      {...restProps}
+    />
   );
 };

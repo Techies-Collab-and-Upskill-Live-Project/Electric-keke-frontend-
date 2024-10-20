@@ -13,7 +13,7 @@ const SharedStep = ({
   prevProcess,
 }) => {
   return (
-    <section className="flex items-start h-screen overflow-y-scroll">
+    <section className="onboarding__shared-step">
       <div className="board__onboarding">
         <Btn
           icon={<XIcon color="black" />}

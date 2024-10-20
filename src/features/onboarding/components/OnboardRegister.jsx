@@ -11,7 +11,6 @@ import RiderStep4 from "./riders/RiderStep4";
 import RiderStep3 from "./riders/RiderStep3";
 import RiderStep5 from "./riders/RiderStep5";
 import Processing from "./riders/Processing";
-import { OnboardingProvider } from "../context/OnboardingContext";
 import { useNavigate } from "react-router-dom";
 import { addItemToLs, getItemFromLs } from "@/utils/ls";
 
@@ -34,46 +33,44 @@ const OnboardRegister = () => {
   };
 
   return (
-    <OnboardingProvider>
-      <section>
-        {registeringAs === "User" && (
-          <OnboardingForm
-            runOnStart={runOnbordingStart}
-            runOnFinish={runOnFinish}
-          >
-            <Step1 />
-            <Step2 />
-            <PassengerStep3 />
-            <PassengerStep4 />
-          </OnboardingForm>
-        )}
+    <section>
+      {registeringAs === "User" && (
+        <OnboardingForm
+          runOnStart={runOnbordingStart}
+          runOnFinish={runOnFinish}
+        >
+          <Step1 />
+          <Step2 />
+          <PassengerStep3 />
+          <PassengerStep4 />
+        </OnboardingForm>
+      )}
 
-        {registeringAs === "Rider" && (
-          <OnboardingForm
-            runOnStart={runOnbordingStart}
-            runOnFinish={() => {
-              alert("finished the driver auth");
-            }}
-          >
-            <Step1 />
-            <Step2 />
-            <RiderStep3 />
-            <RiderStep4 />
-            <RiderStep5 />
-            <Processing />
-          </OnboardingForm>
-        )}
+      {registeringAs === "Rider" && (
+        <OnboardingForm
+          runOnStart={runOnbordingStart}
+          runOnFinish={() => {
+            alert("finished the driver auth");
+          }}
+        >
+          <Step1 />
+          <Step2 />
+          <RiderStep3 />
+          <RiderStep4 />
+          <RiderStep5 />
+          <Processing />
+        </OnboardingForm>
+      )}
 
-        {registeringAs === "Login" && (
-          <OnboardingForm runOnStart={runLoginStart} runOnFinish={runOnFinish}>
-            <Login />
-            <ForgetPassword />
-            <VerifyOtp />
-            <NewPassword />
-          </OnboardingForm>
-        )}
-      </section>
-    </OnboardingProvider>
+      {registeringAs === "Login" && (
+        <OnboardingForm runOnStart={runLoginStart} runOnFinish={runOnFinish}>
+          <Login />
+          <ForgetPassword />
+          <VerifyOtp />
+          <NewPassword />
+        </OnboardingForm>
+      )}
+    </section>
   );
 };
 

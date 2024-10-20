@@ -8,7 +8,7 @@ const EarnRequirements = () => {
         title="Requirements"
         tclass="font-josefin text-[2rem] font-bold"
       />
-      <ul className="list-disc pl-4 mt-7">
+      <ul className="list-disc pl-10 mt-7">
         {earn_requirements.map((item, index) => (
           <li
             key={index}
