@@ -40,14 +40,14 @@ export const processes = [
     badgeMainStyle: "process__display",
   },
   {
-    badgeLabel: "Driver License Front",
+    badgeLabel: "License",
     badgeText: 2,
     styling: "process process--shadow",
     badgeTextStyle: "process__current",
     badgeMainStyle: "process__display"
   },
   {
-    badgeLabel: "Driver License Back",
+    badgeLabel: "License",
     badgeText: 3,
     styling: "process process--shadow",
     badgeTextStyle: "process__current",

@@ -1,3 +1,4 @@
+import { LockScroll, UnlockScroll } from "@/utils/ScrollLock";
 import { useState } from "react";
 
 export const useScroll = () => {
@@ -27,11 +28,15 @@ export const useScroll = () => {
   };
 
   const TouchStart = (event) => {
+    LockScroll();
     setScroll(true);
     setScrollPos((prev) => ({ ...prev, initial: event.touches[0].clientY }));
   };
 
-  const TouchEnd = (event) => setScroll(false);
+  const TouchEnd = (event) => {
+    UnlockScroll();
+    setScroll(false);
+  };
 
   const TouchMove = (event) => {
     if (!scroll) return;

@@ -1,3 +1,4 @@
+import { comparison } from "@/utils/comparison";
 import { useCallback, useState } from "react";
 
 export const useArray = (defaultArr) => {
@@ -7,11 +8,13 @@ export const useArray = (defaultArr) => {
 
   const combineAnotherArray = (newArr) => setArray([...array, ...newArr]);
 
-  const setArrayItem = useCallback((itemIndex, itemProp) => {
-    console.log("come and fix the issue with set Array Item for aut process")
+  const setArrayItem = useCallback((itemIndex, itemProp, comparisonType) => {
+    console.log("come and fix the issue with set Array Item for aut process");
     setArray(
       array.map((item, index) => {
-        return itemIndex >= index ? { ...item, ...itemProp } : item;
+        return comparison(itemIndex, index, comparisonType)
+          ? { ...item, ...itemProp }
+          : item;
       })
     );
   }, []);

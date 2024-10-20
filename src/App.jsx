@@ -1,6 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
-import { useSelector } from "react-redux";
 import "leaflet/dist/leaflet.css";
 import About from "./pages/About";
 import Home from "./pages/Home";

@@ -2,6 +2,7 @@
 // import { modalParent } from "@/constants/variants";
 import Heading from "@/components/Heading";
 import Map from "@/components/Map";
+import NewMap from "@/components/NewMap";
 import { map_booking, map_request } from "@/constants";
 
 const SharedModalMap = ({ children, type }) => {
@@ -9,7 +10,7 @@ const SharedModalMap = ({ children, type }) => {
     <>
       <div>
         <div className="map">
-          <Map className="w-full h-full rounded-[27px]" />
+          <NewMap />
         </div>
 
         <Heading
