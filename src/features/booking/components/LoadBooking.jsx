@@ -23,7 +23,9 @@ const LoadBooking = () => {
       className="bg-white w-full py-20 z-50 h-[calc(100vh-20vh)]"
     >
       <div>
-        <Loader type="spin2" className="w-fit h-fit mx-auto" size={200} />
+        <div className="size-20 mx-auto">
+          <Loader type="spin2" />
+        </div>
 
         <Heading
           className="text-center w-full max-w-[840px] mx-auto"

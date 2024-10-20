@@ -6,6 +6,7 @@ const CustomBadge = ({
   badgeText,
   badgeTextStyle,
   badgeLabel,
+
 }) => {
   return (
     <div className={styling}>

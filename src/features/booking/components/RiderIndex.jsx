@@ -10,7 +10,6 @@ import { useEffect } from "react";
 
 const RiderIndex = () => {
   useTitle("Riders");
-  // const { isLoading } = useRiders("riders");
   const { isLoading, resource: availableRiders } = useResource(
     GetAvailableRiders,
     "riders"

@@ -9,7 +9,7 @@ const PassengerTracking = ({ hasArrived }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (hasArrived) [navigate("/transaction")];
+    if (hasArrived) navigate("/transaction");
   }, [hasArrived]);
 
   return (

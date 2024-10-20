@@ -30,3 +30,41 @@ export const onboarding_descs = {
   new_password:
     "Create a new password for your Eco-Ride account. Ensure it is strong and secure to protect your information.",
 };
+
+export const processes = [
+  {
+    badgeLabel: "Identity",
+    badgeText: 1,
+    styling: "process process--shadow",
+    badgeTextStyle: "process__current",
+    badgeMainStyle: "process__display",
+  },
+  {
+    badgeLabel: "Driver License Front",
+    badgeText: 2,
+    styling: "process process--shadow",
+    badgeTextStyle: "process__current",
+    badgeMainStyle: "process__display"
+  },
+  {
+    badgeLabel: "Driver License Back",
+    badgeText: 3,
+    styling: "process process--shadow",
+    badgeTextStyle: "process__current",
+    badgeMainStyle: "process__display"
+  },
+  {
+    badgeLabel: "Processing",
+    badgeText: 4,
+    styling: "process process--shadow",
+    badgeTextStyle: "process__current",
+    badgeMainStyle: "process__display"
+  },
+];
+
+export const progressClass = {
+  2: "w-[20%]",
+  3: "w-[50%]",
+  4: "w-[80%]",
+  5: "w-[100%]",
+};

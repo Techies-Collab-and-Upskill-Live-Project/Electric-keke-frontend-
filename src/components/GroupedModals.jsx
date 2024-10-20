@@ -4,15 +4,15 @@ import PaymentMethodModal from "./modals/PaymentMethodModal";
 import LogoutDialog from "./modals/LogoutDialog";
 import DeleteDialog from "./modals/DeleteDialog";
 import Welldone from "./modals/Welldone";
-import { groupModalStyling } from "@/utils/groupModalStyling";
-import { groupModalShowBtn } from "@/constants";
+import { groupModalShowBtn, groupModalStyling } from "@/constants";
 
 
 const GroupedModals = ({ type, isModalOpen, closeModal }) => {
   return (
     <CustomModal
       isModalOpen={isModalOpen}
-      modalStyling={groupModalStyling(type)}
+      modalContainerStyling="flex-center"
+      modalStyling={groupModalStyling[type]}
       closeModal={closeModal}
       showCloseBtn={groupModalShowBtn[type]}
     >

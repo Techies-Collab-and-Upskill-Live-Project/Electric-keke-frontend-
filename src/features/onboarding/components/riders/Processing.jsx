@@ -8,7 +8,7 @@ const Processing = () => {
     <RiderShared>
       <div className="driverauth">
         <div className="driverauth__processing">
-          <Loader type="spin2" className="size-[153px]" />
+          <Loader type="spin2" />
         </div>
 
         <div className="mt-10">

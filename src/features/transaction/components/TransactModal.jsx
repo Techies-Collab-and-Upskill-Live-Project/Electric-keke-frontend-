@@ -10,7 +10,7 @@ const TransactModal = ({ setRateDriver }) => {
   const { showAlert } = dispatchables();
   const [paySuccessful, setPaySuccessful] = useState(false);
   const { transactionForm } = useGlobalTransactContext();
-// transaction form holds the details to utilize for the the server 
+// grab the data from the transaction form and create logic that verifies payment
   useEffect(() => {
     const time_out = setTimeout(() => {
       showAlert('payment successful');
@@ -18,12 +18,13 @@ const TransactModal = ({ setRateDriver }) => {
     }, 5000);
 
     return () => clearTimeout(time_out);
-  });
+  }, []);
+  
   return (
     <>
       <div className="text-center">
         <div className="size-20 mx-auto">
-          {paySuccessful ? <Congrats /> : <Loader />}
+          {paySuccessful ? <Congrats /> : <Loader type="spin2" />}
         </div>
 
         <Heading

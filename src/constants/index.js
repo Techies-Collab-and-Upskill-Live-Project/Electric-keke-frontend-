@@ -55,7 +55,7 @@ const footer_note =
 const settings = [
   { title: "Profile Management" },
   { title: "Payment Method" },
-  { title: "Notification", href: "/notification" },
+  { title: "Notification" },
   { title: "Security & Privacy" },
   { title: "Support & Feedback" },
   { title: "Delete Account" },
@@ -112,6 +112,14 @@ const map_booking = {
 const map_request = {
   title: "New Ride Request",
   desc: "You just received a new ride request",
+};
+
+export const groupModalStyling = {
+  "Profile Management": "modal__profile",
+  "Payment Method": "modal__paymethod",
+  Logout: "modal__dialog",
+  "Delete Account": "modal__dialog",
+  "edit-profile": "edit-profile__modal",
 };
 
 export {

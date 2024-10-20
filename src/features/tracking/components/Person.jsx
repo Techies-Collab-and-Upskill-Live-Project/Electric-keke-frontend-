@@ -16,9 +16,10 @@ const Person = ({ role, fullname, hasArrived }) => {
   return (
     <div className="person-details">
       <div className="flex items-center gap-x-10">
-        <div className="size-[103px] bg-red-500 rounded-full bg-gradient-to-tl relative from-[#949494] to-neutral">
+        <div className="size-[103px] rounded-full bg-gradient-to-tl relative from-[#949494] to-neutral">
           <ProfilePhoto styling="inset-[3px] absolute" />
         </div>
+
         <div>
           <p className="person-name">{fullname}</p>
           {role === "User" && <p className="rider-status">On his way...</p>}
@@ -37,6 +38,7 @@ const Person = ({ role, fullname, hasArrived }) => {
             className="bg-transparent p-0"
             onClick={() => navigate("/chat")}
           />
+
           <ContactModal
             isModalOpen={isModalOpen}
             openModal={openModal}

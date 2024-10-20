@@ -27,38 +27,37 @@ const UploadImageModal = ({ nextProcess }) => {
   return (
     <CustomModal
       modalStyling="modal__upload"
+      modalContainerStyling="flex-center"
       isModalOpen={isModalOpen}
       openModal={openModal}
       closeModal={closeModal}
       showCloseBtn={false}
     >
       <div className="modal__upload-container">
-        <div className="modal__upload-dropzone">
-          <div className="modal__upload-dropmain">
-            <h3 className="modal__upload__title">
-              Drag and drop Images to upload
-            </h3>
+        <div>
+          <div className="modal__upload-dropzone">
+            <div className="modal__upload-dropmain">
+              <h3 className="modal__upload__title">
+                Drag and drop Images to upload
+              </h3>
 
-            <div className="upload__input">
-              <input
-                type="file"
-                className="size-full"
-                accept=".jpg,.png"
-              />
+              <div className="upload__input">
+                <input type="file" className="size-full" accept=".jpg,.png" />
 
-              <div className="upload__icon">
-                <Upload />
+                <div className="upload__icon">
+                  <Upload />
+                </div>
               </div>
+
+              <Btn
+                text="Select files"
+                styling="btn w-[79%] btn--outline text-sm md:text-base font-semibold"
+              />
             </div>
-
-            <Btn
-              text="Select files"
-              styling="btn w-[79%] btn--outline text-sm md:text-base font-semibold"
-            />
           </div>
+          
+          <p className="upload__text">JPG, PNG file format accepted</p>
         </div>
-
-        <p className="upload__text">JPG, PNG file format accepted</p>
 
         <Btn
           text="Upload"

@@ -3,7 +3,7 @@ import Btn from "@/components/btn/Btn";
 
 const TransactionMethod = () => {
   return (
-    <div className="board__payment-method">
+    <div className="board__payment-method pb-10 md:pb-[200px]">
       <div className="w-full max-w-[488px]">
         <div className="w-full">
           <Btn text="Payment with cash" styling="w-full btn btn--secondary btn--lg" />

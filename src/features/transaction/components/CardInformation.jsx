@@ -10,30 +10,33 @@ const CardInformation = () => {
   } = useGlobalTransactContext();
 
   return (
-    <div className="p-0">
+    <div>
       <span className="font-medium text-base">Card Information</span>
       <div className="">
         <FormRow
-          inputclass="payment-input"
+           inputclass="pay-card-input rounded-t-sm"
           name="number"
           value={number}
           handleChange={handleChange}
           icon={<MasterCircles />}
           iconPosition="right-3"
         />
-        <div className="flex-center -mt-2">
+
+        <div className="grid grid-cols-2 -mt-2">
           <FormRow
             name="expiry"
             value={expiry}
             handleChange={handleChange}
-            styling="w-1/2"
-            inputclass="payment-input"
+            styling="w-full"
+            inputclass="pay-card-input rounded-es-sm"
           />
+
           <FormRow
             name="cvv"
             value={cvv}
             handleChange={handleChange}
-            inputclass="payment-input"
+            styling="w-full"
+            inputclass="pay-card-input rounded-ee-sm"
           />
         </div>
       </div>
