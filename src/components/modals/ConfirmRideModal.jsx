@@ -1,11 +1,14 @@
 import dispatchables from "@/utils/dispatchables";
 import CustomModal from "@/components/CustomModal";
-import FormRow from "../forms/FormRow";
 import Heading from "../Heading";
 import Choose from "../Choose";
 import CheckBox from "../forms/CheckBox";
 
 const ConfirmRideModal = ({ isModalOpen, openModal, closeModal }) => {
+  console.log(
+    "come and refactor the radio box with the radio box input component"
+  );
+
   const { showAlert } = dispatchables();
 
   const handleClick1 = () => {
@@ -22,6 +25,7 @@ const ConfirmRideModal = ({ isModalOpen, openModal, closeModal }) => {
       closeModal={closeModal}
       isModalOpen={isModalOpen}
       modalStyling="modal__confirm"
+      modalContainerStyling="flex-center"
     >
       <Heading
         className="text-center"

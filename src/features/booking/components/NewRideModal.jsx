@@ -43,6 +43,7 @@ const NewRideModal = ({ isModalOpen, openModal, closeModal }) => {
     <CustomModal
       isModalOpen={isModalOpen}
       openModal={openModal}
+      modalContainerStyling="flex-center"
       modalStyling="modal-map__request"
       closeModal={closeModal}
       showCloseBtn={false}

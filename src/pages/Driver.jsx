@@ -21,7 +21,6 @@ const Driver = () => {
   useEffect(() => {
     let time_out = setTimeout(() => {
       openModal();
-      console.log("jose");
     }, 3000);
 
     return () => clearTimeout(time_out);
@@ -42,7 +41,6 @@ const Driver = () => {
             of 5,000
           </p>
           <div className="driver">
-            {/* <ToggleStats /> */}
             <Choose
               containerClass="w-[225px] md:w[310px] h-11 md:h-16 rounded-[2rem] bg-white flex-center mt-6 md:mt-10 py-1 px-2  ml-auto md:mr-5"
               choice1txt={online ? "Online" : "Go Online"}

@@ -16,7 +16,7 @@ const Person = ({ role, fullname, hasArrived }) => {
   return (
     <div className="person-details">
       <div className="flex items-center gap-x-10">
-        <div className="size-[103px] rounded-full bg-gradient-to-tl relative from-[#949494] to-neutral">
+        <div className="size-[50px] md:size-[103px] rounded-full bg-gradient-to-tl relative from-[#949494] to-neutral">
           <ProfilePhoto styling="inset-[3px] absolute" />
         </div>
 
