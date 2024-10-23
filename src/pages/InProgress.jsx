@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/logo.svg";
+// import logo from "../assets/logo.svg";
 
 const InProgress = () => {
   const settings = ["Ride management", "Vehicle tracking", "Payment settings", "Rides and users analytics", "Discount and promotion management"];
