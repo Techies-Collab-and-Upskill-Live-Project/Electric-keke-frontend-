@@ -33,7 +33,7 @@ export const useScroll = () => {
     setScrollPos((prev) => ({ ...prev, initial: event.touches[0].clientY }));
   };
 
-  const TouchEnd = (event) => {
+  const TouchEnd = () => {
     UnlockScroll();
     setScroll(false);
   };

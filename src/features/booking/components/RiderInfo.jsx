@@ -27,6 +27,7 @@ const RiderInfo = () => {
       console.log(booking);
       showAlert("Ride Booking Succefull, Wait a moment");
       setWaiting(true);
+      unloading();
       
       // will be emitting an event here
       // socket.emit('request-ride')

@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { socket_uri } from "../constants/uri";
 import { io } from "socket.io-client";
 
 export const useSocket = () => {

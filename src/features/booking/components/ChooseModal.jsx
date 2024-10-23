@@ -39,7 +39,7 @@ const ChooseModal = ({ type }) => {
       animateMSA={{ y: 0 }}
     >
       {rideForm ? (
-        <RideForm />
+        <RideForm closeModal={closeModal} />
       ) : (
         <ChooseMain
           type={type}

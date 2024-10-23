@@ -1327,11 +1327,11 @@ h2 {
 }
 
 .ride-trip {
-  @apply md:grid md:grid-cols-12 items-center
+  @apply flex items-center
 }
 
 .ride-trip-label {
-  @apply md:col-span-2
+  @apply flex-1
 }
 
 .trip-detail {
@@ -1339,7 +1339,7 @@ h2 {
 }
 
 .ride-trip-location {
-  @apply location-shadow bg-white rounded-[14px] h-14 md:h-[70px] px-5 flex items-center ml-2 w-auto md:col-span-10
+  @apply location-shadow bg-white rounded-[14px] h-14 md:h-[70px] px-5 flex items-center flex-[3] md:flex-[5] ml-2
 }
 
 /******************** personal info ***************/

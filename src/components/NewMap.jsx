@@ -33,12 +33,11 @@ const NewMap = ({ styling = "w-full h-full" }) => {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      alert('jose')
       setMapLatitude(-121);
-          setMapLongitude(2.33);
+      setMapLongitude(2.33);
     }, 3000);
     return () => clearTimeout(timeout);
-  }, [])
+  }, []);
 
   return <div ref={mapElement} className={styling}></div>;
 };

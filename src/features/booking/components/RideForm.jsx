@@ -1,10 +1,10 @@
 import BookingModalForm from "./BookingModalForm";
 import SharedModalMap from "../layouts/SharedModalMap";
 
-const RideForm = () => {
+const RideForm = ({ closeModal }) => {
   return (
     <SharedModalMap type="booking">
-      <BookingModalForm />
+      <BookingModalForm closeModal={closeModal} />
     </SharedModalMap>
   );
 };

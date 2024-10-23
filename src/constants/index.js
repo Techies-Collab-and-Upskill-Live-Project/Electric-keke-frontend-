@@ -122,7 +122,23 @@ export const groupModalStyling = {
   "edit-profile": "edit-profile__modal",
 };
 
+const choose_main = {
+  ride: {
+    title: "Ready To Go?",
+    desc: "Choose how you want to ride with EcoRide",
+    btnText1: "Instant Ride",
+    btnText2: "Schedule Ride",
+  },
+  delivery: {
+    title: "Instant or Scheduled- You Decide!",
+    desc: "Choose how you want to send with EcoRide",
+    btnText1: "Instant Delivery",
+    btnText2: "Schedule Delivery",
+  },
+};
+
 export {
+  choose_main,
   driver_authProcess,
   footer_note,
   formTitle,

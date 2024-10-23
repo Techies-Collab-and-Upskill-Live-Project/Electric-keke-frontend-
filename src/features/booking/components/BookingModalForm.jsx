@@ -41,7 +41,7 @@ const ModalFormInput = ({
   );
 };
 
-const BookingModalForm = () => {
+const BookingModalForm = ({ closeModal }) => {
   const { showAlert, inputDataForBookingRequest, inputBookingData } =
     dispatchables();
 
@@ -70,6 +70,7 @@ const BookingModalForm = () => {
       if (!user) {
         throw new Error("Open an accont");
       }
+      await closeModal();
       navigate("/riders");
     } catch (error) {
       showAlert("Login to book a ride");
