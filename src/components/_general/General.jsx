@@ -19,7 +19,7 @@ const General = () => {
 
   return (
     <AnimatePresence>
-      {show && <Alert />}
+      {show && <Alert key='alert' />}
       {loading && (
         <Loader className="fixed top-5 right-5 z-50" type="spin2" size={30} />
       )}

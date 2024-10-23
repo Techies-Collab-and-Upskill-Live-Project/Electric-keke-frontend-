@@ -2,8 +2,10 @@ import { getItemFromLs } from "@/utils/ls";
 import { RequestOtp } from "../services";
 import dispatchables from "@/utils/dispatchables";
 import { useCountDownTime } from "../hooks/useCountDownTime";
+import { useSelector } from "react-redux";
 
 const ResendOtpTab = ({ verificationType }) => {
+  const { username, email } = useSelector((state) => state.formData);
   const { showAlert } = dispatchables();
 
   const { minutes, seconds } = useCountDownTime();
@@ -15,7 +17,7 @@ const ResendOtpTab = ({ verificationType }) => {
 
         const { detail } = await RequestOtp({
           message_type: "email",
-          username: getItemFromLs("user-email"),
+          username: email,
         });
         showAlert(detail);
         return;
@@ -25,7 +27,7 @@ const ResendOtpTab = ({ verificationType }) => {
         console.log(verificationType);
 
         const { detail } = await RequestOtp({
-          username: getItemFromLs("user-email"),
+          username,
         });
         showAlert(detail);
       }

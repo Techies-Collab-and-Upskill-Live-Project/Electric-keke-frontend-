@@ -16,13 +16,14 @@ const ForgetPassword = ({ nextProcess, prevProcess }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    addItemToLs("user-email", username);
+    // addItemToLs("user-email", username);
+    
     try {
       const { detail } = await RequestOtp({ username });
       showAlert(detail)
       nextProcess();
     } catch (error) {
-      console.log(error);
+      showAlert('error request')
     }
   };
 

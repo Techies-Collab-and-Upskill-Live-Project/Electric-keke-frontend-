@@ -722,19 +722,23 @@ h2 {
 /* h-[4.75rem] container height max */
 
 .rider-container {
-  @apply px-1 pb-20 pt-6 md:pt-[7.6rem] lg:pt-[185px] md:pb-10 home-pad
+  @apply px-1 pb-5 pt-6 md:pt-[7.6rem] lg:pt-[185px] md:pb-10 home-pad
 }
 
 .rider-sub-header {
   @apply flex items-center justify-between
 }
 
-.rider-index-container {
-  @apply grid grid-cols-2 tablet:grid-cols-3 gap-x-2 md:gap-x-6 gap-y-2 mt-7 relative
+.available-riders__wrapper {
+  @apply flex flex-wrap gap-6 md:gap-x-[17px] md:gap-y-2 justify-between
 }
 
 .rider {
-  @apply aspect-[1/1.3] md:h-[358px] lg:h-[498px] relative rounded-[9px] md:rounded-[20px] overflow-hidden;
+  @apply w-[calc(100%/2-12px)] md:w-[calc(100%/3-12px)] h-[15rem] md:h-[358px] lg:h-[498px] relative
+}
+
+.rider-image {
+  @apply image rounded-[9px] md:rounded-[14px] lg:rounded-[20px]
 }
 
 .rider-overlay {

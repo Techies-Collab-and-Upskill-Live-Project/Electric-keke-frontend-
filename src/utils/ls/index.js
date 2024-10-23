@@ -8,8 +8,7 @@ const getItemFromLs = (item) => {
 };
 
 const addItemToLs = (key, item) => {
-  localStorage.setItem(key, JSON.stringify(item));
-  // console.log(item, "added succesfully");
+  key && localStorage.setItem(key, JSON.stringify(item));
 };
 
 const deletItemFromLs = (key) => {

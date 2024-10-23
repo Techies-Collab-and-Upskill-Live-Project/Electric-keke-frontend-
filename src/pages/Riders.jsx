@@ -4,11 +4,6 @@ import { Outlet } from "react-router-dom";
 import Btn from "@/components/btn/Btn";
 
 const Riders = () => {
-  const [ridersTitle, setRidersTitle] = useState("Available Riders");
-
-  const switchRiderTitle = (title) => {
-    setRidersTitle(title);
-  };
 
   return (
     <Section darkLogo={true} mobileHeaderStyle="mobile-header">
@@ -21,7 +16,7 @@ const Riders = () => {
             <Btn styling="bg-transparent rounded-full" />
           </div>
 
-          <Outlet context={{ ridersTitle, switchRiderTitle }} />
+            <Outlet />
         </div>
       </div>
     </Section>

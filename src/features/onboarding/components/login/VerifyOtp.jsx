@@ -1,16 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { changeInputValue } from "@/store/slices/form-data-slice";
-import SharedStep from "../../layouts/SharedStep";
 import { getItemFromLs } from "@/utils/ls";
-import Btn from "@/components/btn/Btn";
 import { useAreInputsFilled } from "../../hooks/useAreInputsFilled";
-import OtpInput from "../OtpInput";
-import ResendOtpTab from "../ResendOtpTab";
-import Assurance from "../Assurance";
 import { OtpVerification } from "../../services";
 import { onboarding_descs } from "../../constants";
-import OtpTick from "../../assets/svg/OtpTick";
 import dispatchables from "@/utils/dispatchables";
+import ActivateVerify from "../sharedSteps/ActivateVerify";
 
 const VerifyOtp = ({ nextProcess, prevProcess }) => {
   const { otpValue } = useSelector((state) => state.formData);
@@ -42,42 +37,17 @@ const VerifyOtp = ({ nextProcess, prevProcess }) => {
   };
 
   return (
-    <SharedStep
+    <ActivateVerify
       text={onboarding_descs.reset_otp}
       headTitle="Enter Code"
       headDesc="Please enter the one time password sent (OTP)"
       prevProcess={prevProcess}
-    >
-      <form className="onboarding__verify--form" onSubmit={handleSubmit}>
-        <div className="flex items-start gap-x-3">
-          <div className="max-w-[438px] space-y-4 w-[calc(100%-20px)]">
-            <div>
-              <OtpInput
-                value={otpValue}
-                handleChange={(value) => {
-                  setOtpValue(value);
-                }}
-              />
-            </div>
-
-            <ResendOtpTab verificationType="update-password" />
-          </div>
-
-          <div className="pt-5">
-            <OtpTick condition={!isDisbaled} color="#77BB77" />
-          </div>
-        </div>
-
-        <div className="max-w-[343px] mx-auto space-y-4 mt-6 lg:mt-14">
-          <Btn
-            text="Continue"
-            styling="btn btn--lg btn--primary w-full rounded-full"
-            disabled={isDisbaled}
-          />
-          <Assurance />
-        </div>
-      </form>
-    </SharedStep>
+      handleFormSubmit={handleSubmit}
+      otpValue={otpValue}
+      setOtpValue={setOtpValue}
+      verificationType="update-password"
+      isDisbaled={isDisbaled}
+    />
   );
 };
 

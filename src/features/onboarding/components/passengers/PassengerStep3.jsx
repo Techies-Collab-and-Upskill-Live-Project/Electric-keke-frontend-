@@ -26,7 +26,7 @@ const PassengerStep3 = ({ nextProcess, prevProcess }) => {
       nextProcess();
     } catch (error) {
       const errorArr = error.data;
-      (await errorArr) ? showAlert(errorArr[0]) : showAlert("Server Error");
+       errorArr ? showAlert(errorArr[0]) : showAlert("Server Error");
       // nextProcess();
     }
   };

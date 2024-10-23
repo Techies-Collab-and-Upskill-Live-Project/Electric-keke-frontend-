@@ -6,7 +6,7 @@ import RegularList from "@/components/_design-patterns/RegularList";
 import { GetAvailableRiders } from "../services/GetAvailableRiders";
 import { useResource } from "@/hooks/useResource";
 import { useArray } from "@/hooks/useArray";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const RiderIndex = () => {
   useTitle("Riders");
@@ -14,6 +14,7 @@ const RiderIndex = () => {
     GetAvailableRiders,
     "riders"
   );
+  const [navigationLink, setNavigationLink] = useState("");
 
   // for development purpose
   const { array: arrayOfMockRiders, substituteItemsProps } = useArray(riders);
@@ -34,22 +35,34 @@ const RiderIndex = () => {
   return isLoading ? (
     <div>Loadding ...</div>
   ) : (
-    <AnimatePresence>
-      <motion.div
-        initial={{ x: 200, opacity: 1 }}
-        animate={{ x: 0, opacity: 1 }}
-        exit={{ x: -200, opacity: 0 }}
-        transition={{ duration: 0.65, type: "just" }}
-        className="grid grid-cols-2 md:grid-cols-3 gap-x-2 md:gap-x-6 gap-y-2 mt-7 relative rider-index"
-      >
-        {availableRiders.length < 1 ? (
-          <div className="border col-span-3">
-            <h2>No availble riders at the moment</h2>
-          </div>
-        ) : (
+    <AnimatePresence
+      onExitComplete={() => {
+        console.log("completed");
+      }}
+    >
+      {availableRiders.length < 1 ? (
+        <motion.div
+          key="no-riders"
+          initial={{ x: 200, opacity: 1 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={true && { x: -200, opacity: 0 }}
+          transition={{ duration: 0.65, type: "just" }}
+          className="avaible-riders__wrapper col-span-3"
+        >
+          <h2>No availble riders at the moment</h2>
+        </motion.div>
+      ) : (
+        <motion.div
+          key="riders"
+          initial={{ x: 200, opacity: 1 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={true && { x: -200, opacity: 0, transition: { duration: 3 } }}
+          transition={{ duration: 0.65, type: "just" }}
+          className="available-riders__wrapper"
+        >
           <RegularList component={Rider} list={arrayOfMockRiders} />
-        )}
-      </motion.div>
+        </motion.div>
+      )}
     </AnimatePresence>
   );
 };
