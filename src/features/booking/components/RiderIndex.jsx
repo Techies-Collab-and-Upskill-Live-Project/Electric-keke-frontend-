@@ -60,7 +60,11 @@ const RiderIndex = () => {
           transition={{ duration: 0.65, type: "just" }}
           className="available-riders__wrapper"
         >
-          <RegularList component={Rider} list={arrayOfMockRiders} />
+          <RegularList
+            component={Rider}
+            list={arrayOfMockRiders}
+            keyExtractor={arrayOfMockRiders.map((item) => item.id)}
+          />
         </motion.div>
       )}
     </AnimatePresence>

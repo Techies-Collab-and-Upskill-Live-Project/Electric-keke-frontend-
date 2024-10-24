@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Section from "../layouts/Section";
+import { Section } from "@/layouts";
 import Edit from "../assets/svg/Edit";
 import SettingIcon from "../assets/svg/SettingIcon";
 import Spear from "../assets/svg/Spear";

@@ -1,6 +1,6 @@
 import GroupedModals from "@/components/GroupedModals";
 import React, { useState } from "react";
-import Section from "@/layouts/Section";
+import { Section } from "@/layouts";
 import { useModal } from "@/hooks/useModal";
 import SettingHeader from "@/features/profile/components/SettingHeader";
 import SettingNav from "@/features/profile/components/SettingNav";

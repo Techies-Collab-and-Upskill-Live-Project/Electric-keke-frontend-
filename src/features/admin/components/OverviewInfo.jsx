@@ -11,6 +11,7 @@ import { useGlobalAdminContext } from "../context/AdminContext";
 
 const OverviewInfo = () => {
   const { currentAdminPage, changeContentToDisplay } = useGlobalAdminContext();
+
   return (
     <div className="overview-info">
       <Heading

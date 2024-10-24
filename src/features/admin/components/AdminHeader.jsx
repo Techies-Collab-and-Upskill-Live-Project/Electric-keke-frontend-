@@ -1,8 +1,6 @@
 import SearchIcon from "../../../assets/svg/SearchIcon";
-import Bell from "../../../assets/svg/Bell";
 import { LogoPlain } from "@/assets/svg/Logo";
 import { SmallInfo } from "../../../components/SmallInfo";
-import { BellIcon } from "lucide-react";
 
 const AdminHeader = () => {
   return (
@@ -13,7 +11,6 @@ const AdminHeader = () => {
         <div className="admin-icon">
           <SearchIcon />
         </div>
-        {/* <NotificationBell icon={<BellIcon size={38} color="black" />} /> */}
 
         <SmallInfo admin />
       </div>

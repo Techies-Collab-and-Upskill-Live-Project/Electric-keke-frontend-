@@ -1,4 +1,4 @@
-import Section from "@/layouts/Section";
+import { Section } from "@/layouts";
 import useTitle from "@/hooks/useTitle";
 import Footer from "@/components/Footer";
 import {

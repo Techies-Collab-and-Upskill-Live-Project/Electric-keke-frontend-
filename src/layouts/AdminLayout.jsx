@@ -6,6 +6,7 @@ import OverviewInfo from "../features/admin/components/OverviewInfo";
 import AdminHeader from "../features/admin/components/AdminHeader";
 import AdminSideBar from "@/features/admin/components/AdminSideBar";
 import { useGlobalAdminContext } from "@/features/admin/context/AdminContext";
+import { show_board } from "@/features/admin/constants";
 
 const AdminLayout = () => {
   const { currentAdminPage } = useGlobalAdminContext();
@@ -14,12 +15,12 @@ const AdminLayout = () => {
       <AdminHeader />
 
       <div className="flex items-start gap-x-10">
-        <AdminSideBar />
+        <AdminSideBar currentAdminPage={currentAdminPage} />
 
         <div className="overview">
-          {currentAdminPage !== "Financial Management" && <BoardManagement />}
+          {show_board[currentAdminPage] && <BoardManagement />}
 
-          <OverviewInfo />
+          {currentAdminPage !== "Settings" && <OverviewInfo />}
 
           {(currentAdminPage === "Overview" ||
             currentAdminPage === "Financial Management") && <Analytics />}

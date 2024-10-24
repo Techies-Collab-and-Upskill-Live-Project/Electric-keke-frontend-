@@ -99,9 +99,9 @@ module.exports = {
           300: "#CC7914",
         },
         error: {
+          DEFAULT: "#8C1823",
           100: "#E4626F",
           200: "#C03744",
-          300: "#8C1823",
         },
         // "basic": {
         //   DEFAULT: "#77BB77",
@@ -165,7 +165,7 @@ module.exports = {
         },
         "base-white": "#FAFAFA",
         head: "#5CAE5C",
-        error: "#C03744",
+        // error: "#C03744",
         peach: "#EDA14580",
         info: "#0A0B0A",
         tertiary: "#F5F5F5",

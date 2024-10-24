@@ -1,7 +1,7 @@
 import Footer from "@/components/Footer";
 import { ContactSupport, Faq, Hero } from "@/features/landing";
 import useTitle from "@/hooks/useTitle";
-import Section from "@/layouts/Section";
+import { Section } from "@/layouts";
 import { useSelector } from "react-redux";
 
 const Support = () => {

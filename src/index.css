@@ -1060,7 +1060,7 @@ h2 {
 
 /********************** Admin ****************/
 .admin-header {
-  @apply flex items-center justify-between h-[104px] pl-8 pr-[7.75rem]
+  @apply flex items-center justify-between h-[104px] pl-8 pr-[7.75rem] border
 }
 
 .admin-icon {
@@ -1092,7 +1092,7 @@ h2 {
 }
 
 .admin-sidebar {
-  @apply w-[300px] mt-[77px] min-h-screen pb-20 flex flex-col items-center
+  @apply w-[300px] min-h-screen pb-20 flex flex-col items-center
 }
 
 .admin_nav {
@@ -1108,7 +1108,7 @@ h2 {
 }
 
 .admin-footer-item {
-  @apply flex items-center gap-2 w-full max-w-[233px] py-3 pl-5 rounded-[14px] border
+  @apply flex items-center gap-2 w-full max-w-[233px] py-3 pl-5 rounded-[14px] border text-sm
 }
 
 /************ reusable form **************/

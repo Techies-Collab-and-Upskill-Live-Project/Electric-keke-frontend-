@@ -34,7 +34,11 @@ const MobileNav = ({ blur }) => {
 
           <SheetClose asChild>
             <nav className="mobile-navigation">
-              <RegularList list={nav_links} component={MobileNavListItem} />
+              <RegularList
+                list={nav_links}
+                component={MobileNavListItem}
+                keyExtractor={nav_links.map((item) => item.title)}
+              />
 
               <MobileNavListItem
                 href="/authentication/login"

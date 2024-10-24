@@ -14,6 +14,7 @@ const AdminNav = () => {
         list={admin_nav_links}
         component={AdminNavListItem}
         activeLink={activeLink}
+        keyExtractor={admin_nav_links.map(item => item.title)}
       />
     </nav>
   );

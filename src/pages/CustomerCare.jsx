@@ -1,10 +1,10 @@
 import { ChatBoard, Messaging } from "@/features/contact";
-import Section from "../layouts/Section";
 import Heading from "@/components/Heading";
 import Btn from "@/components/btn/Btn";
 import { ArrowLeft } from "lucide-react";
 import TypingBoard from "@/features/contact/components/TypingBoard";
 import { goBack } from "@/utils/goBack";
+import { Section } from "@/layouts";
 
 const CustomerCare = () => {
   return (

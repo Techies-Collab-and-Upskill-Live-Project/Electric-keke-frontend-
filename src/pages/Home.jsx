@@ -8,7 +8,7 @@ import {
   Testimonial,
 } from "@/features/landing";
 import useTitle from "@/hooks/useTitle";
-import Section from "@/layouts/Section";
+import { Section } from "@/layouts";
 
 const Home = () => {
   useTitle("Home");

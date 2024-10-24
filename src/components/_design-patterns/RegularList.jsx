@@ -1,8 +1,18 @@
-const RegularList = ({ list, component: Component, ...props }) => {
+const RegularList = ({
+  list,
+  component: Component,
+  keyExtractor,
+  ...props
+}) => {
+  console.log(keyExtractor);
   return (
     <>
       {list.map((item, index) => (
-        <Component key={index} {...{ ...item, ...props }} />
+        <Component
+          // key={index}
+          key={keyExtractor[index]}
+          {...{ ...item, ...props }}
+        />
       ))}
     </>
   );

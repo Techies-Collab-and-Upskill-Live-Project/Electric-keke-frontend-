@@ -50,6 +50,7 @@ const Footer = () => {
             <ul className="flex items-center gap-5 mt-5">
               <RegularList
                 list={socials}
+                keyExtractor={socials.map((item) => item.title)}
                 component={({ title, icon }) => (
                   <div className="social-link">
                     <img src={icon} alt={title} />

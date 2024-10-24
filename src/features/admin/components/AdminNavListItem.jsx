@@ -20,7 +20,11 @@ const AdminNavListItem = ({ href, title, icon: Icon, ...props }) => {
       <div className={`admin_nav_link ${isActive && "bg-basic"}`}>
         <Icon color={isActive ? "white" : "black"} />
 
-        <p className={`text-sm font-axiforma ${isActive && "text-white"}`}>
+        <p
+          className={`text-sm font-axiforma ${
+            isActive ? "text-white font-semibold" : "font-medium"
+          }`}
+        >
           {title}
         </p>
       </div>

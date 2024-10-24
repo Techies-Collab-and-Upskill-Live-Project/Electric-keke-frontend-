@@ -1,20 +1,22 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useGlobalAuthContext } from "../contexts/AuthContext";
-import AdminLayout from "./AdminLayout";
-import CustomerCare from "../pages/CustomerCare";
-import Driver from "../pages/Driver";
-import Profile from "../pages/Profile";
-import Riders from "../pages/Riders";
-import InProgress from "../pages/InProgress";
-import Tracking from "@/pages/Tracking";
-import ChatConnect from "@/pages/ChatConnect";
-import Schedule from "@/pages/Schedule";
-import Settings from "@/pages/Settings";
-import Transaction from "@/pages/Transaction";
 import { RiderIndex, RiderInfo } from "@/features/booking";
-import FinancialManagement from "@/pages/admin/FinancialManagement";
-import UserManagement from "@/pages/admin/UserManagement";
+import AdminLayout from "./AdminLayout";
+import {
+  AdminSettings,
+  ChatConnect,
+  CustomerCare,
+  Driver,
+  FinancialManagement,
+  Profile,
+  Riders,
+  Schedule,
+  Settings,
+  Tracking,
+  Transaction,
+  UserManagement,
+} from "@/pages";
 
 const ProtectedRoute = () => {
   const { isAuthenticated } = useGlobalAuthContext();
@@ -24,7 +26,7 @@ const ProtectedRoute = () => {
       <Route path="/admin" element={<AdminLayout />}>
         <Route path="user-management" element={<UserManagement />} />
         <Route path="financial-management" element={<FinancialManagement />} />
-        <Route path="settings" element={<InProgress />} />
+        <Route path="settings" element={<AdminSettings />} />
       </Route>
       <Route path="/driver/:id" element={<Driver />} />
       <Route path="/schedule-ride" element={<Schedule />} />

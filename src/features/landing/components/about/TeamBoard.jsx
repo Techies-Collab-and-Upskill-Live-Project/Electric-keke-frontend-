@@ -5,7 +5,7 @@ import TeamMember from "./TeamMember";
 const TeamBoard = () => {
   return (
     <div className="team-board">
-      <RegularList list={team} component={TeamMember} />
+      <RegularList list={team} component={TeamMember} keyExtractor={team.map(item => item.name)} />
     </div>
   );
 };

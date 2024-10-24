@@ -6,7 +6,7 @@ import {
   Services,
   StandOut,
 } from "@/features/landing";
-import Section from "@/layouts/Section";
+import { Section } from "@/layouts";
 
 const About = () => {
   return (

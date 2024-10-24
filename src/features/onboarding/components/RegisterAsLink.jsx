@@ -7,7 +7,7 @@ const RegisterAsLink = ({ title, icon, role }) => {
   const { registerAs } = useSelector((state) => state.global);
   const { chooseRole } = dispatchables();
   return (
-    <Link to="/onboarding/registration" key={title}>
+    <Link to="/onboarding/registration">
       <div
         className={`register__options ${role === registerAs && "chosen-option"}`}
         onMouseOver={() => {

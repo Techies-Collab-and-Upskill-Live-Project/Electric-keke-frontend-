@@ -4,14 +4,14 @@ import { useResource } from "../../../hooks/useResource";
 import CountUp from "react-countup";
 
 const Board = ({ title, icon }) => {
-  const resource = useResource(() => getAnalytics()) || null;
+  const { resource } = useResource(() => getAnalytics()) || null;
 
   return (
     <div className="border p-5 rounded-[12px] bg-white">
       <div className="flex items-center justify-between">
         <p className="text-sm font-bold text-silver">{title}</p>
         <div
-          className="size-10 rounded-full flex-center bg-eco-white"
+          className="size-10 rounded-full flex-center bg-neutral"
           style={{
             filter:
               "drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1)) drop-shadow(0 4px 4px rgba(0, 0, 0, 0.09))",

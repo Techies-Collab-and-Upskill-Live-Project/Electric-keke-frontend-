@@ -21,7 +21,11 @@ const Services = ({ type = "main" }) => {
       />
 
       <div className="services">
-        <RegularList list={services} component={Service} />
+        <RegularList
+          list={services}
+          component={Service}
+          keyExtractor={services.map((item) => item.title)}
+        />
       </div>
     </section>
   );

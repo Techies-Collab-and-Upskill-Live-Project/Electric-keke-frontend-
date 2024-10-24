@@ -1,7 +1,7 @@
 import SearchBar from "@/components/SearchBar";
 import React, { useState } from "react";
 import dispatchables from "@/utils/dispatchables";
-import Section from "@/layouts/Section";
+import { Section } from "@/layouts";
 import { ScheduleBoard, ScheduleForm } from "@/features/scheduling";
 import Choose from "@/components/Choose";
 

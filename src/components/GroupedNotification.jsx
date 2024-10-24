@@ -11,7 +11,11 @@ const GroupedNotification = ({ title }) => {
       </div>
 
       <div className="px-4 md:px-[50px]">
-        <RegularList component={Notify} list={notifications} />
+        <RegularList
+          component={Notify}
+          list={notifications}
+          keyExtractor={notifications.map((item) => item.subject)}
+        />
       </div>
     </div>
   );

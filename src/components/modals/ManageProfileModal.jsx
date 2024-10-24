@@ -43,9 +43,11 @@ const ManageProfileModal = () => {
               { title: "Change Password" },
             ]}
             component={ProfileOption}
-            handleClick={(title) => {
-              setTitle(title);
-            }}
+            handleClick={(title) => setTitle(title)}
+            keyExtractor={[
+              { title: "Personal Information" },
+              { title: "Change Password" },
+            ].map((item) => item.title)}
           />
         </div>
       ) : (
@@ -87,7 +89,9 @@ const ManageProfileModal = () => {
             text="Confirm"
             styling="btn btn--hero btn--primary w-full max-w-[343px] mx-auto"
             onClick={() =>
-              title === "Personal Information" ? updateProfile() : changePassword()
+              title === "Personal Information"
+                ? updateProfile()
+                : changePassword()
             }
           />
         </div>

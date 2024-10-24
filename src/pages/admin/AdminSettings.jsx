@@ -1,7 +1,6 @@
 import React from "react";
-// import logo from "../assets/logo.svg";
 
-const InProgress = () => {
+const AdminSettings = () => {
   const settings = [
     "Ride management",
     "Vehicle tracking",
@@ -24,4 +23,4 @@ const InProgress = () => {
   );
 };
 
-export default InProgress;
+export default AdminSettings;

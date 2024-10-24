@@ -1,5 +1,4 @@
-import Section from "../layouts/Section";
-import React, { useState } from "react";
+import { Section } from "@/layouts";
 import { Outlet } from "react-router-dom";
 import Btn from "@/components/btn/Btn";
 

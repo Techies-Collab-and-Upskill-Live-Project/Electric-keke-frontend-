@@ -162,3 +162,17 @@ export const translate_filter_option = {
   Ride: "Complete",
   Deliveries: "Pending",
 };
+
+export const show_board = {
+  Overview: true,
+  "User Management": true,
+  "Financial Management": false,
+  Settings: false,
+};
+
+export const sideBarMargin = {
+  Overview: "mt-[77px]",
+  "User Management": "mt-[77px]",
+  "Financial Management": "mt-[77px]",
+  Settings: "mt-0",
+};

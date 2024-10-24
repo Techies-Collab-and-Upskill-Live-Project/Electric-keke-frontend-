@@ -13,7 +13,6 @@ export const useResource = (callback, key) => {
         setIsLoading(true);
         try {
           const data = await callback();
-          console.log(data);
           setResource(data);
           addItemToLs(key, data);
           setIsLoading(false);
