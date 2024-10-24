@@ -2,8 +2,8 @@ import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useGlobalAuthContext } from "../contexts/AuthContext";
 import { RiderIndex, RiderInfo } from "@/features/booking";
-import AdminLayout from "./AdminLayout";
 import {
+  Admin,
   AdminSettings,
   ChatConnect,
   CustomerCare,
@@ -15,7 +15,6 @@ import {
   Settings,
   Tracking,
   Transaction,
-  UserManagement,
 } from "@/pages";
 
 const ProtectedRoute = () => {
@@ -23,11 +22,7 @@ const ProtectedRoute = () => {
 
   return isAuthenticated ? (
     <Routes>
-      <Route path="/admin" element={<AdminLayout />}>
-        <Route path="user-management" element={<UserManagement />} />
-        <Route path="financial-management" element={<FinancialManagement />} />
-        <Route path="settings" element={<AdminSettings />} />
-      </Route>
+      <Route path="/admin/*" element={<Admin />} />
       <Route path="/driver/:id" element={<Driver />} />
       <Route path="/schedule-ride" element={<Schedule />} />
       <Route path="/riders" element={<Riders />}>

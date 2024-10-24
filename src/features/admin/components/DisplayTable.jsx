@@ -14,15 +14,23 @@ import UserManagementTableContent from "./UserManagementTableContent";
 import FinanceManagementTableContent from "./FinanceManagementTableContent";
 import { Pagination } from "..";
 
-const DisplayTable = ({ columnsData, bodyData, type }) => {
+const DisplayTable = ({ columnsData, bodyData, tableFor, isLoading }) => {
   console.log(bodyData);
 
   const displayBodyContent = () => {
-    switch (type) {
+    switch (tableFor) {
       case "users":
-        return <UserManagementTableContent data={bodyData} />;
+        return isLoading ? (
+          <div>loading...</div>
+        ) : (
+          <UserManagementTableContent data={bodyData} />
+        );
       case "finances":
-        return <FinanceManagementTableContent data={bodyData} />;
+        return isLoading ? (
+          <div>loading...</div>
+        ) : (
+          <FinanceManagementTableContent data={bodyData} />
+        );
       default:
         break;
     }

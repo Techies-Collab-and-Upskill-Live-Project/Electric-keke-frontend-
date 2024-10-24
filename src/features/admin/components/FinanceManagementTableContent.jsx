@@ -20,7 +20,7 @@ const FinanceManagementTableContent = ({ data }) => {
               <p>{transaction_id}</p>
             </TableItem>
 
-            <TableItem styling="flex items-center gap-x-2 py-4 w-[15%] border">
+            <TableItem styling="flex items-center gap-x-2 py-4 w-[15%]">
               <p>{status}</p>
             </TableItem>
 

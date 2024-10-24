@@ -10,7 +10,7 @@ export const finance_management_tablehead = [
   },
   {
     title: "Status",
-    styling: "py-4 flex items-center w-[15%] text-[#525252] font-semibold border",
+    styling: "py-4 flex items-center w-[15%] text-[#525252] font-semibold",
   },
   {
     title: "Name",
@@ -175,4 +175,16 @@ export const sideBarMargin = {
   "User Management": "mt-[77px]",
   "Financial Management": "mt-[77px]",
   Settings: "mt-0",
+};
+
+export const user_fetch_options = {
+  All: "All",
+  "Inactive Users": "inactive",
+  "Active Users": "active",
+};
+
+export const finances_fetch_options = {
+  All: "All",
+  Complete: "Complete",
+  Pending: "Pending",
 };

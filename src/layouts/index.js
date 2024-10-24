@@ -1,4 +1,4 @@
-import AdminLayout from "./AdminLayout";
+import AdminLayout from "../pages/Admin";
 import ProtectedRoute from "./Private";
 import Section from "./Section";
 

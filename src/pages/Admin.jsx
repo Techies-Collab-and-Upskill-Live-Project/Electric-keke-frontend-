@@ -1,14 +1,12 @@
-import React, { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import BoardManagement from "../features/admin/components/BoardManagement";
-import Analytics from "../features/admin/components/Analytics";
-import OverviewInfo from "../features/admin/components/OverviewInfo";
 import AdminHeader from "../features/admin/components/AdminHeader";
 import AdminSideBar from "@/features/admin/components/AdminSideBar";
 import { useGlobalAdminContext } from "@/features/admin/context/AdminContext";
 import { show_board } from "@/features/admin/constants";
+import { AdminOverview, AdminSettings, FinancialManagement, UserManagement } from ".";
 
-const AdminLayout = () => {
+const Admin = () => {
   const { currentAdminPage } = useGlobalAdminContext();
   return (
     <section>
@@ -20,16 +18,19 @@ const AdminLayout = () => {
         <div className="overview">
           {show_board[currentAdminPage] && <BoardManagement />}
 
-          {currentAdminPage !== "Settings" && <OverviewInfo />}
-
-          {(currentAdminPage === "Overview" ||
-            currentAdminPage === "Financial Management") && <Analytics />}
-
-          <Outlet />
+          <Routes>
+            <Route index element={<AdminOverview />} />
+            <Route path="/user-management" element={<UserManagement />} />
+            <Route
+              path="financial-management"
+              element={<FinancialManagement />}
+            />
+            <Route path="settings" element={<AdminSettings />} />
+          </Routes>
         </div>
       </div>
     </section>
   );
 };
 
-export default AdminLayout;
+export default Admin;

@@ -1,19 +1,20 @@
-const fetchContent = (time, option, contentType, users, finances) => {
-  console.log(option);
-  console.log(contentType)
+const fetchContentForTable = (
+  tableContent,
+  contentsToDisplay,
+  propToFilter,
+  propModel,
+  time = 5000
+) => {
+  console.log(contentsToDisplay);
   return new Promise((resolve) => {
+    const data =
+      contentsToDisplay === "All"
+        ? tableContent
+        : tableContent.filter((item) => item[propToFilter] === propModel);
     setTimeout(() => {
-      let contents;
-      if (option === "All") {
-        contentType === "user" ? (contents = users) : (contents = finances);
-      } else {
-        contentType === "user"
-          ? (contents = users.filter((item) => item.status === option))
-          : (contents = finances.filter((item) => item.status === option));
-      }
-      resolve(contents);
+      resolve(data);
     }, time);
   });
 };
 
-export default fetchContent;
+export default fetchContentForTable;

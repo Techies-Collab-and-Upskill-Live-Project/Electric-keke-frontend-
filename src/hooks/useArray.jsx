@@ -2,16 +2,19 @@ import { comparison } from "@/utils/comparison";
 import { useCallback, useState } from "react";
 
 export const useArray = (defaultArr) => {
-  const [array, setArray] = useState(defaultArr);
+  const [stableArray, setStableArray] = useState(defaultArr);
+  const [unstableArray, setUnstableArray] = useState(stableArray);
 
-  const addToArray = (newArrItem) => setArray([...array, newArrItem]);
+  const addToArray = (newArrItem) =>
+    setUnstableArray([...unstableArray, newArrItem]);
 
-  const combineAnotherArray = (newArr) => setArray([...array, ...newArr]);
+  const combineAnotherArray = (newArr) =>
+    setUnstableArray([...unstableArray, ...newArr]);
 
+  // we changing properties of the particular item
   const setArrayItem = useCallback((itemIndex, itemProp, comparisonType) => {
-    console.log("come and fix the issue with set Array Item for aut process");
-    setArray(
-      array.map((item, index) => {
+    setUnstableArray(
+      unstableArray.map((item, index) => {
         return comparison(itemIndex, index, comparisonType)
           ? { ...item, ...itemProp }
           : item;
@@ -19,14 +22,27 @@ export const useArray = (defaultArr) => {
     );
   }, []);
 
-  const substituteItemsProps = (props) =>
-    setArray((prev) => prev.map((item) => ({ ...item, ...props })));
+  // we changing properties of the unstableArray items
+  const substituteItemsProps = (props) => {
+    setUnstableArray((prev) => prev.map((item) => ({ ...item, ...props })));
+  };
+
+  const filterArrayItems = (propToUseForFilter, modelProp) => {
+    setUnstableArray(
+      stableArray.filter((item) => item[propToUseForFilter] !== modelProp)
+    );
+  };
+
+  const resetArray = () => stableArray
 
   return {
-    array,
+    unstableArray,
     addToArray,
     combineAnotherArray,
     substituteItemsProps,
     setArrayItem,
+    filterArrayItems,
+    resetArray,
+    setStableArray,
   };
 };

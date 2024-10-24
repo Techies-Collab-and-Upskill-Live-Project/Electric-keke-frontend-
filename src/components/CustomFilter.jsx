@@ -9,9 +9,8 @@ import Btn from "./btn/Btn";
 import { FilterIcon } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
-const CustomFilter = ({ filterGroups, handleClick }) => {
+const CustomFilter = ({ children }) => {
   const [showFilter, setShowFilter] = useState(false);
-  const [timing, setTiming] = useState(null);
 
   return (
     <FilterSheet>
@@ -26,43 +25,12 @@ const CustomFilter = ({ filterGroups, handleClick }) => {
       <AnimatePresence>
         {showFilter && (
           <motion.div
-            initial={{ opacity: 0, x: 200 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -200 }}
+            initial={{ opacity: 0, scale: 2 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0 }}
             className="absolute bg-white z-10 min-w-[185px] shadow-2xl rounded-[6px] p-1"
-            onAnimationStart={() => {
-              setTiming(
-                setTimeout(() => {
-                  setShowFilter(false);
-                }, 5000)
-              );
-            }}
-            onMouseEnter={() => setTiming(null)}
-            onMouseLeave={() => setShowFilter(false)}
           >
-            {filterGroups &&
-              filterGroups.map((group) => {
-                return (
-                  <FilterGroup
-                    label={group.label}
-                    labelStyle={group.labelStyle}
-                    key={group.label}
-                    styling={group.styling}
-                    container_styles={group.option_container}
-                  >
-                    {group.options.map((option) => {
-                      return (
-                        <FilterGroupItem
-                          styling={group.itemStyle}
-                          onClick={() => handleClick(option)}
-                        >
-                          {option}
-                        </FilterGroupItem>
-                      );
-                    })}
-                  </FilterGroup>
-                );
-              })}
+            {children}
           </motion.div>
         )}
       </AnimatePresence>

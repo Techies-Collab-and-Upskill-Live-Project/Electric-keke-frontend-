@@ -1,6 +1,8 @@
+import Admin from "./Admin";
 import FinancialManagement from "./admin/FinancialManagement";
 import UserManagement from "./admin/UserManagement";
 import AdminSettings from "./admin/AdminSettings";
+import AdminOverview from "./admin/AdminOverview";
 import About from "./About";
 import ChatConnect from "./ChatConnect";
 import CustomerCare from "./CustomerCare";
@@ -20,9 +22,11 @@ import Tracking from "./Tracking";
 import Transaction from "./Transaction";
 
 export {
+  Admin,
   FinancialManagement,
   UserManagement,
   AdminSettings,
+  AdminOverview,
   About,
   ChatConnect,
   CustomerCare,
