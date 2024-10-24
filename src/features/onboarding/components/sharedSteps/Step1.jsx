@@ -29,22 +29,18 @@ const Step1 = ({ nextProcess, prevProcess }) => {
 
   const handleSubmit = () => {
     if (!standardPassword) {
-      showAlert("password does not meet requirement");
+      showAlert("password does not meet requirement", "danger");
       return;
     }
 
     if (password !== re_password) {
-      showAlert("password unmatched");
+      showAlert("passwords does not match", "danger");
       return;
     }
     nextProcess();
   };
 
-  const goToLogin = () => {
-    addItemToLs("onboarding-process", 0);
-    addItemToLs("registeringAs", "Login");
-    // location.reload();
-  };
+  const goToLogin = () => addItemToLs("onboarding-process", 0);
 
   return (
     <SharedStep
@@ -63,7 +59,7 @@ const Step1 = ({ nextProcess, prevProcess }) => {
         <p className="switch-login my-[50px]">
           Already have an account?{" "}
           <Link
-            to="/onboarding/registration"
+            to="/onboarding/login"
             onClick={goToLogin}
             className="text-basic font-inter"
           >

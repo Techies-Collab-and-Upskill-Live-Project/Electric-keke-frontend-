@@ -25,7 +25,7 @@ const ActivateVerify = ({
     >
       <form className="onboarding__verify--form" onSubmit={handleFormSubmit}>
         <div className="flex items-start gap-x-3">
-          <div className="max-w-[438px] space-y-4 w-[calc(100%-20px)]">
+          <div className="max-w-[438px] space-y-4 w-[calc(100%-20px)] mx-auto">
             <div>
               <OtpInput
                 value={otpValue}

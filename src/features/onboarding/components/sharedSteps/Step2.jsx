@@ -8,7 +8,7 @@ import { onboarding_descs } from "../../constants";
 
 const Step2 = ({ nextProcess, prevProcess }) => {
   const { phone, state, address } = useSelector((state) => state.formData);
-  const isDisabled = useAreInputsFilled((phone, state, address));
+  const isDisabled = useAreInputsFilled(phone && state && address);
 
   return (
     <SharedStep

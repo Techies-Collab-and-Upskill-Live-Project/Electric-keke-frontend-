@@ -20,11 +20,9 @@ const Alert = () => {
       exit={{ y: -200, opacity: 0 }}
       className={`alert-container ${alertTheme.container[type]}`}
     >
-      <p>{msg}</p>
+      <h3 className="text-xl font-bold">{type === 'success' ? 'Success' : 'Error'}</h3>
+      <p className="font-medium">{msg}</p>
 
-      {/* <div className="alert-stats">
-        <img src="/tick.svg" alt="tick" className="size-5" />
-      </div> */}
     </motion.div>
   );
 };

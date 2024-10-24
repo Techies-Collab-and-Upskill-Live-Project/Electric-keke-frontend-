@@ -13,7 +13,6 @@ const NewMap = ({ styling = "w-full h-full" }) => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          console.log(position.coords.latitude, position.coords.longitude);
           setMapLatitude(position.coords.latitude);
           setMapLongitude(position.coords.longitude);
         },

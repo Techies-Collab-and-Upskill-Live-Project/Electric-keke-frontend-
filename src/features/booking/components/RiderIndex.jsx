@@ -7,6 +7,7 @@ import { GetAvailableRiders } from "../services/GetAvailableRiders";
 import { useResource } from "@/hooks/useResource";
 import { useArray } from "@/hooks/useArray";
 import { useEffect, useState } from "react";
+import Loader from "@/components/loaders/Loader";
 
 const RiderIndex = () => {
   useTitle("Riders");
@@ -17,7 +18,8 @@ const RiderIndex = () => {
   const [navigationLink, setNavigationLink] = useState("");
 
   // for development purpose
-  const { array: arrayOfMockRiders, substituteItemsProps } = useArray(riders);
+  const { unstableArray: arrayOfMockRiders, substituteItemsProps } =
+    useArray(riders);
 
   useEffect(() => {
     if (!isLoading) {
@@ -33,13 +35,9 @@ const RiderIndex = () => {
   // the above is for development purpose
 
   return isLoading ? (
-    <div>Loadding ...</div>
+    <Loader className="size-32 mx-auto" type="spin2" />
   ) : (
-    <AnimatePresence
-      onExitComplete={() => {
-        console.log("completed");
-      }}
-    >
+    <>
       {availableRiders.length < 1 ? (
         <motion.div
           key="no-riders"
@@ -63,11 +61,11 @@ const RiderIndex = () => {
           <RegularList
             component={Rider}
             list={arrayOfMockRiders}
-            keyExtractor={arrayOfMockRiders.map((item) => item.id)}
+            keyExtractor={arrayOfMockRiders.map((item) => item.fullname)}
           />
         </motion.div>
       )}
-    </AnimatePresence>
+    </>
   );
 };
 

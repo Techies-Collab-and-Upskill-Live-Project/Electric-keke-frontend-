@@ -20,7 +20,7 @@ const initialState = {
   password: "New990#",
   re_password: "New990#",
   phone: "josl",
-  state: "jsl",
+  state: "",
   address: "js",
   message_type: "email",
   otpValue: "",

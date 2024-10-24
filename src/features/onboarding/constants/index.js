@@ -8,11 +8,16 @@ export const countryFlag = {
 export const account_types = [
   {
     title: "Passenger",
-    icon: "/avatars/passenger.svg",
+    icon: "/how-to-go/ride1.png",
     role: "User",
     href: "passenger",
   },
-  { title: "Rider", icon: "/avatars/rider.svg", role: "Rider", href: "rider" },
+  {
+    title: "Rider",
+    icon: "/how-to-go/delivery1.png",
+    role: "Rider",
+    href: "rider",
+  },
 ];
 
 export const otp_choice = [

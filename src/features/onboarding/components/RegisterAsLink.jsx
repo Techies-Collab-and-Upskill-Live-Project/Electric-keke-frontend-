@@ -1,7 +1,14 @@
 import { addItemToLs } from "@/utils/ls";
 import { Link } from "react-router-dom";
 
-const RegisterAsLink = ({ title, icon, role, href, registeringAs, setRegisteringAs }) => {
+const RegisterAsLink = ({
+  title,
+  icon,
+  role,
+  href,
+  registeringAs,
+  setRegisteringAs,
+}) => {
   return (
     <Link to={`/onboarding/${href}`}>
       <div
@@ -14,9 +21,10 @@ const RegisterAsLink = ({ title, icon, role, href, registeringAs, setRegistering
         }}
       >
         <div className="flex items-center gap-5">
-          <div>
-            <img src={icon} alt={title} />
+          <div className="rounded-full overflow-hidden size-12 bg-basic/40">
+            <img src={icon} alt={title} className="image" />
           </div>
+
           <p>{title}</p>
         </div>
 

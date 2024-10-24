@@ -1,7 +1,7 @@
-import getAvatars from "../utils/getAvatars";
 import { motion } from "framer-motion";
 
 import React from "react";
+import { getAvatars } from "../constants";
 
 const Avatars = ({ type }) => {
   return (
@@ -18,27 +18,20 @@ const Avatars = ({ type }) => {
       }}
       className="h-14 w-[7.5rem] relative mx-auto mt-[1.5rem] isolate"
     >
-      {getAvatars(type).map((item, index) => {
+      {getAvatars[type].map((item, index) => {
         return (
           <motion.div
             variants={{
               show: {
                 opacity: 1,
+                y: 0,
               },
-              hide: { opacity: 0 },
+              hide: { opacity: 0, y: 200 },
             }}
             key={index}
-            className={`absolute border rounded-full overflow-hidden ${
-              index === 0 && "left-1/2 bottom-0 -translate-x-1/2 size-[56px]"
-            } ${index === 1 && "bottom-0 -z-10 size-[48px]"} ${
-              index === 2 && "right-0 bottom-0 -z-10 size-[48px]"
-            } ${item.bgColor}`}
+            className={`absolute border rounded-full overflow-hidden ${item.styling}`}
           >
-            <img
-              src={item.src}
-              alt="avatars"
-              className="size-full object-cover object-center"
-            />
+            <img src={item.src} alt="avatars" className="image" />
           </motion.div>
         );
       })}
