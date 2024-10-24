@@ -1,80 +1,48 @@
-import React, { useEffect, useState } from "react";
 import users from "@/mock-data/users";
 import finances from "@/mock-data/finances";
-import Table, { TableContent } from "./Table";
-import UserLoading from "@/components/ErrorBoundary/Fallbacks/UserLoading";
-import {
-  finance_management_tablehead,
-  user_management_tablehead,
-} from "../constants";
 import fetchContent from "../utils/fetchContents";
 import { useGlobalAdminContext } from "../context/AdminContext";
+import { useResource } from "@/hooks/useResource";
+import {
+  Table,
+  TableBody,
+  TableContent,
+  TableHead,
+  TableItem,
+} from "@/components/_custom-ui/Table";
+import UserManagementTableContent from "./UserManagementTableContent";
+import FinanceManagementTableContent from "./FinanceManagementTableContent";
+import { Pagination } from "..";
 
-const DisplayTable = ({ contentType }) => {
-  const { contentsToDisplay } = useGlobalAdminContext();
-  console.log(contentsToDisplay)
-  const [loading, setLoading] = useState(true);
-  const [contents, setContents] = useState([]);
+const DisplayTable = ({ columnsData, bodyData, type }) => {
+  console.log(bodyData);
 
-  useEffect(() => {
-    setLoading(true);
-
-    const getContents = async () => {
-      try {
-        const tableContents = await fetchContent(
-          5000,
-          contentsToDisplay,
-          contentType,
-          users,
-          finances
-        )
-          .then((res) => res)
-          .catch((err) => console.log(err));
-        setLoading(false);
-        setContents(tableContents);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    getContents();
-  }, [contentsToDisplay]);
+  const displayBodyContent = () => {
+    switch (type) {
+      case "users":
+        return <UserManagementTableContent data={bodyData} />;
+      case "finances":
+        return <FinanceManagementTableContent data={bodyData} />;
+      default:
+        break;
+    }
+  };
 
   return (
-    <div className="mt-8 border">
-      <Table
-        tableheadContent={
-          contentType === "user"
-            ? user_management_tablehead
-            : finance_management_tablehead
-        }
-      />
-      {loading ? (
-        <UserLoading />
-      ) : (
-        <>
-          {contents.length < 1 ? (
-            <p className="text-center">No data for ...</p>
-          ) : (
-            <>
-              {contents.map((item, index) => {
-                return (
-                  <TableContent
-                    key={item.id + index}
-                    {...item}
-                    delay={index}
-                    userContent={contentType === "user" ? true : false}
-                  />
-                );
-              })}
-            </>
-          )}
-        </>
-      )}
-    </div>
+    <>
+      <Table styling="w-full border">
+        <TableHead styling="flex items-center">
+          {columnsData?.map((item) => (
+            <TableItem key={item.title} styling={item.styling}>
+              {item.title}
+            </TableItem>
+          ))}
+        </TableHead>
+        <TableBody>{displayBodyContent()}</TableBody>
+      </Table>
+      <Pagination />
+    </>
   );
 };
 
 export default DisplayTable;
-
-/**<SingleUser key={item.name} {...item} delay={index} />; */

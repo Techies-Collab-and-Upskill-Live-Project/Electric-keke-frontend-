@@ -6,50 +6,50 @@ import UserManagement from "../assets/svgs/UserManagement";
 export const finance_management_tablehead = [
   {
     title: "Transaction No",
-    tableClass: "col-span-2 px-2",
+    styling: "py-4 flex-center w-[15%] text-[#525252] font-semibold",
   },
   {
     title: "Status",
-    tableClass: "col-span-1 justify-self-center px-2",
+    styling: "py-4 flex items-center w-[15%] text-[#525252] font-semibold border",
   },
   {
     title: "Name",
-    tableClass: "col-span-3 justify-self-start px-2",
+    styling: "py-4 flex items-center w-[31%] text-[#525252] font-semibold",
   },
   {
     title: "Date",
-    tableClass: "col-span-1 justify-self-start px-2",
+    styling: "py-4 flex items-center w-[14%] text-[#525252] font-semibold",
   },
   {
-    title: "Rides",
-    tableClass: "col-span-1 justify-self-start px-2",
+    title: "Delivery",
+    styling: "py-4 flex items-center w-[14%] text-[#525252] font-semibold",
   },
   {
     title: "Action",
-    tableClass: "col-span-1 px-2",
+    styling: "py-4 flex items-center text-[#525252] font-semibold",
   },
 ];
 
 export const user_management_tablehead = [
   {
     title: "User Id",
-    tableClass: "col-span-1",
+    styling: "flex-center text-[#525252] font-semibold py-4 w-[15%]",
   },
   {
     title: "Name",
-    tableClass: "col-span-3 justify-self-start",
+    styling: "flex items-center text-[#525252] font-semibold py-4 w-[31%]",
   },
   {
     title: "Sign Up Date",
-    tableClass: "col-span-2 justify-self-start",
+    styling: "flex items-center text-[#525252] font-semibold py-4 w-[22%]",
   },
   {
     title: "Status",
-    tableClass: "col-span-2 justify-self-start",
+    styling: "flex items-center text-[#525252] font-semibold py-4 w-[22%]",
   },
   {
     title: "Action",
-    tableClass: "col-span-1",
+    styling: "flex items-center text-[#525252] font-semibold py-4",
   },
 ];
 

@@ -2,7 +2,7 @@ import { addItemToLs, getItemFromLs } from "@/utils/ls";
 import { useEffect, useState } from "react";
 
 export const useResource = (callback, key) => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [resource, setResource] = useState(getItemFromLs(key) || null);
 
   useEffect(() => {

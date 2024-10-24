@@ -5,7 +5,8 @@
     "name": "Afolabi Olanipekun",
     "email": "example@gmail.com",
     "date": "18/90/1999",
-    "rides": 3000
+    "rides": 3000,
+    "delivery": 3000
   },
   {
     "transaction_id": "338488",
@@ -13,7 +14,8 @@
     "name": "Daniel Okoye",
     "email": "example@gmail.com",
     "date": "18/90/1999",
-    "rides": 3000
+    "rides": 3000,
+    "delivery": 3000
   },
   {
     "transaction_id": "338488",
@@ -21,7 +23,8 @@
     "name": "Joseph Brendan",
     "email": "example@gmail.com",
     "date": "18/90/1999",
-    "rides": 3000
+    "rides": 3000,
+    "delivery": 3000
   },
   {
     "transaction_id": "338488",
@@ -29,7 +32,8 @@
     "name": "Ifunanya Adedapo",
     "email": "example@gmail.com",
     "date": "18/90/1999",
-    "rides": 3000
+    "rides": 3000,
+    "delivery": 3000
   },
   {
     "transaction_id": "338488",
@@ -37,7 +41,8 @@
     "name": "Busola Igwe",
     "email": "example@gmail.com",
     "date": "18/90/1999",
-    "rides": 3000
+    "rides": 3000,
+    "delivery": 3000
   },
   {
     "transaction_id": "338488",
@@ -45,7 +50,8 @@
     "name": "Jennifer Onyinye",
     "email": "example@gmail.com",
     "date": "18/90/1999",
-    "rides": 3000
+    "rides": 3000,
+    "delivery": 3000
   },
   {
     "transaction_id": "338488",
@@ -53,7 +59,8 @@
     "name": "Afolabi Olanipekun",
     "email": "example@gmail.com",
     "date": "18/90/1999",
-    "rides": 3000
+    "rides": 3000,
+    "delivery": 3000
   },
   {
     "transaction_id": "338488",
@@ -61,7 +68,8 @@
     "name": "Daniel Okoye",
     "email": "example@gmail.com",
     "date": "18/90/1999",
-    "rides": 3000
+    "rides": 3000,
+    "delivery": 3000
   },
   {
     "transaction_id": "338488",
@@ -69,7 +77,8 @@
     "name": "Joseph Brendan",
     "email": "example@gmail.com",
     "date": "18/90/1999",
-    "rides": 3000
+    "rides": 3000,
+    "delivery": 3000
   },
   {
     "transaction_id": "338488",
@@ -77,7 +86,8 @@
     "name": "Ifunanya Adedapo",
     "email": "example@gmail.com",
     "date": "18/90/1999",
-    "rides": 3000
+    "rides": 3000,
+    "delivery": 3000
   },
   {
     "transaction_id": "338488",
@@ -85,7 +95,8 @@
     "name": "Busola Igwe",
     "email": "example@gmail.com",
     "date": "18/90/1999",
-    "rides": 3000
+    "rides": 3000,
+    "delivery": 3000
   },
   {
     "transaction_id": "338488",
@@ -93,7 +104,8 @@
     "name": "Jennifer Onyinye",
     "email": "example@gmail.com",
     "date": "18/90/1999",
-    "rides": 3000
+    "rides": 3000,
+    "delivery": 3000
   },
   {
     "transaction_id": "338488",
@@ -101,7 +113,8 @@
     "name": "Afolabi Olanipekun",
     "email": "example@gmail.com",
     "date": "18/90/1999",
-    "rides": 3000
+    "rides": 3000,
+    "delivery": 3000
   },
   {
     "transaction_id": "338488",
@@ -109,7 +122,8 @@
     "name": "Daniel Okoye",
     "email": "example@gmail.com",
     "date": "18/90/1999",
-    "rides": 3000
+    "rides": 3000,
+    "delivery": 3000
   },
   {
     "transaction_id": "338488",
@@ -117,7 +131,8 @@
     "name": "Joseph Brendan",
     "email": "example@gmail.com",
     "date": "18/90/1999",
-    "rides": 3000
+    "rides": 3000,
+    "delivery": 3000
   },
   {
     "transaction_id": "338488",
@@ -125,7 +140,8 @@
     "name": "Ifunanya Adedapo",
     "email": "example@gmail.com",
     "date": "18/90/1999",
-    "rides": 3000
+    "rides": 3000,
+    "delivery": 3000
   },
   {
     "transaction_id": "338488",
@@ -133,7 +149,8 @@
     "name": "Busola Igwe",
     "email": "example@gmail.com",
     "date": "18/90/1999",
-    "rides": 3000
+    "rides": 3000,
+    "delivery": 3000
   },
   {
     "transaction_id": "338488",
@@ -141,6 +158,7 @@
     "name": "Jennifer Onyinye",
     "email": "example@gmail.com",
     "date": "18/90/1999",
-    "rides": 3000
+    "rides": 3000,
+    "delivery": 3000
   }
 ]
