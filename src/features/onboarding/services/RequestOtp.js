@@ -9,7 +9,6 @@ export const RequestOtp = async ({ ...otpData }) => {
       method: "post",
       data: otpData,
     });
-    console.log(data);
     addItemToLs("userId", data.user_id);
     return data;
   } catch (error) {

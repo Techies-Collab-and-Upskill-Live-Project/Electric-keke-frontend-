@@ -27,13 +27,12 @@ const Login = ({ nextProcess, prevProcess }) => {
         username,
         password,
       });
-      console.log(link);
-      unloading();
       AuthenticateLogin();
       showAlert("Login Sucess");
       navigate(link);
     } catch (error) {
-      showAlert(error.message);
+      showAlert(error.message, "danger");
+    } finally {
       unloading();
     }
   };

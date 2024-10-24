@@ -21,15 +21,9 @@ export function SelectInput({
       >
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent className="overflow-y-scroll max-h-80 w-full">
         <SelectGroup>
           <SelectLabel>{label}</SelectLabel>
-          {/* <SelectItem value="apple">Apple</SelectItem>
-          <SelectItem value="banana">Banana</SelectItem>
-          <SelectItem value="blueberry">Blueberry</SelectItem>
-          <SelectItem value="grapes">Grapes</SelectItem>
-          <SelectItem value="pineapple">Pineapple</SelectItem> */}
-          {/* {label === "Time" && <Time />} */}
           {children}
         </SelectGroup>
       </SelectContent>

@@ -7,7 +7,6 @@ export const UpdateBooking = async ({ id, status }) => {
       method: "patch",
       data: { status },
     });
-    console.log(data);
     return data;
   } catch (error) {
     const { detail } = error.data.response.data;

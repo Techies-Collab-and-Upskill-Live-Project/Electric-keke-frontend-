@@ -12,9 +12,9 @@ const ArrDown = () => {
       <path
         d="M1 1.04883L5 5.04883L9 1.04883"
         stroke="#9BB1C9"
-        stroke-width="1.4"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

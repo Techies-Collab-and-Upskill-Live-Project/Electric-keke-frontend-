@@ -7,7 +7,6 @@ import { useArray } from "@/hooks/useArray";
 import ProcessBar from "./ProcessBar";
 
 const AuthProcess = () => {
-  console.log(processes);
   const { unstableArray: driveAuthProcesses, setArrayItem } =
     useArray(processes);
   const [processValue] = useState(getItemFromLs("onboarding-process"));

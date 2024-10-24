@@ -15,7 +15,6 @@ const RideDetailing = ({ info, price }) => {
 
 const RideDetails = () => {
   const currentRide = getItemFromLs("current-ride");
-  console.log(currentRide);
 
   return (
     <div className="mx-auto mt-6 flex flex-col gap-[13px]">

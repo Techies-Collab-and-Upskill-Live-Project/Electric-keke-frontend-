@@ -24,7 +24,6 @@ const RiderInfo = () => {
     // socket.emit('new-booking')
     try {
       const booking = await BookRide(bookData);
-      console.log(booking);
       showAlert("Ride Booking Succefull, Wait a moment");
       setWaiting(true);
       unloading();

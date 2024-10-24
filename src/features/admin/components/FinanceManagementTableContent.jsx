@@ -10,7 +10,6 @@ const bg_status = {
 };
 
 const FinanceManagementTableContent = ({ data }) => {
-  console.log(data);
   return (
     <>
       {data.map(({ transaction_id, name, email, date, status, delivery }) => {

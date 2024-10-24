@@ -15,7 +15,6 @@ import FinanceManagementTableContent from "./FinanceManagementTableContent";
 import { Pagination } from "..";
 
 const DisplayTable = ({ columnsData, bodyData, tableFor, isLoading }) => {
-  console.log(bodyData);
 
   const displayBodyContent = () => {
     switch (tableFor) {

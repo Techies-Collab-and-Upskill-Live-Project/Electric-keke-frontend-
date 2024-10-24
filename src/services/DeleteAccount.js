@@ -7,15 +7,10 @@ export const DeleteAccount = async () => {
       url: "/auth/delete-account/",
       method: "delete",
     });
-    console.log(
-      data,
-      "llllllllllllllllllllllllllllllllllllllllllllllllllllllllll"
-    );
 
     clearLs();
     return data;
   } catch (error) {
-    console.log(error);
     throw new CustomError("Error Deleting Account", {
       why: "now",
     });

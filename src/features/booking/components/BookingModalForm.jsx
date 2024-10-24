@@ -76,7 +76,6 @@ const BookingModalForm = ({ closeModal }) => {
       showAlert("Login to book a ride");
     }
   };
-  console.log("Come to booking modal form and fix the locka and unlockScroll");
 
   return (
     <form className="ride-request__form" onSubmit={handleSubmit}>

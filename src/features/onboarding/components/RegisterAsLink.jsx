@@ -1,11 +1,7 @@
 import { addItemToLs } from "@/utils/ls";
-// import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-// import dispatchables from "@/utils/dispatchables";
 
 const RegisterAsLink = ({ title, icon, role, href, registeringAs, setRegisteringAs }) => {
-  console.log("remove register as from the globals");
-  // const { chooseRole } = dispatchables();
   return (
     <Link to={`/onboarding/${href}`}>
       <div

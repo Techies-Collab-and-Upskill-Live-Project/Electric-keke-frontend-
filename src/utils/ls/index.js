@@ -11,10 +11,8 @@ const addItemToLs = (key, item) => {
   key && localStorage.setItem(key, JSON.stringify(item));
 };
 
-const deletItemFromLs = (key) => {
-  console.log("deleting", key);
-  localStorage.removeItem(key);
-};
+const deletItemFromLs = (key) => localStorage.removeItem(key);
+
 
 const clearLs = () => localStorage.clear();
 

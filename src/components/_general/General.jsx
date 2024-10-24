@@ -21,7 +21,7 @@ const General = () => {
     <AnimatePresence>
       {show && <Alert key='alert' />}
       {loading && (
-        <Loader className="fixed top-5 right-5 z-50" type="spin2" size={30} />
+        <Loader key='general-loader' className="fixed top-5 right-5 z-50" type="spin2" size={30} />
       )}
       <NotificationModal
         isModalOpen={isNotificationModalOpen}

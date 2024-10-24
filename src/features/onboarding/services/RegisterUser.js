@@ -31,7 +31,6 @@ export const RegisterUser = async ({
         message_type,
       },
     });
-    console.log(data);
     /**
      * when we register the user the id is needed
      * to verify the user for the otp, we will be

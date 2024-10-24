@@ -31,7 +31,6 @@ const NewRideModal = ({ isModalOpen, openModal, closeModal }) => {
     try {
       // cancle ride
       const data = await UpdateBooking(rideToUpdateData);
-      console.log(data);
       rideStatusLsUpdate("cancelled");
       closeModal();
     } catch (error) {

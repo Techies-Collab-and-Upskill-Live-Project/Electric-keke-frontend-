@@ -16,7 +16,7 @@ const PassengerStep3 = ({ nextProcess, prevProcess }) => {
     const { message_type } = formData;
 
     if (message_type === "sms") {
-      showAlert("sms is unavailable");
+      showAlert("sms is unavailable", 'danger');
       return;
     }
 
@@ -26,7 +26,7 @@ const PassengerStep3 = ({ nextProcess, prevProcess }) => {
       nextProcess();
     } catch (error) {
       const errorArr = error.data;
-      errorArr ? showAlert(errorArr[0]) : showAlert("Server Error");
+      errorArr ? showAlert(errorArr[0]) : showAlert("Server Error", "danger");
       // nextProcess();
     }
   };

@@ -5,7 +5,6 @@ const fetchContentForTable = (
   propModel,
   time = 5000
 ) => {
-  console.log(contentsToDisplay);
   return new Promise((resolve) => {
     const data =
       contentsToDisplay === "All"

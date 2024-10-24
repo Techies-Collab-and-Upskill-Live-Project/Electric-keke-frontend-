@@ -6,7 +6,6 @@ const plainRequest = axios.create({
 });
 
 const makePlainRequest = async ({ ...reqOpts }) => {
-  // console.log(reqOpts);
   const onSuccess = (res) => res;
   const onError = (err) => {
     throw new CustomError("Error ", { ...err });

@@ -1,10 +1,10 @@
-<svg width="84" height="85" viewBox="0 0 84 85" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="84" height="85" viewBox="0 0 84 85" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
 <g filter="url(#filter0_d_455_315)">
 <g clip-path="url(#clip0_455_315)">
 <path d="M14 38.5C14 23.036 26.536 10.5 42 10.5C57.464 10.5 70 23.036 70 38.5C70 53.964 57.464 66.5 42 66.5C26.536 66.5 14 53.964 14 38.5Z" fill="#77BB77"/>
 <rect x="20" y="19.5" width="44" height="55" fill="url(#pattern0_455_315)"/>
 </g>
-<path d="M42 9.5C25.9837 9.5 13 22.4837 13 38.5C13 54.5163 25.9837 67.5 42 67.5C58.0163 67.5 71 54.5163 71 38.5C71 22.4837 58.0163 9.5 42 9.5Z" stroke="#FAFAFA" stroke-width="2"/>
+<path d="M42 9.5C25.9837 9.5 13 22.4837 13 38.5C13 54.5163 25.9837 67.5 42 67.5C58.0163 67.5 71 54.5163 71 38.5C71 22.4837 58.0163 9.5 42 9.5Z" stroke="#FAFAFA" strokeWidth="2"/>
 </g>
 <defs>
 <filter id="filter0_d_455_315" x="0" y="0.5" width="84" height="84" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">

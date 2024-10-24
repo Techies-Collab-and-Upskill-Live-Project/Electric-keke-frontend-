@@ -15,7 +15,7 @@ const Loader = ({ type = "spin", className, size }) => {
             display: "block",
             background: "rgba(255, 255, 255, 0);",
           }}
-          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlnsXlink="http://www.w3.org/1999/xlink"
         >
           <g>
             <path
@@ -55,13 +55,13 @@ const Loader = ({ type = "spin", className, size }) => {
             display: "block",
             background: "rgb(255, 255, 255, 0)",
           }}
-          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlnsXlink="http://www.w3.org/1999/xlink"
         >
           <g>
             <circle
-              stroke-dasharray="164.93361431346415 56.97787143782138"
+              strokeDasharray="164.93361431346415 56.97787143782138"
               r="35"
-              stroke-width="10"
+              strokeWidth="10"
               // stroke="#e15b64"
               stroke="#77BB77"
               fill="none"

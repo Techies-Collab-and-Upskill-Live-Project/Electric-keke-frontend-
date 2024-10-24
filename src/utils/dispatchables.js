@@ -2,16 +2,12 @@ import { updateBookingData } from "../store/slices/bookride-slice";
 import { changeInputValue } from "../store/slices/form-data-slice";
 import {
   alertUser,
-  changeModalContent,
-  changeRegistryMethod,
   changeVerificationType,
   finishLoad,
   hideAlert,
-  moveToNextDriveAuthStage,
   selectARider,
   startLoad,
   storeListOfRiders,
-  toggleModal,
 } from "../store/slices/global-slice";
 import { useDispatch } from "react-redux";
 
@@ -27,16 +23,8 @@ const dispatchables = () => {
     dispatch(changeInputValue({ key, value }));
   };
 
-  const chooseRole = (role) => {
-    dispatch(changeRegistryMethod(role));
-  };
-
   const chooseRider = (item) => {
     dispatch(selectARider(item));
-  };
-
-  const flipModal = (bool) => {
-    dispatch(toggleModal(bool));
   };
 
   const inputDataForBookingRequest = (key, value) => {
@@ -54,18 +42,12 @@ const dispatchables = () => {
 
   const unloading = () => dispatch(finishLoad());
 
-  const openModalWithContent = (content, modalWidth, nextDriverAuth) => {
-    dispatch(
-      changeModalContent({ modalContent: content, modalWidth, nextDriverAuth })
-    );
-  };
-
   const switchVerificationType = (v_type) => {
     dispatch(changeVerificationType(v_type));
   };
 
-  const showAlert = (msg, time = 5000) => {
-    dispatch(alertUser(msg));
+  const showAlert = (msg, type = "success", time = 5000) => {
+    dispatch(alertUser({ msg, type }));
     setTimeout(() => {
       dispatch(hideAlert());
     }, time);
@@ -75,20 +57,12 @@ const dispatchables = () => {
     dispatch(storeListOfRiders(data));
   };
 
-  const nextDriverAuthStage = (stage) => {
-    dispatch(moveToNextDriveAuthStage(stage));
-  };
-
   return {
     chooseOtpMethod,
     changeAuthFormData,
     chooseRider,
-    chooseRole,
-    flipModal,
     inputDataForBookingRequest,
     inputBookingData,
-    nextDriverAuthStage,
-    openModalWithContent,
     showAlert,
     switchVerificationType,
     updateDriversList,

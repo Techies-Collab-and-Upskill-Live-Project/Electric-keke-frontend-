@@ -12,7 +12,6 @@ export const BookRide = async ({ ...bookingData }) => {
     // const {
     //   data: { detail },
     // } = error.response;
-    // console.log(error, 'from booking');
     throw new Error("Error booking ride");
   }
 };

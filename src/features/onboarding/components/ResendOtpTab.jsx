@@ -13,8 +13,6 @@ const ResendOtpTab = ({ verificationType }) => {
   const resend_otp = async () => {
     try {
       if (verificationType === "activate") {
-        console.log(verificationType);
-
         const { detail } = await RequestOtp({
           message_type: "email",
           username: email,
@@ -24,15 +22,13 @@ const ResendOtpTab = ({ verificationType }) => {
       }
 
       if (verificationType === "update-password") {
-        console.log(verificationType);
-
         const { detail } = await RequestOtp({
           username,
         });
         showAlert(detail);
       }
     } catch (error) {
-      console.log(error);
+      showAlert('error requesting otp')
     }
   };
 

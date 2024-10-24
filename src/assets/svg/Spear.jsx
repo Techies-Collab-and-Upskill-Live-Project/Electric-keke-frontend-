@@ -15,8 +15,8 @@ const Spear = ({ color, type = "right" }) => {
             opacity="0.5"
             d="M16.375 8.0625H1.375M1.375 8.0625L7.9375 14.625M1.375 8.0625L7.9375 1.5"
             stroke={color || "#898483"}
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </g>
         <defs>
@@ -47,8 +47,8 @@ const Spear = ({ color, type = "right" }) => {
             opacity="0.5"
             d="M16.375 8.0625H1.375M1.375 8.0625L7.9375 14.625M1.375 8.0625L7.9375 1.5"
             stroke={color || "#898483"}
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </g>
         <defs>

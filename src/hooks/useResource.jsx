@@ -17,8 +17,7 @@ export const useResource = (callback, key) => {
           addItemToLs(key, data);
           setIsLoading(false);
         } catch (error) {
-          const { status } = error.data;
-          console.log(status);
+          console.log(error);
         }
       })();
     }

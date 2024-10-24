@@ -14,10 +14,9 @@ const TrackDetails = ({ role, origin, destination, price, status }) => {
 
     try {
       const data = await UpdateBooking(rideToUpdateData);
-      console.log(data);
       rideStatusLsUpdate("in_progress");
     } catch (error) {
-      console.log(error);
+      showAlert("error starting trip");
     }
   };
 
@@ -27,10 +26,9 @@ const TrackDetails = ({ role, origin, destination, price, status }) => {
 
     try {
       const data = await UpdateBooking(rideToUpdateData);
-      console.log(data);
       rideStatusLsUpdate("cancelled");
     } catch (error) {
-      console.log(error);
+      showAlert("error declining trip");
     }
   };
 

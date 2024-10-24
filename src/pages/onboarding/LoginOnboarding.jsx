@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 
 const LoginOnboarding = () => {
   const navigate = useNavigate();
-  const runOnFinish = () => console.log("go back to one");
   return (
     <OnboardingForm
       runOnStart={() => navigate("/onboarding")}

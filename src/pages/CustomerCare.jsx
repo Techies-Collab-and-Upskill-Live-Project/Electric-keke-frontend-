@@ -9,7 +9,7 @@ import { useSocket } from "@/hooks/useSocket";
 
 const CustomerCare = () => {
   const socket = useSocket('/ws/support');
-  console.log(socket);
+  // console.log(socket);
   return (
     <Section darkLogo={true} mobileHeaderStyle="mobile-header">
       <div className="home-pad py-5 md:pt-[145px]">

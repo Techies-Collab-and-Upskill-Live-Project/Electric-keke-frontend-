@@ -8,7 +8,6 @@ import {
 import { nav_links } from "@/constants";
 import Menu from "@/assets/svg/Menu";
 import { useDispatch } from "react-redux";
-import { changeAuthPage } from "@/store/slices/global-slice";
 import { LogoPlain } from "@/assets/svg/Logo";
 import RegularList from "./_design-patterns/RegularList";
 import MobileNavListItem from "./MobileNavListItem";
@@ -41,9 +40,9 @@ const MobileNav = ({ blur }) => {
               />
 
               <MobileNavListItem
-                href="/authentication/login"
+                href="/onboarding/login"
                 title="login"
-                onClick={() => dispatch(changeAuthPage("login"))}
+                onClick={() => {}}
               />
             </nav>
           </SheetClose>

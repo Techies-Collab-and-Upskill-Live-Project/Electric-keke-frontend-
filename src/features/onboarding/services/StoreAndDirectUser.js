@@ -18,7 +18,6 @@ export const StoreAndDirectUser = async ({ access, refresh }) => {
       ? `/driver/${id}`
       : "/admin";
   } catch (error) {
-    console.log(error);
     throw new Error("Error Directing User");
   }
 };
