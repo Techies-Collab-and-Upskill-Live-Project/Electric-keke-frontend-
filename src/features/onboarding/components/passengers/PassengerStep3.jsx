@@ -26,7 +26,7 @@ const PassengerStep3 = ({ nextProcess, prevProcess }) => {
       nextProcess();
     } catch (error) {
       const errorArr = error.data;
-       errorArr ? showAlert(errorArr[0]) : showAlert("Server Error");
+      errorArr ? showAlert(errorArr[0]) : showAlert("Server Error");
       // nextProcess();
     }
   };
@@ -39,7 +39,11 @@ const PassengerStep3 = ({ nextProcess, prevProcess }) => {
     >
       <div className="auth-form space-y-7">
         <p>Where should we send your OTP?</p>
-        <RegularList list={otp_choice} component={OtpChoice} />
+        <RegularList
+          list={otp_choice}
+          component={OtpChoice}
+          keyExtractor={otp_choice.map((item) => item.title)}
+        />
       </div>
 
       <div className="w-full max-w-[343px] mx-auto mt-6">

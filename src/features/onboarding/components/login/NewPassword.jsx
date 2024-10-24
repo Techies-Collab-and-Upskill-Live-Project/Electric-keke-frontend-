@@ -4,7 +4,7 @@ import SharedStep from "../../layouts/SharedStep";
 import dispatchables from "@/utils/dispatchables";
 import { getItemFromLs } from "@/utils/ls";
 import Btn from "@/components/btn/Btn";
-import { useAreInputsFilled } from "../../hooks/useAreInputsFilled"
+import { useAreInputsFilled } from "../../hooks/useAreInputsFilled";
 import OnboardFormRows from "../OnboardFormRows";
 import { ResetPassword } from "../../services";
 import { onboarding_descs } from "../../constants";
@@ -16,7 +16,6 @@ const NewPassword = ({ nextProcess, prevProcess }) => {
   const isDisbaled = useAreInputsFilled(password && re_password);
 
   const handleSubmit = async (e) => {
-    console.log('jose')
     try {
       const { detail } = await ResetPassword({
         username: getItemFromLs("user-email"),
@@ -26,12 +25,9 @@ const NewPassword = ({ nextProcess, prevProcess }) => {
       showAlert(detail);
 
       nextProcess();
-      console.log('nest process')
     } catch (error) {
-      console.log(error);
       showAlert("error reseting passcode");
-    } finally {
-      location.reload();
+      // nextProcess();
     }
   };
 
@@ -41,7 +37,7 @@ const NewPassword = ({ nextProcess, prevProcess }) => {
       headTitle="Enter New Password"
       // prevProcess={prevProcess}
     >
-      <form className="auth-form" onSubmit={e => e.preventDefault()}>
+      <form className="auth-form" onSubmit={(e) => e.preventDefault()}>
         <div className="space-y-7">
           <OnboardFormRows type="new" />
         </div>

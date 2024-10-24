@@ -6,8 +6,13 @@ export const countryFlag = {
 };
 
 export const account_types = [
-  { title: "Passenger", icon: "/avatars/passenger.svg", role: "User" },
-  { title: "Rider", icon: "/avatars/rider.svg", role: "Rider" },
+  {
+    title: "Passenger",
+    icon: "/avatars/passenger.svg",
+    role: "User",
+    href: "passenger",
+  },
+  { title: "Rider", icon: "/avatars/rider.svg", role: "Rider", href: "rider" },
 ];
 
 export const otp_choice = [
@@ -44,21 +49,21 @@ export const processes = [
     badgeText: 2,
     styling: "process process--shadow",
     badgeTextStyle: "process__current",
-    badgeMainStyle: "process__display"
+    badgeMainStyle: "process__display",
   },
   {
     badgeLabel: "License",
     badgeText: 3,
     styling: "process process--shadow",
     badgeTextStyle: "process__current",
-    badgeMainStyle: "process__display"
+    badgeMainStyle: "process__display",
   },
   {
     badgeLabel: "Processing",
     badgeText: 4,
     styling: "process process--shadow",
     badgeTextStyle: "process__current",
-    badgeMainStyle: "process__display"
+    badgeMainStyle: "process__display",
   },
 ];
 

@@ -2,7 +2,7 @@ import { settings } from "../../../constants";
 import SettingListItem from "./SettingListItem";
 import RegularList from "@/components/_design-patterns/RegularList";
 
-const SettingNav = ({  openModal, setTypeOfModal }) => {
+const SettingNav = ({ openModal, setTypeOfModal }) => {
   const openGroupModal = (title) => {
     openModal();
     setTypeOfModal(title);
@@ -16,6 +16,7 @@ const SettingNav = ({  openModal, setTypeOfModal }) => {
           list={settings}
           component={SettingListItem}
           handleClick={($event, title) => openGroupModal(title)}
+          keyExtractor={settings.map((item) => item.title)}
         />
 
         <li

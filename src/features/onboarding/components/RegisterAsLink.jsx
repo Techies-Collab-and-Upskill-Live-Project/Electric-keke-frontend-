@@ -1,17 +1,19 @@
 import { addItemToLs } from "@/utils/ls";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import dispatchables from "@/utils/dispatchables";
+// import dispatchables from "@/utils/dispatchables";
 
-const RegisterAsLink = ({ title, icon, role }) => {
-  const { registerAs } = useSelector((state) => state.global);
-  const { chooseRole } = dispatchables();
+const RegisterAsLink = ({ title, icon, role, href, registeringAs, setRegisteringAs }) => {
+  console.log("remove register as from the globals");
+  // const { chooseRole } = dispatchables();
   return (
-    <Link to="/onboarding/registration">
+    <Link to={`/onboarding/${href}`}>
       <div
-        className={`register__options ${role === registerAs && "chosen-option"}`}
+        className={`register__options ${
+          role === registeringAs && "chosen-option"
+        }`}
         onMouseOver={() => {
-          chooseRole(role);
+          setRegisteringAs(role);
           addItemToLs("onboarding-process", 0);
         }}
       >

@@ -3,19 +3,12 @@ const RegularList = ({
   component: Component,
   keyExtractor,
   ...props
-}) => {
-  console.log(keyExtractor);
-  return (
-    <>
-      {list.map((item, index) => (
-        <Component
-          // key={index}
-          key={keyExtractor[index]}
-          {...{ ...item, ...props }}
-        />
-      ))}
-    </>
-  );
-};
+}) => (
+  <>
+    {list.map((item, index) => (
+      <Component key={keyExtractor[index]} {...{ ...item, ...props }} />
+    ))}
+  </>
+);
 
 export default RegularList;

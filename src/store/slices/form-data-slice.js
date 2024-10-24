@@ -33,7 +33,6 @@ const formDataSlice = createSlice({
     changeInputValue(state, action) {
       const { key, value } = action.payload;
       const newFormData = { ...state, [key]: value };
-      console.log(key, value);
       addItemToLs("formData", newFormData);
       return newFormData;
     },

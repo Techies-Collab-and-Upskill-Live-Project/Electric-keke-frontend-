@@ -24,7 +24,6 @@ const dispatchables = () => {
 
   const changeAuthFormData = (e) => {
     const { name: key, value } = e.target;
-    console.log(key, value);
     dispatch(changeInputValue({ key, value }));
   };
 

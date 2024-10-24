@@ -9,13 +9,7 @@ export const useModal = () => {
   const openModal = () => setIsModalOpen(true);
 
   useEffect(() => {
-    if (isModalOpen) {
-      LockScroll();
-      console.log("locked");
-    } else {
-      UnlockScroll();
-      console.log("unlocked");
-    }
+    isModalOpen ? LockScroll() : UnlockScroll();
   }, [isModalOpen]);
 
   return {

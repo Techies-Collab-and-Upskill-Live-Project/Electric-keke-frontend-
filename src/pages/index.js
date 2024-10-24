@@ -20,6 +20,10 @@ import Settings from "./Settings";
 import Support from "./Support";
 import Tracking from "./Tracking";
 import Transaction from "./Transaction";
+import PassengerOnboarding from "./onboarding/PassengerOnboarding";
+import RiderOnboarding from "./onboarding/RiderOnboarding";
+import AdminOnboarding from "./onboarding/AdminOnboarding";
+import LoginOnboarding from "./onboarding/LoginOnboarding";
 
 export {
   Admin,
@@ -37,6 +41,10 @@ export {
   InternalServer,
   NotFound,
   Onboarding,
+  PassengerOnboarding,
+  RiderOnboarding,
+  AdminOnboarding,
+  LoginOnboarding,
   Profile,
   Riders,
   Schedule,

@@ -7,7 +7,9 @@ import { useArray } from "@/hooks/useArray";
 import ProcessBar from "./ProcessBar";
 
 const AuthProcess = () => {
-  const { array: driveAuthProcesses, setArrayItem } = useArray(processes);
+  console.log(processes);
+  const { unstableArray: driveAuthProcesses, setArrayItem } =
+    useArray(processes);
   const [processValue] = useState(getItemFromLs("onboarding-process"));
 
   useEffect(() => {
@@ -23,7 +25,11 @@ const AuthProcess = () => {
   return (
     <div className="h-[50px] mt-4 flex items-center justify-between px-[14px] relative">
       <ProcessBar processValue={processValue} />
-      <RegularList component={CustomBadge} list={driveAuthProcesses} />
+      <RegularList
+        component={CustomBadge}
+        list={driveAuthProcesses}
+        keyExtractor={driveAuthProcesses.map((item) => item.badgeText)}
+      />
     </div>
   );
 };

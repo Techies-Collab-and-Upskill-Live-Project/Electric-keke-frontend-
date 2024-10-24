@@ -5,8 +5,11 @@ import { ArrowLeft } from "lucide-react";
 import TypingBoard from "@/features/contact/components/TypingBoard";
 import { goBack } from "@/utils/goBack";
 import { Section } from "@/layouts";
+import { useSocket } from "@/hooks/useSocket";
 
 const CustomerCare = () => {
+  const socket = useSocket('/ws/support');
+  console.log(socket);
   return (
     <Section darkLogo={true} mobileHeaderStyle="mobile-header">
       <div className="home-pad py-5 md:pt-[145px]">

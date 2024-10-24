@@ -1,51 +1,40 @@
 import axios from "axios";
-import {
-  addItemToLs,
-  getItemFromLs,
-} from "../../utils/ls";
-import isTokenValid from "../../services/checkJwtValidity";
+import { addItemToLs, getItemFromLs } from "../../utils/ls";
+// import isTokenValid from "../../services/checkJwtValidity";
 import CustomError from "../../services/custom-error/CustomError";
 import RefreshAccess from "@/services/RefreshAccess";
 
 const client = axios.create({
-  baseURL: import.meta.env.VITE_BASE_URL
+  baseURL: import.meta.env.VITE_BASE_URL,
 });
 
-
-client.interceptors.request.use(
-  async (req) => {
-    const accessToken = getItemFromLs("accessToken");
-    if (accessToken) {
-      const tokenValidity = isTokenValid(accessToken);
-      console.log(tokenValidity);
-    }
-    return req;
-  },
-  (err) => Promise.reject(err)
-);
+// client.interceptors.request.use(
+//   async (req) => {
+//     const accessToken = getItemFromLs("accessToken");
+//     if (accessToken) {
+//       const tokenValidity = isTokenValid(accessToken);
+//     }
+//     return req;
+//   },
+//   (err) => Promise.reject(err)
+// );
 
 export const clientRequest = async ({ ...options }) => {
-  console.log(options);
 
-  // console.log("i reached here");
   const accessToken = getItemFromLs("accessToken");
   if (accessToken) {
-    console.log("we have access token");
     client.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
   }
-  // console.log("after the access");
 
   const onSuccess = (res) => {
     return res;
   };
 
   const onError = async (err) => {
-    console.log(err);
     const originalRequest = err.config;
     const status = err.response.status;
 
     if (status === 401 && !originalRequest._retry) {
-      console.log("access token expired");
       originalRequest._retry = true;
 
       try {
@@ -56,12 +45,10 @@ export const clientRequest = async ({ ...options }) => {
         addItemToLs("refreshToken", refreshToken);
 
         // update the request
-        console.log("hase been refresh");
         originalRequest.headers.Authorization = `Bearer ${accessToken}`;
         return client(originalRequest)
           .then(onSuccess)
           .catch((err) => {
-            console.log(err);
             // throws an error if the new request fails to go back to login
             throw new CustomError("Error retry", {
               status,
@@ -69,7 +56,6 @@ export const clientRequest = async ({ ...options }) => {
             });
           });
       } catch (error) {
-        console.log(error);
         // clearLs();
 
         return Promise.reject(err);
@@ -77,7 +63,6 @@ export const clientRequest = async ({ ...options }) => {
     }
 
     if (status === 500) {
-      console.log(err, "5000000");
       throw new CustomError("Internal Server Error", {
         status,
       });

@@ -13,6 +13,7 @@ const OnboardingForm = ({ children, runOnFinish, runOnStart }) => {
       setCurrentProcessIndex(nextProcessIndex);
       addItemToLs("onboarding-process", nextProcessIndex);
     } else {
+      addItemToLs('onboarding-process', 0);
       runOnFinish();
     }
   };

@@ -28,11 +28,12 @@ const VerifyOtp = ({ nextProcess, prevProcess }) => {
         otp: otpValue,
       };
       const { detail } = await OtpVerification(otpParam);
-      console.log(detail);
+      showAlert(detail);
       nextProcess();
     } catch (error) {
       const { detail } = error.data;
       showAlert(detail);
+      // nextProcess();
     }
   };
 

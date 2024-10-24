@@ -24,6 +24,7 @@ const ForgetPassword = ({ nextProcess, prevProcess }) => {
       nextProcess();
     } catch (error) {
       showAlert('error request')
+      // nextProcess();
     }
   };
 

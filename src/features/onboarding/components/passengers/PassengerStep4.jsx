@@ -1,15 +1,9 @@
 import React from "react";
-import Assurance from "../Assurance";
-import OtpInput from "../OtpInput";
 import { useDispatch, useSelector } from "react-redux";
 import { ActivateUser } from "../../services";
 import { deletItemFromLs, getItemFromLs } from "@/utils/ls";
-import Btn from "@/components/btn/Btn";
-import ResendOtpTab from "../ResendOtpTab";
 import { changeInputValue } from "@/store/slices/form-data-slice";
 import { useAreInputsFilled } from "../../hooks/useAreInputsFilled";
-import SharedStep from "../../layouts/SharedStep";
-import OtpTick from "../../assets/svg/OtpTick";
 import dispatchables from "@/utils/dispatchables";
 import { onboarding_descs } from "../../constants";
 import ActivateVerify from "../sharedSteps/ActivateVerify";
@@ -34,11 +28,11 @@ const PassengerStep4 = ({ nextProcess, prevProcess }) => {
       };
 
       const { detail } = await ActivateUser(otpParams);
-      // console.log(detail);
+      showAlert(detail);
       nextProcess();
       deletItemFromLs("userId");
     } catch (error) {
-      showAlert(error.data.msg);
+      showAlert(error.data?.msg || "error activating user");
       // nextProcess();
     }
   };

@@ -21,7 +21,6 @@ const Login = ({ nextProcess, prevProcess }) => {
   const { loading, unloading, showAlert } = dispatchables();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
     loading();
     try {
       const link = await LoginUser({
