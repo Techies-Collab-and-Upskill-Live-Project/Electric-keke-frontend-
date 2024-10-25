@@ -37,7 +37,16 @@ const RiderIndex = () => {
   return isLoading ? (
     <Loader className="size-32 mx-auto" type="spin2" />
   ) : (
-    <>
+    // <AnimatePresence mode="wait">
+    <motion.div
+      onAnimationComplete={() => {}}
+      key="riders-list"
+      initial={{ x: 200, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      exit={{ x: -200, opacity: 0 }}
+      transition={{ duration: 0.65 }}
+      className="available-riders__wrapper"
+    >
       {availableRiders.length < 1 ? (
         <motion.div
           key="no-riders"
@@ -50,22 +59,14 @@ const RiderIndex = () => {
           <h2>No availble riders at the moment</h2>
         </motion.div>
       ) : (
-        <motion.div
-          key="riders"
-          initial={{ x: 200, opacity: 1 }}
-          animate={{ x: 0, opacity: 1 }}
-          exit={true && { x: -200, opacity: 0, transition: { duration: 3 } }}
-          transition={{ duration: 0.65, type: "just" }}
-          className="available-riders__wrapper"
-        >
-          <RegularList
-            component={Rider}
-            list={arrayOfMockRiders}
-            keyExtractor={arrayOfMockRiders.map((item) => item.fullname)}
-          />
-        </motion.div>
+        <RegularList
+          component={Rider}
+          list={arrayOfMockRiders}
+          keyExtractor={arrayOfMockRiders.map((item) => item.fullname)}
+        />
       )}
-    </>
+    </motion.div>
+    // </AnimatePresence>
   );
 };
 

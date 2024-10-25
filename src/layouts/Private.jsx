@@ -26,7 +26,7 @@ const ProtectedRoute = () => {
       <Route path="/driver/:id" element={<Driver />} />
       <Route path="/schedule-ride" element={<Schedule />} />
       <Route path="/riders" element={<Riders />}>
-        <Route index element={<RiderIndex />} />
+        <Route path="list" element={<RiderIndex />} />
         <Route path=":id" element={<RiderInfo />} />
       </Route>
       <Route path="/tracking/*" element={<Tracking />} />

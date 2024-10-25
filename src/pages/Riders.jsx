@@ -1,7 +1,6 @@
 import { Section } from "@/layouts";
 import { Outlet } from "react-router-dom";
 import Btn from "@/components/btn/Btn";
-import { AnimatePresence } from "framer-motion";
 
 const Riders = () => {
   return (
@@ -14,9 +13,8 @@ const Riders = () => {
             </h2>
             <Btn styling="bg-transparent rounded-full" />
           </div>
-          <AnimatePresence>
-            <Outlet />
-          </AnimatePresence>
+
+          <Outlet />
         </div>
       </div>
     </Section>

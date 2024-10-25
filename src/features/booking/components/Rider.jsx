@@ -68,7 +68,7 @@ const Rider = ({
               photo,
             };
             chooseRider(rider);
-            navigate(fullname + id)
+            navigate(`/riders/${fullname + id}`)
           }}
         />
       </div>
