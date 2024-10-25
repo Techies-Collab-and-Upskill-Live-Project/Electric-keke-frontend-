@@ -2,7 +2,6 @@ import Btn from "@/components/btn/Btn";
 import Choose from "@/components/Choose";
 import dispatchables from "@/utils/dispatchables";
 
-
 const PayModalBottom = ({ methodOfPayment }) => {
   const { showAlert } = dispatchables();
   return (
@@ -16,10 +15,10 @@ const PayModalBottom = ({ methodOfPayment }) => {
           addedClass1="btn--primary"
           addedClass2="btn--secondary"
           handleChoice1={() => {
-            showAlert("save card details");
+            showAlert("card Details Saved", "info");
           }}
           handleChoice2={() => {
-            showAlert("cancel card");
+            showAlert("cancel card", "info");
           }}
         />
       )}
@@ -28,7 +27,7 @@ const PayModalBottom = ({ methodOfPayment }) => {
           text="Confirm"
           styling="btn btn--lg btn--primary w-full rounded-full"
           onClick={() => {
-            showAlert("added bank details");
+            showAlert("bank details successfully added", "info");
           }}
         />
       )}

@@ -4,11 +4,9 @@ import RegisterAsLink from "./RegisterAsLink";
 import { addItemToLs } from "@/utils/ls";
 import RegularList from "@/components/_design-patterns/RegularList";
 import { account_types } from "../constants";
-import { useState } from "react";
 
 const RegisterAs = () => {
   const navigate = useNavigate();
-  const [registeringAs, setRegisteringAs] = useState("User");
 
   const goToLoginPage = () => {
     addItemToLs("onboarding-process", 0);
@@ -41,8 +39,6 @@ const RegisterAs = () => {
             <RegularList
               list={account_types}
               component={RegisterAsLink}
-              registeringAs={registeringAs}
-              setRegisteringAs={setRegisteringAs}
               keyExtractor={account_types.map((item) => item.role)}
             />
           </div>

@@ -5,10 +5,19 @@ const OnboardingContext = createContext();
 
 export const OnboardingProvider = ({ children }) => {
   const { isModalOpen, openModal, closeModal, setIsModalOpen } = useModal();
+  const [registeringAs, setRegisteringAs] = useState("User");
+  const chooseRole = (role) => setRegisteringAs(role);
 
   return (
     <OnboardingContext.Provider
-      value={{ isModalOpen, openModal, closeModal, setIsModalOpen }}
+      value={{
+        isModalOpen,
+        openModal,
+        closeModal,
+        setIsModalOpen,
+        registeringAs,
+        chooseRole,
+      }}
     >
       {children}
     </OnboardingContext.Provider>

@@ -3,6 +3,7 @@ import { changeInputValue } from "../store/slices/form-data-slice";
 import {
   alertUser,
   changeVerificationType,
+  chooseSupport,
   finishLoad,
   hideAlert,
   selectARider,
@@ -57,6 +58,10 @@ const dispatchables = () => {
     dispatch(storeListOfRiders(data));
   };
 
+  const whatSupport = (key) => {
+    dispatch(chooseSupport(key));
+  };
+
   return {
     chooseOtpMethod,
     changeAuthFormData,
@@ -68,6 +73,7 @@ const dispatchables = () => {
     updateDriversList,
     loading,
     unloading,
+    whatSupport
   };
 };
 

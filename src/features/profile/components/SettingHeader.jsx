@@ -1,12 +1,12 @@
 import React from "react";
-import { SmallInfo } from "@/components/SmallInfo";
 import { useCurrentUser } from "@/hooks/useCurrentUser";
 import { goBack } from "@/utils/goBack";
 import { ArrowLeft } from "lucide-react";
-import Btn from "@/components/btn/Btn";
+import { Btn, SmallInfo } from "@/components";
 
 const SettingHeader = () => {
   const user = useCurrentUser();
+  
   return (
     <header className="setting-header">
       <div className="flex items-center gap-6">

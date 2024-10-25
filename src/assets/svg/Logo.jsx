@@ -35,7 +35,7 @@ export const LogoWithText = ({ styling }) => {
               height="1"
             >
               <use
-                xlink:href="#image0_1618_17438"
+                xlinkHref="#image0_1618_17438"
                 transform="matrix(0.00348432 0 0 0.00219298 0 0.00438598)"
               />
             </pattern>

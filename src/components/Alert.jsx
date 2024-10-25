@@ -1,10 +1,12 @@
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
+import Heading from "./Heading";
 
 const alertTheme = {
   container: {
     success: "alert--success",
     danger: "alert--danger",
+    info: "alert--info",
   },
 };
 
@@ -20,9 +22,14 @@ const Alert = () => {
       exit={{ y: -200, opacity: 0 }}
       className={`alert-container ${alertTheme.container[type]}`}
     >
-      <h3 className="text-xl font-bold">{type === 'success' ? 'Success' : 'Error'}</h3>
-      <p className="font-medium">{msg}</p>
-
+      <Heading
+        title={
+          type === "success" ? "Success" : type === "info" ? "Info" : "Error"
+        }
+        tclass="text-xl font-bold"
+        description={msg}
+        dclass="font-medium"
+      />
     </motion.div>
   );
 };

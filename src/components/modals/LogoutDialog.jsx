@@ -10,7 +10,7 @@ const LogoutDialog = () => {
 
   const handleChoice1 = () => {
     // just close modal here
-    showAlert("no");
+    showAlert("no", 'info');
   };
 
   const handleChoice2 = () => {

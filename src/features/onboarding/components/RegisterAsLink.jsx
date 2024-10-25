@@ -1,14 +1,10 @@
 import { addItemToLs } from "@/utils/ls";
 import { Link } from "react-router-dom";
+import { useGlobalOnboardContext } from "../context/OnboardingContext";
 
-const RegisterAsLink = ({
-  title,
-  icon,
-  role,
-  href,
-  registeringAs,
-  setRegisteringAs,
-}) => {
+const RegisterAsLink = ({ title, icon, role, href }) => {
+  const { registeringAs, chooseRole } = useGlobalOnboardContext();
+
   return (
     <Link to={`/onboarding/${href}`}>
       <div
@@ -16,7 +12,7 @@ const RegisterAsLink = ({
           role === registeringAs && "chosen-option"
         }`}
         onMouseOver={() => {
-          setRegisteringAs(role);
+          chooseRole(role);
           addItemToLs("onboarding-process", 0);
         }}
       >

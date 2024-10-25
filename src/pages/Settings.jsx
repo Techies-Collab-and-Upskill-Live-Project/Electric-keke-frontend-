@@ -1,9 +1,9 @@
-import GroupedModals from "@/components/GroupedModals";
 import React, { useState } from "react";
 import { Section } from "@/layouts";
 import { useModal } from "@/hooks/useModal";
 import SettingHeader from "@/features/profile/components/SettingHeader";
 import SettingNav from "@/features/profile/components/SettingNav";
+import { GroupedModals } from "@/components";
 
 const Settings = () => {
   const [typeOfModal, setTypeOfModal] = useState("delete");

@@ -5,7 +5,8 @@ const Choose = ({
   containerClass,
   choice1txt,
   choice2txt,
-  icon1, icon2,
+  icon1,
+  icon2,
   btnClass,
   addedClass1,
   addedClass2,
@@ -30,6 +31,10 @@ const Choose = ({
       />
     </div>
   );
+};
+
+export const activateChooseBtn = (condition, option1, option2) => {
+  return condition ? option1 : option2;
 };
 
 export default Choose;

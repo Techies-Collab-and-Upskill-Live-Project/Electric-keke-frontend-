@@ -1,13 +1,32 @@
-import CustomModal from "./CustomModal";
-import ManageProfileModal from "./modals/ManageProfileModal";
-import PaymentMethodModal from "./modals/PaymentMethodModal";
-import LogoutDialog from "./modals/LogoutDialog";
-import DeleteDialog from "./modals/DeleteDialog";
-import Welldone from "./modals/Welldone";
+import { modals, CustomModal } from "@/components";
 import { groupModalShowBtn, groupModalStyling } from "@/constants";
 
+const {
+  ManageProfileModal,
+  PaymentMethodModal,
+  LogoutDialog,
+  DeleteDialog,
+  Welldone,
+} = modals;
 
 const GroupedModals = ({ type, isModalOpen, closeModal }) => {
+  const displayModal = () => {
+    switch (type) {
+      case "Profile Management":
+        return <ManageProfileModal />;
+      case "Payment Method":
+        return <PaymentMethodModal />;
+      case "Logout":
+        return <LogoutDialog />;
+      case "Delete Account":
+        return <DeleteDialog />;
+      case "edit-profile":
+        return <Welldone closeModal={closeModal} />;
+      default:
+        break;
+    }
+  };
+
   return (
     <CustomModal
       isModalOpen={isModalOpen}
@@ -15,12 +34,12 @@ const GroupedModals = ({ type, isModalOpen, closeModal }) => {
       modalStyling={groupModalStyling[type]}
       closeModal={closeModal}
       showCloseBtn={groupModalShowBtn[type]}
+      animateMI={{ opacity: 0 }}
+      animateMA={{ opacity: 1 }}
+      animateMSI={{ y: 200, opacity: 0 }}
+      animateMSA={{ y: 0, opacity: 1, transition: { delay: 0.25 } }}
     >
-      {type === "Profile Management" && <ManageProfileModal />}
-      {type === "Payment Method" && <PaymentMethodModal />}
-      {type === "Logout" && <LogoutDialog />}
-      {type === "Delete Account" && <DeleteDialog />}
-      {type === "edit-profile" && <Welldone closeModal={closeModal} />}
+      {displayModal()}
     </CustomModal>
   );
 };

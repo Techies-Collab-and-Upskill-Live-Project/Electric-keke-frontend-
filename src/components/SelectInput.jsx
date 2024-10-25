@@ -21,7 +21,7 @@ export function SelectInput({
       >
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
-      <SelectContent className="overflow-y-scroll max-h-80 w-full">
+      <SelectContent className="overflow-y-scroll max-h-80 w-full z-[2000]">
         <SelectGroup>
           <SelectLabel>{label}</SelectLabel>
           {children}

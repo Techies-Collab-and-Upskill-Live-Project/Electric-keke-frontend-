@@ -664,6 +664,10 @@ h2 {
   @apply bg-error-100/50 border-red-500/10
 }
 
+.alert--info {
+  @apply bg-blue-400/50 border-blue-500/10
+}
+
 .alert-stats {
   @apply rounded bg-basic-1000 size-7 flex-center
 }
@@ -1195,7 +1199,7 @@ h2 {
 }
 
 .card-content-group {
-  @apply grid grid-cols-3 gap-4
+  @apply flex gap-x-2
 }
 
 .dialog-modal {
