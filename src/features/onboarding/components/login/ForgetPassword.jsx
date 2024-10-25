@@ -23,7 +23,7 @@ const ForgetPassword = ({ nextProcess, prevProcess }) => {
       showAlert(detail)
       nextProcess();
     } catch (error) {
-      showAlert('error request')
+      showAlert('error request', 'danger')
       // nextProcess();
     }
   };

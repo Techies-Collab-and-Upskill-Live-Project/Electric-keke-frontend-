@@ -3,6 +3,7 @@ import dispatchables from "@/utils/dispatchables";
 import Btn from "@/components/btn/Btn";
 import Rate from "./Rate";
 import star_size from "../utils/star_size";
+import { useNavigate } from "react-router-dom";
 
 const Rider = ({
   id,
@@ -14,6 +15,7 @@ const Rider = ({
   photo,
   setNavigationLink
 }) => {
+  const navigate = useNavigate();
   const [mediaSize, setMediaSize] = useState(window.outerWidth);
 
   const { inputDataForBookingRequest, chooseRider } = dispatchables();
@@ -53,7 +55,6 @@ const Rider = ({
         </div>
         <Btn
           text="View Details"
-          href={fullname + id}
           styling="rider-btn"
           onClick={() => {
             inputDataForBookingRequest("rider", email);
@@ -67,6 +68,7 @@ const Rider = ({
               photo,
             };
             chooseRider(rider);
+            navigate(`/riders/${fullname + id}`)
           }}
         />
       </div>

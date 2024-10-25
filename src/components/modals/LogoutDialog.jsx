@@ -16,8 +16,7 @@ const LogoutDialog = () => {
   const handleChoice2 = () => {
     Logout();
     showAlert("Logged Out");
-    addItemToLs("registeringAs", "Login");
-    navigate("/onboarding/registration");
+    navigate("/onboarding/login");
   };
   return (
     <DialogModal

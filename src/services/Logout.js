@@ -1,5 +1,3 @@
 import { clearLs } from "@/utils/ls";
 
-export const Logout = () => {
-  clearLs();
-};
+export const Logout = () => clearLs();

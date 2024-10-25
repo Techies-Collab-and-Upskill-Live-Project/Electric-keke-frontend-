@@ -3,7 +3,6 @@ import { Outlet } from "react-router-dom";
 import Btn from "@/components/btn/Btn";
 
 const Riders = () => {
-
   return (
     <Section darkLogo={true} mobileHeaderStyle="mobile-header">
       <div className="rider-container">
@@ -15,7 +14,7 @@ const Riders = () => {
             <Btn styling="bg-transparent rounded-full" />
           </div>
 
-            <Outlet />
+          <Outlet />
         </div>
       </div>
     </Section>

@@ -653,15 +653,15 @@ h2 {
 
 /**************** Alert **********/
 .alert-container {
-  @apply flex items-center justify-between fixed top-5 md:top-20 right-3 md:right-20 shadow-2xl border p-2 z-[1200] rounded-m text-xs font-bold
+  @apply fixed top-5 md:top-20 right-3 md:right-20 shadow-2xl border-2 py-2 px-4 z-[1200] rounded-m min-w-72 text-neutral-1000 backdrop-blur-md
 }
 
 .alert--success {
-  @apply border-basic-300  bg-basic/10 text-basic
+  @apply bg-basic-100/50 border-basic-500/10
 }
 
 .alert--danger {
-  @apply border-error-100 bg-error/10 text-red-500
+  @apply bg-error-100/50 border-red-500/10
 }
 
 .alert-stats {

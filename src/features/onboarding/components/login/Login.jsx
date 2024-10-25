@@ -20,7 +20,7 @@ const Login = ({ nextProcess, prevProcess }) => {
   const { AuthenticateLogin } = useGlobalAuthContext();
   const { loading, unloading, showAlert } = dispatchables();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async () => {
     loading();
     try {
       const link = await LoginUser({

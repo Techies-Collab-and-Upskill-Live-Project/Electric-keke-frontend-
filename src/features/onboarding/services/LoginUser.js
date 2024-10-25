@@ -14,6 +14,7 @@ export const LoginUser = async ({ username, password }) => {
     const direction = await StoreAndDirectUser(data);
     return direction;
   } catch (error) {
-    throw new Error(error.message);
+    let msg = error.data.response?.data.detail
+    throw new Error(msg ? msg : 'Error Logging in');
   }
 };

@@ -32,7 +32,7 @@ const VerifyOtp = ({ nextProcess, prevProcess }) => {
       nextProcess();
     } catch (error) {
       const { detail } = error.data;
-      showAlert(detail);
+      showAlert(detail, 'danger');
       // nextProcess();
     }
   };

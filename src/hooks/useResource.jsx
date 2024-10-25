@@ -7,6 +7,7 @@ export const useResource = (callback, key) => {
 
   useEffect(() => {
     if (resource) {
+      setIsLoading(false);
       return;
     } else {
       (async () => {
