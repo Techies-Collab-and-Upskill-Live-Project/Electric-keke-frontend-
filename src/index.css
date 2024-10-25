@@ -1356,7 +1356,7 @@ h2 {
 }
 
 .profile-glow {
-  @apply size-[300px] lg:size-[609px] bg-basic/20 absolute -top-10 md:-top-32 -left-20 md:-left-[8rem] rounded-full -z-20
+  @apply size-[300px] lg:size-[609px] bg-basic/20 absolute -top-10 md:-top-32 -left-20 md:-left-[8rem] rounded-full -z-20 blur-lg
 }
 
 .profile-sub-header {
