@@ -11,7 +11,7 @@ const SettingNav = ({ openModal, setTypeOfModal }) => {
   return (
     <nav className="w-full tablet:w-[41%]">
       <h2 className="setting-title">Settings</h2>
-      <ul className="space-y-[4.0625rem] mt-10">
+      <ul className="space-y-4 md:space-y-[4.0625rem] mt-10">
         <RegularList
           list={settings}
           component={SettingListItem}
