@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 
 const ResendOtpTab = ({ verificationType }) => {
   const { username, email } = useSelector((state) => state.formData);
+  const emailToUse = getItemFromLs("user-email");
   const { showAlert } = dispatchables();
 
   const { minutes, seconds } = useCountDownTime();
@@ -15,7 +16,7 @@ const ResendOtpTab = ({ verificationType }) => {
       if (verificationType === "activate") {
         const { detail } = await RequestOtp({
           message_type: "email",
-          username: email,
+          username: emailToUse,
         });
         showAlert(detail);
         return;

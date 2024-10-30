@@ -40,7 +40,7 @@ export const RegisterUser = async ({
   } catch (error) {
     const errorRes = error.data.response;
     const errors_arr = Object.entries(errorRes.data).map(([key, value]) => {
-      return value[0];
+      return value;
     });
 
     throw new CustomError("Error Registering User", errors_arr);
