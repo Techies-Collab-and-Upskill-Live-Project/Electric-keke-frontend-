@@ -1,20 +1,22 @@
-import { EyeIcon } from "lucide-react";
+import { EyeIcon, EyeOffIcon } from "lucide-react";
+import { useState } from "react";
 import Btn from "../btn/Btn";
 
 const MaskPassword = () => {
-  const UnmaskPassword = (e) => {
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
+  const togglePasswordVisibility = (e) => {
     const inputAsSibling = e.currentTarget.previousElementSibling;
-    const checkType = inputAsSibling.type;
-    checkType === "password"
-      ? (inputAsSibling.type = "text")
-      : (inputAsSibling.type = "password");
+    const newType = inputAsSibling.type === "password" ? "text" : "password";
+    inputAsSibling.type = newType;
+    setIsPasswordVisible(newType === "text");
   };
 
   return (
     <Btn
       styling="size-5 absolute top-1/2 right-5 -translate-y-1/2 bg-white p-0"
-      icon={<EyeIcon color="black" />}
-      onClick={UnmaskPassword}
+      icon={isPasswordVisible ? <EyeOffIcon color="black" /> : <EyeIcon color="black" />}
+      onClick={togglePasswordVisibility}
     />
   );
 };
