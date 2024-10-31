@@ -4,7 +4,12 @@ import Microphone from "@/assets/svg/Microphone";
 import Gallery from "../assets/svg/Gallery";
 import PaperClip from "../assets/svg/PaperClip";
 
-export const CareChatCta = ({ styling }) => {
+export const CareChatCta = ({
+  styling,
+  message,
+  handleSendMessage,
+  setMessage,
+}) => {
   return (
     <div className={styling}>
       <Btn icon={<Gallery />} styling="bg-transparent w-fit p-0" />
@@ -12,6 +17,10 @@ export const CareChatCta = ({ styling }) => {
       <Btn
         icon={<Send color="#77BB77" />}
         styling="rounded-full size-[50px] -rotate-45 bg-basic-100 send-shadow"
+        onClick={() => {
+          handleSendMessage(message);
+          setMessage("");
+        }}
       />
     </div>
   );

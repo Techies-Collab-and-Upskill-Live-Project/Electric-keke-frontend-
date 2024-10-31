@@ -1,7 +1,10 @@
 import DefaultMsg from "./DefaultMsg";
 import { CareChatCta } from "./ChatCta";
+import { useState } from "react";
 
-const TypingBoard = ({ styling }) => {
+const TypingBoard = ({ styling, handleSendMessage }) => {
+  const [message, setMessage] = useState("");
+
   return (
     <>
       {/* <DefaultMsg /> */}
@@ -9,12 +12,25 @@ const TypingBoard = ({ styling }) => {
       <div className={`w-full bg-neutral ${styling}`}>
         <div className="w-full min-h-[50px] flex items-center justify-between">
           <textarea
-            cols={60}
-            className="h-5 bg-transparent text-black resize-none w-[76%border border-red-500 max-w-[600px]"
+            // cols={60}
+            className="h-10 bg-transparent text-black resize-none border-none outline-none px-4 py-2 flex-1"
             placeholder="Type your message"
+            value={message}
+            onInput={(event) => {
+              const {
+                target: { value },
+              } = event;
+
+              setMessage(value);
+            }}
           />
 
-          <CareChatCta styling="flex items-center gap-x-3" />
+          <CareChatCta
+            styling="flex items-center gap-x-3"
+            handleSendMessage={handleSendMessage}
+            message={message}
+            setMessage={setMessage}
+          />
         </div>
       </div>
     </>

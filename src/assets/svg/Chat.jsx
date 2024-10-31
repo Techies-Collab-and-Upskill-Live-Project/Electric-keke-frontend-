@@ -1,10 +1,8 @@
 import React from "react";
 
-const Chat = ({width, height}) => {
+const Chat = () => {
   return (
     <svg
-      width={width || "50"}
-      height={height || "42"}
       viewBox="0 0 50 42"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

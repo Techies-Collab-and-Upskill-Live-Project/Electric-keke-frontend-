@@ -21,26 +21,12 @@ const RiderInfo = () => {
   const submitBooking = async () => {
     loading();
     const bookData = getItemFromLs("book-data");
-    // socket.emit('new-booking')
     try {
       const booking = await BookRide(bookData);
       showAlert("Ride Booking Succefull, Wait a moment");
       setWaiting(true);
       unloading();
-
-      // will be emitting an event here
-      // socket.emit('request-ride')
-
-      // this code below from here need to be extracted becosuse this showuld be only when driver accepts
-      // const bookingList = await GetListOfBookings();
-      // console.log(bookingList);
-
-      // const lastestBooking = bookingList.length - 1;
-      // addItemToLs("current-ride", bookingList[lastestBooking]);
-
-      // deletItemFromLs("book-data");
-      // navigate("/tracking");
-      // from the start this is only when the driver accepts
+      console.log(booking)
     } catch (error) {
       console.log(rider);
       showAlert(`Error Booking Ride with Rider ${rider.fullname}`);
@@ -81,7 +67,7 @@ const RiderInfo = () => {
                   rate={rider?.rating || 2}
                   statik
                   className="mt-2 md:mt-4 lg:mt-10"
-                  size={58}
+                  size="size-10"
                 />
               </motion.div>
 

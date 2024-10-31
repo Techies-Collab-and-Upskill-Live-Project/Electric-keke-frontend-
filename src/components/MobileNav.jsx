@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { LogoPlain } from "@/assets/svg/Logo";
 import RegularList from "./_design-patterns/RegularList";
 import MobileNavListItem from "./MobileNavListItem";
+import IconWrapper from "./IconWrapper";
 
 const MobileNav = ({ blur }) => {
   const { pathname } = useLocation();
@@ -26,8 +27,16 @@ const MobileNav = ({ blur }) => {
     <section>
       <Sheet>
         <SheetTrigger>
-          <Menu blur={blur} isDriverinTheUrl={isDriverinTheUrl} />
+          <IconWrapper
+            iconElement={Menu}
+            iconElementProps={{
+              blur,
+              isDriverinTheUrl
+            }}
+            containerStyle="w-[29px] h-[22px]"
+          />
         </SheetTrigger>
+        
         <SheetContent side="left" className="border-none bg-white">
           <LogoPlain />
 

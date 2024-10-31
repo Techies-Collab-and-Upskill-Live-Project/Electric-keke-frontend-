@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import NavBar from "./NavBar";
 import { LogoPlain } from "@/assets/svg/Logo";
 import Btn from "./btn/Btn";
 import { HeroSmallInfo } from "./SmallInfo";
 import { useCurrentUser } from "@/hooks/useCurrentUser";
-import NotificationModal from "./modals/NotificationModal";
 import { BellIcon } from "lucide-react";
 import { useGlobalNotificationContext } from "@/contexts/NotificationContext";
 
@@ -15,7 +14,7 @@ const Header = ({ darkLogo, blur }) => {
   return (
     <header className="header">
       <div className={`header__content ${blur && "header__content--blur"}`}>
-        <LogoPlain />
+        <LogoPlain scale="scale-[1.3]" />
         <NavBar dark={darkLogo} />
 
         {user ? (

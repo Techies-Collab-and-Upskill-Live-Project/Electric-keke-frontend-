@@ -1,4 +1,5 @@
 import Footer from "@/components/Footer";
+import { useGlobalAuthContext } from "@/contexts/AuthContext";
 import {
   Connected,
   Hero,
@@ -11,6 +12,7 @@ import useTitle from "@/hooks/useTitle";
 import { Section } from "@/layouts";
 const Home = () => {
   useTitle("Home");
+  
 
   return (
     <Section

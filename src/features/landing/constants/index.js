@@ -1,3 +1,5 @@
+import { icons } from "@/assets";
+
 export const HeroImage = {
   main: "/hero_bg1.png",
   about: "/hero/about_hero.png",
@@ -72,20 +74,25 @@ export const contribution = {
 
 export const care_socials = [
   {
+    title: "Customer Services",
+    icon: icons.HeadPhoneIcon,
+    href: "/customer-care",
+  },
+  {
     title: "Facebook",
-    icon: "/facebook.svg",
+    icon: icons.FbIcon,
   },
   {
     title: "Twitter",
-    icon: "/twitter.svg",
+    icon: icons.XIcon,
   },
   {
     title: "Whatsapp",
-    icon: "/whatsapp.svg",
+    icon: icons.WhatsappIcon,
   },
   {
     title: "Instagram",
-    icon: "/instagram.svg",
+    icon: icons.InstaIcon,
   },
 ];
 

@@ -71,9 +71,9 @@ const BookingModalForm = ({ closeModal }) => {
         throw new Error("Open an accont");
       }
       await closeModal();
-      navigate("/riders");
+      navigate("/riders/list");
     } catch (error) {
-      showAlert("Login to book a ride");
+      showAlert("Login to book a ride", 'info');
     }
   };
 

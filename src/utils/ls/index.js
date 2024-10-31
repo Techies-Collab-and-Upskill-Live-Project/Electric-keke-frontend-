@@ -1,6 +1,6 @@
 const getItemFromLs = (item) => {
   const retrieveItem = localStorage.getItem(item);
-  if (retrieveItem !== null) {
+  if (retrieveItem !== null || retrieveItem !== undefined) {
     const item = JSON.parse(retrieveItem);
     return item;
   }

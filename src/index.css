@@ -105,6 +105,11 @@
   .btn--outline {
     @apply bg-transparent border text-black
   }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+    scrollbar-width: none;
+  }
 }
 
 /********************** Btn ********************/
@@ -791,7 +796,7 @@ h2 {
 }
 
 .rider-review-container {
-  @apply space-y-2 mt-2 md:mt-6 h-[412px] md:h-[308px] lg:h-[433px] overflow-y-scroll relative
+  @apply space-y-2 mt-2 md:mt-6 h-[412px] md:h-[308px] lg:h-[433px] overflow-y-scroll no-scrollbar relative
 }
 
 .rider-review-overlay {

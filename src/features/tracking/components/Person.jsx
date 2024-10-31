@@ -1,15 +1,13 @@
 import Chat from "../../../assets/svg/Chat";
 import { useNavigate } from "react-router-dom";
 import { useModal } from "@/hooks/useModal";
-import { useMedia } from "@/hooks/useMedia";
 import ContactModal from "./ContactModal";
 import Btn from "@/components/btn/Btn";
 import { ProfilePhoto } from "@/features/profile";
+import IconWrapper from "@/components/IconWrapper";
 
 const Person = ({ role, fullname, hasArrived }) => {
   const navigate = useNavigate();
-
-  const mediaSmall = useMedia("(max-width:500px)");
 
   const { isModalOpen, openModal, closeModal } = useModal();
 
@@ -30,9 +28,9 @@ const Person = ({ role, fullname, hasArrived }) => {
         <div className="flex-center gap-x-9">
           <Btn
             icon={
-              <Chat
-                width={mediaSmall ? 41 : 50}
-                height={mediaSmall ? 33 : 41}
+              <IconWrapper
+                iconElement={Chat}
+                containerStyle="w-10 md:w-[50px] h-8 md:h-10"
               />
             }
             className="bg-transparent p-0"

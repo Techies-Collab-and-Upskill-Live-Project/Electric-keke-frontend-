@@ -1,12 +1,12 @@
 import Rider from "./Rider";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import useTitle from "../../../hooks/useTitle";
 import riders from "@/mock-data/riders";
 import RegularList from "@/components/_design-patterns/RegularList";
 import { GetAvailableRiders } from "../services/GetAvailableRiders";
 import { useResource } from "@/hooks/useResource";
 import { useArray } from "@/hooks/useArray";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Loader from "@/components/loaders/Loader";
 
 const RiderIndex = () => {
@@ -15,11 +15,12 @@ const RiderIndex = () => {
     GetAvailableRiders,
     "riders"
   );
-  const [navigationLink, setNavigationLink] = useState("");
 
   // for development purpose
   const { unstableArray: arrayOfMockRiders, substituteItemsProps } =
     useArray(riders);
+
+    // console.log(arrayOfMockRiders)
 
   useEffect(() => {
     if (!isLoading) {
@@ -37,7 +38,6 @@ const RiderIndex = () => {
   return isLoading ? (
     <Loader className="size-32 mx-auto" type="spin2" />
   ) : (
-    // <AnimatePresence mode="wait">
     <motion.div
       onAnimationComplete={() => {}}
       key="riders-list"
@@ -66,7 +66,6 @@ const RiderIndex = () => {
         />
       )}
     </motion.div>
-    // </AnimatePresence>
   );
 };
 

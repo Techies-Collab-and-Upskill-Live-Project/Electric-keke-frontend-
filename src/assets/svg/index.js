@@ -21,7 +21,16 @@ import SettingIcon from "./SettingIcon";
 import Spear from "./Spear";
 import TimeEstimate from "./TimeEstimate";
 
+import FbIcon from "./fb";
+import XIcon from "./x";
+import WhatsappIcon from "./whatsapp";
+import InstaIcon from "./ig";
+import HeadPhoneIcon from "./headphone";
+
 const icons = {
+  InstaIcon,
+  WhatsappIcon,
+  HeadPhoneIcon,
   Accept,
   ArrDown,
   Battery,
@@ -33,6 +42,8 @@ const icons = {
   Dropped,
   Edit,
   FaqIcon,
+  FbIcon,
+  XIcon,
   LogoPlain,
   LogoWithText,
   LogoutIcon,

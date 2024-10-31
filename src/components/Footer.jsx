@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { HashLink as Link } from "react-router-hash-link";
 import { LogoPlain } from "@/assets/svg/Logo";
 import RegularList from "./_design-patterns/RegularList";
+import IconWrapper from "./IconWrapper";
 
 const Footer = () => {
   return (
@@ -15,7 +16,7 @@ const Footer = () => {
           className="footer-main"
         >
           <div className="footer-brief-container">
-            <LogoPlain styling="w-[72px] h-[39px]" />
+            <LogoPlain styling="w-[72px] h-[39px]" scale="scale-[1.5]" />
             <p className="footer-brief">{footer_note}</p>
           </div>
 
@@ -52,9 +53,9 @@ const Footer = () => {
                 list={socials}
                 keyExtractor={socials.map((item) => item.title)}
                 component={({ title, icon }) => (
-                  <div className="social-link">
-                    <img src={icon} alt={title} />
-                  </div>
+                  <li>
+                    <IconWrapper imageUrl={icon} containerStyle="social-link" scale="scale-[0.3]" />
+                  </li>
                 )}
               />
             </ul>

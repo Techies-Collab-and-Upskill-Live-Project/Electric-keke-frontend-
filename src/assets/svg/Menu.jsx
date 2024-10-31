@@ -1,8 +1,6 @@
 const Menu = ({ blur }) => {
   return (
     <svg
-      width="29"
-      height="22"
       viewBox="0 0 29 22"
       fill="black"
       xmlns="http://www.w3.org/2000/svg"
