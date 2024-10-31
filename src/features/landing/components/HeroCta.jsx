@@ -5,6 +5,7 @@ import { ChooseModal } from "@/features/booking";
 import { Btn, Choose } from "@/components";
 import { activateChooseBtn } from "@/components/Choose";
 import { useGlobalOnboardContext } from "@/features/onboarding/context/OnboardingContext";
+import { useCurrentUser } from "@/hooks/useCurrentUser";
 
 const activeBtn = (condition) =>
   activateChooseBtn(condition, "border-basic text-basic", "text-neutral");
@@ -12,28 +13,29 @@ const activeBtn = (condition) =>
 const HeroCta = ({ type }) => {
   const { support } = useSelector((state) => state.global);
   const { chooseRole } = useGlobalOnboardContext();
+  // const user = useCurrentUser();
 
   const { whatSupport } = dispatchables();
 
   const displayCta = () => {
     switch (type) {
       case "main":
-        return (
-          <>
+        // return user?.role === "User"  ? (
+         return <>
             <ChooseModal type="ride" />
             <ChooseModal type="delivery" />
           </>
-        );
+        // ) : null;
       case "earn":
-        return (
-          <Btn
+        // return user?.role === "User" || null ? (
+          return <Btn
             text="Register"
             href="/onboarding/rider"
             styling="btn--hero btn--primary"
             linkBtnWidth="w-[171px]"
             onClick={() => chooseRole("Rider")}
           />
-        );
+        // ) : null;
       case "support":
         return (
           <Choose
@@ -52,7 +54,7 @@ const HeroCta = ({ type }) => {
     }
   };
 
-  return <div className="flex-center gap-2 mt-6">{displayCta()}</div>;
+  return <div className="gap-2 mt-6 flex-center">{displayCta()}</div>;
 };
 
 export default memo(HeroCta);

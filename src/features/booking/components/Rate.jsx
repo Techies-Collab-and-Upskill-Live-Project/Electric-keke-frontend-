@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Star from "../assets/Star";
+import IconWrapper from "@/components/IconWrapper";
 
 const Rate = ({ rate, handleClick, statik, className, size = 20 }) => {
   const [indicate, setIndicate] = useState(2);
@@ -9,9 +10,12 @@ const Rate = ({ rate, handleClick, statik, className, size = 20 }) => {
     return (
       <div className={`flex items-center justify-between ${className}`}>
         {[1, 2, 3, 4, 5].map((item) => (
-          <div key={item}>
-            <Star key={item} rated={rate >= item ? true : false} size={size} />
-          </div>
+          <IconWrapper
+            key={item}
+            iconElement={Star}
+            iconElementProps={{ rated: rate >= item ? true : false }}
+            containerStyle={size}
+          />
         ))}
       </div>
     );

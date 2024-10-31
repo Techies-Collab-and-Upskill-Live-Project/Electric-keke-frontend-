@@ -1,10 +1,8 @@
 import React from "react";
 
-const Star = ({ size = 20, rated }) => {
+const Star = ({ rated }) => {
   return (
     <svg
-      width={size}
-      height={size}
       viewBox="0 0 64 56"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

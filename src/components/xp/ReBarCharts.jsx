@@ -47,7 +47,7 @@ const Chart = () => {
         /> */}
         <ChartTooltip content={<ChartTooltipContent />} label="just me" />
         {/* <ChartLegend content={<ChartLegendContent />} /> */}
-        <Bar dataKey="earnings" fill="bg-basic" radius={4} />
+        <Bar dataKey="earnings" fill="#77BB77" radius={4} />
       </BarChart>
     </ChartContainer>
   );

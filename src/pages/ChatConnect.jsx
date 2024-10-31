@@ -3,12 +3,10 @@ import Spear from "../assets/svg/Spear";
 import ConnectChatBoard from "../features/contact/components/ConnectChatBoard";
 import Btn from "@/components/btn/Btn";
 import { useModal } from "@/hooks/useModal";
-import { useMedia } from "@/hooks/useMedia";
 import ContactModal from "@/features/tracking/components/ContactModal";
 
 const ChatConnect = () => {
   useTitle("Connect");
-  const mediaSmall = useMedia("(max-width: 500px)");
   const { isModalOpen, openModal, closeModal } = useModal();
 
   return (
@@ -39,7 +37,6 @@ const ChatConnect = () => {
             isModalOpen={isModalOpen}
             openModal={openModal}
             closeModal={closeModal}
-            smallMedia={mediaSmall}
             connect
           />
           {/* <div>

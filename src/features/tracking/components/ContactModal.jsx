@@ -3,6 +3,7 @@ import Btn from "@/components/btn/Btn";
 import Heading from "@/components/Heading";
 import CustomModal from "@/components/CustomModal";
 import Call from "@/assets/svg/Call";
+import IconWrapper from "@/components/IconWrapper";
 
 const ContactModal = ({
   isModalOpen,
@@ -26,13 +27,10 @@ const ContactModal = ({
       trigger={Btn}
       triggerProps={{
         icon: (
-          <Call
-            type={connect ? "connect" : "rider"}
-            // this below for the tracking
-            width={smallMedia ? 24 : 37}
-            height={smallMedia ? 24 : 37}
-            // this is for the chatting
-            size={smallMedia ? 24 : 50}
+          <IconWrapper
+            iconElement={Call}
+            iconElementProps={{ type: connect ? "connect" : "rider" }}
+            containerStyle="size-6 md:size-[37px]"
           />
         ),
         styling: "bg-transparent p-0",

@@ -1,12 +1,12 @@
 const RegularList = ({
   list,
   component: Component,
-  keyExtractor,
+  keyExtractor = [],
   ...props
 }) => (
   <>
     {list.map((item, index) => (
-      <Component key={keyExtractor[index]} {...{ ...item, ...props }} />
+      <Component key={keyExtractor[index] || index} {...{ ...item, ...props }} />
     ))}
   </>
 );
