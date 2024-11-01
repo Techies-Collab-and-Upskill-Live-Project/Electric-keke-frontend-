@@ -18,29 +18,29 @@ export const NotificationProvider = ({ children }) => {
 
   const [notifications, setNotifications] = useState([]);
 
-  useEffect(() => {
-    const accessToken = getItemFromLs("accessToken");
+  // useEffect(() => {
+  //   const accessToken = getItemFromLs("accessToken");
 
-    SOCKET.current = new WebSocket(
-      `${ws_base_url}/notifications/?token=${accessToken}`
-    );
+  //   SOCKET.current = new WebSocket(
+  //     `${ws_base_url}/notifications/?token=${accessToken}`
+  //   );
 
-    SOCKET.current.onopen = () =>
-      console.log("connected to notification SOCKET");
+  //   SOCKET.current.onopen = () =>
+  //     console.log("connected to notification SOCKET");
 
-    SOCKET.current.onerror = () =>
-      console.log("connected to notification SOCKET failed");
+  //   SOCKET.current.onerror = () =>
+  //     console.log("connected to notification SOCKET failed");
 
-    SOCKET.current.onmessage = (event) => {
-      const notification = PARSEDATA(event.data);
-      console.log(notification);
-      setNotifications((prev) => [...prev, notification]);
-    };
+  //   SOCKET.current.onmessage = (event) => {
+  //     const notification = PARSEDATA(event.data);
+  //     console.log(notification);
+  //     setNotifications((prev) => [...prev, notification]);
+  //   };
 
-    return () => {
-      if (SOCKET.current) SOCKET.current.close();
-    };
-  }, []);
+  //   return () => {
+  //     if (SOCKET.current) SOCKET.current.close();
+  //   };
+  // }, []);
 
   return (
     <NotificationContext.Provider
