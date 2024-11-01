@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import dispatchables from "@/utils/dispatchables";
 import { getItemFromLs } from "@/utils/ls";
-import { UnlockScroll } from "@/utils/ScrollLock";
 import Btn from "@/components/btn/Btn";
 import { useAreInputsFilled } from "@/features/onboarding/hooks/useAreInputsFilled";
 
@@ -56,7 +55,7 @@ const BookingModalForm = ({ closeModal }) => {
     e.preventDefault();
 
     if (!showPrice) {
-      showAlert("Getting price estimate");
+      showAlert("Getting price estimate", "info");
       await getPrice(() => {
         let price = `${Math.floor(Math.random() * 3000)}`;
         inputDataForBookingRequest("price", price);
@@ -73,7 +72,7 @@ const BookingModalForm = ({ closeModal }) => {
       await closeModal();
       navigate("/riders/list");
     } catch (error) {
-      showAlert("Login to book a ride", 'info');
+      showAlert("Login to book a ride", "info");
     }
   };
 

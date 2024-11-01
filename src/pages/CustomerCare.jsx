@@ -36,6 +36,7 @@ const CustomerCare = () => {
       setTicketId(message?.ticket_id || getItemFromLs("ticket"));
 
       if (ticketId) {
+        // console.log('i have ticket')
         return;
       } else {
         addItemToLs("ticket", message.ticket_id);
@@ -45,7 +46,7 @@ const CustomerCare = () => {
     return () => {
       if (SOCKET.current) SOCKET.current.close();
     };
-  }, []);
+  }, [ticketId]);
 
   const SendToSocket = useCallback(
     (message) => {
