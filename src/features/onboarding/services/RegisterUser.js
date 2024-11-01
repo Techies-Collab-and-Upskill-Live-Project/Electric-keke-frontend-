@@ -11,9 +11,8 @@ export const RegisterUser = async ({
   phone,
   state,
   message_type,
+  role,
 }) => {
-  const role = getItemFromLs("registeringAs");
-
   try {
     addItemToLs("user-email", email);
     const data = await makePlainRequest({
@@ -21,7 +20,7 @@ export const RegisterUser = async ({
       method: "post",
       data: {
         fullname,
-        address: address,
+        address,
         state_of_residence: state,
         role,
         email,

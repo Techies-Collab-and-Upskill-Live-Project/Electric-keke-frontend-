@@ -2,16 +2,17 @@ import { addItemToLs } from "../../utils/ls";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  username: "",
-  fullname: "",
-  email: "",
-  password: "",
-  re_password: "",
-  phone: "",
-  state: "",
   address: "",
+  email: "",
+  fullname: "",
   message_type: "email",
   otpValue: "",
+  password: "",
+  phone: "",
+  re_password: "",
+  role: "User",
+  state: "",
+  username: "",
 };
 // const initialState = {
 //   username: "",

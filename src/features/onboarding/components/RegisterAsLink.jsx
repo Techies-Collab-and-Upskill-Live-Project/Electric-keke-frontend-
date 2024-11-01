@@ -1,32 +1,33 @@
 import { addItemToLs } from "@/utils/ls";
 import { Link } from "react-router-dom";
-import { useGlobalOnboardContext } from "../context/OnboardingContext";
+import { useSelector } from "react-redux";
+import IconWrapper from "@/components/IconWrapper";
+import Spear from "@/assets/svg/Spear";
+import dispatchables from "@/utils/dispatchables";
 
 const RegisterAsLink = ({ title, icon, role, href }) => {
-  const { registeringAs, chooseRole } = useGlobalOnboardContext();
+  const { role: user_role } = useSelector((state) => state.formData);
+  const { changeAuthFormData } = dispatchables();
 
   return (
     <Link to={`/onboarding/${href}`}>
       <div
-        className={`register__options ${
-          role === registeringAs && "chosen-option"
-        }`}
+        className={`register__options ${role === user_role && "chosen-option"}`}
         onMouseOver={() => {
-          chooseRole(role);
+          changeAuthFormData({ target: { name: "role", value: role } });
           addItemToLs("onboarding-process", 0);
         }}
       >
         <div className="flex items-center gap-5">
-          <div className="rounded-full overflow-hidden size-12 bg-basic/40">
-            <img src={icon} alt={title} className="image" />
-          </div>
+          <IconWrapper
+            imageUrl={icon}
+            containerStyle="overflow-hiddend rounded-full size-12 bg-basic/40 p-1"
+          />
 
           <p>{title}</p>
         </div>
 
-        <div>
-          <img src="/arrow-right.svg" alt="arrow" />
-        </div>
+        <IconWrapper iconElement={Spear} containerStyle="rotate-180" />
       </div>
     </Link>
   );

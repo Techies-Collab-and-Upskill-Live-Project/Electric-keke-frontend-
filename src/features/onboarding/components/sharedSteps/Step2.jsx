@@ -5,11 +5,32 @@ import Assurance from "../Assurance";
 import OnboardFormRows from "../OnboardFormRows";
 import Btn from "@/components/btn/Btn";
 import { onboarding_descs } from "../../constants";
+import { RegisterUser } from "../../services";
+import { getItemFromLs } from "@/utils/ls";
+import dispatchables from "@/utils/dispatchables";
 
 const Step2 = ({ nextProcess, prevProcess }) => {
-  const { phone, state, address } = useSelector((state) => state.formData);
+  const { phone, state, address, role } = useSelector(
+    (state) => state.formData
+  );
+  const { showAlert } = dispatchables();
   const isDisabled = useAreInputsFilled(phone && state && address);
 
+  const handleAdminSubmit = async () => {
+    if (role === "Admin") {
+      const formData = getItemFromLs("formData");
+
+      try {
+        await RegisterUser(formData);
+        showAlert("registered successfully");
+        nextProcess();
+      } catch (error) {
+        showAlert("error with registration", "danger");
+      }
+    } else {
+      nextProcess();
+    }
+  };
   return (
     <SharedStep
       text={onboarding_descs.complete}
@@ -26,7 +47,7 @@ const Step2 = ({ nextProcess, prevProcess }) => {
             text="Continue"
             styling="btn btn--lg btn--primary w-full rounded-full mb-4"
             disabled={isDisabled}
-            onClick={() => nextProcess()}
+            onClick={handleAdminSubmit}
           />
           <Assurance />
         </div>

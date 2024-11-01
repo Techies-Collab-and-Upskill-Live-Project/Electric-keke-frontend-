@@ -10,7 +10,7 @@ const Spear = ({ color, type = "right" }) => {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g clip-path="url(#clip0_388_438)">
+        <g clipPath="url(#clip0_388_438)">
           <path
             opacity="0.5"
             d="M16.375 8.0625H1.375M1.375 8.0625L7.9375 14.625M1.375 8.0625L7.9375 1.5"
@@ -42,7 +42,7 @@ const Spear = ({ color, type = "right" }) => {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g clip-path="url(#clip0_388_438)">
+        <g clipPath="url(#clip0_388_438)">
           <path
             opacity="0.5"
             d="M16.375 8.0625H1.375M1.375 8.0625L7.9375 14.625M1.375 8.0625L7.9375 1.5"

@@ -16,7 +16,7 @@ const PassengerStep3 = ({ nextProcess, prevProcess }) => {
     const { message_type } = formData;
 
     if (message_type === "sms") {
-      showAlert("sms is unavailable", 'danger');
+      showAlert("sms is unavailable", 'info');
       return;
     }
 

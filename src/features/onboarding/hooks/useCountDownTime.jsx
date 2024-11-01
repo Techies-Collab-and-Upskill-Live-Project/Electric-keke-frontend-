@@ -1,33 +1,33 @@
 import { useEffect, useState } from "react";
 
-const one_sec = 1000;
-const one_min = 60 * one_sec;
-const five_mins = 5 * one_min;
+const five_mins = 5 * 60;
 
 export const useCountDownTime = (time = five_mins) => {
-  const [timeLeft, setTimeLeft] = useState(time);
+  const [duration, setDuration] = useState(time);
 
   useEffect(() => {
-    const addedMinsFromCurrentTime = new Date().getTime() + time;
+    let intervalId;
 
-    const calculateTimeLeft = (callback) => {
-      const currentTime = new Date().getTime();
-      const expiryTime = addedMinsFromCurrentTime - currentTime;
-      if (expiryTime < 0) {
-        callback();
-      }
-      setTimeLeft(expiryTime);
+    const countDown = () => {
+      setDuration((prev) => prev - 1);
     };
 
-    const interval = setInterval(() => {
-      calculateTimeLeft(() => clearInterval(interval));
-    }, one_sec);
+    if (!intervalId && duration) {
+      intervalId = setInterval(countDown, 1000);
+    }
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+    };
+  }, [duration]);
 
-  const minutes = Math.floor(timeLeft / one_min);
-  const seconds = Math.floor((timeLeft % one_min) / one_sec);
+  const minutes = String(Math.floor(duration / 60)).padStart(2, "0");
+  const seconds = String(Math.floor(duration % 60)).padStart(2, "0");
 
-  return { minutes, seconds };
+  const restartCountdown = () => {
+    if (duration) return;
+    setDuration(time);
+  };
+
+  return { minutes, seconds, restartCountdown };
 };

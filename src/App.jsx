@@ -14,7 +14,7 @@ import General from "./components/_general/General";
 function App() {
   return (
     <>
-      <div className="App max-w-screen-2xl overflow-hidden mx-auto relative">
+      <div className="relative mx-auto overflow-hidden App max-w-screen-2xl">
         <General />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -25,17 +25,6 @@ function App() {
           <Route path="/*" element={<ProtectedRoute />} />
           <Route path="/ie/:id" element={<InternalServer />} />
           <Route path="*" element={<NotFound />} />
-          <Route
-            path="/test"
-            element={
-              <section className="w-full h-screen">
-                <button className="p-2 relative after:absolute after:bg-green-300 after:inset-0 after:z-0">
-                  <h6 className="z-10 relative">BUTTON </h6>
-                </button>
-                <Balls />
-              </section>
-            }
-          />
         </Routes>
       </div>
     </>

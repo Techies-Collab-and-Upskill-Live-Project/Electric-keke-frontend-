@@ -5,7 +5,6 @@ import FormSelect from "@/components/forms/FormSelect";
 import { states } from "@/constants";
 import FormPhone from "@/features/onboarding/components/forms-inputs/FormPhone";
 import { useState } from "react";
-// import { useEffect } from "react";
 
 const OnboardFormRows = ({ type, standardPassword }) => {
   const { changeAuthFormData } = dispatchables();

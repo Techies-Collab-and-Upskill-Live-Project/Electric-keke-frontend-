@@ -9,7 +9,7 @@ const ResendOtpTab = ({ verificationType }) => {
   const emailToUse = getItemFromLs("user-email");
   const { showAlert } = dispatchables();
 
-  const { minutes, seconds } = useCountDownTime();
+  const { minutes, seconds, restartCountdown } = useCountDownTime();
 
   const resend_otp = async () => {
     try {
@@ -29,7 +29,7 @@ const ResendOtpTab = ({ verificationType }) => {
         showAlert(detail);
       }
     } catch (error) {
-      showAlert('error requesting otp')
+      showAlert("error requesting otp");
     }
   };
 
@@ -38,14 +38,17 @@ const ResendOtpTab = ({ verificationType }) => {
       <p className="md:text-base">
         Didn't receive an OTP?{" "}
         <span
-          className="text-basic cursor-pointer font-nunito"
-          onClick={resend_otp}
+          className="cursor-pointer text-basic font-nunito"
+          onClick={() => {
+            resend_otp();
+            restartCountdown();
+          }}
         >
           Resend
         </span>
       </p>
       <p className="md:text-sm">
-        {minutes < 0 ? 0 : minutes} : {seconds < 0 ? "00" : seconds}
+        {minutes} : {seconds}
       </p>
     </div>
   );

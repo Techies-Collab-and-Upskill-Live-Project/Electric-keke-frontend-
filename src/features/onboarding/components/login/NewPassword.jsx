@@ -10,15 +10,16 @@ import { ResetPassword } from "../../services";
 import { onboarding_descs } from "../../constants";
 
 const NewPassword = ({ nextProcess, prevProcess }) => {
-  const { password, re_password } = useSelector((state) => state.formData);
+  const { password, re_password, username } = useSelector((state) => state.formData);
   const { showAlert } = dispatchables();
 
   const isDisbaled = useAreInputsFilled(password && re_password);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async () => {
+    console.log(username)
     try {
       const { detail } = await ResetPassword({
-        username: getItemFromLs("user-email"),
+        username,
         password,
         re_password,
       });

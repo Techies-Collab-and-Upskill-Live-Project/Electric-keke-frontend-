@@ -26,7 +26,13 @@ const FormRow = ({
 
       <div className="relative">
         {icon && (
-          <div className={`absolute top-1/2 -translate-y-1/2 ${iconPosition || 'left-3'}`}>{icon}</div>
+          <div
+            className={`absolute top-1/2 -translate-y-1/2 ${
+              iconPosition || "left-3"
+            }`}
+          >
+            {icon}
+          </div>
         )}
 
         <input
@@ -46,8 +52,8 @@ const FormRow = ({
       {type === "password" && showInputAlert && (
         <InputAlert
           condition={correct}
-          okText="Password Okay"
-          warningText="Six Characters, Should Contain 1 uppercase, 1 special character, 1 digit"
+          okText="Password meets all requirements."
+          warningText="Password: 6+ chars, 1 uppercase, 1 special character, 1 digit"
         />
       )}
     </div>

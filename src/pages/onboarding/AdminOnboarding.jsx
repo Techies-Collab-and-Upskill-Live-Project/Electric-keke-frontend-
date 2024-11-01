@@ -1,11 +1,18 @@
 import OnboardingForm from "@/features/onboarding/components/OnboardingForm";
 import Step1 from "@/features/onboarding/components/sharedSteps/Step1";
 import Step2 from "@/features/onboarding/components/sharedSteps/Step2";
-import React from "react";
+import dispatchables from "@/utils/dispatchables";
+import { addItemToLs } from "@/utils/ls";
 import { useNavigate } from "react-router-dom";
 
 const AdminOnboarding = () => {
   const navigate = useNavigate();
+  const { changeAuthFormData } = dispatchables();
+
+  addItemToLs("onboarding-process", 0);
+
+  changeAuthFormData({ target: { name: "role", value: "Admin" } });
+
   return (
     <OnboardingForm
       runOnStart={() => navigate("/onboarding")}
