@@ -1,5 +1,4 @@
 import RegularList from "@/components/_design-patterns/RegularList";
-import { ChatBox } from "./ChatBox";
 
 const ChatBoard = ({
   conversations,

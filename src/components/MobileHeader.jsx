@@ -51,7 +51,8 @@ const MobileHeader = ({ blur, mobileHeaderStyle }) => {
       )}
 
       {pathname === "/schedule-ride" && (
-        <Btn text="Search" icon={<SearchIcon size={14} />} />
+        // <Btn text="Search" icon={<SearchIcon size={14} />} />
+        <span />
       )}
     </header>
   );

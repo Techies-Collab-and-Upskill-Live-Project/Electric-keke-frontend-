@@ -49,13 +49,16 @@ const ConnectChatBoard = () => {
     if (!message) return;
 
     const messageData = STRINGIFYDATA({ message });
+    
+    SOCKET.current.send(messageData);
+    // setMessages((prev) => [...prev, { msg: message, type: "user" }]);
 
-    if (SOCKET.current && SOCKET.current.readyState === WebSocket.OPEN) {
-      SOCKET.current.send(messageData);
-      setMessages((prev) => [...prev, { msg: message, type: "user" }]);
-    } else {
-      showAlert("Unable to send message, WebSocket is not open.", "info");
-    }
+    // if (SOCKET.current && SOCKET.current.readyState === WebSocket.OPEN) {
+    //   SOCKET.current.send(messageData);
+    //   setMessages((prev) => [...prev, { msg: message, type: "user" }]);
+    // } else {
+    //   showAlert("Unable to send message, WebSocket is not open.", "info");
+    // }
   };
 
   return (
@@ -69,6 +72,7 @@ const ConnectChatBoard = () => {
         <TypingBoard
           typeOfBoard="ridechat"
           handleSendMessage={handleSendMessage}
+          defaultMsg
         />
       </div>
     </>
