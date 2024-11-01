@@ -1,10 +1,11 @@
-import UserChatImage from "./UserChatImage";
+import { ProfilePhoto } from "@/components";
 
 const ChatBox = ({ type = "sender", msg = "Hello Mathew where you dae?" }) => {
   const person = {
-    sender: "rounded-s-full",
-    receiver: "rounded-e-full",
+    sender: "rounded-s-full bg-basic",
+    receiver: "rounded-e-full bg-connect",
   };
+
   return (
     <div
       className={`flex items-end py-2 ${
@@ -12,15 +13,21 @@ const ChatBox = ({ type = "sender", msg = "Hello Mathew where you dae?" }) => {
       }`}
     >
       <div className="flex-center gap-x-2">
-        {type === "receiver" && <UserChatImage />}
+        {type === "receiver" && <ProfilePhoto styling="size-11" />}
 
         <div
-          className={`px-4 py-3 bg-connect w-[calc(100%-44px)] rounded-t-full ${person[type]}`}
+          className={`px-4 py-3  w-[calc(100%-44px)] rounded-t-full ${person[type]}`}
         >
-          <p className="text-sm md:text-base">{msg}</p>
+          <p
+            className={`text-sm md:text-base ${
+              type === "sender" && "text-white"
+            }`}
+          >
+            {msg}
+          </p>
         </div>
 
-        {type === "sender" && <UserChatImage />}
+        {type === "sender" && <ProfilePhoto styling="size-11" />}
       </div>
     </div>
   );

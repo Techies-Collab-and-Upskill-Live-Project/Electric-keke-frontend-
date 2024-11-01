@@ -8,16 +8,31 @@ import { useNavigate } from "react-router-dom";
 import SharedModalMap from "../layouts/SharedModalMap";
 import { UpdateBooking } from "@/services/UpdateBooking";
 import CustomModal from "@/components/CustomModal";
+import { useResource } from "@/hooks/useResource";
+import { GetListOfBookings } from "@/services/GetListOfBookings";
 
 const NewRideModal = ({ isModalOpen, openModal, closeModal }) => {
   const navigate = useNavigate();
   const { showAlert } = dispatchables();
 
+  const getLatestRideInformation = async () => {
+    try {
+      const data = await GetListOfBookings();
+      const length = data.length;
+      return data[length - 1];
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const {
+    resource: { origin, destination, price, id: bookId },
+    isLoading,
+  } = useResource(getLatestRideInformation, "currentRide");
+
   const acceptRide = async () => {
     try {
-      addItemToLs("passenger", {
-        fullname: "Passenger",
-      });
+      addItemToLs("book-id", bookId);
 
       await closeModal();
       navigate("/tracking/rider");
@@ -48,7 +63,13 @@ const NewRideModal = ({ isModalOpen, openModal, closeModal }) => {
       showCloseBtn={false}
     >
       <SharedModalMap>
-        <RideDetails />
+        {isLoading ? null : (
+          <RideDetails
+            price={price}
+            origin={origin}
+            destination={destination}
+          />
+        )}
         <Choose
           containerClass="pt-8 pb-4 flex flex-col gap-y-6"
           choice1txt="Accept"

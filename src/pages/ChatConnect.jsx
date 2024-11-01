@@ -4,13 +4,14 @@ import ConnectChatBoard from "../features/contact/components/ConnectChatBoard";
 import Btn from "@/components/btn/Btn";
 import { useModal } from "@/hooks/useModal";
 import ContactModal from "@/features/tracking/components/ContactModal";
+import { ProfilePhoto } from "@/components";
 
 const ChatConnect = () => {
   useTitle("Connect");
   const { isModalOpen, openModal, closeModal } = useModal();
 
   return (
-    <section className="pb-28">
+    <section className="md:pb-10">
       <header className="md:h-[119px] pt-3 pb-[10px] md:pt-0 md:mb-0 bg-gradient-to-r from-[#4B974B] to-[#234623] flex-center home-pad">
         <div className="w-full flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -21,13 +22,10 @@ const ChatConnect = () => {
                 onClick={() => history.back()}
               />
 
-              <div className="size-9 md:size-16 rounded-full flex-center ">
-                <img
-                  src="/persons/profile.jpeg"
-                  alt="person"
-                  className="size-full object-cover object-center rounded-full"
-                />
-              </div>
+              <ProfilePhoto
+                imageUrl="/persons/profile.jpeg"
+                styling="size-9 md:size-16 rounded-full flex-center"
+              />
             </div>
 
             <h2 className="text-white text-base font-bold">Susan Michael</h2>
@@ -39,13 +37,10 @@ const ChatConnect = () => {
             closeModal={closeModal}
             connect
           />
-          {/* <div>
-            <Call type="connect" />
-          </div> */}
         </div>
       </header>
 
-      <div className="home-pad mt-[6.2vh] md:mt-10 h-[78vh] md:h-auto">
+      <div className="home-pad mt-4 md:mt-10 h-[82vh] md:h-[693px] flex flex-col">
         <h3 className="text-eiteen md:text-2xl font-bold font-josefin">
           Send a message...
         </h3>

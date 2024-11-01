@@ -6,7 +6,7 @@ import Btn from "@/components/btn/Btn";
 import { ProfilePhoto } from "@/features/profile";
 import IconWrapper from "@/components/IconWrapper";
 
-const Person = ({ role, fullname, hasArrived }) => {
+const Person = ({ role, fullname, hasArrived, photo }) => {
   const navigate = useNavigate();
 
   const { isModalOpen, openModal, closeModal } = useModal();
@@ -14,9 +14,10 @@ const Person = ({ role, fullname, hasArrived }) => {
   return (
     <div className="person-details">
       <div className="flex items-center gap-x-10">
-        <div className="size-[50px] md:size-[103px] rounded-full bg-gradient-to-tl relative from-[#949494] to-neutral">
-          <ProfilePhoto styling="inset-[3px] absolute" />
-        </div>
+        <ProfilePhoto
+          styling="size-[50px] md:size-[103px] rounded-full bg-gradient-to-tl relative from-[#949494] to-neutral p-[3px]"
+          imageUrl={photo}
+        />
 
         <div>
           <p className="person-name">{fullname}</p>
@@ -41,7 +42,6 @@ const Person = ({ role, fullname, hasArrived }) => {
             isModalOpen={isModalOpen}
             openModal={openModal}
             closeModal={closeModal}
-            smallMedia={mediaSmall}
           />
         </div>
       )}

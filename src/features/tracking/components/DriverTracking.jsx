@@ -1,4 +1,3 @@
-import { useCurrentUser } from "@/hooks/useCurrentUser";
 import TrackLayout from "../layouts/TrackLayout";
 import Person from "./Person";
 import Arrived from "./Arrived";
@@ -9,7 +8,6 @@ import ConfirmRideModal from "@/components/modals/ConfirmRideModal";
 import { useModal } from "@/hooks/useModal";
 
 const DriverTracking = ({ hasArrived }) => {
-  const user = useCurrentUser();
   const { openModal, closeModal, isModalOpen } = useModal();
   return (
     <>
@@ -22,7 +20,7 @@ const DriverTracking = ({ hasArrived }) => {
       <TrackLayout role="Rider">
         <div className="track-details">
           <div>
-            <Person role="Rider" fullname="user name" hasArrived={hasArrived} />
+            <Person role="Rider" fullname="Passenger's name" hasArrived={hasArrived} />
 
             {hasArrived ? <Arrived /> : <DeliveryStats role="Rider" />}
           </div>

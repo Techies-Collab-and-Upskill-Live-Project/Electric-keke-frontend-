@@ -1,5 +1,7 @@
+import { GetListOfBookings } from "@/services/GetListOfBookings";
 import { getItemFromLs } from "../../../utils/ls";
 import React from "react";
+import { useResource } from "@/hooks/useResource";
 
 const RideDetailing = ({ info, price }) => {
   return (
@@ -13,14 +15,12 @@ const RideDetailing = ({ info, price }) => {
   );
 };
 
-const RideDetails = () => {
-  const currentRide = getItemFromLs("current-ride");
-
+const RideDetails = ({ origin, destination, price }) => {
   return (
     <div className="mx-auto mt-6 flex flex-col gap-[13px]">
-      <RideDetailing info={currentRide?.origin || "origin"} />
-      <RideDetailing info={currentRide?.destination || "des"} />
-      <RideDetailing info={currentRide?.price || "pric"} price />
+      <RideDetailing info={origin || "origin"} />
+      <RideDetailing info={destination || "des"} />
+      <RideDetailing info={price || "pric"} price />
     </div>
   );
 };

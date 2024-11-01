@@ -44,7 +44,7 @@ const TrackDetails = ({ role, origin, destination, price, status }) => {
       </div>
 
       <div className="mt-10 flex items-center gap-x-8">
-        <div className="ride-fare">#{price}</div>
+        <div className="ride-fare">{price}</div>
         <Btn
           text={role === "User" ? "Cancel Ride" : "Start Trip"}
           styling="btn btn--hero btn--primary w-[244px]"

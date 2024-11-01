@@ -6,7 +6,6 @@ import NewRideModal from "@/features/booking/components/NewRideModal";
 import { useModal } from "@/hooks/useModal";
 import Choose from "@/components/Choose";
 import IconWrapper from "@/components/IconWrapper";
-import { useSocket } from "@/hooks/useSocket";
 import { getItemFromLs } from "@/utils/ls";
 import { PARSEDATA, STRINGIFYDATA } from "@/utils/json";
 
@@ -21,33 +20,30 @@ const Driver = () => {
     isModalOpen: isNewRequest,
     openModal,
     closeModal,
-    setIsModalOpen,
   } = useModal();
 
   useEffect(() => {
     let intervalId;
     const accessToken = getItemFromLs("accessToken");
 
-    
-    
     SOCKET.current = new WebSocket(
       `${ws_base_url}/rider/location/?token=${accessToken}`
     );
-    
+
     SOCKET.current.onopen = () =>
       console.log("connected to the rider location websocket");
-    
+
     SOCKET.current.onmessage = (event) => {
       const message = PARSEDATA(event.data);
       console.log(message);
     };
-    
+
     const getPosition = () => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
           (position) => {
             const { latitude, longitude } = position.coords;
-            console.log(latitude, longitude);
+            // console.log(latitude, longitude);
             const driverCoordinates = { latitude, longitude };
 
             intervalId = setInterval(() => {
@@ -70,13 +66,13 @@ const Driver = () => {
     };
   }, []);
 
-  // useEffect(() => {
-  //   let time_out = setTimeout(() => {
-  //     openModal();
-  //   }, 3000);
+  useEffect(() => {
+    let time_out = setTimeout(() => {
+      openModal();
+    }, 3000);
 
-  //   return () => clearTimeout(time_out);
-  // }, []);
+    return () => clearTimeout(time_out);
+  }, []);
 
   return (
     <>

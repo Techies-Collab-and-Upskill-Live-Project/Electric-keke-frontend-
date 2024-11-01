@@ -5,21 +5,15 @@ import CustomModal from "@/components/CustomModal";
 import Call from "@/assets/svg/Call";
 import IconWrapper from "@/components/IconWrapper";
 
-const ContactModal = ({
-  isModalOpen,
-  openModal,
-  closeModal,
-  smallMedia,
-  connect,
-}) => {
+const ContactModal = ({ isModalOpen, openModal, closeModal, connect }) => {
   const { showAlert } = dispatchables();
 
   const callInApp = () => {
-    showAlert("Calling in app");
+    showAlert("Calling in app", "info");
   };
 
   const callOffApp = () => {
-    showAlert("Calling off app");
+    showAlert("Calling off app", "info");
   };
 
   return (
@@ -54,7 +48,13 @@ const ContactModal = ({
           key="in-app"
           styling="call__opt"
           text="In App Call"
-          icon={<Call type="passenger" />}
+          icon={
+            <IconWrapper
+              iconElement={Call}
+              iconElementProps={{ type: "passenger" }}
+              containerStyle="size-5"
+            />
+          }
           onClick={callInApp}
         />
 
@@ -62,7 +62,13 @@ const ContactModal = ({
           key="out-app"
           styling="call__opt"
           text="Call Phone Number"
-          icon={<Call type="passenger" />}
+          icon={
+            <IconWrapper
+              iconElement={Call}
+              iconElementProps={{ type: "passenger" }}
+              containerStyle="size-5"
+            />
+          }
           onClick={callOffApp}
         />
       </div>

@@ -94,7 +94,7 @@ const BookingModalForm = ({ closeModal }) => {
 
       {showPrice && (
         <div className="estimate-price">
-          <p>NGN{price}</p>
+          <p>NGN {price}</p>
         </div>
       )}
 

@@ -1,13 +1,12 @@
+import IconWrapper from "./IconWrapper";
 
-const ProfilePhoto = ({ styling }) => {
+const ProfilePhoto = ({ styling, imageUrl }) => {
   return (
-    <div className={styling}>
-      <img
-        src="/persons/profile.jpeg"
-        alt="profile"
-        className="image rounded-full"
-      />
-    </div>
+    <IconWrapper
+      imageUrl={imageUrl || "/persons/profile.jpeg"}
+      containerStyle={styling}
+      scale="rounded-full"
+    />
   );
 };
 

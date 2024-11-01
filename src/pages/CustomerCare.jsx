@@ -1,4 +1,4 @@
-import { ChatBoard, Messaging } from "@/features/contact";
+import { ChatBoard } from "@/features/contact";
 import Heading from "@/components/Heading";
 import Btn from "@/components/btn/Btn";
 import { ArrowLeft } from "lucide-react";
@@ -9,6 +9,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { addItemToLs, getItemFromLs } from "@/utils/ls";
 import { PARSEDATA, STRINGIFYDATA } from "@/utils/json";
 import dispatchables from "@/utils/dispatchables";
+import { ChatBox } from "@/features/contact/components/customer-care/ChatBox";
 
 const ws_base_url = import.meta.env.VITE_WS;
 
@@ -50,6 +51,7 @@ const CustomerCare = () => {
 
   const SendToSocket = useCallback(
     (message) => {
+      console.log(message)
       if (SOCKET && SOCKET.current.readyState === WebSocket.OPEN) {
         SOCKET.current.send(message);
       } else {
@@ -60,6 +62,7 @@ const CustomerCare = () => {
   );
 
   const handleSendMessage = (message) => {
+    console.log(message)
     if (!message) return;
     SendToSocket(STRINGIFYDATA({ message }));
   };
@@ -84,11 +87,14 @@ const CustomerCare = () => {
           </div>
 
           <div className="border border-basic rounded-m flex-1 h-[88%] mt-8 py-4 flex flex-col">
-            <ChatBoard conversations={messages} />
-            <TypingBoard
-              styling="h-[84px] mt-5 flex-center px-6 py-4 w-full"
-              handleSendMessage={handleSendMessage}
+            <ChatBoard
+              conversations={messages}
+              chatBoardComponent={ChatBox}
+              extractKeys={(conversations) =>
+                conversations.map((item) => item.title)
+              }
             />
+            <TypingBoard handleSendMessage={handleSendMessage} />
           </div>
         </div>
       </div>

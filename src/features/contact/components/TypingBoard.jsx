@@ -2,14 +2,14 @@ import DefaultMsg from "./DefaultMsg";
 import { CareChatCta } from "./ChatCta";
 import { useState } from "react";
 
-const TypingBoard = ({ styling, handleSendMessage }) => {
+const TypingBoard = ({ handleSendMessage, typeOfBoard }) => {
   const [message, setMessage] = useState("");
 
   return (
     <>
       {/* <DefaultMsg /> */}
       {/* <div className="min-h-[67px] w-full px-3 md:px-6 py-2 md:py-4 bg-[#F2F2F2] flex-center"> */}
-      <div className={`w-full bg-neutral ${styling}`}>
+      <div className={`bg-neutral h-[84px] mt-5 flex-center px-6 py-4 w-full`}>
         <div className="w-full min-h-[50px] flex items-center justify-between">
           <textarea
             // cols={60}
@@ -30,6 +30,7 @@ const TypingBoard = ({ styling, handleSendMessage }) => {
             handleSendMessage={handleSendMessage}
             message={message}
             setMessage={setMessage}
+            type={typeOfBoard}
           />
         </div>
       </div>

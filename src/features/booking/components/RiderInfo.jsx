@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
-import { getItemFromLs } from "../../../utils/ls";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { addItemToLs, getItemFromLs } from "../../../utils/ls";
 import dispatchables from "../../../utils/dispatchables";
 import Reviews from "../../../components/xp/Reviews";
 import { riderParentVariant } from "../../../constants/variants";
@@ -12,27 +11,20 @@ import Rate from "./Rate";
 import { BookRide } from "../services/BookRide";
 
 const RiderInfo = () => {
-  const { showAlert, loading, unloading } = dispatchables();
+  const { showAlert } = dispatchables();
 
   const [waiting, setWaiting] = useState(false);
   const [rider, setRider] = useState(getItemFromLs("rider") || null);
-  const navigate = useNavigate();
 
   const submitBooking = async () => {
-    loading();
     const bookData = getItemFromLs("book-data");
     try {
-      const booking = await BookRide(bookData);
-      showAlert("Ride Booking Succefull, Wait a moment");
+      const { id } = await BookRide(bookData);
+      showAlert("Wait a moment");
       setWaiting(true);
-      unloading();
-      console.log(booking)
+      addItemToLs("book-id", id);
     } catch (error) {
-      console.log(rider);
-      showAlert(`Error Booking Ride with Rider ${rider.fullname}`);
-    } finally {
-      unloading();
-      // setWaiting(true);
+      showAlert(`Error Booking Ride`);
     }
   };
 

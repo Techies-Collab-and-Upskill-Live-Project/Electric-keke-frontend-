@@ -7,13 +7,14 @@ import { useNavigate } from "react-router-dom";
 
 const LoadBooking = () => {
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   const time_out = setTimeout(() => {
-  //     navigate("/tracking/passenger");
-  //   }, 10000);
 
-  //   return () => clearTimeout(time_out);
-  // });
+  useEffect(() => {
+    const time_out = setTimeout(() => {
+      navigate("/tracking/passenger");
+    }, 10000);
+
+    return () => clearTimeout(time_out);
+  });
 
   return (
     <motion.div

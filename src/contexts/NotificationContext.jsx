@@ -28,9 +28,12 @@ export const NotificationProvider = ({ children }) => {
     SOCKET.current.onopen = () =>
       console.log("connected to notification SOCKET");
 
+    SOCKET.current.onerror = () =>
+      console.log("connected to notification SOCKET failed");
+
     SOCKET.current.onmessage = (event) => {
       const notification = PARSEDATA(event.data);
-      console.log(notification)
+      console.log(notification);
       setNotifications((prev) => [...prev, notification]);
     };
 
