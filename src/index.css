@@ -113,6 +113,10 @@
   .no-scrollbar {
     scrollbar-width: none;
   }
+
+  .no-selection {
+    user-select: none;
+  }
 }
 
 /********************** Btn ********************/
@@ -588,25 +592,23 @@ h2 {
 }
 
 .testimonials-display {
-  @apply flex flex-col md:flex-row items-center
+  @apply flex flex-col md:flex-row items-center mt-10
 }
 
-/* .testi-photo {
-  @apply w-full h-[304px] md:w-[327px] md:h-[327px] lg:w-[409px] lg:h-[440px] mt-6 md:mt-0 border-8
-} */
 .testi-photo {
   @apply w-full h-[304px] md:w-5/12 md:h-[327px] lg:h-[440px] mt-6 md:mt-0
 }
 
-/* .testimonies {
-  @apply w-full tablet:max-w-[639px] laptop:max-w-[739px] mt-6 md:mt-0 md:ml-10 order-first md:order-last border-8
-} */
+.testimony {
+  @apply  min-h-[189px] flex flex-col
+}
+
 .testimonies {
-  @apply w-full md:w-7/12 mt-6 md:mt-0 md:ml-10 order-first md:order-last
+  @apply w-full md:w-7/12 mt-6 md:mt-0 md:ml-10 order-first md:order-last min-h-[250px]
 }
 
 .testimony-paragraph {
-  @apply text-center md:text-left
+  @apply text-center md:text-left text-sm tablet:text-xl laptop:text-2xl
 }
 
 .testimony-data {
@@ -686,9 +688,6 @@ h2 {
   @apply mt-6 flex items-center justify-center md:justify-start gap-2;
 }
 
-.direction-btn {
-  @apply bg-transparent flex-center border border-neutral-500 rounded-full size-10 p-0;
-}
 
 
 /* .mobile-header {

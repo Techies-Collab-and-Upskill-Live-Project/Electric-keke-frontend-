@@ -27,10 +27,21 @@ import WhatsappIcon from "./whatsapp";
 import InstaIcon from "./ig";
 import HeadPhoneIcon from "./headphone";
 
+import CostIcon from "./cost";
+import DeliveryIcon from "./delivery";
+import RideIcon from "./Ride";
+import ScheduleIcon from "./schedule";
+
+import SocialIgIcon from "./social-ig-icon";
+import SocialFbIcon from "./social-fb-icon";
+import SocialWhatsappIcon from "./social-whatsapp-icon";
+import SocialXIcon from "./social-x-icon";
+
 const icons = {
-  InstaIcon,
-  WhatsappIcon,
-  HeadPhoneIcon,
+  SocialXIcon,
+  SocialWhatsappIcon,
+  SocialIgIcon,
+  SocialFbIcon,
   Accept,
   ArrDown,
   Battery,
@@ -38,24 +49,31 @@ const icons = {
   Call,
   Chat,
   Congrats,
+  CostIcon,
+  DeliveryIcon,
   Distance,
   Dropped,
   Edit,
   FaqIcon,
   FbIcon,
-  XIcon,
+  HeadPhoneIcon,
+  InstaIcon,
   LogoPlain,
-  LogoWithText,
   LogoutIcon,
+  LogoWithText,
   MasterCircles,
   Menu,
   Microphone,
   PayPass,
+  RideIcon,
+  ScheduleIcon,
   SearchIcon,
   Send,
   SettingIcon,
   Spear,
   TimeEstimate,
+  WhatsappIcon,
+  XIcon,
 };
 
 export default icons;

@@ -1,9 +1,11 @@
-import { footer_note, socials } from "@/constants";
+import { footer_note } from "@/constants";
 import { motion } from "framer-motion";
-import { HashLink as Link } from "react-router-hash-link";
+// import { HashLink as Link } from "react-router-hash-link";
 import { LogoPlain } from "@/assets/svg/Logo";
 import RegularList from "./_design-patterns/RegularList";
-import IconWrapper from "./IconWrapper";
+import { footer_blocks } from "@/features/landing/constants";
+import FooterBlock from "./FooterBlock";
+import FooterBlockListItem from "./FooterBlockListItem";
 
 const Footer = () => {
   return (
@@ -20,46 +22,18 @@ const Footer = () => {
             <p className="footer-brief">{footer_note}</p>
           </div>
 
-          <div className="sub-link-nav">
-            <h3 className="footer-link-title">Explore</h3>
-            <ul className="mt-6 space-y-4 text-base">
-              <li className="footer-link">
-                <Link to="/about">About Us</Link>
-              </li>
-              <li className="footer-link">
-                <Link to="/earn-with-us">Earn With Us</Link>
-              </li>
-              <li className="footer-link">
-                <Link to="/#mission">Mission</Link>
-              </li>
-              <li className="footer-link">
-                <Link to="/#services">Services</Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="sub-link-nav">
-            <h3 className="footer-link-title">Legal</h3>
-            <ul className="mt-6 space-y-4">
-              <li className="footer-link">Terms</li>
-              <li className="footer-link">Privacy</li>
-            </ul>
-          </div>
-
-          <div className="socials">
-            <h3 className="footer-link-title">social media</h3>
-            <ul className="flex items-center gap-5 mt-5">
-              <RegularList
-                list={socials}
-                keyExtractor={socials.map((item) => item.title)}
-                component={({ title, icon }) => (
-                  <li>
-                    <IconWrapper imageUrl={icon} containerStyle="social-link" scale="scale-[0.3]" />
-                  </li>
-                )}
+          <RegularList
+            list={footer_blocks}
+            keyExtractor={footer_blocks.map((item) => item.label)}
+            component={({ label, links, listContainerStyle }) => (
+              <FooterBlock
+                label={label}
+                listItems={links}
+                footerRenderComponent={FooterBlockListItem}
+                listContainerStyle={listContainerStyle}
               />
-            </ul>
-          </div>
+            )}
+          />
         </motion.div>
         <motion.p
           initial={{ y: -200 }}
