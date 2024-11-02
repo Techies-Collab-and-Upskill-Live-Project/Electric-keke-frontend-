@@ -1,18 +1,41 @@
 import { motion } from "framer-motion";
 
-const Testimony = ({ index, currentTestimony, name, testimony, location, initial, animate }) => {
+const Testimony = ({
+  index,
+  currentTestimony,
+  name,
+  testimony,
+  location,
+  initial,
+  animate,
+  initialParagraph,
+  animateParagraph,
+  initialDetails,
+  animateDetails,
+}) => {
   return (
     <motion.div
       initial={initial}
       whileInView={animate}
-      className={`testimony ${index !== currentTestimony && "absolute"}`}
+      className={`testimony ${index !== currentTestimony && "absolute -z-50"}`}
     >
-      <p className="page-brief__desc testimony-paragraph">{testimony}</p>
+      <motion.div
+        initial={initialParagraph}
+        whileInView={animateParagraph}
+        transition={{delay: 0.5, duration: 1}}
+        className="flex-1"
+      >
+        <p className="testimony-paragraph">{testimony}</p>
+      </motion.div>
 
-      <div className="mt-6 text-center md:text-left">
+      <motion.div
+        initial={initialDetails}
+        whileInView={animateDetails}
+        className="mt-6 text-center md:text-left"
+      >
         <p className="testimony-data">{name}</p>
         <p className="testimony-data">{location}</p>
-      </div>
+      </motion.div>
     </motion.div>
   );
 };

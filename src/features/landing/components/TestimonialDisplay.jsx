@@ -9,7 +9,7 @@ const TestimonialDisplay = ({ type }) => {
   const { currentTestimony, nextTestimony } = useTestmony(testimonies[type]);
 
   return (
-    <div className="testimonials-display mt-10">
+    <div className="testimonials-display">
       <AnimatePresence>
         {testimonies[type].map((item, index) => {
           const initial = { x: -150, opacity: 0 };
@@ -56,11 +56,25 @@ const TestimonialDisplay = ({ type }) => {
       >
         <AnimatePresence>
           {testimonies[type].map((item, index) => {
-            const initial = { scale: 0 };
+            const initial = { x: 200, opacity: 0 };
+            const initialParagraph = { y: -40, opacity: 0 };
+            let initialDetails = { opacity: 0 };
             let animate;
+            let animateParagraph;
+            let animateDetails;
             if (index === currentTestimony) {
               animate = {
-                scale: 1,
+                x: 0,
+                opacity: 1,
+                transition: { duration: 2 },
+              };
+              animateParagraph = {
+                y: 0,
+                opacity: [0, 0.2, 0.4, 0.6, 0.8, 1],
+              };
+
+              animateDetails = {
+                opacity: 1,
               };
             }
             return (
@@ -70,6 +84,10 @@ const TestimonialDisplay = ({ type }) => {
                 animate={animate}
                 index={index}
                 currentTestimony={currentTestimony}
+                initialParagraph={initialParagraph}
+                animateParagraph={animateParagraph}
+                initialDetails={initialDetails}
+                animateDetails={animateDetails}
                 {...item}
               />
             );

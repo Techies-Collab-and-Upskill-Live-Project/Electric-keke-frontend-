@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import Heading from "@/components/Heading";
 import { Button } from "@/components/ui/button";
 import { connected } from "../constants";
+import IconWrapper from "@/components/IconWrapper";
+import { MailQuestionIcon } from "lucide-react";
 
 const Connected = ({ type = "main" }) => {
   return (
@@ -33,13 +35,12 @@ const Connected = ({ type = "main" }) => {
           <motion.form
             initial={{ y: 100, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            viewport={{once: true}}
+            viewport={{ once: true }}
             className="subscribe-form"
           >
             <div className="flex items-center">
-              <div>
-                <img src="/email.svg" alt="email" />
-              </div>
+              <IconWrapper iconElement={MailQuestionIcon} />
+              
               <input
                 type="email"
                 name="email"
@@ -47,9 +48,7 @@ const Connected = ({ type = "main" }) => {
                 className="subscribe-input"
               />
             </div>
-            <Button className="subscribe-btn">
-              Subscribe
-            </Button>
+            <Button className="subscribe-btn">Subscribe</Button>
           </motion.form>
         </div>
       </div>

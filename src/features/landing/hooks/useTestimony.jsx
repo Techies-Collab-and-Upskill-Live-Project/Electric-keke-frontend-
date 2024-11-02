@@ -14,11 +14,11 @@ export const useTestmony = (testimonies) => {
   }, [currentTestimony]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const intervalId = setInterval(() => {
       setCurrentTestimony((prev) => prev + 1);
     }, 8000);
     return () => {
-      clearInterval(interval);
+      if (intervalId) clearInterval(intervalId);
     };
   }, []);
 

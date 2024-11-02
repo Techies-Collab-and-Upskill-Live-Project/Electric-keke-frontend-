@@ -1,8 +1,3 @@
-import Finance from "@/features/admin/assets/svgs/Finance";
-import Overview from "@/features/admin/assets/svgs/Overview";
-import SettingAdmin from "@/features/admin/assets/svgs/SettingAdmin";
-import UserManagement from "@/features/admin/assets/svgs/UserManagement";
-
 const groupModalShowBtn = {
   "Profile Management": true,
   "Payment Method": true,
@@ -10,25 +5,6 @@ const groupModalShowBtn = {
   "Delete Account": true,
   "edit-profile": false,
 };
-
-const socials = [
-  {
-    title: "facebook",
-    icon: "/socials/facebook.svg",
-  },
-  {
-    title: "x",
-    icon: "/socials/x.svg",
-  },
-  {
-    title: "whatsapp",
-    icon: "/socials/whatsapp.svg",
-  },
-  {
-    title: "instagram",
-    icon: "/socials/instagram.svg",
-  },
-];
 
 const nav_links = [
   { title: "Home", href: "/" },
@@ -147,6 +123,5 @@ export {
   map_request,
   nav_links,
   settings,
-  socials,
   states,
 };
