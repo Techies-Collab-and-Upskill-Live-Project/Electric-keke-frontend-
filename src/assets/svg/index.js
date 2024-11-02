@@ -29,7 +29,7 @@ import HeadPhoneIcon from "./headphone";
 
 import CostIcon from "./cost";
 import DeliveryIcon from "./delivery";
-import RideIcon from "./Ride";
+import RideIcon from "./ride";
 import ScheduleIcon from "./schedule";
 
 import SocialIgIcon from "./social-ig-icon";
