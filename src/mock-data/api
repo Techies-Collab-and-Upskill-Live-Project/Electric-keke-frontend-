@@ -20,3 +20,6 @@ const fetchData = async () => {
   }
 };
 fetchData();
+
+
+// https://xsgames.co/randomusers/assets/avatars/female/20.jpg

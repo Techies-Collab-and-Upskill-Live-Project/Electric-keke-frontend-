@@ -26,11 +26,11 @@ const SharedStep = ({
       <div className="onboarding__page--right relative">
         <Btn
           icon={<ArrowLeftCircle color="black" size={30} />}
-          styling="bg-transparent p-0 absolute top-5 left-5"
+          styling="md:hidden bg-transparent p-0 absolute top-4 md:top-11 left-5"
           onClick={prevProcess}
         />
 
-        <div className="w-full">
+        <div className="w-full py-11">
           <div className="onboarding-head">
             <LogoPlain
               styling="w-[122px] h-[81.33px] mx-auto"
