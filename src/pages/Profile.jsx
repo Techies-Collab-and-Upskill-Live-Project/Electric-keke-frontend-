@@ -14,8 +14,10 @@ import {
   Tree,
 } from "@/features/profile";
 import { useModal } from "@/hooks/useModal";
+import { useResource } from "@/hooks/useResource";
 
 const Profile = () => {
+  const { resource: user } = useResource(() => console.log("name"), "user");
   const { isModalOpen, openModal, closeModal, setIsModalOpen } = useModal();
   const [editProfile, setEditProfile] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -76,7 +78,7 @@ const Profile = () => {
               saveData={saveData}
             />
           ) : (
-            <MyProfile />
+            <MyProfile user={user} />
           )}
 
           <Tree />

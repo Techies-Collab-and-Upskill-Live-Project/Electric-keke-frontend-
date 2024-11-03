@@ -51,13 +51,13 @@ export const LogoWithText = ({ styling }) => {
   );
 };
 
-export const LogoPlain = ({ styling, scale }) => {
+export const LogoPlain = ({ styling, logoClass }) => {
   return (
     <Link to="/">
       <IconWrapper
         imageUrl="/logo.svg"
         containerStyle={styling}
-        scale={scale}
+        imageClassname={logoClass}
       />
     </Link>
   );

@@ -5,7 +5,7 @@ const ProfilePhoto = ({ styling, imageUrl }) => {
     <IconWrapper
       imageUrl={imageUrl || "/persons/profile.jpeg"}
       containerStyle={styling}
-      scale="rounded-full"
+      imageClassname="image rounded-full"
     />
   );
 };

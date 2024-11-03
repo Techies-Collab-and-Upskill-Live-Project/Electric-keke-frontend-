@@ -7,9 +7,32 @@ import Way from "@/assets/svg/Way";
 import DeliveryProcess, {
   DeliveryProcessLine,
 } from "@/features/tracking/components/DeliveryProcess";
-import React from "react";
+import { useNotification } from "@/hooks/useNotification";
+import { useResource } from "@/hooks/useResource";
+import { addItemToLs, getItemFromLs } from "@/utils/ls";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const DeliveryStats = ({ role }) => {
+  const { resource: bookData } = useResource(
+    () => console.log("bookData"),
+    "bookData"
+  );
+
+  // will use number here 0 1 2 so as to toggle my indicators
+  // sample type >= 0 accept indicator should turn up
+  const [type, setType] = useState(bookData?.type);
+  
+  useNotification((notification) => {
+    console.log('notification dae')
+    const {
+      message: { type: bookingType },
+    } = notification;
+    const newBookData = getItemFromLs("bookData");
+    addItemToLs("bookData", { ...newBookData, type: bookingType });
+    setType(bookingType);
+  });
+
   const UserDeliveryStats = () => {
     return (
       <div className="mt-10">
@@ -17,11 +40,9 @@ const DeliveryStats = ({ role }) => {
           title="Driver Accepts Order"
           icon={
             <Accept
-              accept={false}
-              // accept={
-              //   currentRide.status === "accepted" ||
-              //   currentRide.status === "in_progress"
-              // }
+              accept={
+                type === "booking_accepted" || type === "booking_in_progress" || type === 'booking_completed'
+              }
             />
           }
           desc="Estimated time: 3secs"
@@ -31,11 +52,7 @@ const DeliveryStats = ({ role }) => {
           title="On the way"
           icon={
             <Way
-              way={true}
-              // way={
-              //   currentRide.status === "in_progress" ||
-              //   currentRide.status === "completed"
-              // }
+              way={type === "booking_in_progress" || type === 'booking_completed'}
             />
           }
           desc="Estimated time: 3secs"
@@ -43,7 +60,7 @@ const DeliveryStats = ({ role }) => {
         <DeliveryProcessLine />
         <DeliveryProcess
           title="Drop off"
-          icon={<Dropped dropped={true} />}
+          icon={<Dropped dropped={type === 'booking_completed'} />}
           // icon={<Dropped dropped={currentRide.status === "completed"} />}
           desc="Estimated time: 3secs"
         />
@@ -54,11 +71,7 @@ const DeliveryStats = ({ role }) => {
   const RiderDeliveryStats = () => {
     return (
       <div className="mt-10">
-        <DeliveryProcess
-          title="Battery Level"
-          icon={<Battery />}
-          desc="0%"
-        />
+        <DeliveryProcess title="Battery Level" icon={<Battery />} desc="0%" />
         <DeliveryProcessLine success />
         <DeliveryProcess
           title="Distance to pick up location"

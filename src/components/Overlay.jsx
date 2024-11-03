@@ -6,7 +6,7 @@ const Overlay = ({ className, logo = true }) => {
       {logo && (
         <LogoPlain
           styling="size-[94px] rounded-full flex-center bg-white"
-          logoStyling="w-[76px]"
+          logoClass=""
         />
       )}
     </div>

@@ -4,16 +4,22 @@ import Heading from "@/components/Heading";
 import CustomModal from "@/components/CustomModal";
 import Call from "@/assets/svg/Call";
 import IconWrapper from "@/components/IconWrapper";
+import { useResource } from "@/hooks/useResource";
 
 const ContactModal = ({ isModalOpen, openModal, closeModal, connect }) => {
   const { showAlert } = dispatchables();
 
-  const callInApp = () => {
-    showAlert("Calling in app", "info");
-  };
+  const { resource: bookData } = useResource(
+    () => console.log("bookData"),
+    "bookData"
+  );
 
+  const callInApp = () => {
+    showAlert(`Calling ${bookData?.passenger_phone || 'rider'} in app`, "info");
+  };
+  
   const callOffApp = () => {
-    showAlert("Calling off app", "info");
+    showAlert(`Calling ${bookData?.passenger_phone || 'rider'} off app`, "info");
   };
 
   return (

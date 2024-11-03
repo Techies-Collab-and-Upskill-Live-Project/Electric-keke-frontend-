@@ -1,7 +1,8 @@
 import { GetListOfBookings } from "@/services/GetListOfBookings";
-import { getItemFromLs } from "../../../utils/ls";
+import { addItemToLs, getItemFromLs } from "../../../utils/ls";
 import React from "react";
 import { useResource } from "@/hooks/useResource";
+import { useSelector } from "react-redux";
 
 const RideDetailing = ({ info, price }) => {
   return (
@@ -15,12 +16,29 @@ const RideDetailing = ({ info, price }) => {
   );
 };
 
-const RideDetails = ({ origin, destination, price }) => {
+const RideDetails = () => {
+  // message: {
+  //   booking_id,
+  //   booking_type,
+  //   destination,
+  //   origin,
+  //   package_details,
+  //   passenger_address,
+  //   passenger_email,
+  //   passenger_name,
+  //   passenger_phone,
+  //   price,
+  //   type,
+  // },
+  const { message } = useSelector((state) => state.notificationData);
+
+  addItemToLs("bookData", message);
+
   return (
     <div className="mx-auto mt-6 flex flex-col gap-[13px]">
-      <RideDetailing info={origin || "origin"} />
-      <RideDetailing info={destination || "des"} />
-      <RideDetailing info={price || "pric"} price />
+      <RideDetailing info={message?.origin || "origin"} />
+      <RideDetailing info={message?.destination || "des"} />
+      <RideDetailing info={message?.price || "pric"} price />
     </div>
   );
 };

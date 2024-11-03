@@ -11,19 +11,21 @@ import Rate from "./Rate";
 import { BookRide } from "../services/BookRide";
 
 const RiderInfo = () => {
-  const { showAlert } = dispatchables();
+  const { showAlert, loading, unloading } = dispatchables();
 
   const [waiting, setWaiting] = useState(false);
   const [rider, setRider] = useState(getItemFromLs("rider") || null);
 
   const submitBooking = async () => {
+    loading();
     const bookData = getItemFromLs("book-data");
     try {
-      const { id } = await BookRide(bookData);
+      await BookRide(bookData);
+      unloading();
       showAlert("Wait a moment");
       setWaiting(true);
-      addItemToLs("book-id", id);
     } catch (error) {
+      unloading();
       showAlert(`Error Booking Ride`);
     }
   };
@@ -31,7 +33,7 @@ const RiderInfo = () => {
   return (
     <>
       {waiting ? (
-        <LoadBooking setRider={setRider} />
+        <LoadBooking setRider={setRider} setWaiting={setWaiting} />
       ) : (
         <motion.div
           initial="out"

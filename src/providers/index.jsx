@@ -5,6 +5,7 @@ import { OnboardingProvider } from "@/features/onboarding/context/OnboardingCont
 import { AdminProvider } from "@/features/admin/context/AdminContext";
 import { TransactProvider } from "@/features/transaction/contexts/TransactionContext";
 import { NotificationProvider } from "@/contexts/NotificationContext";
+import { DriverLocationProvider } from "@/contexts/DriverLocationContext";
 
 const Providers = ({ children }) => {
   return (
@@ -14,7 +15,9 @@ const Providers = ({ children }) => {
           <AdminProvider>
             <TransactProvider>
               <OnboardingProvider>
-                <NotificationProvider>{children}</NotificationProvider>
+                <DriverLocationProvider>
+                  <NotificationProvider>{children}</NotificationProvider>
+                </DriverLocationProvider>
               </OnboardingProvider>
             </TransactProvider>
           </AdminProvider>

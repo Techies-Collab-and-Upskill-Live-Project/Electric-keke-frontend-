@@ -1,13 +1,15 @@
 import { useModal } from "@/hooks/useModal";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { PARSEDATA } from "@/utils/json";
-import { getItemFromLs } from "@/utils/ls";
+import { addItemToLs, getItemFromLs } from "@/utils/ls";
+import dispatchables from "@/utils/dispatchables";
 
 const ws_base_url = import.meta.env.VITE_WS;
 
 const NotificationContext = createContext(null);
 
 export const NotificationProvider = ({ children }) => {
+  const { showNotification } = dispatchables();
   const SOCKET = useRef(null);
 
   const {
@@ -15,8 +17,6 @@ export const NotificationProvider = ({ children }) => {
     closeModal: closeNotificationModal,
     openModal: openNotificationModal,
   } = useModal();
-
-  const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
     const accessToken = getItemFromLs("accessToken");
@@ -33,8 +33,7 @@ export const NotificationProvider = ({ children }) => {
 
     SOCKET.current.onmessage = (event) => {
       const notification = PARSEDATA(event.data);
-      console.log(notification);
-      setNotifications((prev) => [...prev, notification]);
+      showNotification(notification);
     };
 
     return () => {
@@ -45,7 +44,6 @@ export const NotificationProvider = ({ children }) => {
   return (
     <NotificationContext.Provider
       value={{
-        notifications,
         isNotificationModalOpen,
         closeNotificationModal,
         openNotificationModal,

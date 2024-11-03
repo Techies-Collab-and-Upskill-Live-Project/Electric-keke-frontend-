@@ -202,7 +202,7 @@ h2 {
 }
 
 .board__text {
-  @apply text-right font-josefin text-base
+  @apply text-right font-josefin text-xs md:text-base
 }
 
 .register__options {
@@ -1281,7 +1281,7 @@ h2 {
 }
 
 .person-name {
-  @apply text-xl md:text-[28px] font-bold
+  @apply text-xl md:text-[28px] font-bold line-clamp-1
 }
 
 .rider-status {

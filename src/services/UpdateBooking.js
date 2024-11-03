@@ -1,15 +1,22 @@
 import { clientRequest } from "@/lib/axios/client";
+import CustomError from "./custom-error/CustomError";
 
-export const UpdateBooking = async ({ id, status }) => {
+// [ pending, accepted, in_progress, cancelled, completed, dispute_approved ]
+
+export const UpdateBooking = async (bookingId, status = "accepted") => {
   try {
-    const { data } = await clientRequest({
-      url: `/bookings/${id}/status/`,
+    const {
+      data: { detail },
+    } = await clientRequest({
+      url: `bookings/${bookingId}/status/`,
       method: "patch",
       data: { status },
     });
-    return data;
+    return detail;
   } catch (error) {
-    const { detail } = error.data.response.data;
-    throw new Error(detail);
+    const errordata = error.data.response?.data || {
+      detail: "error updating ride",
+    };
+    throw new CustomError("error updating ride", errordata);
   }
 };

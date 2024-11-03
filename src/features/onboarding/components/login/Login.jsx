@@ -52,7 +52,7 @@ const Login = ({ nextProcess, prevProcess }) => {
 
         <div className=" mt-14">
           <ForgetTab nextProcess={nextProcess} />
-          <div className="w-[343px] mx-auto">
+          <div className="w-full max-w-[343px] mx-auto">
             <Btn
               text="Login"
               styling="btn btn--lg btn--primary w-full rounded-full"

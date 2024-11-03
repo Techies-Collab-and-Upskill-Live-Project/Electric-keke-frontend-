@@ -18,7 +18,7 @@ const Footer = () => {
           className="footer-main"
         >
           <div className="footer-brief-container">
-            <LogoPlain styling="w-[72px] h-[39px]" scale="scale-[1.5]" />
+            <LogoPlain styling="w-[72px] h-[39px]" logoClass="scale-[1.5]" />
             <p className="footer-brief">{footer_note}</p>
           </div>
 

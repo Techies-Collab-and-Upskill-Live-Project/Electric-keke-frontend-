@@ -1,11 +1,13 @@
-const MyProfile = () => {
+
+const MyProfile = ({user}) => {
+
   return (
     <div className="prof-form-body">
       <div>
         <p>First Name</p>
-        <div className="profile-management-input flex items-center">value</div>
+        <div className="profile-management-input flex items-center">{user?.fullname}</div>
       </div>
-      
+
       <div>
         <p>Middle Name</p>
         <div className="profile-management-input flex items-center">
@@ -22,11 +24,11 @@ const MyProfile = () => {
 
       <div>
         <p>Email</p>
-        <div className="profile-management-input flex items-center">email</div>
+        <div className="profile-management-input flex items-center">{user?.email}</div>
       </div>
       <div>
         <p>Phone</p>
-        <div className="profile-management-input flex items-center">phone</div>
+        <div className="profile-management-input flex items-center">{user?.phone}</div>
       </div>
       <div>
         <p>Date of Birth</p>
@@ -37,7 +39,7 @@ const MyProfile = () => {
       <div>
         <p>State</p>
         <div className="profile-management-input flex items-center">
-          State of origin
+          {user?.state_of_residence}
         </div>
       </div>
       <div>
@@ -47,7 +49,7 @@ const MyProfile = () => {
       <div>
         <p>Addres</p>
         <div className="profile-management-input flex items-center">
-          Address
+         {user?.address}
         </div>
       </div>
     </div>

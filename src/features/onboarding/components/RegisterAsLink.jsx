@@ -22,6 +22,7 @@ const RegisterAsLink = ({ title, icon, role, href }) => {
           <IconWrapper
             imageUrl={icon}
             containerStyle="overflow-hiddend rounded-full size-12 bg-basic/40 p-1"
+            imageClassname="image"
           />
 
           <p>{title}</p>

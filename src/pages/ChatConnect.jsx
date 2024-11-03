@@ -5,9 +5,16 @@ import Btn from "@/components/btn/Btn";
 import { useModal } from "@/hooks/useModal";
 import ContactModal from "@/features/tracking/components/ContactModal";
 import { ProfilePhoto } from "@/components";
+import { useResource } from "@/hooks/useResource";
+import { useCurrentUser } from "@/hooks/useCurrentUser";
 
 const ChatConnect = () => {
   useTitle("Connect");
+  const user = useCurrentUser();
+  const { resource: bookData } = useResource(
+    () => console.log("bookData"),
+    "bookData"
+  );
   const { isModalOpen, openModal, closeModal } = useModal();
 
   return (
@@ -18,7 +25,7 @@ const ChatConnect = () => {
             <div className="flex items-center gap-2">
               <Btn
                 icon={<Spear color="white" />}
-                styling="bg-transparent"
+                styling="bg-transparent p-0"
                 onClick={() => history.back()}
               />
 
@@ -28,7 +35,11 @@ const ChatConnect = () => {
               />
             </div>
 
-            <h2 className="text-white text-base font-bold">Susan Michael</h2>
+            <h2 className="text-white text-base font-bold">
+              {user?.role === "User"
+                ? bookData?.rider_name
+                : bookData?.passenger_name}
+            </h2>
           </div>
 
           <ContactModal

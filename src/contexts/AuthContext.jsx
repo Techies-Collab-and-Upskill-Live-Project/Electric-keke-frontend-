@@ -12,6 +12,7 @@ const AuthProvider = ({ children }) => {
 
   const AuthenticateLogin = () => {
     addItemToLs("isAuthenticated", true);
+    deletItemFromLs("form-data");
     setIsAuthenticated(true);
   };
 
@@ -21,10 +22,21 @@ const AuthProvider = ({ children }) => {
     navigate("/");
   };
 
+  const EvaluateAuthentication = () => {
+    const authenticated = getItemFromLs('isAuthenticated');
+    if (!authenticated) {
+      navigate("/");
+    }
+  };
 
   return (
     <AuthContext.Provider
-      value={{ isAuthenticated, AuthenticateLogin, AuthenticateLogout }}
+      value={{
+        isAuthenticated,
+        AuthenticateLogin,
+        AuthenticateLogout,
+        EvaluateAuthentication,
+      }}
     >
       {children}
     </AuthContext.Provider>
