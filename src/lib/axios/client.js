@@ -20,20 +20,22 @@ const client = axios.create({
 // );
 
 export const clientRequest = async ({ ...options }) => {
-
+  
   const accessToken = getItemFromLs("accessToken");
   if (accessToken) {
     client.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
   }
-
+  
   const onSuccess = (res) => {
     return res;
   };
-
+  
   const onError = async (err) => {
     const originalRequest = err.config;
     const status = err.response.status;
-
+    console.log(err);
+    // return
+    
     if (status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
 

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { addItemToLs, deletItemFromLs, getItemFromLs } from "../utils/ls";
 import { createContext, useContext, useState } from "react";
+import { useCurrentUser } from "@/hooks/useCurrentUser";
 
 const AuthContext = createContext(null);
 
@@ -9,6 +10,8 @@ const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(
     getItemFromLs("isAuthenticated") || false
   );
+
+  const { user, resetUser } = useCurrentUser();
 
   const AuthenticateLogin = () => {
     addItemToLs("isAuthenticated", true);
@@ -23,7 +26,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const EvaluateAuthentication = () => {
-    const authenticated = getItemFromLs('isAuthenticated');
+    const authenticated = getItemFromLs("isAuthenticated");
     if (!authenticated) {
       navigate("/");
     }
@@ -32,10 +35,12 @@ const AuthProvider = ({ children }) => {
   return (
     <AuthContext.Provider
       value={{
-        isAuthenticated,
         AuthenticateLogin,
         AuthenticateLogout,
         EvaluateAuthentication,
+        isAuthenticated,
+        resetUser,
+        user,
       }}
     >
       {children}

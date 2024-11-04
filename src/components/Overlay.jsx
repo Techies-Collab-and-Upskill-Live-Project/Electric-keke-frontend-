@@ -1,6 +1,6 @@
 import { LogoPlain } from "@/assets/svg/Logo";
 
-const Overlay = ({ className, logo = true }) => {
+const Overlay = ({ className, logo = true, children }) => {
   return (
     <div className={className}>
       {logo && (
@@ -9,6 +9,7 @@ const Overlay = ({ className, logo = true }) => {
           logoClass=""
         />
       )}
+      {children && children}
     </div>
   );
 };

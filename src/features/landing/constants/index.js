@@ -118,25 +118,29 @@ export const testimonies = {
     {
       name: "The Bishop",
       photo: "/persons/rider3.png",
-      testimony:  "Switched to this app recently and I'm impressed. Efficient, reliable, and customer support is always ready to help. Highly recommend!",
+      testimony:
+        "Switched to this app recently and I'm impressed. Efficient, reliable, and customer support is always ready to help. Highly recommend!",
       location: "Lokoja, Nigeria",
     },
     {
       name: "Emem",
       photo: "/persons/profile.jpeg",
-      testimony: "I couldn't be happier with the service! My packages arrived on time and the tracking feature kept me updated throughout the entire process. Five stars!",
+      testimony:
+        "I couldn't be happier with the service! My packages arrived on time and the tracking feature kept me updated throughout the entire process. Five stars!",
       location: "Lagos, Nigeria",
     },
     {
       name: "Anna K",
       photo: "/persons/rider2.png",
-      testimony: "They’ve taken logistics to a new level. Prompt deliveries, user-friendly interface, and excellent customer support. What more could you ask for?",
+      testimony:
+        "They’ve taken logistics to a new level. Prompt deliveries, user-friendly interface, and excellent customer support. What more could you ask for?",
       location: "Lagos, Nigeria",
     },
     {
       name: "Sofia L",
       photo: "/persons/rider4.jpeg",
-      testimony: "From booking to delivery, everything was smooth and hassle-free. The real-time tracking was a game-changer for me. Never looking back!",
+      testimony:
+        "From booking to delivery, everything was smooth and hassle-free. The real-time tracking was a game-changer for me. Never looking back!",
       location: "Kogi, Nigeria",
     },
   ],
@@ -151,13 +155,15 @@ export const testimonies = {
     {
       name: "Dave P.",
       photo: "/persons/rider1.png",
-      testimony: "Working with this app has been a game-changer. The routes are optimized, saving me time and fuel. Plus, the real-time updates keep customers satisfied and make my job easier.",
+      testimony:
+        "Working with this app has been a game-changer. The routes are optimized, saving me time and fuel. Plus, the real-time updates keep customers satisfied and make my job easier.",
       location: "Lokoja, Nigeria",
     },
     {
       name: "AG Baby",
       photo: "/persons/profile.jpeg",
-      testimony: "I love the flexibility the app offers. I can plan my day better, and the clear instructions for each delivery reduce stress. It’s efficient and reliable.",
+      testimony:
+        "I love the flexibility the app offers. I can plan my day better, and the clear instructions for each delivery reduce stress. It’s efficient and reliable.",
       location: "Anambra, Nigeria",
     },
   ],
@@ -179,23 +185,25 @@ export const about_descriptions = {
 export const pages_brief = {
   main: {
     briefClass: "w-full tablet:w-[58%]",
-    introTitle: "About Us",
-    title: about_titles.one,
     description: about_descriptions.one,
-    image: "/about.png",
-    imgClass: "main-image",
+    imageContainerStyle: "main-image overflow-hidden",
+    imageStyle: "w-full h-full object-contain object-center scale-[1.5] md:scale-[1.3]",
+    imageUrl: "/about.png",
+    introTitle: "About Us",
     showBtn: true,
+    title: about_titles.one,
   },
   about: {
     briefClass: "w-full tablet:w-[52%]",
-    title: about_titles.one,
     description: about_descriptions.three,
-    image: "/briefings/about-clip.gif",
-    imgClass: "gif-image",
+    imageContainerStyle: "gif-image",
+    imageUrl: "/briefings/about-clip.gif",
+    title: about_titles.one,
   },
   earn: {
-    image: "/earn_about_bg.png",
-    imgClass: "earn-image",
+    imageContainerStyle: "earn-image",
+    imageStyle: "image lg:scale-[1.3]",
+    imageUrl: "/earn_about_bg.png",
     type: "earn",
   },
 };
@@ -218,13 +226,9 @@ export const footer_blocks = [
     label: "Social Media",
     links: [
       { icon: icons.SocialFbIcon },
-      { icon: icons.SocialIgIcon},
-      {  icon: icons.SocialWhatsappIcon },
+      { icon: icons.SocialIgIcon },
+      { icon: icons.SocialWhatsappIcon },
       { icon: icons.SocialXIcon },
-      // { icon: '/socials/facebook.svg' },
-      // { icon: '/socials/instagram.svg'},
-      // {  icon: '/socials/whatsapp.svg' },
-      // { icon: '/socials/x.svg' },
     ],
     listContainerStyle: "flex-center gap-5 mt-5",
   },

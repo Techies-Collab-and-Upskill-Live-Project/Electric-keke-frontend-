@@ -1,15 +1,19 @@
-import Congrats from "@/assets/svg/Congrats";
 import React from "react";
 import Heading from "../Heading";
 import Btn from "../btn/Btn";
+import Lottie from "lottie-react";
+import success from "@/assets/animations-data/success.json";
+import IconWrapper from "../IconWrapper";
 
 const Welldone = ({ closeModal }) => {
   return (
     <>
-      <div className="pt-12 px-9 pb-8">
-        <div className="mx-auto size-20">
-          <Congrats color="#0B7B69" />
-        </div>
+      <div className="pt-12 pb-8 px-9">
+        <IconWrapper
+          iconElement={Lottie}
+          iconElementProps={{ animationData: success, loop: false }}
+          containerStyle="size-20 mx-auto"
+        />
 
         <Heading
           title="Welldone!"

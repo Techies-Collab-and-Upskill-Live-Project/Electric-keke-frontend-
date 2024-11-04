@@ -95,7 +95,7 @@
   }
 
   .btn--primary {
-    @apply bg-basic text-white;
+    @apply text-white bg-basic;
   }
 
   .btn--secondary {
@@ -270,7 +270,7 @@ h2 {
 
 
 .board {
-  @apply hidden min-h-screen md:block md:w-5/12 lg:w-1/2 rounded-e-20 overflow-hidden board-shadow sticky top-0;
+  @apply sticky top-0 hidden min-h-screen overflow-hidden md:block md:w-5/12 lg:w-1/2 rounded-e-20 board-shadow;
 }
 
 .custom-bg {
@@ -339,11 +339,11 @@ h2 {
 }
 
 .cancel-btn {
-  @apply rounded-full size-11 bg-white flex-center absolute top-9 left-9 z-20;
+  @apply absolute z-20 bg-white rounded-full size-11 flex-center top-9 left-9;
 }
 
 .overlay {
-  @apply bg-black/70 size-full absolute top-0 left-0 flex-center;
+  @apply absolute top-0 left-0 bg-black/70 size-full flex-center;
 }
 
 .overlay-img {
@@ -370,7 +370,7 @@ h2 {
 }
 
 .hero-description {
-  @apply text-base-white text-center font-normal md:font-semibold text-base tablet:text-xl laptop:text-2xl;
+  @apply text-base font-normal text-center text-base-white md:font-semibold tablet:text-xl laptop:text-2xl;
 }
 
 .hero-img {
@@ -459,7 +459,7 @@ h2 {
 }
 
 .services {
-  @apply mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5;
+  @apply grid grid-cols-2 gap-3 mt-10 md:grid-cols-4 md:gap-5;
 }
 
 .service-shadow {
@@ -600,7 +600,7 @@ h2 {
 }
 
 .testimony {
-  @apply  min-h-[189px] flex flex-col
+  @apply min-h-[189px] flex flex-col
 }
 
 .testimonies {
@@ -685,7 +685,7 @@ h2 {
 /* DIRECTION */
 
 .direction {
-  @apply mt-6 flex items-center justify-center md:justify-start gap-2;
+  @apply flex items-center justify-center gap-2 mt-6 md:justify-start;
 }
 
 
@@ -828,7 +828,7 @@ h2 {
 }
 
 .doughnut-stats-info {
-  @apply ml-7 w-8/12 space-y-4;
+  @apply w-8/12 space-y-4 ml-7;
 }
 
 .dough-info {
@@ -866,7 +866,7 @@ h2 {
 
 
 .modal {
-  @apply bg-white
+  @apply bg-white rounded-t-ml md:rounded-ml absolute bottom-0 left-0 md:relative
 }
 
 /* remove mx-auto */
@@ -876,12 +876,12 @@ h2 {
 }
 
 .modal__choose {
-  @apply w-full min-h-[348px] md:w-[47%] md:max-w-[478px] rounded-[12px] absolute bottom-0 left-0 md:relative
+  @apply w-full min-h-[348px] md:w-[47%] md:max-w-[478px] rounded-[12px]
 }
 
 
 .modal-map__booking {
-  @apply w-full md:w-[617px] md:min-h-[80vh] laptop:w-[715px] py-8 md:py-10 px-5 md:px-7 rounded-[14px] md:mt-[20vh] absolute bottom-0 left-0 md:relative
+  @apply w-full md:w-[617px] md:min-h-[80vh] laptop:w-[715px] py-8 md:py-10 px-5 md:px-7 rounded-[14px] md:mt-[20vh]
 }
 
 .modal-map__request {
@@ -926,16 +926,12 @@ h2 {
   @apply max-w-[520px] mx-auto mt-6 flex flex-col gap-[13px]
 }
 
-/* .map-modal-input {
-  @apply h-[59px] border border-neutral-500 py-4 px-5 rounded-md bg-white flex items-center justify-between
-} */
-
 .estimate-price {
   @apply h-10 md:h-[59px] py-4 px-5 rounded-md bg-basic-200 flex items-center justify-between
 }
 
 .modal__contact {
-  @apply w-full max-w-[600px] absolute md:relative bottom-0 left-0 rounded-ml pt-12 pb-[95px] md:pb-[168px] px-[9px] md:px-[95px]
+  @apply w-full max-w-[600px] rounded-ml pt-12 pb-[95px] md:pb-[168px] px-[9px] md:px-[95px]
 }
 
 .call__opt {
@@ -943,7 +939,7 @@ h2 {
 }
 
 .modal__upload {
-  @apply w-full md:w-[66%] md:max-w-[680px] laptop:max-w-[800px] absolute bottom-0 left-0 md:static rounded-lg bg-white px-11 md:px-[30px] py-12 md:py-7
+  @apply w-full md:w-[66%] md:max-w-[680px] laptop:max-w-[800px] rounded-lg bg-white px-11 md:px-[30px] py-12 md:py-7
 }
 
 .modal__upload-container {
@@ -976,11 +972,11 @@ h2 {
 }
 
 .modal__transaction {
-  @apply w-full max-w-[600px] rounded-ml py-4 md:py-12 absolute bottom-0 md:relative
+  @apply w-full max-w-[600px] py-4 md:py-12
 }
 
 .modal__rate {
-  @apply w-full max-w-[600px] px-5 md:px-9 py-4 md:py-12 rounded-ml absolute bottom-0 md:relative
+  @apply w-full max-w-[600px] px-5 md:px-9 py-4 md:py-12
 }
 
 .transact-stars {
@@ -988,45 +984,34 @@ h2 {
 }
 
 .modal__profile {
-  @apply w-full max-w-[600px] px-[10px] md:px-[95px] py-12 rounded-ml absolute bottom-0 left-0 md:relative
+  @apply w-full max-w-[600px] px-[10px] md:px-[95px] pt-10 pb-6 md:py-12
 }
 
 .modal__paymethod {
-  @apply w-full max-w-[600px] px-4 md:px-6 md:mt-[30vh] rounded-ml pt-12 absolute bottom-0 left-0 md:relative
+  @apply w-full max-w-[600px] px-4 md:px-6 md:mt-[30vh] pt-12
 }
 
 .modal__dialog {
-  @apply w-full max-w-[600px] py-12 px-9 rounded-ml absolute bottom-0 left-0 md:relative
+  @apply w-full max-w-[600px] py-12 px-9
 }
 
 .modal__confirm {
-  @apply w-full max-w-[600px] py-12 px-2 md:px-9 absolute bottom-0 left-0 md:relative rounded-ml
+  @apply w-full max-w-[600px] py-12 px-2 md:px-9
 }
 
 .modal__notification {
   @apply w-full tablet:w-1/2 min-h-screen
 }
 
-/* .modalContainer {} */
-
-
-
-
-/* .location-map .leaflet-container {
-  @apply h-full w-full
-} */
 /* REUSABLE FORM */
 /* input classes */
 .schedule-input {
   @apply border border-basic px-5 h-[4rem] rounded-sm
 }
 
-
 .profile-management-input {
   @apply border border-basic px-[10px] rounded-m h-[64px] w-full bg-white
 }
-
-
 
 .profile-modal-inputs {
   @apply py-5 px-4 border border-neutral-500 h-12 md:h-16 rounded-[14px] w-full
@@ -1165,12 +1150,12 @@ h2 {
   @apply w-full h-[266px] tablet:w-[45%] absolute top-1/2 -translate-y-1/2 -z-20 tablet:-translate-y-0 tablet:static opacity-30 tablet:opacity-100 tablet:h-96
 }
 
-.profile-modal {
+/* .profile-modal {
   @apply w-full max-w-[600px] bg-white rounded-[16px] border border-modal/50 min-h-[438px]
-}
+} */
 
 .profile-opt-box {
-  @apply flex flex-col gap-y-6 mt-6
+  @apply flex flex-col gap-y-6 mt-3 md:mt-6
 }
 
 .profile-options {
@@ -1375,7 +1360,7 @@ h2 {
 }
 
 .prof-photo {
-  @apply size-[100px] md:size-[164px] rounded-full border mt-6 md:mt-8 mb-8 md:mb-10 relative
+  @apply size-[100px] md:size-[164px] rounded-full mt-6 md:mt-8 mb-8 md:mb-10 relative
 }
 
 
@@ -1384,7 +1369,7 @@ h2 {
 }
 
 .edit-profile__modal {
-  @apply w-full max-w-[600px] absolute bottom-0 left-0 md:relative rounded-ml
+  @apply w-full max-w-[600px] absolute bottom-0 left-0 md:relative
 }
 
 /************************ EXPERIMENTING EXPERIMENTAL ***************/

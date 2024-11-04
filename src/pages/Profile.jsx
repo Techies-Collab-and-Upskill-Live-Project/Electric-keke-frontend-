@@ -14,30 +14,27 @@ import {
   Tree,
 } from "@/features/profile";
 import { useModal } from "@/hooks/useModal";
-import { useResource } from "@/hooks/useResource";
+import { useGlobalAuthContext } from "@/contexts/AuthContext";
+import EditUserPhoto from "@/features/profile/components/EditUserPhoto";
 
 const Profile = () => {
-  const { resource: user } = useResource(() => console.log("name"), "user");
-  const { isModalOpen, openModal, closeModal, setIsModalOpen } = useModal();
+  const { isModalOpen, openModal, closeModal } = useModal();
   const [editProfile, setEditProfile] = useState(false);
-  const [success, setSuccess] = useState(false);
+  const { user } = useGlobalAuthContext();
 
   const navigate = useNavigate();
 
-  const saveData = () => {
-    setSuccess(true);
-    openModal();
+  const saveData = (data, callback) => {
+    callback(data);
   };
 
   return (
     <>
-      {success && (
         <GroupedModals
           type="edit-profile"
           isModalOpen={isModalOpen}
           closeModal={closeModal}
         />
-      )}
 
       <Section darkLogo={true} mobileHeaderStyle="mobile-header">
         <div className="profile-section">
@@ -70,12 +67,23 @@ const Profile = () => {
             )}
           </div>
 
-          <ProfilePhoto styling="prof-photo" />
+          <div className="relative">
+            <ProfilePhoto
+              styling="prof-photo flex-center"
+              noImageContainerStyle="prof-photo flex-center bg-gradient-to-t from-peach to-basic-500"
+              textStyle="text-5xl font-bold text-neutral"
+              text={user && user?.fullname[0]}
+            />
+
+            {editProfile && <EditUserPhoto />}
+          </div>
 
           {editProfile ? (
             <ProfileManagementForm
               cancelEdit={() => setEditProfile(false)}
               saveData={saveData}
+              openModal={openModal}
+              setEditProfile={setEditProfile}
             />
           ) : (
             <MyProfile user={user} />

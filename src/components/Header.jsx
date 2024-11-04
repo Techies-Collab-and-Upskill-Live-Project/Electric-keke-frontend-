@@ -3,12 +3,12 @@ import NavBar from "./NavBar";
 import { LogoPlain } from "@/assets/svg/Logo";
 import Btn from "./btn/Btn";
 import { HeroSmallInfo } from "./SmallInfo";
-import { useCurrentUser } from "@/hooks/useCurrentUser";
 import { BellIcon } from "lucide-react";
 import { useGlobalNotificationContext } from "@/contexts/NotificationContext";
+import { useGlobalAuthContext } from "@/contexts/AuthContext";
 
 const Header = ({ darkLogo, blur }) => {
-  const user = useCurrentUser();
+  const { user } = useGlobalAuthContext();
   const { openNotificationModal } = useGlobalNotificationContext();
 
   return (

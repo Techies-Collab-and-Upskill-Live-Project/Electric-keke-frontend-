@@ -4,5 +4,9 @@ import { useState } from "react";
 export const useCurrentUser = (person = "user") => {
   const [user, setUser] = useState(getItemFromLs(person) || null);
 
-  return user;
+  const resetUser = (userdata) => {
+    setUser(userdata);
+  };
+
+  return {user, resetUser};
 };

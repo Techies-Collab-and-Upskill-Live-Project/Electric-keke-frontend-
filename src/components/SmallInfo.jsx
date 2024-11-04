@@ -1,5 +1,7 @@
 import ArrDown from "@/assets/svg/ArrDown";
 import { Link } from "react-router-dom";
+import { ProfilePhoto } from ".";
+import { useGlobalAuthContext } from "@/contexts/AuthContext";
 
 export const SmallInfo = ({
   admin,
@@ -13,19 +15,19 @@ export const SmallInfo = ({
   nickStyle,
   show_nick,
   show_arr,
-  id
+  id,
 }) => {
   return (
     <div className={`p-1 rounded-[40px] ${styling}`}>
       <div className="flex items-center gap-2">
         <Link to={`/profile/${id}`}>
-          <div className={`rounded-full ${photoConStyle || "size-9"}`}>
-            <img
-              src={photo || "/persons/rider1.png"}
-              alt={fullname || null}
-              className="size-full rounded-full"
-            />
-          </div>
+          <ProfilePhoto
+            styling={`rounded-full flex-center ${photoConStyle || "size-9"}`}
+            imageUrl={photo}
+            text={fullname && fullname[0]}
+            noImageContainerStyle={`rounded-full flex-center bg-gradient-to-r from-peach to-basic ${photoConStyle || "size-9"}`}
+            textStyle="text-white text-base md:text-2xl"
+          />
         </Link>
 
         <div className={nameBoxStyling}>
@@ -33,7 +35,9 @@ export const SmallInfo = ({
             {fullname}
           </p>
           {show_nick && (
-            <p className={nickStyle}>{admin ? "Admin" : `@${email || "susu"}`}</p>
+            <p className={nickStyle}>
+              {admin ? "Admin" : `@${email.slice(0, 6) || "susu"}...`}
+            </p>
           )}
         </div>
       </div>

@@ -20,6 +20,7 @@ import Send from "./Send";
 import SettingIcon from "./SettingIcon";
 import Spear from "./Spear";
 import TimeEstimate from "./TimeEstimate";
+import EditGallery from "./edit-gallery";
 
 import FbIcon from "./fb";
 import XIcon from "./x";
@@ -38,6 +39,7 @@ import SocialWhatsappIcon from "./social-whatsapp-icon";
 import SocialXIcon from "./social-x-icon";
 
 const icons = {
+  EditGallery,
   SocialXIcon,
   SocialWhatsappIcon,
   SocialIgIcon,

@@ -1,6 +1,6 @@
 import Flexibility from "./earn/Flexibility";
 import BriefingBox from "./BriefingBox";
-import { about_descriptions, about_titles, pages_brief } from "../constants";
+import { pages_brief } from "../constants";
 
 const PageBriefing = ({ type = "main" }) => {
   return (

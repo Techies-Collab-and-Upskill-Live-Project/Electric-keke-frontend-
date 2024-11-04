@@ -1,17 +1,16 @@
 import MobileNav from "./MobileNav";
-import { Link, useLocation } from "react-router-dom";
-import Bell from "@/assets/svg/Bell";
+import { useLocation } from "react-router-dom";
 import { LogoPlain, LogoWithText } from "@/assets/svg/Logo";
 import Btn from "./btn/Btn";
-import { useCurrentUser } from "@/hooks/useCurrentUser";
 import { HeroSmallInfo } from "./SmallInfo";
-import { BellIcon, SearchIcon } from "lucide-react";
+import { BellIcon } from "lucide-react";
 import { useGlobalNotificationContext } from "@/contexts/NotificationContext";
+import { useGlobalAuthContext } from "@/contexts/AuthContext";
 
 const MobileHeader = ({ blur, mobileHeaderStyle }) => {
-  const user = useCurrentUser();
   const { pathname } = useLocation();
   const { openNotificationModal } = useGlobalNotificationContext();
+  const {user} = useGlobalAuthContext();
 
   return (
     <header className={mobileHeaderStyle}>
