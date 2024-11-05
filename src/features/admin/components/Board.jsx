@@ -1,39 +1,25 @@
-import { getAnalytics } from "../../../utils/getAnalytics";
-import { useResource } from "../../../hooks/useResource";
-// import React, { useEffect } from "react";
+import IconWrapper from "@/components/IconWrapper";
 import CountUp from "react-countup";
 
-const Board = ({ title, icon }) => {
-  const { resource } = useResource(() => getAnalytics()) || null;
-
+const Board = ({ title, icon, analysisDigit = "20", percent = "20" }) => {
   return (
-    <div className="border p-5 rounded-[12px] bg-white">
+    <div className="single-board">
       <div className="flex items-center justify-between">
         <p className="text-sm font-bold text-silver">{title}</p>
-        <div
-          className="size-10 rounded-full flex-center bg-neutral"
-          style={{
-            filter:
-              "drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1)) drop-shadow(0 4px 4px rgba(0, 0, 0, 0.09))",
-          }}
-        >
-          <img src={icon} alt={title} />
-        </div>
+        <IconWrapper
+          iconElement={icon}
+          containerStyle="size-10 rounded-full flex-center bg-neutral board-icon__shadow"
+        />
       </div>
 
-      {resource ? (
-        <div className="mt-6">
-          <h2 className="text-5xl font-extrabold">
-            <CountUp end={resource.analysisDigit} start={0} duration={5} />
-          </h2>
-          <p className="text-xs">
-            <span className="text-basic">+{resource.percent}%</span> from last
-            month
-          </p>
-        </div>
-      ) : (
-        <p>Loading...</p>
-      )}
+      <div className="mt-6">
+        <h2 className="text-5xl font-extrabold">
+          <CountUp end={analysisDigit} start={0} duration={5} />
+        </h2>
+        <p className="text-xs">
+          <span className="text-basic">+{percent}%</span> from last month
+        </p>
+      </div>
     </div>
   );
 };

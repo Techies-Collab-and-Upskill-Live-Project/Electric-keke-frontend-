@@ -3,12 +3,14 @@ import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { PARSEDATA } from "@/utils/json";
 import { addItemToLs, getItemFromLs } from "@/utils/ls";
 import dispatchables from "@/utils/dispatchables";
+import { useGlobalAuthContext } from "./AuthContext";
 
 const ws_base_url = import.meta.env.VITE_WS;
 
 const NotificationContext = createContext(null);
 
 export const NotificationProvider = ({ children }) => {
+  const { isAuthenticated } = useGlobalAuthContext();
   const { showNotification } = dispatchables();
   const SOCKET = useRef(null);
 
@@ -19,6 +21,7 @@ export const NotificationProvider = ({ children }) => {
   } = useModal();
 
   useEffect(() => {
+    if (!isAuthenticated) return;
     const accessToken = getItemFromLs("accessToken");
 
     SOCKET.current = new WebSocket(
@@ -39,7 +42,7 @@ export const NotificationProvider = ({ children }) => {
     return () => {
       if (SOCKET.current) SOCKET.current.close();
     };
-  }, []);
+  }, [isAuthenticated]);
 
   return (
     <NotificationContext.Provider

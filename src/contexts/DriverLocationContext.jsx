@@ -14,8 +14,9 @@ export const DriverLocationProvider = ({ children }) => {
   // const { resource: user } = useResource(() => console.log("user"), "user");
 
   useEffect(() => {
+    if (!isAuthenticated) return;
     const user = getItemFromLs('user');
-    if (user?.role === "User") return;
+    if (user?.role === "User" || user?.role === 'Admin') return;
 
     let intervalId;
     const accessToken = getItemFromLs("accessToken");

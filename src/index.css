@@ -67,6 +67,12 @@
   body {
     @apply bg-background text-foreground font-montserrat;
   }
+/* ::-webkit-scrollbar {
+  display: none;
+} */
+  /* body::-webkit-scrollbar {
+    display: none
+  } */
 }
 
 @layer utilities {
@@ -80,6 +86,10 @@
 
   .board-shadow {
     filter: drop-shadow(6px 0px 20px rgba(0, 0, 0, 0.3));
+  }
+
+  .board-icon__shadow {
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1)) drop-shadow(0 4px 4px rgba(0, 0, 0, 0.09));
   }
 
   .btn {
@@ -108,6 +118,7 @@
 
   .no-scrollbar::-webkit-scrollbar {
     display: none;
+    -ms-overflow-style: none;
   }
 
   .no-scrollbar {
@@ -1064,11 +1075,11 @@ h2 {
 
 /********************** Admin ****************/
 .admin-header {
-  @apply flex items-center justify-between h-[104px] pl-8 pr-[7.75rem] border
+  @apply flex items-center justify-between h-14 md:h-[104px] px-2 lg:pl-8 lg:pr-[7.75rem]
 }
 
 .admin-icon {
-  @apply size-9 flex-center
+  @apply size-5 md:size-9 flex-center
 }
 
 .small-info {
@@ -1076,7 +1087,15 @@ h2 {
 }
 
 .overview {
-  @apply pr-[7.75rem] w-full md:w-[calc(100%-300px)]
+  @apply px-2 md:pr-[7.75rem] w-full md:w-[calc(100%-300px)] mt-3 md:mt-0 pb-20
+}
+
+.overview-dashboard {
+  @apply  space-x-[1%] text-nowrap overflow-hidden overflow-x-scroll no-scrollbar
+}
+
+.single-board {
+  @apply border p-2 rounded-[12px] bg-white w-[209px] laptop:w-[calc(100%/4-0.75%)] inline-block
 }
 
 .overview-info {
@@ -1084,7 +1103,7 @@ h2 {
 }
 
 .overview-title {
-  @apply text-4xl font-extrabold text-silver
+  @apply text-xl md:text-4xl font-extrabold text-silver
 }
 
 .export-action {
@@ -1096,15 +1115,19 @@ h2 {
 }
 
 .admin-sidebar {
-  @apply w-[300px] min-h-screen pb-20 flex flex-col items-center
+  @apply w-full md:w-[300px] h-full py-10 flex flex-col items-center fixed top-0 left-0  bg-white z-20 md:sticky
+}
+
+.hide-bar {
+  @apply hidden md:block
 }
 
 .admin_nav {
-  @apply mt-8 flex flex-col gap-2 min-h-[calc(100vh-96px)]
+  @apply flex flex-col gap-2 flex-1 w-full
 }
 
 .admin_nav_link {
-  @apply flex items-center gap-2 w-[233px] py-3 pl-5 rounded-[14px] border
+  @apply flex items-center gap-2 w-full md:w-[233px] py-3 pl-5 rounded-[14px] border
 }
 
 .admin-footer {

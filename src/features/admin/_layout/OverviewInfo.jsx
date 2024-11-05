@@ -9,7 +9,7 @@ const OverviewInfo = ({ page, children }) => {
         title={overview_titles[page]}
         description={overview_descriptions[page]}
         tclass="overview-title"
-        dclass="text-base"
+        dclass="text-xs md:text-base"
       />
 
       <div className="flex items-center gap-x-3">

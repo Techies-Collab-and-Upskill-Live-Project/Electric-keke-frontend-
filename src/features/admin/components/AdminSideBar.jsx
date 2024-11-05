@@ -7,8 +7,10 @@ import LogoutIcon from "@/assets/svg/logout-icon";
 import Btn from "../../../components/btn/Btn";
 import { Logout } from "@/services/Logout";
 import { sideBarMargin } from "../constants";
+import { useGlobalAdminContext } from "../context/AdminContext";
 
 const AdminSideBar = ({ currentAdminPage }) => {
+  const {showSidebar} = useGlobalAdminContext();
   const navigate = useNavigate();
   const { showAlert } = dispatchables();
 
@@ -18,9 +20,11 @@ const AdminSideBar = ({ currentAdminPage }) => {
     navigate("/");
   };
 
+  // ${sideBarMargin[currentAdminPage]}
+  
   return (
-    <div className={`admin-sidebar ${sideBarMargin[currentAdminPage]}`}>
-      <div className="min-h-full">
+    <div className={`admin-sidebar ${showSidebar ? null : 'hide-bar'}`}>
+      <div className="h-full w-full px-10 flex flex-col">
         <AdminNav />
 
         <div className="admin-footer">

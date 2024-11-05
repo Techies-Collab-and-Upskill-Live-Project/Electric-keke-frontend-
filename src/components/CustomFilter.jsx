@@ -9,15 +9,15 @@ import Btn from "./btn/Btn";
 import { FilterIcon } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
-const CustomFilter = ({ children }) => {
+const CustomFilter = ({ children, icon = <FilterIcon />, text }) => {
   const [showFilter, setShowFilter] = useState(false);
 
   return (
     <FilterSheet>
       <FilterTrigger onClick={() => setShowFilter(!showFilter)}>
         <Btn
-          text="Filter"
-          icon={<FilterIcon />}
+          text={text && text}
+          icon={icon}
           styling="gap-2 bg-transparent text-black border-[0.5px] rounded-s"
         />
       </FilterTrigger>

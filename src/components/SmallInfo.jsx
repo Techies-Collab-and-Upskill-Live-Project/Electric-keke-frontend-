@@ -1,7 +1,6 @@
 import ArrDown from "@/assets/svg/ArrDown";
 import { Link } from "react-router-dom";
-import { ProfilePhoto } from ".";
-import { useGlobalAuthContext } from "@/contexts/AuthContext";
+import { Btn, ProfilePhoto } from ".";
 
 export const SmallInfo = ({
   admin,
@@ -43,9 +42,7 @@ export const SmallInfo = ({
       </div>
 
       {show_arr && (
-        <div>
-          <ArrDown />
-        </div>
+        <Btn icon={<ArrDown />} styling="hidden md:block bg-transparent size-4 border p-0" />
       )}
     </div>
   );

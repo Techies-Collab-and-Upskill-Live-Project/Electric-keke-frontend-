@@ -2,7 +2,7 @@ import React from "react";
 import Heading from "../Heading";
 import Btn from "../btn/Btn";
 import Lottie from "lottie-react";
-import success from "@/assets/animations-data/success.json";
+import done from "@/assets/animations-data/done.json";
 import IconWrapper from "../IconWrapper";
 
 const Welldone = ({ closeModal }) => {
@@ -11,7 +11,7 @@ const Welldone = ({ closeModal }) => {
       <div className="pt-12 pb-8 px-9">
         <IconWrapper
           iconElement={Lottie}
-          iconElementProps={{ animationData: success, loop: false }}
+          iconElementProps={{ animationData: done, loop: false }}
           containerStyle="size-20 mx-auto"
         />
 

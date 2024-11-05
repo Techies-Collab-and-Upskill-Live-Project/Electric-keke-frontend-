@@ -22,7 +22,7 @@ export const finance_management_tablehead = [
   },
   {
     title: "Delivery",
-    styling: "py-4 flex items-center w-[14%] text-[#525252] font-semibold",
+    styling: "py-4 flex items-center w-[14%] text-[#525252] font-semibold capitalize",
   },
   {
     title: "Action",
@@ -33,7 +33,7 @@ export const finance_management_tablehead = [
 export const user_management_tablehead = [
   {
     title: "User Id",
-    styling: "flex-center text-[#525252] font-semibold py-4 w-[15%]",
+    styling: "flex-center text-[#525252] font-semibold py-4 w-[15%] text-xs",
   },
   {
     title: "Name",
@@ -65,32 +65,6 @@ export const overview_descriptions = {
   "Financial Management": "Keep Track With Finance",
 };
 
-export const user_dashboard = [
-  {
-    title: "Active Users",
-    analysisDigits: 2399,
-    percent: 20,
-    icon: "/users/users.svg",
-  },
-  {
-    title: "Total Rides",
-    analysisDigits: "3000",
-    percent: 20,
-    icon: "/users/rides.svg",
-  },
-  {
-    title: "Total Deliveries",
-    analysisDigits: 298,
-    percent: 20,
-    icon: "/users/deliveries.svg",
-  },
-  {
-    title: "Disabled Users",
-    analysisDigits: 22,
-    percent: 20,
-    icon: "/users/disabled.svg",
-  },
-];
 
 export const admin_nav_links = [
   {
@@ -171,9 +145,9 @@ export const show_board = {
 };
 
 export const sideBarMargin = {
-  Overview: "mt-[77px]",
-  "User Management": "mt-[77px]",
-  "Financial Management": "mt-[77px]",
+  Overview: "mt-0 md:mt-[77px]",
+  "User Management": "mt-0 md:mt-[77px]",
+  "Financial Management": "mt-0 md:mt-[77px]",
   Settings: "mt-0",
 };
 

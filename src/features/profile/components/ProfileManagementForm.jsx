@@ -87,12 +87,12 @@ const ProfileManagementForm = ({ cancelEdit, saveData, openModal,setEditProfile 
           inputclass="profile-management-input"
         />
 
-        <FormDate
+        {/* <FormDate
           styling="font-inter"
           name="DOB"
           label="Date of Birth"
           dateStyle="profile-management-input"
-        />
+        /> */}
 
         <FormRow
           name="address"
@@ -103,13 +103,13 @@ const ProfileManagementForm = ({ cancelEdit, saveData, openModal,setEditProfile 
           inputclass="profile-management-input"
         />
 
-        <FormRow
+        {/* <FormRow
           name="lga"
           label="L.G.A"
           styling="font-inter"
           handleChange={handleChange}
           inputclass="profile-management-input"
-        />
+        /> */}
 
         <FormSelect
           itemsList={states}

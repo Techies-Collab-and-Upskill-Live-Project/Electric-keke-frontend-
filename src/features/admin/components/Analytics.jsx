@@ -3,8 +3,8 @@ import Experimental from "../../../components/Experimental";
 
 const Analytics = () => {
   return (
-    <div className="mt-8 flex items-stretch gap-x-7">
-      <div className="w-7/12 max-w-[772px] border p-5 min-h-[371px]">
+    <div className="mt-8 md:flex items-stretch gap-x-7">
+      <div className="w-full md:w-7/12 max-w-[772px] border-2 p-5 min-h-[371px]">
         <p className="text-xl font-medium">Analytics</p>
       </div>
 

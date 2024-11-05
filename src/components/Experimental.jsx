@@ -39,7 +39,7 @@ const Experimental = ({ data }) => {
     setConicGradients(conicGradientColor);
   }, []);
   return (
-    <figure className="w-5/12 max-w-[469px] border aspect-square p-5 flex flex-col">
+    <figure className="w-full md:w-5/12 max-w-[469px] border aspect-square p-5 flex flex-col mt-8 md:mt-0">
       <figcaption className="text-xl font-bold">Earnings</figcaption>
       <div
         className="w-full aspect-square rounded-full relative isolate"

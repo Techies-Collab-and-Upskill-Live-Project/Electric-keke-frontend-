@@ -9,7 +9,7 @@ import { AdminOverview, AdminSettings, FinancialManagement, UserManagement } fro
 const Admin = () => {
   const { currentAdminPage } = useGlobalAdminContext();
   return (
-    <section>
+    <section className="flex flex-col">
       <AdminHeader />
 
       <div className="flex items-start gap-x-10">

@@ -38,12 +38,12 @@ import SocialFbIcon from "./social-fb-icon";
 import SocialWhatsappIcon from "./social-whatsapp-icon";
 import SocialXIcon from "./social-x-icon";
 
+import UsersIcon from "./admin-users";
+import DeliveriesIcon from "./admin-deliveries";
+import DisabledIcon from "./admin-disabled";
+import RidesIcon from "./admin-rides";
+
 const icons = {
-  EditGallery,
-  SocialXIcon,
-  SocialWhatsappIcon,
-  SocialIgIcon,
-  SocialFbIcon,
   Accept,
   ArrDown,
   Battery,
@@ -52,10 +52,13 @@ const icons = {
   Chat,
   Congrats,
   CostIcon,
+  DeliveriesIcon,
   DeliveryIcon,
+  DisabledIcon,
   Distance,
   Dropped,
   Edit,
+  EditGallery,
   FaqIcon,
   FbIcon,
   HeadPhoneIcon,
@@ -68,12 +71,18 @@ const icons = {
   Microphone,
   PayPass,
   RideIcon,
+  RidesIcon,
   ScheduleIcon,
   SearchIcon,
   Send,
   SettingIcon,
+  SocialFbIcon,
+  SocialIgIcon,
+  SocialWhatsappIcon,
+  SocialXIcon,
   Spear,
   TimeEstimate,
+  UsersIcon,
   WhatsappIcon,
   XIcon,
 };

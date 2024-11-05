@@ -3,50 +3,51 @@ import CustomFilter from "@/components/CustomFilter";
 import { DisplayTable } from "@/features/admin";
 import OverviewInfo from "@/features/admin/_layout/OverviewInfo";
 import Analytics from "@/features/admin/components/Analytics";
-import { finance_management_tablehead, finances_fetch_options } from "@/features/admin/constants";
-import fetchContentForTable from "@/features/admin/utils/fetchContents";
-import mock_finances from "@/mock-data/finances";
-import { useEffect, useState } from "react";
+import { finance_management_tablehead } from "@/features/admin/constants";
+import { queryFinancesDB } from "@/features/admin/services/queryFinancesDB";
+import { useResource } from "@/hooks/useResource";
+import { useRef } from "react";
 
 const FinancialManagement = () => {
-  const [contents, setContents] = useState([]);
-  const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [contentsToDisplay, setContentsToDisplay] = useState("All");
+  const tableHeadRefs = useRef([]);
 
-  useEffect(() => {
-    (async () => {
-      setIsLoading(true);
-      try {
-        const data = await fetchContentForTable(
-          mock_finances,
-          contentsToDisplay,
-          "status",
-          finances_fetch_options[contentsToDisplay],
-        );
-        setContents(data);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setIsLoading(false);
-      }
-    })();
-  }, [contentsToDisplay]);
+  const {
+    resource: earnings,
+    isLoading,
+    setResource,
+  } = useResource(queryFinancesDB, undefined, undefined);
 
-  const handleContentToDisplay = (option) => {
-    setContentsToDisplay((prev) => (prev === option ? "All" : option));
+  const handleContentToDisplay = async (option) => {
+    console.log(tableHeadRefs.current);
+
+    const element = tableHeadRefs.current.find(
+      (item) =>
+        item.textContent.match(/delivery/i) || item.textContent.match(/ride/i)
+    );
+
+    element.textContent = option
+
+    try {
+      const response = await queryFinancesDB({ type: option });
+      setResource(response);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <>
       <OverviewInfo page="Financial Management">
-      <CustomFilter>
+        <CustomFilter>
           <FilterGroup
             label="By Status"
             labelStyle="text-xs"
             itemStyle="text-sm py-[6px] border-b"
             styling="px-2"
-            options={["Complete", "Pending"]}
+            options={[
+              { label: "Ride", query: "ride" },
+              { label: "Delivery", query: "delivery" },
+            ]}
             handleFilter={handleContentToDisplay}
           />
           <FilterGroup
@@ -65,9 +66,10 @@ const FinancialManagement = () => {
       <div className="mt-8">
         <DisplayTable
           columnsData={finance_management_tablehead}
-          bodyData={contents}
+          bodyData={earnings}
           tableFor="finances"
           isLoading={isLoading}
+          ref={tableHeadRefs}
         />
       </div>
     </>

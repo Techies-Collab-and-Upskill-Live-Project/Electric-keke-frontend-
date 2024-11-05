@@ -5,7 +5,7 @@ import React from "react";
 const AdminOverview = () => {
   return (
     <>
-      <OverviewInfo />
+      <OverviewInfo page="Overview" />
       <Analytics />
     </>
   );

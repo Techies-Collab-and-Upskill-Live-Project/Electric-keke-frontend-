@@ -30,24 +30,28 @@ const MyProfile = ({user}) => {
         <p>Phone</p>
         <div className="flex items-center profile-management-input">{user?.phone_number}</div>
       </div>
-      <div>
+
+      {/* <div>
         <p>Date of Birth</p>
         <div className="flex items-center profile-management-input">
           D.O.B when dem born yoy
         </div>
-      </div>
+      </div> */}
+
       <div>
         <p>State</p>
         <div className="flex items-center profile-management-input">
           {user?.state_of_residence}
         </div>
       </div>
-      <div>
+
+      {/* <div>
         <p>L G A</p>
         <div className="flex items-center profile-management-input">LGa</div>
-      </div>
+      </div> */}
+
       <div>
-        <p>Addres</p>
+        <p>Address</p>
         <div className="flex items-center profile-management-input">
          {user?.address}
         </div>
