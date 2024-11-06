@@ -1,5 +1,4 @@
 import Footer from "@/components/Footer";
-import { useGlobalAuthContext } from "@/contexts/AuthContext";
 import {
   Connected,
   Hero,

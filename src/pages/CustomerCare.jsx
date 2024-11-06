@@ -62,7 +62,6 @@ const CustomerCare = () => {
   );
 
   const handleSendMessage = (message) => {
-    console.log(message)
     if (!message) return;
     SendToSocket(STRINGIFYDATA({ message }));
   };

@@ -46,8 +46,8 @@ const SocialWhatsappIcon = () => {
           y2="10"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#77BB77" />
-          <stop offset="1" stop-color="#234623" />
+          <stop stopColor="#77BB77" />
+          <stop offset="1" stopColor="#234623" />
         </linearGradient>
       </defs>
     </svg>

@@ -10,6 +10,7 @@ import {
   startLoad,
   storeListOfRiders,
 } from "../store/slices/global-slice";
+import { newNotification } from "@/store/slices/notification-slice";
 import { useDispatch } from "react-redux";
 
 const dispatchables = () => {
@@ -62,18 +63,26 @@ const dispatchables = () => {
     dispatch(chooseSupport(key));
   };
 
+  const showNotification = (notification) => {
+    dispatch(newNotification(notification));
+  };
+
+  const nullifyNotifcation = () => dispatch(newNotification(null))
+
   return {
-    chooseOtpMethod,
     changeAuthFormData,
+    chooseOtpMethod,
     chooseRider,
-    inputDataForBookingRequest,
     inputBookingData,
-    showAlert,
-    switchVerificationType,
-    updateDriversList,
+    inputDataForBookingRequest,
     loading,
+    nullifyNotifcation,
+    showAlert,
+    showNotification,
+    switchVerificationType,
     unloading,
-    whatSupport
+    updateDriversList,
+    whatSupport,
   };
 };
 

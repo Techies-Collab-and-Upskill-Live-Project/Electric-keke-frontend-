@@ -1,10 +1,25 @@
 import { ProfilePhoto } from "@/components";
+import { useResource } from "@/hooks/useResource";
 
-const ChatBox = ({ type = "sender", msg = "Hello Mathew where you dae?" }) => {
-  const person = {
-    sender: "rounded-s-full bg-basic",
-    receiver: "rounded-e-full bg-connect",
-  };
+const person = {
+  sender: "rounded-s-full bg-basic",
+  receiver: "rounded-e-full bg-connect",
+};
+
+const ChatBox = ({ message, user, role, timestamp }) => {
+  const { resource: currentUser } = useResource(
+    () => console.log("user"),
+    "user"
+  );
+  
+  let type;
+  
+  if (currentUser.role === role) {
+    type = 'sender'
+  } else {
+    type = 'receiver'
+  }
+  
 
   return (
     <div
@@ -23,7 +38,7 @@ const ChatBox = ({ type = "sender", msg = "Hello Mathew where you dae?" }) => {
               type === "sender" && "text-white"
             }`}
           >
-            {msg}
+            {message}
           </p>
         </div>
 

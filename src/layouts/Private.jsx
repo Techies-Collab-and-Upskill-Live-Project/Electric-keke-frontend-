@@ -1,5 +1,5 @@
-import React from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { useGlobalAuthContext } from "../contexts/AuthContext";
 import { RiderIndex, RiderInfo } from "@/features/booking";
 import {
@@ -18,7 +18,12 @@ import {
 } from "@/pages";
 
 const ProtectedRoute = () => {
-  const { isAuthenticated } = useGlobalAuthContext();
+  const { isAuthenticated, EvaluateAuthentication } = useGlobalAuthContext();
+  const location = useLocation();
+
+  useEffect(() => {
+    EvaluateAuthentication();
+  }, [location]);
 
   return isAuthenticated ? (
     <Routes>

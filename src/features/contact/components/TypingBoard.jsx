@@ -5,10 +5,11 @@ import { useState } from "react";
 const TypingBoard = ({ handleSendMessage, typeOfBoard, defaultMsg }) => {
   const [message, setMessage] = useState("");
 
+  
   return (
     <>
-      {defaultMsg && <DefaultMsg />}
-      {/* <div className="min-h-[67px] w-full px-3 md:px-6 py-2 md:py-4 bg-[#F2F2F2] flex-center"> */}
+      {defaultMsg && <DefaultMsg handleSendMessage={handleSendMessage}  />}
+      
       <div className={`bg-neutral h-[84px] mt-5 flex-center px-6 py-4 w-full`}>
         <div className="w-full min-h-[50px] flex items-center justify-between">
           <textarea

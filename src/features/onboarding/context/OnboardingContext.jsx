@@ -1,10 +1,16 @@
 import { useModal } from "@/hooks/useModal";
+import { addItemToLs, getItemFromLs } from "@/utils/ls";
 import { createContext, useContext, useState } from "react";
 
 const OnboardingContext = createContext();
 
 export const OnboardingProvider = ({ children }) => {
   const { isModalOpen, openModal, closeModal, setIsModalOpen } = useModal();
+  const [driverImages, setDriverImages] = useState(
+    getItemFromLs("driver-images") || []
+  );
+
+  const addDriverImage = (imageUrl) => setDriverImages(prev => [...prev, imageUrl])
 
   return (
     <OnboardingContext.Provider
@@ -13,6 +19,8 @@ export const OnboardingProvider = ({ children }) => {
         openModal,
         closeModal,
         setIsModalOpen,
+        driverImages,
+        addDriverImage,
       }}
     >
       {children}

@@ -1,3 +1,4 @@
+import IconWrapper from "@/components/IconWrapper";
 import dispatchables from "@/utils/dispatchables";
 import { useSelector } from "react-redux";
 
@@ -13,9 +14,13 @@ const OtpChoice = ({ title, icon }) => {
       }`}
       onClick={() => chooseOtpMethod(title.toLowerCase())}
     >
-      <div>
-        <img src={icon} alt={title} />
-      </div>
+      <IconWrapper
+        iconElement={icon}
+        iconElementProps={{
+          size: 24,
+        }}
+      />
+      
       <p className="ml-3">{title}</p>
     </div>
   );

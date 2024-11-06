@@ -1,5 +1,5 @@
 import OtpChoice from "../OtpChoice";
-import { getItemFromLs } from "@/utils/ls";
+import { addItemToLs, getItemFromLs } from "@/utils/ls";
 import Btn from "@/components/btn/Btn";
 import Assurance from "../Assurance";
 import dispatchables from "@/utils/dispatchables";
@@ -16,7 +16,7 @@ const PassengerStep3 = ({ nextProcess, prevProcess }) => {
     const { message_type } = formData;
 
     if (message_type === "sms") {
-      showAlert("sms is unavailable", 'info');
+      showAlert("sms is unavailable", "info");
       return;
     }
 
@@ -26,7 +26,9 @@ const PassengerStep3 = ({ nextProcess, prevProcess }) => {
       nextProcess();
     } catch (error) {
       const errorArr = error.data;
-      errorArr ? showAlert(errorArr[0], 'danger') : showAlert("Server Error", "danger");
+      errorArr
+        ? showAlert(errorArr[0], "danger")
+        : showAlert("Server Error", "danger");
       // nextProcess();
     }
   };

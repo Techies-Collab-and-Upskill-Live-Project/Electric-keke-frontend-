@@ -2,51 +2,42 @@ import { FilterGroup } from "@/components/_custom-ui/Filter";
 import CustomFilter from "@/components/CustomFilter";
 import { DisplayTable } from "@/features/admin";
 import OverviewInfo from "@/features/admin/_layout/OverviewInfo";
-import { user_fetch_options, user_management_tablehead } from "@/features/admin/constants";
-import fetchContentForTable from "@/features/admin/utils/fetchContents";
+import { user_management_tablehead } from "@/features/admin/constants";
 import { useResource } from "@/hooks/useResource";
-import mock_users from "@/mock-data/users";
-import { useEffect, useState } from "react";
+import { queryUserDB } from "@/features/admin/services/queryUserDB";
+import { useRef } from "react";
 
 const UserManagement = () => {
-  const [contents, setContents] = useState([]);
-  const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [contentsToDisplay, setContentsToDisplay] = useState("All");
+  const tableHeadRefs = useRef([]);
 
-  useEffect(() => {
-    (async () => {
-      setIsLoading(true);
-      try {
-        const data = await fetchContentForTable(
-          mock_users,
-          contentsToDisplay,
-          "status",
-          user_fetch_options[contentsToDisplay],
-        );
-        setContents(data);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setIsLoading(false);
-      }
-    })();
-  }, [contentsToDisplay]);
+  const {
+    resource: users,
+    isLoading,
+    setResource,
+  } = useResource(queryUserDB, undefined, undefined);
 
-  const handleContentToDisplay = (option) => {
-    setContentsToDisplay((prev) => (prev === option ? "All" : option));
+  const handleContentToDisplay = async (queryOption) => {
+    try {
+      const data = await queryUserDB({ status: queryOption });
+      setResource(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <>
       <OverviewInfo page="User Management">
-        <CustomFilter>
+        <CustomFilter text="Filter">
           <FilterGroup
             label="By Status"
             labelStyle="text-xs"
             itemStyle="text-sm py-[6px] border-b"
             styling="px-2"
-            options={["Active Users", "Inactive Users"]}
+            options={[
+              { label: "Active Users", query: "active" },
+              { label: "Inactive Users", query: "inactive" },
+            ]}
             handleFilter={handleContentToDisplay}
           />
           <FilterGroup
@@ -64,9 +55,10 @@ const UserManagement = () => {
       <div className="mt-8">
         <DisplayTable
           columnsData={user_management_tablehead}
-          bodyData={contents}
+          bodyData={users}
           tableFor="users"
           isLoading={isLoading}
+          ref={tableHeadRefs}
         />
       </div>
     </>

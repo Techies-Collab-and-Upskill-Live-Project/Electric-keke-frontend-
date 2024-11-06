@@ -1,78 +1,33 @@
 import Section from "../layouts/Section";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Statistics from "../features/booking/components/Statistics";
 import dispatchables from "../utils/dispatchables";
 import NewRideModal from "@/features/booking/components/NewRideModal";
 import { useModal } from "@/hooks/useModal";
 import Choose from "@/components/Choose";
 import IconWrapper from "@/components/IconWrapper";
-import { getItemFromLs } from "@/utils/ls";
-import { PARSEDATA, STRINGIFYDATA } from "@/utils/json";
-
-const ws_base_url = import.meta.env.VITE_WS;
+import { useSelector } from "react-redux";
+import { useGlobalAuthContext } from "@/contexts/AuthContext";
 
 const Driver = () => {
-  const SOCKET = useRef(null);
+  const notification = useSelector((state) => state.notificationData);
+  const { user } = useGlobalAuthContext();
+  console.log(user);
 
-  const { showAlert } = dispatchables();
+  // const { showAlert, newNotification } = dispatchables();
   const [online, setOnline] = useState(false);
-  const {
-    isModalOpen: isNewRequest,
-    openModal,
-    closeModal,
-  } = useModal();
+  const { isModalOpen: isNewRequest, openModal, closeModal } = useModal();
 
   useEffect(() => {
-    let intervalId;
-    const accessToken = getItemFromLs("accessToken");
-
-    SOCKET.current = new WebSocket(
-      `${ws_base_url}/rider/location/?token=${accessToken}`
-    );
-
-    SOCKET.current.onopen = () =>
-      console.log("connected to the rider location websocket");
-
-    SOCKET.current.onmessage = (event) => {
-      const message = PARSEDATA(event.data);
-      console.log(message);
-    };
-
-    const getPosition = () => {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            const { latitude, longitude } = position.coords;
-            // console.log(latitude, longitude);
-            const driverCoordinates = { latitude, longitude };
-
-            intervalId = setInterval(() => {
-              // console.log(driverCoordinates);
-              SOCKET.current.send(STRINGIFYDATA(driverCoordinates));
-            }, 5000);
-          },
-          (err) => console.log(err.code)
-        );
-      } else {
-        showAlert("Geolocation not available", "info");
+    if (notification) {
+      const {
+        message: { type },
+      } = notification;
+      if (type === "new_booking_notification") {
+        openModal();
       }
-    };
-
-    getPosition();
-
-    return () => {
-      if (SOCKET.current) SOCKET.current.close();
-      if (intervalId) clearInterval(intervalId);
-    };
-  }, []);
-
-  useEffect(() => {
-    let time_out = setTimeout(() => {
-      openModal();
-    }, 3000);
-
-    return () => clearTimeout(time_out);
-  }, []);
+    }
+  }, [notification]);
 
   return (
     <>
@@ -84,10 +39,13 @@ const Driver = () => {
 
       <Section darkLogo mobileHeaderStyle="mobile-header">
         <div className="driver-board">
-          <p className="text-xs font-semibold text-center text-error md:text-xl">
-            To continue receiving cash trips, Kindly pay your outstanding debt
-            of 5,000
-          </p>
+          {user?.wallet_balance < 0 && (
+            <p className="text-xs font-semibold text-center text-error md:text-xl">
+              To continue receiving cash trips, Kindly pay your outstanding debt
+              of 5,000
+            </p>
+          )}
+
           <div className="driver">
             <Choose
               containerClass="w-[225px] md:w[310px] h-11 md:h-16 rounded-[2rem] bg-white flex-center mt-6 md:mt-10 py-1 px-2  ml-auto md:mr-5"
@@ -109,6 +67,7 @@ const Driver = () => {
                 <IconWrapper
                   imageUrl="/driver_bg.png"
                   containerStyle="w-[378px] md:w-[567px] h-[247px] md:h-[446px] aspect-square transform -scale-x-100"
+                  imageClassname="image"
                 />
               </div>
             </div>

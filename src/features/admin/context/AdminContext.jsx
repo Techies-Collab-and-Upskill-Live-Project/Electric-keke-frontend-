@@ -5,6 +5,7 @@ const AdminContext = createContext(null);
 export const AdminProvider = ({ children }) => {
   const [currentAdminPage, setCurrentAdminPage] = useState("Overview");
   const [contentsToDisplay, setContentsToDisplay] = useState("All");
+  const [showSidebar, setshowSidebar] = useState(false);
 
   const changeContentToDisplay = (content) =>
     setContentsToDisplay((prev) => (prev === content ? "All" : content));
@@ -12,6 +13,8 @@ export const AdminProvider = ({ children }) => {
   return (
     <AdminContext.Provider
       value={{
+        showSidebar,
+        setshowSidebar,
         currentAdminPage,
         contentsToDisplay,
         setCurrentAdminPage,

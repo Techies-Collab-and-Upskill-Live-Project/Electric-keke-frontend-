@@ -1,15 +1,24 @@
 import RiderShared from "../../layouts/RiderShared";
 import { driver_authProcess } from "@/constants";
 import Heading from "@/components/Heading";
-import Loader from "@/components/loaders/Loader";
+import Lottie from "lottie-react";
+import waiting from "@/assets/animations-data/waiting.json";
+import IconWrapper from "@/components/IconWrapper";
+import { useGlobalOnboardContext } from "../../context/OnboardingContext";
+import {  deletItemFromLs } from "@/utils/ls";
 
 const Processing = () => {
+  const {driverImages} = useGlobalOnboardContext();
+  console.log(driverImages)
+  deletItemFromLs('driver-images')
   return (
     <RiderShared>
       <div className="driverauth">
-        <div className="driverauth__processing">
-          <Loader type="spin2" />
-        </div>
+        <IconWrapper
+          iconElement={Lottie}
+          iconElementProps={{ animationData: waiting }}
+          containerStyle="driverauth__processing"
+        />
 
         <div className="mt-10">
           <Heading

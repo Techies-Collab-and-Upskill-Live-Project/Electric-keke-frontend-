@@ -1,7 +1,7 @@
 import CustomBg from "../components/CustomBg";
-import { XIcon } from "lucide-react";
+import { ArrowLeftCircle, XIcon } from "lucide-react";
 import { LogoPlain } from "@/assets/svg/Logo";
-import Btn from '@/components/btn/Btn'
+import Btn from "@/components/btn/Btn";
 import Heading from "@/components/Heading";
 
 const SharedStep = ({
@@ -24,9 +24,18 @@ const SharedStep = ({
       </div>
 
       <div className="onboarding__page--right relative">
-        <div className="w-full">
+        <Btn
+          icon={<ArrowLeftCircle color="black" size={30} />}
+          styling="md:hidden bg-transparent p-0 absolute top-4 md:top-11 left-5"
+          onClick={prevProcess}
+        />
+
+        <div className="w-full py-11">
           <div className="onboarding-head">
-            <LogoPlain styling="w-[122px] h-[81.33px] mx-auto" logoStyling="image" />
+            <LogoPlain
+              styling="w-[122px] h-[81.33px] mx-auto"
+              logoStyling="image"
+            />
             <Heading
               className={headClass}
               title={headTitle}

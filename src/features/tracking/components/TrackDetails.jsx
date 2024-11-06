@@ -1,34 +1,38 @@
-import { useNavigate } from "react-router-dom";
-import { rideStatusLsUpdate, rideStatusUpdateRequest } from "@/utils";
 import dispatchables from "@/utils/dispatchables";
 import Btn from "@/components/btn/Btn";
 import { UpdateBooking } from "@/services/UpdateBooking";
 
-const TrackDetails = ({ role, origin, destination, price, status }) => {
-  const navigate = useNavigate();
+const updateAction = {
+  User: "cancelled",
+  Rider: "in_progress",
+};
+
+const TrackDetails = ({
+  role,
+  origin,
+  destination,
+  price,
+  status,
+  booking_id,
+}) => {
   const { showAlert } = dispatchables();
 
-  const startTrip = async () => {
-    showAlert("accepted trip");
-    const rideToUpdateData = rideStatusUpdateRequest("in_progress");
-
+  const UpdateCurrentBooking = async () => {
     try {
-      const data = await UpdateBooking(rideToUpdateData);
-      rideStatusLsUpdate("in_progress");
+      const response = await UpdateBooking(booking_id, updateAction[role]);
+      console.log(response);
+      showAlert(response);
+      setTimeout(async () => {
+        try {
+          await UpdateBooking(booking_id, "completed");
+          showAlert('completed')
+        } catch (error) {
+          showAlert(error.data.detail);
+        }
+      }, 10000);
     } catch (error) {
-      showAlert("error starting trip");
-    }
-  };
-
-  const declineTrip = async () => {
-    showAlert("declined trip");
-    const rideToUpdateData = rideStatusUpdateRequest("cancelled");
-
-    try {
-      const data = await UpdateBooking(rideToUpdateData);
-      rideStatusLsUpdate("cancelled");
-    } catch (error) {
-      showAlert("error declining trip");
+      const { detail } = error.data;
+      showAlert(detail, "info");
     }
   };
 
@@ -43,12 +47,12 @@ const TrackDetails = ({ role, origin, destination, price, status }) => {
         </div>
       </div>
 
-      <div className="mt-10 flex items-center gap-x-8">
+      <div className="flex items-center mt-10 gap-x-8">
         <div className="ride-fare">{price}</div>
         <Btn
           text={role === "User" ? "Cancel Ride" : "Start Trip"}
           styling="btn btn--hero btn--primary w-[244px]"
-          onClick={role === "User" ? declineTrip : startTrip}
+          onClick={UpdateCurrentBooking}
           disabled={status}
         />
       </div>

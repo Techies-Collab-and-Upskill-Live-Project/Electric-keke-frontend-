@@ -1,13 +1,17 @@
 import { useModal } from "@/hooks/useModal";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { PARSEDATA } from "@/utils/json";
-import { getItemFromLs } from "@/utils/ls";
+import { addItemToLs, getItemFromLs } from "@/utils/ls";
+import dispatchables from "@/utils/dispatchables";
+import { useGlobalAuthContext } from "./AuthContext";
 
 const ws_base_url = import.meta.env.VITE_WS;
 
 const NotificationContext = createContext(null);
 
 export const NotificationProvider = ({ children }) => {
+  const { isAuthenticated } = useGlobalAuthContext();
+  const { showNotification } = dispatchables();
   const SOCKET = useRef(null);
 
   const {
@@ -16,10 +20,9 @@ export const NotificationProvider = ({ children }) => {
     openModal: openNotificationModal,
   } = useModal();
 
-  const [notifications, setNotifications] = useState([]);
-
-  // useEffect(() => {
-  //   const accessToken = getItemFromLs("accessToken");
+  useEffect(() => {
+    if (!isAuthenticated) return;
+    const accessToken = getItemFromLs("accessToken");
 
   //   SOCKET.current = new WebSocket(
   //     `${ws_base_url}/notifications/?token=${accessToken}`
@@ -31,21 +34,20 @@ export const NotificationProvider = ({ children }) => {
   //   SOCKET.current.onerror = () =>
   //     console.log("connected to notification SOCKET failed");
 
-  //   SOCKET.current.onmessage = (event) => {
-  //     const notification = PARSEDATA(event.data);
-  //     console.log(notification);
-  //     setNotifications((prev) => [...prev, notification]);
-  //   };
+    SOCKET.current.onmessage = (event) => {
+      const notification = PARSEDATA(event.data);
+      console.log(notification);
+      setNotifications((prev) => [...prev, notification]);
+    };
 
-  //   return () => {
-  //     if (SOCKET.current) SOCKET.current.close();
-  //   };
-  // }, []);
+    return () => {
+      if (SOCKET.current) SOCKET.current.close();
+    };
+  }, []);
 
   return (
     <NotificationContext.Provider
       value={{
-        notifications,
         isNotificationModalOpen,
         closeNotificationModal,
         openNotificationModal,

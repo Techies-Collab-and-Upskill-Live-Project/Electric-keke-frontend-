@@ -1,11 +1,12 @@
 import { addItemToLs } from "@/utils/ls";
 import { ShowMe } from "./ShowMe";
 
-export const StoreAndDirectUser = async ({ access, refresh }) => {
+export const StoreAndDirectUser = async ({ access, refresh }, resetUser) => {
   addItemToLs("accessToken", access);
   addItemToLs("refreshToken", refresh);
   try {
     const user = await ShowMe();
+    resetUser(user)
     const { role, id } = user;
     addItemToLs("user", user);
     /**

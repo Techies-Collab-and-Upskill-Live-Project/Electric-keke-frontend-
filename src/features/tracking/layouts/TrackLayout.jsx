@@ -12,19 +12,19 @@ import { PARSEDATA } from "@/utils/json";
 const ws_base_url = import.meta.env.VITE_WS;
 
 const TrackLayout = ({ role, children }) => {
-  const { resource: bookId } = useResource(
-    () => console.log("book-id"),
-    "book-id"
-  );
+  const {
+    resource: { booking_id },
+  } = useResource(() => console.log("bookData"), "bookData");
 
-  console.log(bookId);
+  console.log(booking_id);
 
   const SOCKET = useRef(null);
 
   useEffect(() => {
+    if (role !== "User") return;
     const accessToken = getItemFromLs("accessToken");
     SOCKET.current = new WebSocket(
-      `${ws_base_url}/tracking/${bookId}/?token=${accessToken}`
+      `${ws_base_url}/tracking/${booking_id}/?token=${accessToken}`
     );
 
     SOCKET.current.onopen = () =>
@@ -32,7 +32,7 @@ const TrackLayout = ({ role, children }) => {
 
     SOCKET.current.onmessage = (event) => {
       const message = PARSEDATA(event.data);
-      console.log(message);
+      // console.log(message);
       // this is where we deal with the lat and lng to be placed ont
     };
 
@@ -42,7 +42,7 @@ const TrackLayout = ({ role, children }) => {
   }, []);
 
   return (
-    <section className="home-pad pt-5 pb-20">
+    <section className="pt-5 pb-20 home-pad">
       <header className="tracking-header">
         <Btn
           icon={<ArrowLeft color="black" />}
@@ -52,10 +52,10 @@ const TrackLayout = ({ role, children }) => {
         <LogoPlain />
       </header>
 
-      <h2 className="font-bold text-2xl">{trackTitle[role]}</h2>
+      <h2 className="text-2xl font-bold">{trackTitle[role]}</h2>
 
       <div className="tracking-info-board">
-        <div className="tracking-map border">
+        <div className="border tracking-map">
           <Map className="size-full" />
         </div>
 

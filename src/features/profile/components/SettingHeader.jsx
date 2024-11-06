@@ -1,18 +1,18 @@
 import React from "react";
-import { useCurrentUser } from "@/hooks/useCurrentUser";
 import { goBack } from "@/utils/goBack";
 import { ArrowLeft } from "lucide-react";
 import { Btn, SmallInfo } from "@/components";
+import { useGlobalAuthContext } from "@/contexts/AuthContext";
 
 const SettingHeader = () => {
-  const user = useCurrentUser();
-  
+  const { user } = useGlobalAuthContext();
+
   return (
     <header className="setting-header">
-      <div className="flex items-center gap-6">
+      <div className="flex items-center gap-x-3 md:gap-6">
         <Btn
           icon={<ArrowLeft color="black" />}
-          styling="bg-transparent"
+          styling="bg-transparent p-0"
           onClick={goBack}
         />
 
@@ -22,7 +22,9 @@ const SettingHeader = () => {
           photoConStyle="size-10 md:size-20"
           fullnameStyle="text-base md:text-2xl text-secondary-130"
           nickStyle="text-sm md:text-base text-neutral-500"
+          email={user?.email}
           show_nick
+          photo={user?.avatar}
         />
       </div>
     </header>

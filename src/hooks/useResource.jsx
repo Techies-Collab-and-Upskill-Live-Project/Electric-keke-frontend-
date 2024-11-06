@@ -1,12 +1,13 @@
 import { addItemToLs, getItemFromLs } from "@/utils/ls";
 import { useEffect, useState } from "react";
 
-export const useResource = (callback, key) => {
+export const useResource = (callback, key, resourceEmpty = []) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [resource, setResource] = useState(getItemFromLs(key) || null);
+  const [error, seterror] = useState(null);
+  const [resource, setResource] = useState(getItemFromLs(key) || resourceEmpty);
 
   useEffect(() => {
-    if (resource) {
+    if (resource && key) {
       setIsLoading(false);
       return;
     } else {
@@ -14,15 +15,20 @@ export const useResource = (callback, key) => {
         setIsLoading(true);
         try {
           const data = await callback();
+          // for when resource is null or undefined
+          if (data === undefined) return setResource(resourceEmpty);
           setResource(data);
-          addItemToLs(key, data);
-          setIsLoading(false);
+          // console.log(data);
+          if (key) addItemToLs(key, data);
         } catch (error) {
-          console.log(error);
+          seterror(error);
+          setResource(resourceEmpty);
+        } finally {
+          setIsLoading(false);
         }
       })();
     }
-  }, []);
+  }, [callback]);
 
-  return { isLoading, resource };
+  return { isLoading, resource, error, setResource };
 };

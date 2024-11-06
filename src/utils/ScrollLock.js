@@ -1,8 +1,11 @@
-export const LockScroll = () => (document.body.style.overflowY = "hidden");
+export const LockScroll = () => {
+  const element = document.body;
+  element.style.overflowY = "hidden";
+  element.classList.add('no-scrollbar')
+};
 
-export const UnlockScroll = () => (document.body.style.overflowY = "scroll");
-
-/**
- * "_main_source_":  "/(.*)",
-      "_main_destination_":  "/index.html",
- */
+export const UnlockScroll = () => {
+  const element = document.body;
+  element.style.overflowY = "scroll";
+  element.classList.remove('no-scrollbar')
+};

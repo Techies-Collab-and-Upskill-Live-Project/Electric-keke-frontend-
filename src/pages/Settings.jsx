@@ -4,6 +4,7 @@ import { useModal } from "@/hooks/useModal";
 import SettingHeader from "@/features/profile/components/SettingHeader";
 import SettingNav from "@/features/profile/components/SettingNav";
 import { GroupedModals } from "@/components";
+import IconWrapper from "@/components/IconWrapper";
 
 const Settings = () => {
   const [typeOfModal, setTypeOfModal] = useState("delete");
@@ -24,9 +25,11 @@ const Settings = () => {
           <div className="setting-container">
             <SettingNav openModal={openModal} setTypeOfModal={setTypeOfModal} />
 
-            <div className="safe">
-              <img src="/safe.png" alt="safe" className="size-full" />
-            </div>
+            <IconWrapper
+              containerStyle="safe"
+              imageUrl="/safe.png"
+              imageClassname="size-full"
+            />
           </div>
         </div>
       </Section>

@@ -4,8 +4,8 @@ import { SelectItem } from "./ui/select";
 const CustomSelectItem = ({ items }) => {
   return (
     <>
-      {items.map((item) => (
-        <SelectItem value={item} key={item}>
+      {items.map((item, index) => (
+        <SelectItem value={item} key={index}>
           {item}
         </SelectItem>
       ))}

@@ -17,7 +17,7 @@ const Login = ({ nextProcess, prevProcess }) => {
   const navigate = useNavigate();
   const { username, password } = useSelector((state) => state.formData);
   const isDisbaled = useAreInputsFilled(username && password);
-  const { AuthenticateLogin } = useGlobalAuthContext();
+  const { AuthenticateLogin, resetUser } = useGlobalAuthContext();
   const { loading, unloading, showAlert } = dispatchables();
 
   const handleSubmit = async () => {
@@ -26,6 +26,7 @@ const Login = ({ nextProcess, prevProcess }) => {
       const link = await LoginUser({
         username,
         password,
+        resetUser
       });
       AuthenticateLogin();
       showAlert("Login Sucess");
@@ -52,7 +53,7 @@ const Login = ({ nextProcess, prevProcess }) => {
 
         <div className=" mt-14">
           <ForgetTab nextProcess={nextProcess} />
-          <div className="w-[343px] mx-auto">
+          <div className="w-full max-w-[343px] mx-auto">
             <Btn
               text="Login"
               styling="btn btn--lg btn--primary w-full rounded-full"

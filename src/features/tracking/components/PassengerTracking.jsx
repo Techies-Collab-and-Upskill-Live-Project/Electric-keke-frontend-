@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import TrackLayout from "../layouts/TrackLayout";
 import Person from "./Person";
 import DeliveryStats from "./DeliveryStats";
@@ -8,14 +8,18 @@ import { useResource } from "@/hooks/useResource";
 
 const PassengerTracking = ({ hasArrived }) => {
   const navigate = useNavigate();
+  const [status, setStatus] = useState(true);
 
   const {
-    resource: { fullname, photo },
-  } = useResource(() => console.log("rider"), "rider");
-
-  const {
-    resource: { origin, destination },
-  } = useResource(() => console.log("book-data"), "book-data");
+    resource: {
+      rider_name: fullname,
+      rider_photo: photo,
+      origin,
+      destination,
+      booking_id,
+      price,
+    },
+  } = useResource(() => console.log("bookData"), "bookData");
 
   useEffect(() => {
     if (hasArrived) navigate("/transaction");
@@ -35,7 +39,9 @@ const PassengerTracking = ({ hasArrived }) => {
             role="User"
             origin={origin || "origin"}
             destination={destination || "destination"}
-            price="price"
+            price={price || 3000}
+            booking_id={booking_id}
+            status={status}
           />
         </div>
       </TrackLayout>

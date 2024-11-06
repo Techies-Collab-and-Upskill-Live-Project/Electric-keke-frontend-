@@ -13,15 +13,15 @@ export const FilterGroup = ({
 }) => {
   return (
     <div className={styling}>
-      <p className={labelStyle}>{label}</p>
+      {label && <p className={labelStyle}>{label}</p>}
       <div className={container_styles}>
-        {options.map((item) => {
+        {options.map(({ label, query }) => {
           return (
             <FilterGroupItem
               styling={itemStyle}
-              onClick={() => handleFilter(item)}
+              onClick={() => handleFilter(query)}
             >
-              {item}
+              {label}
             </FilterGroupItem>
           );
         })}

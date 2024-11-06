@@ -5,7 +5,7 @@ const IconWrapper = ({
   iconElement: IconElement,
   iconElementProps,
   imageUrl,
-  scale,
+  imageClassname,
 }) => {
   const SvgIcon = () => {
     return (
@@ -18,7 +18,7 @@ const IconWrapper = ({
   const ImageIcon = () => {
     return (
       <div className={containerStyle}>
-        <img src={imageUrl} alt="icon" className={`image ${scale}`} />
+        <img src={imageUrl} alt="icon" className={`${imageClassname}`} />
       </div>
     );
   };

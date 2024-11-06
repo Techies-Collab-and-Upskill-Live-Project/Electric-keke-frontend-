@@ -1,30 +1,52 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Heading from "../Heading";
 import RegularList from "../_design-patterns/RegularList";
 import Btn from "../btn/Btn";
 import dispatchables from "@/utils/dispatchables";
-import FormRow from "../forms/FormRow";
-
-const ProfileOption = ({ title, handleClick }) => {
-  return (
-    <div className="profile-options" onClick={() => handleClick(title)}>
-      <p>{title}</p>
-      <div>
-        <img src="/setting-arr.svg" alt="arrow" />
-      </div>
-    </div>
-  );
-};
+import { useAreInputsFilled } from "@/features/onboarding/hooks/useAreInputsFilled";
+import { MANAGE_CONDITIONS } from "@/features/profile/utils/manage-conditions";
+import ProfileFormRows from "@/features/profile/components/ProfileFormRows";
+import { profile_management_titles } from "@/features/profile/constants";
+import ProfileOption from "@/features/profile/components/ProfileOption";
+import { ChangePassword } from "@/features/profile/services/change-password";
+import { UpdateProfile } from "@/features/profile/services/update-profile";
+import { useGlobalAuthContext } from "@/contexts/AuthContext";
 
 const ManageProfileModal = () => {
   const [title, setTitle] = useState("Profile Management");
   const { showAlert } = dispatchables();
+  const { resetUser, user } = useGlobalAuthContext();
 
-  const updateProfile = () => {
-    showAlert("updated profile sucessfully");
+  const [profileData, setProfileData] = useState({
+    fullname: user?.fullname || "",
+    email: user?.email || "",
+    old_password: "",
+    new_password: "",
+    re_new_password: "",
+  });
+
+  const handleProfileDataChange = (e) => {
+    const { name: key, value } = e.target;
+    setProfileData((prev) => ({ ...prev, [key]: value }));
   };
 
-  const changePassword = () => showAlert("password updated");
+  const disabled = useAreInputsFilled(MANAGE_CONDITIONS(profileData)[title]);
+
+  const updateProfile = () => {
+    const { email, fullname } = profileData;
+    UpdateProfile({ fullname, email }, showAlert, resetUser);
+  };
+
+  const changePassword = () => {
+    const { old_password, new_password, re_new_password } = profileData;
+
+    if (new_password !== re_new_password) {
+      showAlert("confirm passwords", "info");
+      return;
+    }
+
+    ChangePassword({ old_password, new_password, re_new_password }, showAlert);
+  };
 
   return (
     <>
@@ -38,53 +60,28 @@ const ManageProfileModal = () => {
       {title === "Profile Management" ? (
         <div className="profile-opt-box">
           <RegularList
-            list={[
-              { title: "Personal Information" },
-              { title: "Change Password" },
-            ]}
+            list={profile_management_titles}
             component={ProfileOption}
             handleClick={(title) => setTitle(title)}
-            keyExtractor={[
-              { title: "Personal Information" },
-              { title: "Change Password" },
-            ].map((item) => item.title)}
+            keyExtractor={profile_management_titles.map((item) => item.title)}
           />
         </div>
       ) : (
-        <div className="profile-opt-box pb-2">
-          <FormRow
-            type={title === "Personal Information" ? "text" : "password"}
-            name={title === "Personal Information" ? "name" : "old-password"}
-            placeholder={
-              title === "Personal Information" ? "name" : "old-password"
-            }
-            inputclass="profile-modal-inputs"
-          />
-
-          <FormRow
-            type={title === "Personal Information" ? "email" : "password"}
-            name={title === "Personal Information" ? "email" : "new-password"}
-            placeholder={
-              title === "Personal Information" ? "Email" : "New password"
-            }
-            inputclass="profile-modal-inputs"
-          />
-
-          {title === "Change Password" && (
-            <FormRow
-              type="password"
-              name="confirm"
-              placeholder="Confirm Password"
-              inputclass="profile-modal-inputs"
-            />
-          )}
-        </div>
+        <ProfileFormRows
+          fullname={profileData.fullname}
+          title={title}
+          email={profileData.email}
+          new_password={profileData?.new_password}
+          old_password={profileData?.old_password}
+          re_new_password={profileData?.re_new_password}
+          handleChange={handleProfileDataChange}
+        />
       )}
 
       {title === "Profile Management" ? (
-        <div className="h-[88px]"></div>
+        <div className="h-[88px] hidden md:block"></div>
       ) : (
-        <div className="mt-8">
+        <div className="mt-4 md:mt-8">
           <Btn
             text="Confirm"
             styling="btn btn--hero btn--primary w-full max-w-[343px] mx-auto"
@@ -93,6 +90,7 @@ const ManageProfileModal = () => {
                 ? updateProfile()
                 : changePassword()
             }
+            disabled={disabled}
           />
         </div>
       )}

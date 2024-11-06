@@ -50,8 +50,8 @@ const SocialFbIcon = () => {
           y2="8.65984"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#77BB77" />
-          <stop offset="1" stop-color="#234623" />
+          <stop stopColor="#77BB77" />
+          <stop offset="1" stopColor="#234623" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_388_767"
@@ -61,8 +61,8 @@ const SocialFbIcon = () => {
           y2="9"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#77BB77" />
-          <stop offset="1" stop-color="#234623" />
+          <stop stopColor="#77BB77" />
+          <stop offset="1" stopColor="#234623" />
         </linearGradient>
       </defs>
     </svg>

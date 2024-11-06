@@ -8,13 +8,14 @@ const BriefingBox = ({
   introTitle,
   title,
   description,
-  image,
-  imgClass,
+  imageUrl,
+  imageContainerStyle,
+  imageStyle = "image",
   showBtn,
   type,
 }) => {
   return (
-    <div className="w-full tablet:flex items-center relative isolate gap-x-6">
+    <div className="relative items-center w-full tablet:flex isolate gap-x-6">
       <motion.div
         initial={{ opacity: 0, x: -100 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -54,14 +55,10 @@ const BriefingBox = ({
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.85 }}
         viewport={{ once: true, amount: 0.5 }}
-        // id="about-image"
-        className={imgClass}
+        // id="about-imageUrl"
+        className={imageContainerStyle}
       >
-        <img
-          src={image}
-          alt="about keke"
-          className="size-full object-cover object-center"
-        />
+        <img src={imageUrl} alt="about keke" className={imageStyle} />
       </motion.div>
     </div>
   );

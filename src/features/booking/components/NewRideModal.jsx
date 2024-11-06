@@ -2,54 +2,28 @@ import React from "react";
 import RideDetails from "@/features/booking/components/RideDetails";
 import Choose from "../../../components/Choose";
 import dispatchables from "@/utils/dispatchables";
-import { rideStatusLsUpdate, rideStatusUpdateRequest } from "@/utils";
-import { addItemToLs } from "@/utils/ls";
+import { getItemFromLs } from "@/utils/ls";
 import { useNavigate } from "react-router-dom";
 import SharedModalMap from "../layouts/SharedModalMap";
 import { UpdateBooking } from "@/services/UpdateBooking";
 import CustomModal from "@/components/CustomModal";
-import { useResource } from "@/hooks/useResource";
-import { GetListOfBookings } from "@/services/GetListOfBookings";
 
 const NewRideModal = ({ isModalOpen, openModal, closeModal }) => {
   const navigate = useNavigate();
   const { showAlert } = dispatchables();
 
-  const getLatestRideInformation = async () => {
+  const handleRideRequest = async (status = "accepted") => {
+    const { booking_id } = getItemFromLs("bookData");
+
     try {
-      const data = await GetListOfBookings();
-      const length = data.length;
-      return data[length - 1];
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const {
-    resource: { origin, destination, price, id: bookId },
-    isLoading,
-  } = useResource(getLatestRideInformation, "currentRide");
-
-  const acceptRide = async () => {
-    try {
-      addItemToLs("book-id", bookId);
-
+      const response = await UpdateBooking(booking_id, status);
+      showAlert(response);
       await closeModal();
-      navigate("/tracking/rider");
+      if (status === "accepted") navigate("/tracking/rider");
     } catch (error) {
-      showAlert(error.message);
-    }
-  };
-
-  const declineRide = async () => {
-    const rideToUpdateData = rideStatusUpdateRequest("cancelled");
-    try {
-      // cancle ride
-      const data = await UpdateBooking(rideToUpdateData);
-      rideStatusLsUpdate("cancelled");
-      closeModal();
-    } catch (error) {
-      showAlert("Error declining ride");
+      const { detail } = error.data;
+      console.log(detail);
+      showAlert(detail, "danger");
     }
   };
 
@@ -63,13 +37,8 @@ const NewRideModal = ({ isModalOpen, openModal, closeModal }) => {
       showCloseBtn={false}
     >
       <SharedModalMap>
-        {isLoading ? null : (
-          <RideDetails
-            price={price}
-            origin={origin}
-            destination={destination}
-          />
-        )}
+        <RideDetails />
+
         <Choose
           containerClass="pt-8 pb-4 flex flex-col gap-y-6"
           choice1txt="Accept"
@@ -77,8 +46,8 @@ const NewRideModal = ({ isModalOpen, openModal, closeModal }) => {
           btnClass="w-full rounded-full h-14"
           addedClass1="bg-basic"
           addedClass2="bg-neutral-500"
-          handleChoice1={acceptRide}
-          handleChoice2={declineRide}
+          handleChoice1={() => handleRideRequest()}
+          handleChoice2={() => handleRideRequest("cancelled")}
         />
       </SharedModalMap>
     </CustomModal>
