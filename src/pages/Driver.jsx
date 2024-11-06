@@ -7,11 +7,14 @@ import { useModal } from "@/hooks/useModal";
 import Choose from "@/components/Choose";
 import IconWrapper from "@/components/IconWrapper";
 import { useSelector } from "react-redux";
+import { useGlobalAuthContext } from "@/contexts/AuthContext";
 
 const Driver = () => {
   const notification = useSelector((state) => state.notificationData);
+  const { user } = useGlobalAuthContext();
+  console.log(user);
 
-  const { showAlert, newNotification } = dispatchables();
+  // const { showAlert, newNotification } = dispatchables();
   const [online, setOnline] = useState(false);
   const { isModalOpen: isNewRequest, openModal, closeModal } = useModal();
 
@@ -36,10 +39,13 @@ const Driver = () => {
 
       <Section darkLogo mobileHeaderStyle="mobile-header">
         <div className="driver-board">
-          <p className="text-xs font-semibold text-center text-error md:text-xl">
-            To continue receiving cash trips, Kindly pay your outstanding debt
-            of 5,000
-          </p>
+          {user?.wallet_balance < 0 && (
+            <p className="text-xs font-semibold text-center text-error md:text-xl">
+              To continue receiving cash trips, Kindly pay your outstanding debt
+              of 5,000
+            </p>
+          )}
+
           <div className="driver">
             <Choose
               containerClass="w-[225px] md:w[310px] h-11 md:h-16 rounded-[2rem] bg-white flex-center mt-6 md:mt-10 py-1 px-2  ml-auto md:mr-5"

@@ -1,45 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import FormRow from "../../../components/forms/FormRow";
 import { states } from "../../../constants";
 import Choose from "../../../components/Choose";
 import FormSelect from "@/components/forms/FormSelect";
-import FormDate from "@/components/forms/FormDate";
 import { useGlobalAuthContext } from "@/contexts/AuthContext";
-import { UpdateProfile } from "../services/update-profile";
-import dispatchables from "@/utils/dispatchables";
 
-const ProfileManagementForm = ({ cancelEdit, saveData, openModal,setEditProfile }) => {
-  const { user, resetUser } = useGlobalAuthContext();
-  const { showAlert } = dispatchables();
+const ProfileManagementForm = ({
+  cancelEdit,
+  saveData,
+}) => {
+  const { profileFormData, handleChange, setProfileFormData } =
+    useGlobalAuthContext();
 
-  const [profileFormData, setProfileFormData] = useState({
-    fullname: user?.fullname,
-    // middlename: "",
-    // lastname: "",
-    email: user?.email,
-    phone: user?.phone_number,
-    DOB: "",
-    lga: "",
-    address: user?.address,
-    state: user?.state_of_residence,
-  });
+    console.log(profileFormData)
 
-  const handleChange = (e) => {
-    const { name: key, value } = e.target;
-    setProfileFormData((prev) => ({ ...prev, [key]: value }));
-  };
-
-  const handleSaveData = () => {
-    saveData(profileFormData, async (data) => {
-      try {
-        await UpdateProfile(data, showAlert, resetUser);
-        openModal();
-        setEditProfile(false);
-      } catch (error) {
-        console.log(error);
-      }
-    });
-  };
   return (
     <form className="mt-14" onSubmit={(e) => e.preventDefault()}>
       <div className="prof-form-body">
@@ -54,7 +28,7 @@ const ProfileManagementForm = ({ cancelEdit, saveData, openModal,setEditProfile 
         {/* <FormRow
           name="middlename"
           label="Middle Name"
-          value={profileFormData.middlename}
+          value={middlename}
           styling="font-inter"
           handleChange={handleChange}
           inputclass="profile-management-input"
@@ -62,7 +36,7 @@ const ProfileManagementForm = ({ cancelEdit, saveData, openModal,setEditProfile 
         <FormRow
           name="lastname"
           label="Last Name"
-          value={profileFormData.lastname}
+          value={lastname}
           styling="font-inter"
           handleChange={handleChange}
           inputclass="profile-management-input"
@@ -131,7 +105,7 @@ const ProfileManagementForm = ({ cancelEdit, saveData, openModal,setEditProfile 
           btnClass="btn btn--lg w-1/2"
           addedClass1="btn--primary"
           addedClass2="btn--secondary"
-          handleChoice1={handleSaveData}
+          handleChoice1={saveData}
           handleChoice2={cancelEdit}
         />
       </div>

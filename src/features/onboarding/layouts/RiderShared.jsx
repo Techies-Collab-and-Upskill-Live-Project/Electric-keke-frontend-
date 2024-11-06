@@ -14,6 +14,7 @@ const RiderShared = ({ children, nextProcess }) => {
               title="Driver's license & Document"
               tclass="text-2xl font-bold md:text-[2rem] laptop:text-[40px] text-center font-josefin"
             />
+            
             <AuthProcess />
           </div>
           {children}

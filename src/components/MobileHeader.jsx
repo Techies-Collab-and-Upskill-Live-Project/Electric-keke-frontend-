@@ -37,7 +37,7 @@ const MobileHeader = ({ blur, mobileHeaderStyle }) => {
                 onClick={openNotificationModal}
               />
 
-              <HeroSmallInfo fullname={user?.fullname} id={user?.id} />
+              <HeroSmallInfo fullname={user?.fullname} id={user?.id} photo={user?.avatar} />
             </div>
           ) : (
             <Btn

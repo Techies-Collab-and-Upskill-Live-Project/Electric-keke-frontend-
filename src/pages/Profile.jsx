@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Section } from "@/layouts";
 import Edit from "../assets/svg/Edit";
 import SettingIcon from "../assets/svg/SettingIcon";
@@ -16,25 +16,34 @@ import {
 import { useModal } from "@/hooks/useModal";
 import { useGlobalAuthContext } from "@/contexts/AuthContext";
 import EditUserPhoto from "@/features/profile/components/EditUserPhoto";
+import { UpdateProfile } from "@/features/profile/services/update-profile";
+import dispatchables from "@/utils/dispatchables";
 
 const Profile = () => {
   const { isModalOpen, openModal, closeModal } = useModal();
   const [editProfile, setEditProfile] = useState(false);
-  const { user } = useGlobalAuthContext();
+  const { user, resetUser, handleChange, profileFormData } = useGlobalAuthContext();
+  const { showAlert } = dispatchables();
 
   const navigate = useNavigate();
 
-  const saveData = (data, callback) => {
-    callback(data);
+  const saveData = async () => {
+    try {
+      await UpdateProfile(profileFormData, showAlert, resetUser);
+      openModal();
+      setEditProfile(false);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <>
-        <GroupedModals
-          type="edit-profile"
-          isModalOpen={isModalOpen}
-          closeModal={closeModal}
-        />
+      <GroupedModals
+        type="edit-profile"
+        isModalOpen={isModalOpen}
+        closeModal={closeModal}
+      />
 
       <Section darkLogo={true} mobileHeaderStyle="mobile-header">
         <div className="profile-section">
@@ -45,7 +54,7 @@ const Profile = () => {
               {editProfile && (
                 <Btn
                   icon={<Spear color="black" />}
-                  styling="bg-transparent"
+                  styling="bg-transparent p-0"
                   onClick={() => setEditProfile(false)}
                 />
               )}
@@ -72,21 +81,20 @@ const Profile = () => {
               styling="prof-photo flex-center"
               noImageContainerStyle="prof-photo flex-center bg-gradient-to-t from-peach to-basic-500"
               textStyle="text-5xl font-bold text-neutral"
-              text={user && user?.fullname[0]}
+              text={user && user.fullname[0]}
+              imageUrl={user?.avatar}
             />
 
-            {editProfile && <EditUserPhoto />}
+            {editProfile && <EditUserPhoto handleChange={handleChange} />}
           </div>
 
           {editProfile ? (
             <ProfileManagementForm
               cancelEdit={() => setEditProfile(false)}
               saveData={saveData}
-              openModal={openModal}
-              setEditProfile={setEditProfile}
             />
           ) : (
-            <MyProfile user={user} />
+            <MyProfile />
           )}
 
           <Tree />

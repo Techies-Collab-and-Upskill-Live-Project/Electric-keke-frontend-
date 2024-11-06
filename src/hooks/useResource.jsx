@@ -18,6 +18,7 @@ export const useResource = (callback, key, resourceEmpty = []) => {
           // for when resource is null or undefined
           if (data === undefined) return setResource(resourceEmpty);
           setResource(data);
+          // console.log(data);
           if (key) addItemToLs(key, data);
         } catch (error) {
           seterror(error);

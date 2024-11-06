@@ -1,12 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { addItemToLs, deletItemFromLs, getItemFromLs } from "../utils/ls";
-import { createContext, useContext, useState } from "react";
+import { createContext, useCallback, useContext, useState } from "react";
 import { useCurrentUser } from "@/hooks/useCurrentUser";
 
 const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
+
   const [isAuthenticated, setIsAuthenticated] = useState(
     getItemFromLs("isAuthenticated") || false
   );
@@ -32,6 +33,23 @@ const AuthProvider = ({ children }) => {
     }
   };
 
+  const [profileFormData, setProfileFormData] = useState({
+    fullname: user?.fullname,
+    email: user?.email,
+    phone: user?.phone_number,
+    avatar_url: user?.avatar,
+    address: user?.address,
+    state: user?.state_of_residence,
+  });
+
+  const handleChange = useCallback(
+    (e) => {
+      const { name: key, value } = e.target;
+      setProfileFormData((prev) => ({ ...prev, [key]: value }));
+    },
+    [user]
+  );
+
   return (
     <AuthContext.Provider
       value={{
@@ -41,6 +59,9 @@ const AuthProvider = ({ children }) => {
         isAuthenticated,
         resetUser,
         user,
+        profileFormData,
+        setProfileFormData,
+        handleChange,
       }}
     >
       {children}

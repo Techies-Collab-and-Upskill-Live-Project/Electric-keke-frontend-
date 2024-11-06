@@ -6,7 +6,6 @@ import { useResource } from "@/hooks/useResource";
 import {
   Table,
   TableBody,
-  TableContent,
   TableHead,
   TableItem,
 } from "@/components/_custom-ui/Table";

@@ -11,7 +11,7 @@ export const UpdateProfile = async (params, showAlert, resetUser) => {
     });
     showAlert('sucesssfull updated profile');
     const response = await ShowMe();
-    console.log(response)
+    // console.log(response)
     addItemToLs('user', response)
     resetUser(response)
   } catch (error) {

@@ -67,8 +67,6 @@ const states = [
   "Ogun",
   "Ondo",
   "Osun",
-  "Ondo",
-  "Osun",
   "Oyo",
   "Plateau",
   "Rivers",

@@ -33,7 +33,7 @@ export const finance_management_tablehead = [
 export const user_management_tablehead = [
   {
     title: "User Id",
-    styling: "flex-center text-[#525252] font-semibold py-4 w-[15%] text-xs",
+    styling: "flex-center text-[#525252] font-semibold py-4 w-[15%]",
   },
   {
     title: "Name",

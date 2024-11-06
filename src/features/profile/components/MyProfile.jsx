@@ -1,11 +1,15 @@
+import { useGlobalAuthContext } from "@/contexts/AuthContext";
 
-const MyProfile = ({user}) => {
+const MyProfile = () => {
+  const { user } = useGlobalAuthContext();
 
   return (
     <div className="prof-form-body">
       <div>
         <p>Fullname</p>
-        <div className="flex items-center profile-management-input">{user?.fullname}</div>
+        <div className="flex items-center profile-management-input">
+          {user?.fullname}
+        </div>
       </div>
 
       {/* <div>
@@ -24,11 +28,15 @@ const MyProfile = ({user}) => {
 
       <div>
         <p>Email</p>
-        <div className="flex items-center profile-management-input">{user?.email}</div>
+        <div className="flex items-center profile-management-input">
+          {user?.email}
+        </div>
       </div>
       <div>
         <p>Phone</p>
-        <div className="flex items-center profile-management-input">{user?.phone_number}</div>
+        <div className="flex items-center profile-management-input">
+          {user?.phone_number}
+        </div>
       </div>
 
       {/* <div>
@@ -53,7 +61,7 @@ const MyProfile = ({user}) => {
       <div>
         <p>Address</p>
         <div className="flex items-center profile-management-input">
-         {user?.address}
+          {user?.address}
         </div>
       </div>
     </div>

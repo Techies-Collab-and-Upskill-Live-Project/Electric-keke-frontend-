@@ -17,7 +17,7 @@ const Login = ({ nextProcess, prevProcess }) => {
   const navigate = useNavigate();
   const { username, password } = useSelector((state) => state.formData);
   const isDisbaled = useAreInputsFilled(username && password);
-  const { AuthenticateLogin } = useGlobalAuthContext();
+  const { AuthenticateLogin, resetUser } = useGlobalAuthContext();
   const { loading, unloading, showAlert } = dispatchables();
 
   const handleSubmit = async () => {
@@ -26,6 +26,7 @@ const Login = ({ nextProcess, prevProcess }) => {
       const link = await LoginUser({
         username,
         password,
+        resetUser
       });
       AuthenticateLogin();
       showAlert("Login Sucess");

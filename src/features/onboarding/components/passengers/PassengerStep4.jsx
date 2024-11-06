@@ -20,18 +20,21 @@ const PassengerStep4 = ({ nextProcess, prevProcess }) => {
   const isDisbaled = useAreInputsFilled(otpValue.split("").length === 5);
 
   const handleSubmit = async (e) => {
+    console.log('i am here')
     e.preventDefault();
     try {
       const otpParams = {
         id: getItemFromLs("userId"),
         otp: otpValue,
       };
+      console.log(otpParams)
 
       const { detail } = await ActivateUser(otpParams);
       showAlert(detail);
       nextProcess();
       deletItemFromLs("userId");
     } catch (error) {
+
       showAlert(error.data?.msg || "error activating user");
       // nextProcess();
     }

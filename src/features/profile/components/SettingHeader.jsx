@@ -24,6 +24,7 @@ const SettingHeader = () => {
           nickStyle="text-sm md:text-base text-neutral-500"
           email={user?.email}
           show_nick
+          photo={user?.avatar}
         />
       </div>
     </header>

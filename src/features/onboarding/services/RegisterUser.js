@@ -15,7 +15,7 @@ export const RegisterUser = async ({
 }) => {
   try {
     addItemToLs("user-email", email);
-    const data = await makePlainRequest({
+    const {data: {id}} = await makePlainRequest({
       url: "/auth/register-user/",
       method: "post",
       data: {
@@ -30,13 +30,9 @@ export const RegisterUser = async ({
         message_type,
       },
     });
-    /**
-     * when we register the user the id is needed
-     * to verify the user for the otp, we will be
-     * fetching it from ls
-     */
-    addItemToLs("userId", data.id);
+    addItemToLs("userId", id);
   } catch (error) {
+    console.log(error);
     const errorRes = error.data.response;
     const errors_arr = Object.entries(errorRes.data).map(([key, value]) => {
       return value;

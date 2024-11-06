@@ -10,7 +10,7 @@ const AdminHeader = () => {
   const { user } = useGlobalAuthContext();
   const {setshowSidebar} = useGlobalAdminContext();
   return (
-    <header className="admin-header border">
+    <header className="border admin-header">
       <div className="flex items-center">
         <Btn icon={<Menu color="black" />} styling="bg-transparent p-0 md:hidden" onClick={() => setshowSidebar(prev => !prev)} />
         <LogoPlain styling="w-[84px] h-[56px]" />
@@ -38,6 +38,7 @@ const AdminHeader = () => {
           nickStyle="text-sm"
           show_arr
           show_nick
+          photo={user?.avatar}
           styling="border w-fit md:w-[146px] bg-white border-neutral-40 flex-spread"
         />
       </div>

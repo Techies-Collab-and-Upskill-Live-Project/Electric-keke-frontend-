@@ -1,3 +1,5 @@
+import { Mail, Phone } from "lucide-react";
+
 export const countryFlag = {
   "+234": "/flag/nigeria.svg",
   "+233": "/flag/ghana.svg",
@@ -21,8 +23,8 @@ export const account_types = [
 ];
 
 export const otp_choice = [
-  { title: "Sms", icon: "/phone.svg" },
-  { title: "Email", icon: "/email.svg" },
+  { title: "Sms", icon: Phone },
+  { title: "Email", icon: Mail },
 ];
 
 export const onboarding_descs = {
