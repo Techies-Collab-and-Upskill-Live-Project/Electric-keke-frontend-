@@ -10,9 +10,8 @@ import NotFound from "./pages/NotFound";
 import Onboarding from "./pages/Onboarding";
 // import Balls from "./components/_custom-loaders/balls/Balls";
 import General from "./components/_general/General";
-import { useEffect } from "react";
-import Cloudinary from "./pages/Cloudinary";
 import CloudinaryPage from "./pages/Cloudinary";
+import ComingSoon from "./pages/ComingSoon";
 
 function App() {
   return (
@@ -25,7 +24,7 @@ function App() {
           <Route path="/earn-with-us" element={<Earn />} />
           <Route path="/support" element={<Support />} />
           <Route path="/onboarding/*" element={<Onboarding />} />
-          <Route path="/cloudinary/*" element={<CloudinaryPage />} />
+          <Route path="/:id/coming-soon" element={<ComingSoon />} />
           <Route path="/*" element={<ProtectedRoute />} />
           <Route path="/ie/:id" element={<InternalServer />} />
           <Route path="*" element={<NotFound />} />

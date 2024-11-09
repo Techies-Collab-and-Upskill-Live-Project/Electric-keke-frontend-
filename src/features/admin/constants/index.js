@@ -1,5 +1,7 @@
 import Finance from "../assets/svgs/Finance";
+import MessageIcon from "../assets/svgs/message";
 import Overview from "../assets/svgs/Overview";
+import ReviewIcon from "../assets/svgs/review-icon";
 import SettingAdmin from "../assets/svgs/SettingAdmin";
 import UserManagement from "../assets/svgs/UserManagement";
 
@@ -22,7 +24,8 @@ export const finance_management_tablehead = [
   },
   {
     title: "Delivery",
-    styling: "py-4 flex items-center w-[14%] text-[#525252] font-semibold capitalize",
+    styling:
+      "py-4 flex items-center w-[14%] text-[#525252] font-semibold capitalize",
   },
   {
     title: "Action",
@@ -60,11 +63,10 @@ export const overview_titles = {
 };
 
 export const overview_descriptions = {
-  Overview: "Manage Users and Track Services",
+  Overview: "Manage Users and Track Activity",
   "User Management": "Manage Users",
   "Financial Management": "Keep Track With Finance",
 };
-
 
 export const admin_nav_links = [
   {
@@ -81,6 +83,16 @@ export const admin_nav_links = [
     title: "Financial Management",
     href: "financial-management",
     icon: Finance,
+  },
+  {
+    title: "Message",
+    href: "message",
+    icon: MessageIcon,
+  },
+  {
+    title: "Reviews",
+    href: "reviews",
+    icon: ReviewIcon,
   },
   {
     title: "Settings",
@@ -138,10 +150,10 @@ export const translate_filter_option = {
 };
 
 export const show_board = {
-  Overview: true,
-  "User Management": true,
-  "Financial Management": false,
-  Settings: false,
+  "/admin": true,
+  "/admin/user-management": true,
+  "/admin/financial-management": false,
+  "/admin/settings": false,
 };
 
 export const sideBarMargin = {
@@ -162,3 +174,37 @@ export const finances_fetch_options = {
   Complete: "Complete",
   Pending: "Pending",
 };
+
+export const customers_notifications = [
+  
+  {
+    title: "New Ride Request",
+    description:
+      "New ride request from [User Name] at [Location]. Please review and assign a driver.",
+  },
+  {
+    title: "Driver Arrival Delay",
+    description:
+      "Mike anderson is delayed on route to Susan micheal pickup point. Notify the user?",
+  },
+  {
+    title: "Delivery Assignment",
+    description:
+      "Evelyn booked an inspection with Kesh Apartments. The options of Virtual and physical inspection were selected. Waiting for your.",
+  },
+  {
+    title: "New Ride Request",
+    description:
+      "New ride request from [User Name] at [Location]. Please review and assign a driver.",
+  },
+  {
+    title: "Driver Arrival Delay",
+    description:
+      "Mike anderson is delayed on route to Susan micheal pickup point. Notify the user?",
+  },
+  {
+    title: "Delivery Assignment",
+    description:
+      "Evelyn booked an inspection with Kesh Apartments. The options of Virtual and physical inspection were selected. Waiting for your.",
+  },
+];

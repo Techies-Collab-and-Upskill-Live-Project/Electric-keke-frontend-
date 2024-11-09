@@ -37,7 +37,7 @@ const DisplayTable = forwardRef(
 
     return (
       <>
-        <Table styling="w-full border">
+        <Table styling="w-full">
           <TableHead styling="flex items-center">
             {columnsData?.map((item) => (
               <TableItem
@@ -53,8 +53,9 @@ const DisplayTable = forwardRef(
               </TableItem>
             ))}
           </TableHead>
-          <TableBody>{displayBodyContent()}</TableBody>
+          <TableBody styling="min-h-[652px]">{displayBodyContent()}</TableBody>
         </Table>
+
         <Pagination />
       </>
     );

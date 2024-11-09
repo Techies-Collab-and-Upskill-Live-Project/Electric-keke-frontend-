@@ -13,14 +13,13 @@ const ReviewForm = ({ rateValue, setRateDriver, closeModal }) => {
     showAlert('commented successfully');
     deletItemFromLs("book-data");
     deletItemFromLs("rider");
-    deletItemFromLs("current-ride");
     setRateDriver(false);
     await closeModal();
     navigate("/");
   };
 
   return (
-    <form className="w-full px-5 mt-8" onSubmit={(e) => preventDefault}>
+    <form className="w-full px-5 mt-4 md:mt-8" onSubmit={(e) => preventDefault}>
       <label className="w-full">
         <span className="block text-base font-semibold">Comment</span>
         <textarea
@@ -28,7 +27,7 @@ const ReviewForm = ({ rateValue, setRateDriver, closeModal }) => {
           id="comment"
           cols="30"
           rows="3"
-          className="px-3 py-2 w-full resize-none border border-neutral-300 rounded-m"
+          className="w-full px-3 py-2 border resize-none border-neutral-300 rounded-m"
           ref={commentRef}
         />
       </label>

@@ -7,11 +7,19 @@ const Section = ({
   blurHeader,
   withDesktopHeader = true,
   mobileHeaderStyle,
+  homeHref = "/",
 }) => {
   return (
     <>
-      <MobileHeader blur={blurHeader} mobileHeaderStyle={mobileHeaderStyle} />
-      {withDesktopHeader && <Header darkLogo={darkLogo} blur={blurHeader} />}
+      <MobileHeader
+        blur={blurHeader}
+        mobileHeaderStyle={mobileHeaderStyle}
+        homeHref={homeHref}
+      />
+      
+      {withDesktopHeader && (
+        <Header darkLogo={darkLogo} blur={blurHeader} homeHref={homeHref} />
+      )}
       <section>{children}</section>
     </>
   );

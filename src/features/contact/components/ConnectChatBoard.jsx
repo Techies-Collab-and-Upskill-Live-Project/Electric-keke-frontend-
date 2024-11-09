@@ -45,6 +45,7 @@ const ConnectChatBoard = () => {
   const handleSendMessage = (message) => {
     if (!message) return;
     const messageData = STRINGIFYDATA({ message });
+
     SOCKET.current.send(messageData);
   };
 

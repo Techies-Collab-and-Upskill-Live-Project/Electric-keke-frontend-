@@ -6,17 +6,21 @@ import Btn from "@/components/btn/Btn";
 import { ProfilePhoto } from "@/features/profile";
 import IconWrapper from "@/components/IconWrapper";
 
-const Person = ({ role, fullname, hasArrived, photo }) => {
+const Person = ({ role, fullname, photo, rideCompleted }) => {
   const navigate = useNavigate();
 
   const { isModalOpen, openModal, closeModal } = useModal();
 
   return (
     <div className="person-details">
-      <div className="flex items-center gap-x-10">
+      <div className="flex items-center gap-x-1 md:gap-x-3 lg:gap-x-10">
         <ProfilePhoto
-          styling="size-[50px] md:size-[103px] rounded-full bg-gradient-to-tl relative from-[#949494] to-neutral p-[3px]"
+          sharedStyle="size-[50px] md:size-20 lg:size-[103px] rounded-full bg-gradient-to-tl relative from-[#949494] to-neutral p-[3px]"
+          styling=""
           imageUrl={photo}
+          noImageContainerStyle="flex-center"
+          text={fullname[0]}
+          textStyle="text-neutral-900 text-2xl"
         />
 
         <div>
@@ -25,16 +29,16 @@ const Person = ({ role, fullname, hasArrived, photo }) => {
         </div>
       </div>
 
-      {!hasArrived && (
-        <div className="flex-center gap-x-9">
+      {!rideCompleted && (
+        <div className="flex-spread gap-x-1 md:gap-x-3 lg:gap-x-9 w-[100px] lg:w-[123px]">
           <Btn
             icon={
               <IconWrapper
                 iconElement={Chat}
-                containerStyle="w-10 md:w-[50px] h-8 md:h-10"
+                containerStyle="size-10"
               />
             }
-            className="bg-transparent p-0"
+            className="p-0 bg-transparent"
             onClick={() => navigate("/chat")}
           />
 

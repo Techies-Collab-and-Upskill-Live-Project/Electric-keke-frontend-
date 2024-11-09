@@ -3,7 +3,7 @@ import { useGlobalAdminContext } from "../context/AdminContext";
 
 const AdminNavListItem = ({ href, title, icon: Icon, ...props }) => {
   const { activeLink } = props;
-  const { setCurrentAdminPage, changeContentToDisplay, setshowSidebar } =
+  const { setCurrentAdminPage, setshowSidebar } =
     useGlobalAdminContext();
 
   const isActive = activeLink === href || (!activeLink && href === "/admin");
@@ -14,7 +14,6 @@ const AdminNavListItem = ({ href, title, icon: Icon, ...props }) => {
       key={title}
       onClick={() => {
         setCurrentAdminPage(title);
-        changeContentToDisplay("All");
         setshowSidebar(false)
       }}
     >
@@ -22,7 +21,7 @@ const AdminNavListItem = ({ href, title, icon: Icon, ...props }) => {
         <Icon color={isActive ? "white" : "black"} />
 
         <p
-          className={`text-sm font-axiforma ${
+          className={`text-xxs md:text-sm font-axiforma ${
             isActive ? "text-white font-semibold" : "font-medium"
           }`}
         >

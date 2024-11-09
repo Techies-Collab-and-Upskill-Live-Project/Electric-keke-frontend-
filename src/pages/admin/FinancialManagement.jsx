@@ -22,10 +22,12 @@ const FinancialManagement = () => {
 
     const element = tableHeadRefs.current.find(
       (item) =>
-        item.textContent.match(/delivery/i) || item.textContent.match(/ride/i)
+        item.textContent.match(/delivery/i) ||
+        item.textContent.match(/ride/i) ||
+        item.textContent === ""
     );
 
-    element.textContent = option
+    element.textContent = option;
 
     try {
       const response = await queryFinancesDB({ type: option });
@@ -36,15 +38,16 @@ const FinancialManagement = () => {
   };
 
   return (
-    <>
+    <div className="overview">
       <OverviewInfo page="Financial Management">
-        <CustomFilter>
+        <CustomFilter text="Filter">
           <FilterGroup
             label="By Status"
             labelStyle="text-xs"
             itemStyle="text-sm py-[6px] border-b"
             styling="px-2"
             options={[
+              { label: "All", query: "" },
               { label: "Ride", query: "ride" },
               { label: "Delivery", query: "delivery" },
             ]}
@@ -63,16 +66,17 @@ const FinancialManagement = () => {
       </OverviewInfo>
 
       <Analytics />
+
       <div className="mt-8">
         <DisplayTable
           columnsData={finance_management_tablehead}
-          bodyData={earnings}
+          bodyData={earnings && earnings.slice(0, 10)}
           tableFor="finances"
           isLoading={isLoading}
           ref={tableHeadRefs}
         />
       </div>
-    </>
+    </div>
   );
 };
 

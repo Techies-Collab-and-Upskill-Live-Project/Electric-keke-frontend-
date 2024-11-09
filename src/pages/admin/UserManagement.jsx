@@ -6,6 +6,7 @@ import { user_management_tablehead } from "@/features/admin/constants";
 import { useResource } from "@/hooks/useResource";
 import { queryUserDB } from "@/features/admin/services/queryUserDB";
 import { useRef } from "react";
+import BoardManagement from "@/features/admin/components/BoardManagement";
 
 const UserManagement = () => {
   const tableHeadRefs = useRef([]);
@@ -26,7 +27,9 @@ const UserManagement = () => {
   };
 
   return (
-    <>
+    <div className="overview">
+      <BoardManagement />
+      
       <OverviewInfo page="User Management">
         <CustomFilter text="Filter">
           <FilterGroup
@@ -35,6 +38,7 @@ const UserManagement = () => {
             itemStyle="text-sm py-[6px] border-b"
             styling="px-2"
             options={[
+              { label: "All", query: "" },
               { label: "Active Users", query: "active" },
               { label: "Inactive Users", query: "inactive" },
             ]}
@@ -55,13 +59,13 @@ const UserManagement = () => {
       <div className="mt-8">
         <DisplayTable
           columnsData={user_management_tablehead}
-          bodyData={users}
+          bodyData={users && users.slice(0, 10)}
           tableFor="users"
           isLoading={isLoading}
           ref={tableHeadRefs}
         />
       </div>
-    </>
+    </div>
   );
 };
 

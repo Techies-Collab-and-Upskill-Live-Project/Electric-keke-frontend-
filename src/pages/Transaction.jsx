@@ -2,7 +2,7 @@ import { TransactionFor, TransactionMethod } from "@/features/transaction";
 
 const Transaction = () => {
   return (
-    <section className="md:flex items-start relative h-screen overflow-y-scroll">
+    <section className="relative items-start h-screen overflow-y-scroll md:flex no-scrollbar">
       <TransactionFor />
       <TransactionMethod />
     </section>

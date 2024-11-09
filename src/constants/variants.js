@@ -1,3 +1,5 @@
+import { transition } from "@cloudinary/url-gen/actions/effect";
+
 const modalContainer = {
   show: { opacity: 1 },
   hide: { opacity: 0 },
@@ -55,7 +57,7 @@ const riderParentVariant = {
       stagerChildren: 3,
     },
   },
-  leave: { x: -200, opacity: 0 },
+  leave: { x: -200, opacity: 0, transition: {duration: 3} },
 };
 
 const riderPictureContainer = {

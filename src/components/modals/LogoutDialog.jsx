@@ -3,10 +3,12 @@ import dispatchables from "@/utils/dispatchables";
 import { addItemToLs } from "@/utils/ls";
 import { useNavigate } from "react-router-dom";
 import { Logout } from "@/services/Logout";
+import { useGlobalAuthContext } from "@/contexts/AuthContext";
 
 const LogoutDialog = () => {
   const { showAlert, loading, unloading } = dispatchables();
   const navigate = useNavigate();
+  const {AuthenticateLogout } = useGlobalAuthContext();
 
   const handleChoice1 = () => {
     // just close modal here
@@ -15,6 +17,7 @@ const LogoutDialog = () => {
 
   const handleChoice2 = () => {
     Logout();
+    AuthenticateLogout();
     showAlert("Logged Out");
     navigate("/onboarding/login");
   };

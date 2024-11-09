@@ -6,8 +6,7 @@ const TransactionRatingStar = ({ comment, rate, handClick }) => {
       handleClick={comment ? null : handClick}
       rate={rate}
       className="transact-stars"
-      // size={starSize(mediaSize)}
-      size={30}
+      size="w-20"
       statik={comment}
     />
   );

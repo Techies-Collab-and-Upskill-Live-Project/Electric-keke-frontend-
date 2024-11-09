@@ -16,7 +16,7 @@ const TrackLayout = ({ role, children }) => {
     resource: { booking_id },
   } = useResource(() => console.log("bookData"), "bookData");
 
-  console.log(booking_id);
+  // console.log(booking_id);
 
   const SOCKET = useRef(null);
 
@@ -46,7 +46,7 @@ const TrackLayout = ({ role, children }) => {
       <header className="tracking-header">
         <Btn
           icon={<ArrowLeft color="black" />}
-          styling="bg-transparent"
+          styling="bg-transparent p-0"
           onClick={goBack}
         />
         <LogoPlain />

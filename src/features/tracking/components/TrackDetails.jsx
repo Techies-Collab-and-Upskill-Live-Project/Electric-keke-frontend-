@@ -12,20 +12,23 @@ const TrackDetails = ({
   origin,
   destination,
   price,
-  status,
+  isDisabled,
   booking_id,
+  setHasArrived,
+  setDisabled: setDisableBtn,
 }) => {
   const { showAlert } = dispatchables();
 
   const UpdateCurrentBooking = async () => {
+    setDisableBtn(true);
     try {
       const response = await UpdateBooking(booking_id, updateAction[role]);
-      console.log(response);
       showAlert(response);
       setTimeout(async () => {
         try {
           await UpdateBooking(booking_id, "completed");
-          showAlert('completed')
+          showAlert("completed");
+          setHasArrived(true);
         } catch (error) {
           showAlert(error.data.detail);
         }
@@ -33,6 +36,7 @@ const TrackDetails = ({
     } catch (error) {
       const { detail } = error.data;
       showAlert(detail, "info");
+      setDisableBtn(false);
     }
   };
 
@@ -48,12 +52,13 @@ const TrackDetails = ({
       </div>
 
       <div className="flex items-center mt-10 gap-x-8">
-        <div className="ride-fare">{price}</div>
+        <div className="ride-fare">&#8358; {price}</div>
+
         <Btn
           text={role === "User" ? "Cancel Ride" : "Start Trip"}
           styling="btn btn--hero btn--primary w-[244px]"
           onClick={UpdateCurrentBooking}
-          disabled={status}
+          disabled={isDisabled}
         />
       </div>
     </div>

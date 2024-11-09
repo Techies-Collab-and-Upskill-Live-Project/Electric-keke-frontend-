@@ -4,7 +4,13 @@ import Heading from "../Heading";
 import Choose from "../Choose";
 import CheckBox from "../forms/CheckBox";
 
-const ConfirmRideModal = ({ isModalOpen, openModal, closeModal }) => {
+const ConfirmRideModal = ({
+  isModalOpen,
+  openModal,
+  closeModal,
+  fullname = "Susan Michael",
+  price = 3000,
+}) => {
   console.log(
     "come and refactor the radio box with the radio box input component"
   );
@@ -30,51 +36,53 @@ const ConfirmRideModal = ({ isModalOpen, openModal, closeModal }) => {
       <Heading
         className="text-center"
         title="Confirm Payment"
-        tclass="font-josefin font-bold text-[2rem]"
+        tclass="font-josefin font-bold text-2xl md:text-[2rem]"
       />
+
       <form
         className="space-y-2 md:space-y-6"
         onSubmit={(e) => e.preventDefault()}
       >
         <CheckBox
-          styling="flex items-center gap-x-9 p-4"
+          styling="modal__confirm__checkbox-input"
           label={
             <>
-              I received the exact amount of money: <b>3000 NGN</b>
+              I received the exact amount of money: <b>{price} NGN</b>
             </>
           }
-          labelStyle="text-sm md:text-eiteen"
+          labelStyle="modal__confirm__checkbox-label"
         />
+
         <CheckBox
-          styling="flex items-center gap-x-9 p-4"
+          styling="modal__confirm__checkbox-input"
           label={
             <>
               transaction memo contains this payment ref: <b>ZX3489</b>
             </>
           }
-          labelStyle="text-sm md:text-eiteen"
+          labelStyle="modal__confirm__checkbox-label"
         />
 
         <div>
-          <p className="text-sm md:text-eiteen">
-            The Payment was made my Susam Michael?
+          <p className="modal__confirm__checkbox-label">
+            The Payment was made my {fullname}?
           </p>
 
-          <div className="flex items-center gap-x-5 mt-6">
-            <label htmlFor="correct">
+          <div className="flex items-center mt-2 md:mt-4 lg:mt-6 gap-x-5">
+            <label htmlFor="correct" className="modal__confirm__checkbox-label">
               <input type="radio" name="pay" id="correct" className="mr-1" />
               Correct
             </label>
 
-            <label htmlFor="incorrect">
+            <label htmlFor="incorrect" className="modal__confirm__checkbox-label">
               <input type="radio" name="pay" id="incorrect" className="mr-1" />
               Incorrect
             </label>
 
-            <label htmlFor="unsure">
+            {/* <label htmlFor="unsure">
               <input type="radio" name="pay" id="unsure" className="mr-1" />
               I'm not sure
-            </label>
+            </label> */}
           </div>
         </div>
 

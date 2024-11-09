@@ -19,7 +19,8 @@ const NewRideModal = ({ isModalOpen, openModal, closeModal }) => {
       const response = await UpdateBooking(booking_id, status);
       showAlert(response);
       await closeModal();
-      if (status === "accepted") navigate("/tracking/rider");
+      if (status === "accepted")
+        setTimeout(() => navigate("/tracking/rider"), 1000);
     } catch (error) {
       const { detail } = error.data;
       console.log(detail);

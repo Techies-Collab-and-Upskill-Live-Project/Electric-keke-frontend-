@@ -1,3 +1,4 @@
+import IconWrapper from "../IconWrapper";
 import InputAlert from "./InputAlert";
 import MaskPassword from "./MaskPassword";
 
@@ -10,7 +11,7 @@ const FormRow = ({
   handleChange,
   styling,
   icon,
-  iconPosition,
+  iconPosition = "left-3",
   inputclass,
   placeholder,
   showInputAlert,
@@ -24,15 +25,12 @@ const FormRow = ({
         </label>
       )}
 
-      <div className="relative">
+      <div className="relative w-full">
         {icon && (
-          <div
-            className={`absolute top-1/2 -translate-y-1/2 ${
-              iconPosition || "left-3"
-            }`}
-          >
-            {icon}
-          </div>
+          <IconWrapper
+            iconElement={icon}
+            containerStyle={`absolute top-1/2 -translate-y-1/2 ${iconPosition}`}
+          />
         )}
 
         <input
@@ -42,7 +40,7 @@ const FormRow = ({
           onChange={handleChange}
           value={value}
           placeholder={placeholder}
-          className={`${inputclass} ${icon && "pl-96"}`}
+          className={`${inputclass} ${icon && "pl-10"}`}
           required
         />
 

@@ -17,6 +17,7 @@ const FinanceManagementTableContent = ({ data }) => {
   const {showAlert} = dispatchables();
   return (
     <>
+    {data.length === 0 && <div>No Data</div>}
       {data.map(
         ({
           transaction_no: transaction_id,

@@ -4,11 +4,9 @@ import { useGlobalAuthContext } from "../contexts/AuthContext";
 import { RiderIndex, RiderInfo } from "@/features/booking";
 import {
   Admin,
-  AdminSettings,
   ChatConnect,
   CustomerCare,
   Driver,
-  FinancialManagement,
   Profile,
   Riders,
   Schedule,

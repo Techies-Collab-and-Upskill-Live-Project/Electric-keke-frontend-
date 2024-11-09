@@ -1,15 +1,18 @@
-import React, { useState } from "react";
-import Trip from "./Trip";
-import { getItemFromLs } from "../../../utils/ls";
+import React from "react";
 import Heading from "@/components/Heading";
-import ProgressLine from "@/components/ProgressLine";
 import { LogoPlain } from "@/assets/svg/Logo";
 import Btn from "@/components/btn/Btn";
 import { ArrowLeft } from "lucide-react";
 import { goBack } from "@/utils/goBack";
+import { useResource } from "@/hooks/useResource";
+import TripDetails from "./TripDetails";
 
 const TransactionFor = () => {
-  const [currentRide, setCurrentRide] = useState(getItemFromLs("current-ride"));
+  const { resource: bookData } = useResource(
+    () => console.log("logic to return at least a data"),
+    "bookData"
+  );
+
 
   return (
     <div className="board__payment-for">
@@ -20,6 +23,7 @@ const TransactionFor = () => {
             styling="bg-transparent p-0 size-6"
             onClick={goBack}
           />
+
           <LogoPlain logoStyling="w-20 h-14" />
         </div>
 
@@ -28,23 +32,16 @@ const TransactionFor = () => {
             title="Payment"
             description="How would you like to make your payment "
             tclass="font-josefin text-[2rem] font-bold"
-            dclass="mt-3 text-sm"
+            dclass="text-sm"
           />
 
-          <div className="trip-detail">
-            <Trip label="Pick up" location={currentRide?.origin || "orile"} />
-            <ProgressLine className="hidden md:block md:h-[80px]" />
-            <Trip
-              label="Drop off"
-              location={currentRide?.destination || "mile 2"}
-            />
-          </div>
+          <TripDetails containerStyle="trip-detail h-[180px] md:h-[223px] flex" />
 
-          <div className="flex items-center justify-between md:justify-start gap-2">
-            <p className="font-semibold text-xs md:text-base">
+          <div className="flex items-center justify-between gap-2 md:justify-start">
+            <p className="text-xs font-semibold md:text-base">
               Total Cost of ride
             </p>
-            <div className="ride-fare">NGN{currentRide?.price || 300}</div>
+            <div className="ride-fare">&#8358; {bookData?.price}</div>
           </div>
         </div>
       </div>

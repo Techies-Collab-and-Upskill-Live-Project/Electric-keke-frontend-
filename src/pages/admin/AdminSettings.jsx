@@ -1,3 +1,4 @@
+import { Overlay } from "@/components";
 import React from "react";
 
 const AdminSettings = () => {
@@ -10,15 +11,15 @@ const AdminSettings = () => {
   ];
 
   return (
-    <section className="bg-center bg-no-repeat bg-cover h-full">
-      <h2 className="text-4xl font-bold mb-12">Settings</h2>
-      <ul>
-        {settings.map((item, index) => (
-          <li key={index} className="mb-6 text-2xl">
-            {item}
-          </li>
-        ))}
-      </ul>
+    <section className="relative border overview isolate">
+      <Overlay
+        className="absolute inset-0 pointer-events-none flex-center -z-10 opacity-20"
+        logoStyle="w-[700px] h-[300px]"
+        logoImageStyle="size-full scale-[2]"
+        logo
+      />
+
+      <h2 className="mb-12 font-bold text-[40px] font-josefin">Settings</h2>
     </section>
   );
 };

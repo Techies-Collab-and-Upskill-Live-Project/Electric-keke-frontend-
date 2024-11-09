@@ -11,8 +11,11 @@ const Welldone = ({ closeModal }) => {
       <div className="pt-12 pb-8 px-9">
         <IconWrapper
           iconElement={Lottie}
-          iconElementProps={{ animationData: done, loop: false }}
-          containerStyle="size-20 mx-auto"
+          iconElementProps={{
+            animationData: done,
+            loop: false,
+          }}
+          containerStyle="size-[100px] mx-auto border"
         />
 
         <Heading

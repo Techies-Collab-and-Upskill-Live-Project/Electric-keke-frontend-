@@ -4,49 +4,43 @@ import Btn from "@/components/btn/Btn";
 import Rate from "./Rate";
 import star_size from "../utils/star_size";
 import { useNavigate } from "react-router-dom";
+import IconWrapper from "@/components/IconWrapper";
+import { ProfilePhoto } from "@/components";
 
 const Rider = ({
   id,
   fullname,
   email,
-  rating,
+  rating = 4,
   plate_number,
   color,
-  photo,
-  setNavigationLink
+  photo = null,
 }) => {
   const navigate = useNavigate();
-  const [mediaSize, setMediaSize] = useState(window.outerWidth);
 
   const { inputDataForBookingRequest, chooseRider } = dispatchables();
 
-  useEffect(() => {
-    window.addEventListener("resize", (e) => {
-      setMediaSize(e.currentTarget.outerWidth);
-    });
-
-    return window.removeEventListener("resize", (e) =>
-      setMediaSize(e.currentTarget.outerWidth)
-    );
-  }, []);
 
   return (
     <div className="rider" key={fullname}>
-      <div className="size-full">
-        <img src={photo} alt={fullname} className="rider-image" />
-      </div>
+      <ProfilePhoto
+        imageUrl={photo}
+        text={fullname[0]}
+        noImageContainerStyle="bg-basic-900 size-full flex-center rider-image"
+        textStyle="font-josefin font-bold text-2xl text-neutral"
+      />
 
       <div className="rider-overlay">
         <div className="rider-info">
-          <h2 className="rider-name tablet:!text-2xl laptop:!text-[2rem]">
+          <h2 className="rider-name tablet:!text-2xl laptop:!text-[2rem] line-clamp-1">
             {fullname}
           </h2>
 
           <Rate
             rate={rating}
             className="w-[67px] md:w-[100px] lg:w-[135px]"
-            size={star_size(mediaSize)}
             statik
+            size="size-3"
           />
 
           <p className="rider-plain-text">Licence Plate: {plate_number}</p>
@@ -68,7 +62,7 @@ const Rider = ({
               photo,
             };
             chooseRider(rider);
-            navigate(`/riders/${fullname + id}`)
+            navigate(`/riders/${fullname + id}`);
           }}
         />
       </div>

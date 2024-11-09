@@ -31,7 +31,7 @@ export const SmallInfo = ({
 
         <div className={nameBoxStyling}>
           <p className={`font-bold line-clamp-1 ${fullnameStyle}`}>
-            {fullname}
+            {fullname.slice(0, 5)}...
           </p>
           {show_nick && (
             <p className={nickStyle}>

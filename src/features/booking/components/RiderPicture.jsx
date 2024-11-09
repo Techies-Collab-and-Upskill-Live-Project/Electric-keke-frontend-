@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { riderPictureContainer } from "../../../constants/variants";
 import Btn from "@/components/btn/Btn";
+import { ProfilePhoto } from "@/components";
 
-const RiderPicture = ({ rider, submitBooking }) => {
+const RiderPicture = ({ photo, fullname, submitBooking }) => {
   return (
     <motion.div
       initial="out"
@@ -10,15 +11,15 @@ const RiderPicture = ({ rider, submitBooking }) => {
       variants={riderPictureContainer}
       className="w-full max-w-[510px] justify-between"
     >
-      <div className="rider-picture-container">
-        <img
-          src={rider?.photo || "/persons/rider1.png"}
-          alt={rider?.fullname}
-          className="rider-picture"
-        />
-      </div>
+      <ProfilePhoto
+        styling="rider-picture-container  rounded-ml"
+        imageUrl={photo}
+        text={fullname[0]}
+        noImageContainerStyle="rider-picture-container bg-basic-900 flex-center  rounded-ml"
+        textStyle="text-4xl text-neutral font-bold font-josefin"
+      />
 
-      <div className="mt-4 hidden md:block">
+      <div className="hidden mt-4 md:block">
         <Btn
           styling="w-full btn btn--lg btn--primary"
           text="Request Ride"

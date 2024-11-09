@@ -6,9 +6,9 @@ import TrackDetails from "./TrackDetails";
 import { useNavigate } from "react-router-dom";
 import { useResource } from "@/hooks/useResource";
 
-const PassengerTracking = ({ hasArrived }) => {
+const PassengerTracking = ({ hasArrived, setHasArrived }) => {
   const navigate = useNavigate();
-  const [status, setStatus] = useState(true);
+  const [isDisabled, setDisabled] = useState(true);
 
   const {
     resource: {
@@ -41,7 +41,9 @@ const PassengerTracking = ({ hasArrived }) => {
             destination={destination || "destination"}
             price={price || 3000}
             booking_id={booking_id}
-            status={status}
+            isDisabled={isDisabled}
+            setHasArrived={setHasArrived}
+            setDisabled={setDisabled}
           />
         </div>
       </TrackLayout>

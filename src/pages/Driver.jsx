@@ -12,7 +12,6 @@ import { useGlobalAuthContext } from "@/contexts/AuthContext";
 const Driver = () => {
   const notification = useSelector((state) => state.notificationData);
   const { user } = useGlobalAuthContext();
-  console.log(user);
 
   // const { showAlert, newNotification } = dispatchables();
   const [online, setOnline] = useState(false);
@@ -23,6 +22,7 @@ const Driver = () => {
       const {
         message: { type },
       } = notification;
+
       if (type === "new_booking_notification") {
         openModal();
       }

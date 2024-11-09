@@ -33,7 +33,7 @@ const CustomModal = ({
           <ModalSheet
             initial={animateMSI}
             animate={animateMSA}
-            styling={modalStyling + " " + "modal"}
+            styling={`modal ${modalStyling}`}
           >
             {showCloseBtn && (
               <Btn

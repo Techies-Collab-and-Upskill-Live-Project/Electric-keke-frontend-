@@ -67,7 +67,8 @@
   body {
     @apply bg-background text-foreground font-montserrat;
   }
-/* ::-webkit-scrollbar {
+
+  /* ::-webkit-scrollbar {
   display: none;
 } */
   /* body::-webkit-scrollbar {
@@ -364,7 +365,7 @@ h2 {
 
 
 .home-pad {
-  @apply px-4 tablet:px-20 laptop:px-[7.5rem];
+  @apply px-4 tablet:px-10 laptop:px-[7.5rem];
 }
 
 /******** HOME HERO ******/
@@ -942,7 +943,7 @@ h2 {
 }
 
 .modal__contact {
-  @apply w-full max-w-[600px] rounded-ml pt-12 pb-[95px] md:pb-[168px] px-[9px] md:px-[95px]
+  @apply w-full max-w-[600px] pt-12 pb-[95px] md:pb-[168px] px-[9px] md:px-[95px]
 }
 
 .call__opt {
@@ -997,7 +998,7 @@ h2 {
 }
 
 .transact-stars {
-  @apply w-[65%] mx-auto my-3 md:my-4 justify-between
+  @apply w-[65%] mx-auto justify-between border
 }
 
 .modal__profile {
@@ -1013,7 +1014,15 @@ h2 {
 }
 
 .modal__confirm {
-  @apply w-full max-w-[600px] py-12 px-2 md:px-9
+  @apply w-full md:max-w-[600px] pt-8 pb-4 md:py-12 px-2 md:px-9
+}
+
+.modal__confirm__checkbox-input {
+  @apply flex items-center gap-2 md:gap-x-9 p-1 md:p-4
+}
+
+.modal__confirm__checkbox-label {
+  @apply text-xs md:text-eiteen
 }
 
 .modal__notification {
@@ -1080,8 +1089,13 @@ h2 {
 }
 
 /********************** Admin ****************/
-.admin-header {
-  @apply flex items-center justify-between h-14 md:h-[104px] px-2 lg:pl-8 lg:pr-[7.75rem]
+
+.admin-mobile__header {
+  @apply px-4 flex-center flex-col md:hidden py-2
+}
+
+.admin-desktop__header {
+  @apply hidden md:flex items-center justify-between
 }
 
 .admin-icon {
@@ -1093,19 +1107,23 @@ h2 {
 }
 
 .overview {
-  @apply px-2 md:pr-[7.75rem] w-full md:w-[calc(100%-300px)] mt-3 md:mt-0 pb-20
+  @apply px-2 lg:px-4 mt-3 md:mt-0 h-[calc(100vh-123.18px)] md:h-[calc(100vh-70px)] overflow-hidden overflow-y-scroll flex-1 no-scrollbar
 }
 
 .overview-dashboard {
-  @apply  space-x-[1%] text-nowrap overflow-hidden overflow-x-scroll no-scrollbar
+  @apply space-x-[1%] overflow-hidden w-full overflow-x-scroll no-scrollbar text-nowrap min-h-[170px]
 }
 
 .single-board {
-  @apply border p-2 rounded-[12px] bg-white w-[209px] laptop:w-[calc(100%/4-0.75%)] inline-block
+  @apply pt-6 pb-3 px-6 rounded-[12px] bg-white w-[299px] laptop:w-[calc(100%/4-0.75%)] inline-block border border-neutral-40
 }
 
+/* .single-board {
+  @apply border-4 pt-6 pb-3 px-6 rounded-[12px] bg-white w-[299px] inline-block
+ } */
+
 .overview-info {
-  @apply flex items-center justify-between mt-8
+  @apply flex items-center justify-between my-7 md:mt-11 md:mb-[22px]
 }
 
 .overview-title {
@@ -1121,28 +1139,24 @@ h2 {
 }
 
 .admin-sidebar {
-  @apply w-full md:w-[300px] h-full py-10 flex flex-col items-center fixed top-0 left-0  bg-white z-20 md:sticky
-}
-
-.hide-bar {
-  @apply hidden md:block
+  @apply w-[300px] h-full bg-white pl-8 pb-20 pr-4
 }
 
 .admin_nav {
-  @apply flex flex-col gap-2 flex-1 w-full
+  @apply flex flex-col gap-2 flex-1 w-full overflow-hidden overflow-y-scroll no-scrollbar
 }
 
 .admin_nav_link {
-  @apply flex items-center gap-2 w-full md:w-[233px] py-3 pl-5 rounded-[14px] border
+  @apply flex items-center gap-2 w-full py-3 pl-5 rounded-[14px] border
 }
 
 .admin-footer {
-  @apply flex flex-col gap-4 min-h-[96px]
+  @apply flex flex-col gap-2 min-h-[96px] w-full
 }
 
-.admin-footer-item {
-  @apply flex items-center gap-2 w-full max-w-[233px] py-3 pl-5 rounded-[14px] border text-sm
-}
+/* .admin-footer-item {
+  @apply flex items-center gap-2 w-full py-3 pl-5 rounded-[14px] border text-sm
+} */
 
 /************ reusable form **************/
 /************* forget tab *************/
@@ -1275,7 +1289,8 @@ h2 {
 }
 
 .track-details {
-  @apply w-full md:max-w-[586px] mt-3 md:mt-0
+  /* @apply w-full md:max-w-[586px] mt-3 md:mt-0 */
+  @apply w-full flex-1
 }
 
 .tracking-header {
@@ -1295,7 +1310,7 @@ h2 {
 }
 
 .person-name {
-  @apply text-xl md:text-[28px] font-bold line-clamp-1
+  @apply text-eiteen md:text-xl md:line-clamp-1 lg:text-[28px] font-bold line-clamp-1
 }
 
 .rider-status {
@@ -1368,11 +1383,11 @@ h2 {
 }
 
 .trip-detail {
-  @apply my-5 md:my-10 space-y-3 md:space-y-0
+  @apply my-5 md:my-10
 }
 
 .ride-trip-location {
-  @apply location-shadow bg-white rounded-[14px] h-14 md:h-[70px] px-5 flex items-center flex-[3] md:flex-[5] ml-2
+  @apply location-shadow bg-white rounded-[14px] h-14 md:h-[70px] px-5 flex items-center
 }
 
 /******************** personal info ***************/
@@ -1399,6 +1414,10 @@ h2 {
 
 .edit-profile__modal {
   @apply w-full max-w-[600px] absolute bottom-0 left-0 md:relative
+}
+
+.complain__shadow {
+  filter: drop-shadow(0 3.35px 1.42px rgba(0, 0, 0, 0.4));
 }
 
 /************************ EXPERIMENTING EXPERIMENTAL ***************/

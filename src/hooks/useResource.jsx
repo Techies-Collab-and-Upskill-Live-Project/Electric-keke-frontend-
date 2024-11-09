@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 export const useResource = (callback, key, resourceEmpty = []) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, seterror] = useState(null);
-  const [resource, setResource] = useState(getItemFromLs(key) || resourceEmpty);
+  const [resource, setResource] = useState(getItemFromLs(key) || null);
 
   useEffect(() => {
     if (resource && key) {
