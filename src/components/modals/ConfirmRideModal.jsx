@@ -3,6 +3,12 @@ import CustomModal from "@/components/CustomModal";
 import Heading from "../Heading";
 import Choose from "../Choose";
 import CheckBox from "../forms/CheckBox";
+import { useState } from "react";
+import { useNotification } from "@/hooks/useNotification";
+import { useGlobalAuthContext } from "@/contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
+import { deletItemFromLs } from "@/utils/ls";
+import RadioBox from "../forms/RadioBox";
 
 const ConfirmRideModal = ({
   isModalOpen,
@@ -14,8 +20,29 @@ const ConfirmRideModal = ({
   console.log(
     "come and refactor the radio box with the radio box input component"
   );
+  const navigate = useNavigate();
+  const [disabled, setDisabled] = useState(true);
+  const { user } = useGlobalAuthContext();
+  const [transactData, setTransactData] = useState({
+    exact: false,
+    refcode: false,
+    pay: "",
+  });
+
+  useNotification((notification) => {
+    // console.log(notification, 'time to open buttons');
+    setDisabled(false);
+  });
 
   const { showAlert } = dispatchables();
+
+  const handleChange = (e) => {
+    const { name: key, checked, value, id } = e.target;
+    setTransactData((prev) => ({
+      ...prev,
+      [key]: key === "pay" ? id : checked,
+    }));
+  };
 
   const handleClick1 = () => {
     showAlert("payment declined");
@@ -23,6 +50,9 @@ const ConfirmRideModal = ({
 
   const handleClick2 = (e) => {
     showAlert("payment confirmed");
+    deletItemFromLs("book-data");
+    deletItemFromLs("bookData");
+    navigate(`/driver/${user?.id}`);
   };
 
   return (
@@ -45,6 +75,8 @@ const ConfirmRideModal = ({
       >
         <CheckBox
           styling="modal__confirm__checkbox-input"
+          name="exact"
+          handleChange={handleChange}
           label={
             <>
               I received the exact amount of money: <b>{price} NGN</b>
@@ -55,6 +87,8 @@ const ConfirmRideModal = ({
 
         <CheckBox
           styling="modal__confirm__checkbox-input"
+          handleChange={handleChange}
+          name="refcode"
           label={
             <>
               transaction memo contains this payment ref: <b>ZX3489</b>
@@ -69,20 +103,21 @@ const ConfirmRideModal = ({
           </p>
 
           <div className="flex items-center mt-2 md:mt-4 lg:mt-6 gap-x-5">
-            <label htmlFor="correct" className="modal__confirm__checkbox-label">
-              <input type="radio" name="pay" id="correct" className="mr-1" />
-              Correct
-            </label>
-
-            <label htmlFor="incorrect" className="modal__confirm__checkbox-label">
-              <input type="radio" name="pay" id="incorrect" className="mr-1" />
-              Incorrect
-            </label>
-
-            {/* <label htmlFor="unsure">
-              <input type="radio" name="pay" id="unsure" className="mr-1" />
-              I'm not sure
-            </label> */}
+            <RadioBox
+              name="pay"
+              label="Correct"
+              handleChange={handleChange}
+              labelStyle=""
+              id="correct"
+            />
+            
+            <RadioBox
+              name="pay"
+              label="InCorrect"
+              handleChange={handleChange}
+              labelStyle=""
+              id="incorrect"
+            />
           </div>
         </div>
 
@@ -95,6 +130,8 @@ const ConfirmRideModal = ({
           addedClass2="btn--primary"
           handleChoice1={handleClick1}
           handleChoice2={handleClick2}
+          disabled1={disabled}
+          disabled2={disabled}
         />
       </form>
     </CustomModal>

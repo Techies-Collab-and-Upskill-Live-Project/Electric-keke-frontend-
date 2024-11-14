@@ -2,7 +2,7 @@ import { Upload } from "lucide-react";
 import Btn from "@/components/btn/Btn";
 import { getItemFromLs } from "@/utils/ls";
 import dispatchables from "@/utils/dispatchables";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useGlobalOnboardContext } from "@/features/onboarding/context/OnboardingContext";
 import CustomModal from "@/components/CustomModal";
 import IconWrapper from "@/components/IconWrapper";
@@ -15,13 +15,14 @@ const UploadImageModal = ({ nextProcess }) => {
     useGlobalOnboardContext();
   const [imageFile, setImageFile] = useState(null);
   const { showAlert, loading, unloading } = dispatchables();
+  const fileInputRef = useRef();
 
   const checkFile = (e) => {
     const file = e.target.files[0];
     if (!file) return showAlert("no file added", "info");
     setImageFile(file);
   };
-  
+
   const handleUpload = async () => {
     loading();
     if (!imageFile) return showAlert("add your file first", "info");
@@ -72,6 +73,7 @@ const UploadImageModal = ({ nextProcess }) => {
                   className="size-full"
                   accept=".jpg,.png"
                   onChange={checkFile}
+                  ref={fileInputRef}
                 />
 
                 <IconWrapper
@@ -83,6 +85,7 @@ const UploadImageModal = ({ nextProcess }) => {
               <Btn
                 text="Select files"
                 styling="btn w-[79%] btn--outline text-sm md:text-base font-semibold"
+                onClick={() => fileInputRef.current.click()}
               />
             </div>
           </div>

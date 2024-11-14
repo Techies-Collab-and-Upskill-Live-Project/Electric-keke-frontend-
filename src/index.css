@@ -998,7 +998,7 @@ h2 {
 }
 
 .transact-stars {
-  @apply w-[65%] mx-auto justify-between border
+  @apply w-[65%] mx-auto justify-between
 }
 
 .modal__profile {

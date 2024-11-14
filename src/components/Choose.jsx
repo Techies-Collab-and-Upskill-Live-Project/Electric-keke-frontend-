@@ -12,6 +12,8 @@ const Choose = ({
   addedClass2,
   handleChoice1,
   handleChoice2,
+  disabled1 = false,
+  disabled2 = false,
 }) => {
   return (
     <div className={containerClass}>
@@ -21,6 +23,7 @@ const Choose = ({
         styling={btnClass}
         addedStyles={addedClass1}
         onClick={handleChoice1}
+        disabled={disabled1}
       />
       <Btn
         text={choice2txt}
@@ -28,6 +31,7 @@ const Choose = ({
         styling={btnClass}
         addedStyles={addedClass2}
         onClick={handleChoice2}
+        disabled={disabled2}
       />
     </div>
   );
