@@ -187,7 +187,8 @@ export const pages_brief = {
     briefClass: "w-full tablet:w-[58%]",
     description: about_descriptions.one,
     imageContainerStyle: "main-image overflow-hidden",
-    imageStyle: "w-full h-full object-contain object-center scale-[1.5] md:scale-[1.3]",
+    imageStyle:
+      "w-full h-full object-contain object-center scale-[1.5] md:scale-[1.3]",
     imageUrl: "/about.png",
     introTitle: "About Us",
     showBtn: true,
@@ -212,23 +213,26 @@ export const footer_blocks = [
   {
     label: "Explore",
     links: [
-      { title: "About Us" },
-      { title: "Earn With Us" },
-      { title: "Mission" },
-      { title: "Services" },
+      { title: "About Us", href: "/about" },
+      { title: "Earn With Us", href: "/earn-with-us" },
+      { title: "Mission", href: "/#mission" },
+      { title: "Services", href: "/#services" },
     ],
   },
   {
     label: "Legal",
-    links: [{ title: "Terms" }, { title: "Privacy" }],
+    links: [
+      { title: "Terms", href: "/" },
+      { title: "Privacy", href: "/" },
+    ],
   },
   {
     label: "Social Media",
     links: [
-      { icon: icons.SocialFbIcon },
-      { icon: icons.SocialIgIcon },
-      { icon: icons.SocialWhatsappIcon },
-      { icon: icons.SocialXIcon },
+      { icon: icons.SocialFbIcon, href: "/" },
+      { icon: icons.SocialIgIcon, href: "/" },
+      { icon: icons.SocialWhatsappIcon, href: "/" },
+      { icon: icons.SocialXIcon, href: "/" },
     ],
     listContainerStyle: "flex-center gap-5 mt-5",
   },
