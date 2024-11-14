@@ -5,6 +5,7 @@ import {
 import reviews from "../../mock-data/reviews";
 import SingleReview from "./SingleReview";
 import Overlay from "../Overlay";
+import RegularList from "../_design-patterns/RegularList";
 
 const Reviews = () => {
   return (
@@ -17,9 +18,7 @@ const Reviews = () => {
         variants={reviewContainer}
         className="rider-review-container"
       >
-        {reviews.map((item, index) => {
-          return <SingleReview key={item.name + index} {...item} index={index} />;
-        })}
+        <RegularList list={[]} component={SingleReview} renderListEmpty={() => <div>No Reviews for this rider</div>} />
       </motion.div>
     </div>
   );

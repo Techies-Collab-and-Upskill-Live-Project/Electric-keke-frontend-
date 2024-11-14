@@ -15,11 +15,29 @@ const Rider = ({
   plate_number,
   color,
   photo = null,
+  ...props
 }) => {
   const navigate = useNavigate();
 
   const { inputDataForBookingRequest, chooseRider } = dispatchables();
 
+  const { setRiderTitle } = props;
+
+  const handleRiderSelection = () => {
+    inputDataForBookingRequest("rider", email);
+    const rider = {
+      id,
+      fullname,
+      email,
+      rating,
+      plate_number,
+      color,
+      photo,
+    };
+    chooseRider(rider);
+    setRiderTitle(fullname)
+    navigate(`/riders/${fullname + id}`);
+  };
 
   return (
     <div className="rider" key={fullname}>
@@ -50,20 +68,7 @@ const Rider = ({
         <Btn
           text="View Details"
           styling="rider-btn"
-          onClick={() => {
-            inputDataForBookingRequest("rider", email);
-            const rider = {
-              id,
-              fullname,
-              email,
-              rating,
-              plate_number,
-              color,
-              photo,
-            };
-            chooseRider(rider);
-            navigate(`/riders/${fullname + id}`);
-          }}
+          onClick={handleRiderSelection}
         />
       </div>
     </div>

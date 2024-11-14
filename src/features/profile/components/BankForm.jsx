@@ -8,8 +8,8 @@ const BankForm = () => {
     showAlert(`${val} choosen`, "info");
   };
   return (
-    <div className="flex flex-col justify-between mt-10">
-      <div className="flex flex-col gap-10">
+    <div className="flex flex-col justify-between mt-4 md:mt-10">
+      <div className="flex flex-col gap-4 md:gap-10">
         <FormSelect
           label="Bank"
           selectStyle="profile-modal-inputs"

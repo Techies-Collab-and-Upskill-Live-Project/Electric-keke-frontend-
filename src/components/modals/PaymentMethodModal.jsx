@@ -38,7 +38,7 @@ const PaymentMethodModal = () => {
       />
 
       {methodOfPayment === "card" && (
-        <div className="card-container ">
+        <div className="card-container">
           <MasterCard
             name={formData.name}
             expiry={formData.expiry}

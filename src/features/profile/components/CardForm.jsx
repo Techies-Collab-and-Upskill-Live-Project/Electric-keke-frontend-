@@ -6,7 +6,7 @@ const { MasterCircles } = icons;
 const CardForm = ({ name, expiry, number, cvv, handleChange }) => {
 
   return (
-    <div className="option-card-form-content mt-3 md:mt-6">
+    <div className="mt-3 option-card-form-content md:mt-6">
       <div className="card-content-group">
         <FormRow
           label="Name on card"
@@ -37,7 +37,7 @@ const CardForm = ({ name, expiry, number, cvv, handleChange }) => {
           value={number}
           placeholder="000 000 000"
           styling="flex-[2]"
-          icon={<MasterCircles />}
+          icon={MasterCircles}
           inputclass="profile-modal-inputs !pl-16"
           handleChange={handleChange}
         />

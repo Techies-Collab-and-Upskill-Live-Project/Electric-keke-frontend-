@@ -1,19 +1,16 @@
 import Rider from "./Rider";
 import { motion } from "framer-motion";
 import useTitle from "../../../hooks/useTitle";
-import riders from "@/mock-data/riders";
 import RegularList from "@/components/_design-patterns/RegularList";
 import { GetAvailableRiders } from "../services/GetAvailableRiders";
 import { useResource } from "@/hooks/useResource";
-import { useArray } from "@/hooks/useArray";
-import { useEffect } from "react";
 import Loader from "@/components/loaders/Loader";
 
-const RiderIndex = () => {
+const RiderIndex = ({ setRiderTitle }) => {
   useTitle("Riders");
   const { isLoading, resource: availableRiders } = useResource(
     GetAvailableRiders,
-    'list-of-riders'
+    "list-of-riders"
   );
 
   return isLoading ? (
@@ -24,7 +21,7 @@ const RiderIndex = () => {
       key="riders-list"
       initial={{ x: 200, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      exit={{ x: -200, opacity: 0, transition: {duration: 3} }}
+      exit={{ x: -200, opacity: 0, transition: { duration: 3 } }}
       transition={{ duration: 0.65 }}
       className="available-riders__wrapper"
     >
@@ -44,6 +41,7 @@ const RiderIndex = () => {
           component={Rider}
           list={availableRiders}
           keyExtractor={availableRiders.map((item) => item.fullname)}
+          setRiderTitle={setRiderTitle}
         />
       )}
     </motion.div>
