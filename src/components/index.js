@@ -28,7 +28,6 @@ import NewMap from "./NewMap";
 import Overlay from "./Overlay";
 import PieChart from "./PieChart";
 import ProfilePhoto from "./ProfilePhoto";
-import ProgressLine from "./ProgressLine";
 import SearchBar from "./SearchBar";
 import SelectInput from "./SelectInput";
 import { SmallInfo, HeroSmallInfo } from "./SmallInfo";
@@ -62,7 +61,6 @@ export {
   Overlay,
   PieChart,
   ProfilePhoto,
-  ProgressLine,
   SearchBar,
   SelectInput,
   SmallInfo,

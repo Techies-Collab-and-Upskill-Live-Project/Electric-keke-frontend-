@@ -7,10 +7,12 @@ const Tracking = () => {
   const [hasArrived, setHasArrived] = useState(false);
 
   useNotification((notification) => {
-    const { message: {type} } = notification;
-    console.log('notificay', 'tracking')
+    const {
+      message: { type },
+    } = notification;
+    console.log("notificay", "tracking");
     if (type === "booking_completed") {
-      console.log('true booking completed')
+      console.log("true booking completed");
       setHasArrived(true);
     }
   });
@@ -19,11 +21,21 @@ const Tracking = () => {
     <Routes>
       <Route
         path="/rider"
-        element={<DriverTracking hasArrived={hasArrived} />}
+        element={
+          <DriverTracking
+            hasArrived={hasArrived}
+            setHasArrived={setHasArrived}
+          />
+        }
       />
       <Route
         path="/passenger"
-        element={<PassengerTracking hasArrived={hasArrived} />}
+        element={
+          <PassengerTracking
+            hasArrived={hasArrived}
+            setHasArrived={setHasArrived}
+          />
+        }
       />
     </Routes>
   );

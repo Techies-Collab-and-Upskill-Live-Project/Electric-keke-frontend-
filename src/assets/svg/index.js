@@ -1,7 +1,6 @@
 import Accept from "./Accept";
 import ArrDown from "./ArrDown";
 import Battery from "./Battery";
-import BellIcon from "./bell";
 import Call from "./Call";
 import Chat from "./Chat";
 import Congrats from "./Congrats";
@@ -21,6 +20,7 @@ import SettingIcon from "./SettingIcon";
 import Spear from "./Spear";
 import TimeEstimate from "./TimeEstimate";
 import EditGallery from "./edit-gallery";
+import BellIcon from "./Bell";
 
 import FbIcon from "./fb";
 import XIcon from "./x";
@@ -43,7 +43,10 @@ import DeliveriesIcon from "./admin-deliveries";
 import DisabledIcon from "./admin-disabled";
 import RidesIcon from "./admin-rides";
 
+import ProgressLine from "./progress-line";
+
 const icons = {
+  ProgressLine,
   Accept,
   ArrDown,
   Battery,

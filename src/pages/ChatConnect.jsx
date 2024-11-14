@@ -7,10 +7,11 @@ import ContactModal from "@/features/tracking/components/ContactModal";
 import { ProfilePhoto } from "@/components";
 import { useResource } from "@/hooks/useResource";
 import { useCurrentUser } from "@/hooks/useCurrentUser";
+import { useGlobalAuthContext } from "@/contexts/AuthContext";
 
 const ChatConnect = () => {
   useTitle("Connect");
-  const user = useCurrentUser();
+  const { user } = useGlobalAuthContext();
   const { resource: bookData } = useResource(
     () => console.log("bookData"),
     "bookData"
@@ -20,7 +21,7 @@ const ChatConnect = () => {
   return (
     <section className="md:pb-10">
       <header className="md:h-[119px] pt-3 pb-[10px] md:pt-0 md:mb-0 bg-gradient-to-r from-[#4B974B] to-[#234623] flex-center home-pad">
-        <div className="w-full flex items-center justify-between">
+        <div className="flex items-center justify-between w-full">
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-2">
               <Btn
@@ -35,9 +36,9 @@ const ChatConnect = () => {
               />
             </div>
 
-            <h2 className="text-white text-base font-bold">
+            <h2 className="text-base font-bold text-white">
               {user?.role === "User"
-                ? bookData?.rider_name
+                ? bookData.rider_name
                 : bookData?.passenger_name}
             </h2>
           </div>
@@ -52,7 +53,7 @@ const ChatConnect = () => {
       </header>
 
       <div className="home-pad mt-4 md:mt-10 h-[82vh] md:h-[693px] flex flex-col">
-        <h3 className="text-eiteen md:text-2xl font-bold font-josefin">
+        <h3 className="font-bold text-eiteen md:text-2xl font-josefin">
           Send a message...
         </h3>
 

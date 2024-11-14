@@ -1,9 +1,9 @@
 import IconWrapper from "@/components/IconWrapper";
 import { Link } from "react-router-dom";
 
-export const LogoWithText = ({ styling }) => {
+export const LogoWithText = ({ styling, href = "/" }) => {
   return (
-    <Link to="/">
+    <Link to={href}>
       <div className={styling}>
         <svg
           width="108"
@@ -51,9 +51,9 @@ export const LogoWithText = ({ styling }) => {
   );
 };
 
-export const LogoPlain = ({ styling, logoClass }) => {
+export const LogoPlain = ({ styling, logoClass, href = "/" }) => {
   return (
-    <Link to="/">
+    <Link to={href}>
       <IconWrapper
         imageUrl="/logo.svg"
         containerStyle={styling}

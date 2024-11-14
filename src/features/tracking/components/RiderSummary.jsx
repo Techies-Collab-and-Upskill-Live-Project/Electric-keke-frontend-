@@ -1,11 +1,11 @@
 import Btn from "@/components/btn/Btn";
 
-const RiderSummary = ({ openModal }) => {
+const RiderSummary = ({ openModal, price }) => {
   return (
     <>
       <div className="flex items-center gap-x-5">
-        <p className="font-semibold text-base">Total cost of ride</p>
-        <div className="ride-fare !font-normal">N3000</div>
+        <p className="text-base font-semibold">Total cost of ride</p>
+        <div className="ride-fare !font-normal">&#8358; {price}</div>
       </div>
 
       <Btn

@@ -13,7 +13,18 @@ const addItemToLs = (key, item) => {
 
 const deletItemFromLs = (key) => localStorage.removeItem(key);
 
-
 const clearLs = () => localStorage.clear();
 
-export { getItemFromLs, addItemToLs, deletItemFromLs, clearLs };
+const updateItemInLs = (key, update, type = "array") => {
+  const retrieveItem = getItemFromLs(key);
+  let updatedItem;
+
+  type === "array"
+    ? (updatedItem = [...retrieveItem, ...update])
+    : (updatedItem = { ...retrieveItem, ...update });
+
+  console.log(updatedItem, 'updated Item');
+  addItemToLs(key, updatedItem);
+};
+
+export { getItemFromLs, addItemToLs, deletItemFromLs, clearLs, updateItemInLs };

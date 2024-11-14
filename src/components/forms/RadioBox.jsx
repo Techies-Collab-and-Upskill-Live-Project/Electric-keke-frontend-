@@ -6,7 +6,8 @@ const RadioBox = ({
   text,
   textStyle,
   value,
-  handleChange
+  handleChange,
+  id
 }) => {
   return (
     <div className={styling}>
@@ -14,8 +15,9 @@ const RadioBox = ({
         type="radio"
         name={name}
         className="align-baseline"
-        checked={value}
+        // checked={value}
         onChange={handleChange}
+        id={id}
       />
       <div>
         <label htmlFor={name} className={labelStyle}>

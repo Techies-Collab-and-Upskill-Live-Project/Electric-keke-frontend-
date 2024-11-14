@@ -7,10 +7,10 @@ import { BellIcon } from "lucide-react";
 import { useGlobalNotificationContext } from "@/contexts/NotificationContext";
 import { useGlobalAuthContext } from "@/contexts/AuthContext";
 
-const MobileHeader = ({ blur, mobileHeaderStyle }) => {
+const MobileHeader = ({ blur, mobileHeaderStyle, homeHref = "/" }) => {
   const { pathname } = useLocation();
   const { openNotificationModal } = useGlobalNotificationContext();
-  const {user} = useGlobalAuthContext();
+  const { user } = useGlobalAuthContext();
 
   return (
     <header className={mobileHeaderStyle}>
@@ -20,7 +20,11 @@ const MobileHeader = ({ blur, mobileHeaderStyle }) => {
         <h2 className="mobile-header__title">Eco Schedule</h2>
       )}
 
-      {pathname === "/settings" ? <LogoWithText /> : <LogoPlain />}
+      {pathname === "/settings" ? (
+        <LogoWithText href={homeHref} />
+      ) : (
+        <LogoPlain href={homeHref} />
+      )}
 
       {pathname !== "/schedule-ride" && (
         <>
@@ -37,7 +41,11 @@ const MobileHeader = ({ blur, mobileHeaderStyle }) => {
                 onClick={openNotificationModal}
               />
 
-              <HeroSmallInfo fullname={user?.fullname} id={user?.id} photo={user?.avatar} />
+              <HeroSmallInfo
+                fullname={user?.fullname}
+                id={user?.id}
+                photo={user?.avatar}
+              />
             </div>
           ) : (
             <Btn

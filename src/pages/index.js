@@ -24,8 +24,10 @@ import Support from "./Support";
 import Tracking from "./Tracking";
 import Transaction from "./Transaction";
 import UserManagement from "./admin/UserManagement";
+import Messages from "./admin/Messages";
 
 export {
+  Messages,
   Admin,
   FinancialManagement,
   UserManagement,

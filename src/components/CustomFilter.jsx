@@ -28,7 +28,7 @@ const CustomFilter = ({ children, icon = <FilterIcon />, text }) => {
             initial={{ opacity: 0, scale: 2 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0 }}
-            className="absolute bg-white z-10 min-w-[185px] shadow-2xl rounded-[6px] p-1"
+            className="absolute right-0 bg-white z-10 min-w-[185px] shadow-2xl rounded-[6px] p-1"
           >
             {children}
           </motion.div>

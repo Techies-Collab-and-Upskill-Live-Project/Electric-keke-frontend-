@@ -33,13 +33,13 @@ export const useLoadBooking = (setWaiting) => {
 
     if (type === "booking_accepted") {
       showAlert(message, "info");
-      showNotification(null);
+      // showNotification(null);
       addItemToLs("bookData", bookData);
       navigate("/tracking/passenger");
     } else if (type === "booking_cancelled_by_rider") {
       showAlert(message, "danger");
       setWaiting(false);
-      showNotification(null);
+      // showNotification(null);
     }
   });
 }

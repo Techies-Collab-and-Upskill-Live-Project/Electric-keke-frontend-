@@ -30,7 +30,7 @@ const ContactModal = ({ isModalOpen, openModal, closeModal, connect }) => {
           <IconWrapper
             iconElement={Call}
             iconElementProps={{ type: connect ? "connect" : "rider" }}
-            containerStyle="size-6 md:size-[37px]"
+            containerStyle="size-9"
           />
         ),
         styling: "bg-transparent p-0",

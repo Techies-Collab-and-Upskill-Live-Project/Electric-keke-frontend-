@@ -7,16 +7,22 @@ import TrackDetails from "./TrackDetails";
 import ConfirmRideModal from "@/components/modals/ConfirmRideModal";
 import { useModal } from "@/hooks/useModal";
 import { useResource } from "@/hooks/useResource";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getItemFromLs } from "@/utils/ls";
 
-const DriverTracking = ({ hasArrived }) => {
+const DriverTracking = ({ hasArrived, setHasArrived }) => {
   const { openModal, closeModal, isModalOpen } = useModal();
-  const [status, setStatus] = useState(false);
-  const { resource: bookData } = useResource(
+  const [isDisabled, setDisabled] = useState(false); // toggle buttons
+
+  const { resource: bookData, setResource } = useResource(
     () => console.log("logic to return at least a data"),
     "bookData"
   );
-  
+
+  useEffect(() => {
+    const resource = getItemFromLs("bookData");
+    setResource(resource);
+  }, [hasArrived]);
 
   return (
     <>
@@ -24,6 +30,8 @@ const DriverTracking = ({ hasArrived }) => {
         openModal={openModal}
         closeModal={closeModal}
         isModalOpen={isModalOpen}
+        price={bookData?.price}
+        fullname={bookData?.passenger_name}
       />
 
       <TrackLayout role="Rider">
@@ -32,22 +40,31 @@ const DriverTracking = ({ hasArrived }) => {
             <Person
               role="Rider"
               fullname={bookData?.passenger_name}
-              hasArrived={hasArrived}
+              rideCompleted={bookData?.type === 'booking_completed'}
             />
 
-            {hasArrived ? <Arrived /> : <DeliveryStats role="Rider" />}
+            {bookData?.type === "booking_completed" ? (
+              <Arrived
+                origin={bookData?.origin}
+                destination={bookData?.destination}
+              />
+            ) : (
+              <DeliveryStats role="Rider" />
+            )}
           </div>
 
-          {hasArrived ? (
-            <RiderSummary openModal={openModal} />
+          {bookData?.type === "booking_completed" ? (
+            <RiderSummary openModal={openModal} price={bookData?.price} />
           ) : (
             <TrackDetails
-              role="Rider"
-              origin={bookData?.origin || "origin"}
-              destination={bookData?.destination || "destination"}
-              price={bookData?.price || "3000"}
               booking_id={bookData?.booking_id}
-              status={status}
+              destination={bookData?.destination || "destination"}
+              origin={bookData?.origin || "origin"}
+              price={bookData?.price || "3000"}
+              role="Rider"
+              setHasArrived={setHasArrived}
+              isDisabled={isDisabled}
+              setDisabled={setDisabled}
             />
           )}
         </div>

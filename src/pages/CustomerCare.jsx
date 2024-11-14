@@ -51,7 +51,7 @@ const CustomerCare = () => {
 
   const SendToSocket = useCallback(
     (message) => {
-      console.log(message)
+      // console.log(message);
       if (SOCKET && SOCKET.current.readyState === WebSocket.OPEN) {
         SOCKET.current.send(message);
       } else {

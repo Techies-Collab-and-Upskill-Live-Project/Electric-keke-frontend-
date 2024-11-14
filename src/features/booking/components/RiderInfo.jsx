@@ -44,24 +44,28 @@ const RiderInfo = () => {
           className="relative"
         >
           <motion.div className="md:flex md:gap-x-6 lg:gap-x-[102px] mt-7">
-            <RiderPicture rider={rider} submitBooking={submitBooking} />
+            <RiderPicture
+              fullname={rider?.fullname}
+              photo={rider.photo}
+              submitBooking={submitBooking}
+            />
 
             <motion.div className="w-full max-w-[588px] pt-3">
               <motion.div className="w-full max-w-96 h-fit md:h-[174px]">
                 <div>
                   <p className="text-2xl">
-                    License plate: {rider?.plate_number || "lkj-238"}
+                    License plate: {rider?.plate_number || 'NL'}
                   </p>
-                  <p className="text-2xl mt-3 md:mt-4">
-                    Keke Color: {rider?.color || "yellow"}
+                  <p className="mt-3 text-2xl md:mt-4">
+                    Keke Color: {rider?.color || "NL"}
                   </p>
                 </div>
 
                 <Rate
-                  rate={rider?.rating || 2}
+                  rate={rider?.rating || 4}
                   statik
                   className="mt-2 md:mt-4 lg:mt-10"
-                  size="size-10"
+                  size="size-[58px]"
                 />
               </motion.div>
 

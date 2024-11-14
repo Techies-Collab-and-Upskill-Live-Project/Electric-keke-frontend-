@@ -11,14 +11,14 @@ const CardInformation = () => {
 
   return (
     <div>
-      <span className="font-medium text-base">Card Information</span>
+      <span className="text-base font-medium">Card Information</span>
       <div className="">
         <FormRow
-           inputclass="pay-card-input rounded-t-sm"
+          inputclass="pay-card-input rounded-t-sm"
           name="number"
           value={number}
           handleChange={handleChange}
-          icon={<MasterCircles />}
+          icon={MasterCircles}
           iconPosition="right-3"
         />
 

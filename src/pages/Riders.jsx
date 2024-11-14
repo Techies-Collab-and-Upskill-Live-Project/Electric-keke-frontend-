@@ -1,8 +1,10 @@
 import { Section } from "@/layouts";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Btn from "@/components/btn/Btn";
+import { AnimatePresence } from "framer-motion";
 
 const Riders = () => {
+  const { pathname } = useLocation();
   return (
     <Section darkLogo={true} mobileHeaderStyle="mobile-header">
       <div className="rider-container">
@@ -14,7 +16,9 @@ const Riders = () => {
             <Btn styling="bg-transparent rounded-full" />
           </div>
 
-          <Outlet />
+          <AnimatePresence mode="wait">
+            <Outlet key={pathname} />
+          </AnimatePresence>
         </div>
       </div>
     </Section>

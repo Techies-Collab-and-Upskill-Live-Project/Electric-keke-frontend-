@@ -16,6 +16,7 @@ const UserManagementTableContent = ({ data }) => {
   const { showAlert } = dispatchables();
   return (
     <>
+      {data.length === 0 && <div>No Users</div>}
       {data.map(
         ({ id, fullname, email, phone, signup_date: created, status }) => {
           return (

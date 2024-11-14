@@ -32,7 +32,7 @@ const ChooseMain = ({ type, goToInputRideDetails, closeModal }) => {
         handleChoice1={goToInputRideDetails}
         handleChoice2={async () => {
           await closeModal();
-          navigate("/schedule-ride");
+          navigate("/schedule-ride/coming-soon");
         }}
       />
     </>

@@ -7,14 +7,14 @@ import { BellIcon } from "lucide-react";
 import { useGlobalNotificationContext } from "@/contexts/NotificationContext";
 import { useGlobalAuthContext } from "@/contexts/AuthContext";
 
-const Header = ({ darkLogo, blur }) => {
+const Header = ({ darkLogo, blur, homeHref = "/" }) => {
   const { user } = useGlobalAuthContext();
   const { openNotificationModal } = useGlobalNotificationContext();
 
   return (
     <header className="header">
       <div className={`header__content ${blur && "header__content--blur"}`}>
-        <LogoPlain scale="scale-[1.3]" />
+        <LogoPlain scale="scale-[1.3]" href={homeHref} />
         <NavBar dark={darkLogo} />
 
         {user ? (
@@ -30,7 +30,11 @@ const Header = ({ darkLogo, blur }) => {
               onClick={openNotificationModal}
             />
 
-            <HeroSmallInfo fullname={user?.fullname} id={user?.id} photo={user?.avatar} />
+            <HeroSmallInfo
+              fullname={user?.fullname}
+              id={user?.id}
+              photo={user?.avatar}
+            />
           </div>
         ) : (
           <Btn

@@ -12,7 +12,6 @@ import { useGlobalAuthContext } from "@/contexts/AuthContext";
 const Driver = () => {
   const notification = useSelector((state) => state.notificationData);
   const { user } = useGlobalAuthContext();
-  console.log(user);
 
   // const { showAlert, newNotification } = dispatchables();
   const [online, setOnline] = useState(false);
@@ -23,6 +22,7 @@ const Driver = () => {
       const {
         message: { type },
       } = notification;
+
       if (type === "new_booking_notification") {
         openModal();
       }
@@ -42,7 +42,7 @@ const Driver = () => {
           {user?.wallet_balance < 0 && (
             <p className="text-xs font-semibold text-center text-error md:text-xl">
               To continue receiving cash trips, Kindly pay your outstanding debt
-              of 5,000
+              of {user.wallet_balance}
             </p>
           )}
 

@@ -1,5 +1,5 @@
 import { ProfilePhoto } from "@/components";
-import { useResource } from "@/hooks/useResource";
+import { useGlobalAuthContext } from "@/contexts/AuthContext";
 
 const person = {
   sender: "rounded-s-full bg-basic",
@@ -7,31 +7,28 @@ const person = {
 };
 
 const ChatBox = ({ message, user, role, timestamp }) => {
-  const { resource: currentUser } = useResource(
-    () => console.log("user"),
-    "user"
-  );
-  
+  const { user: currentUser } = useGlobalAuthContext();
+
   let type;
-  
+
   if (currentUser.role === role) {
-    type = 'sender'
+    type = "sender";
   } else {
-    type = 'receiver'
+    type = "receiver";
   }
-  
 
   return (
     <div
-      className={`flex items-end py-2 ${
+      className={`flex items-end py-2 gap-x-2 ${
         type === "receiver" ? "pl-1 pr-[18px]" : "justify-end pr-1 pl-[18px]"
       }`}
     >
-      <div className="flex-center gap-x-2">
-        {type === "receiver" && <ProfilePhoto styling="size-11" />}
+        {type === "receiver" && (
+          <ProfilePhoto styling="size-11" noImageContainerStyle="border-2 size-11 rounded-full flex-center" />
+        )}
 
         <div
-          className={`px-4 py-3  w-[calc(100%-44px)] rounded-t-full ${person[type]}`}
+          className={`px-10 py-3 border-4 min-w-20 max-w-[calc(100%-44px)] rounded-t-full ${person[type]}`}
         >
           <p
             className={`text-sm md:text-base ${
@@ -42,8 +39,9 @@ const ChatBox = ({ message, user, role, timestamp }) => {
           </p>
         </div>
 
-        {type === "sender" && <ProfilePhoto styling="size-11" />}
-      </div>
+        {type === "sender" && (
+          <ProfilePhoto styling="size-11" noImageContainerStyle="border-2 size-11 rounded-full flex-center" text={currentUser?.fullname[0]} />
+        )}
     </div>
   );
 };

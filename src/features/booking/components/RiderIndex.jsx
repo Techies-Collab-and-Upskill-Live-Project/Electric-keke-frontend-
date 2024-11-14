@@ -13,37 +13,18 @@ const RiderIndex = () => {
   useTitle("Riders");
   const { isLoading, resource: availableRiders } = useResource(
     GetAvailableRiders,
-    "riders"
+    'list-of-riders'
   );
 
-  // for development purpose
-  const { unstableArray: arrayOfMockRiders, substituteItemsProps } =
-    useArray(riders);
-
-    // console.log(arrayOfMockRiders)
-
-  useEffect(() => {
-    if (!isLoading) {
-      substituteItemsProps({
-        address: "beta street",
-        email: "Joseyjayy1@gmail.com",
-        id: "fa9352ab-8dd4-4094-8b0c-397254ace7eb",
-        phone: "838383",
-        state_of_residence: "imo",
-      });
-    }
-  }, [isLoading]);
-  // the above is for development purpose
-
   return isLoading ? (
-    <Loader className="size-32 mx-auto" type="spin2" />
+    <Loader className="mx-auto size-32" type="spin2" />
   ) : (
     <motion.div
       onAnimationComplete={() => {}}
       key="riders-list"
       initial={{ x: 200, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      exit={{ x: -200, opacity: 0 }}
+      exit={{ x: -200, opacity: 0, transition: {duration: 3} }}
       transition={{ duration: 0.65 }}
       className="available-riders__wrapper"
     >
@@ -54,15 +35,15 @@ const RiderIndex = () => {
           animate={{ x: 0, opacity: 1 }}
           exit={true && { x: -200, opacity: 0 }}
           transition={{ duration: 0.65, type: "just" }}
-          className="avaible-riders__wrapper col-span-3"
+          className="col-span-3 avaible-riders__wrapper"
         >
           <h2>No availble riders at the moment</h2>
         </motion.div>
       ) : (
         <RegularList
           component={Rider}
-          list={arrayOfMockRiders}
-          keyExtractor={arrayOfMockRiders.map((item) => item.fullname)}
+          list={availableRiders}
+          keyExtractor={availableRiders.map((item) => item.fullname)}
         />
       )}
     </motion.div>
