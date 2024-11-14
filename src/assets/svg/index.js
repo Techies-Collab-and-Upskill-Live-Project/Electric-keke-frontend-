@@ -20,7 +20,7 @@ import SettingIcon from "./SettingIcon";
 import Spear from "./Spear";
 import TimeEstimate from "./TimeEstimate";
 import EditGallery from "./edit-gallery";
-import BellIcon from "./Bell";
+import BellIcon from "./bell";
 
 import FbIcon from "./fb";
 import XIcon from "./x";
