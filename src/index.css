@@ -697,7 +697,7 @@ h2 {
 /* DIRECTION */
 
 .direction {
-  @apply flex items-center justify-center gap-2 mt-6 md:justify-start;
+  @apply flex-center mt-6 md:justify-start gap-x-2;
 }
 
 

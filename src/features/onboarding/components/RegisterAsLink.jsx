@@ -14,7 +14,7 @@ const RegisterAsLink = ({ title, icon, role, href }) => {
       <div
         className={`register__options ${role === user_role && "chosen-option"}`}
         onMouseOver={() => {
-          changeAuthFormData({ target: { name: "role", value: 'Rider' } });
+          changeAuthFormData({ target: { name: "role", value: role } });
           addItemToLs("onboarding-process", 0);
         }}
       >
