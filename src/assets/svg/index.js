@@ -1,7 +1,7 @@
 import Accept from "./Accept";
 import ArrDown from "./ArrDown";
 import Battery from "./Battery";
-import Bell from "./Bell";
+import BellIcon from "./bell";
 import Call from "./Call";
 import Chat from "./Chat";
 import Congrats from "./Congrats";
@@ -47,7 +47,7 @@ const icons = {
   Accept,
   ArrDown,
   Battery,
-  Bell,
+  BellIcon,
   Call,
   Chat,
   Congrats,
