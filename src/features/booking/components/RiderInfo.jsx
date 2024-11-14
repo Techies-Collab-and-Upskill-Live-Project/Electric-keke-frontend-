@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { addItemToLs, getItemFromLs } from "../../../utils/ls";
 import dispatchables from "../../../utils/dispatchables";
 import Reviews from "../../../components/xp/Reviews";
@@ -10,13 +10,14 @@ import RiderPicture from "./RiderPicture";
 import Rate from "./Rate";
 import { BookRide } from "../services/BookRide";
 
-const RiderInfo = () => {
+const RiderInfo = ({ setShowRiderTitle }) => {
   const { showAlert, loading, unloading } = dispatchables();
 
   const [waiting, setWaiting] = useState(false);
   const [rider, setRider] = useState(getItemFromLs("rider") || null);
 
   const submitBooking = async () => {
+    setShowRiderTitle(false)
     loading();
     const bookData = getItemFromLs("book-data");
     try {
@@ -28,13 +29,19 @@ const RiderInfo = () => {
     } catch (error) {
       unloading();
       showAlert(`Error Booking Ride`);
+      setShowRiderTitle(true)
     }
   };
 
   return (
-    <>
+    <AnimatePresence>
       {waiting ? (
-        <LoadBooking setRider={setRider} setWaiting={setWaiting} />
+        <LoadBooking
+          key="load-book"
+          // setRider={setRider}
+          setWaiting={setWaiting}
+          setShowRiderTitle={setShowRiderTitle}
+        />
       ) : (
         <motion.div
           initial="out"
@@ -57,6 +64,7 @@ const RiderInfo = () => {
                   <p className="text-2xl">
                     License plate: {rider?.plate_number || "NL"}
                   </p>
+
                   <p className="mt-3 text-2xl md:mt-4">
                     Keke Color: {rider?.color || "NL"}
                   </p>
@@ -85,7 +93,7 @@ const RiderInfo = () => {
           </motion.div>
         </motion.div>
       )}
-    </>
+    </AnimatePresence>
   );
 };
 

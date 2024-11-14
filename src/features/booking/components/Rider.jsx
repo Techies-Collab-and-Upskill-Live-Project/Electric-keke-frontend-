@@ -40,7 +40,7 @@ const Rider = ({
   };
 
   return (
-    <div className="rider" key={fullname}>
+    <div className="rider" key={fullname} onClick={handleRiderSelection}>
       <ProfilePhoto
         imageUrl={photo}
         text={fullname[0]}

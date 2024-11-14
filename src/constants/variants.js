@@ -57,7 +57,7 @@ const riderParentVariant = {
       stagerChildren: 3,
     },
   },
-  leave: { x: -200, opacity: 0, transition: {duration: 3} },
+  leave: { x: -200, opacity: 0, transition: {duration: 1, ease: 'easeIn'} },
 };
 
 const riderPictureContainer = {

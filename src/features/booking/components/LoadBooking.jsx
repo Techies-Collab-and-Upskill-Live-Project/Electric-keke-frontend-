@@ -7,17 +7,17 @@ import { UpdateBooking } from "@/services/UpdateBooking";
 import { getItemFromLs } from "@/utils/ls";
 import dispatchables from "@/utils/dispatchables";
 
-const LoadBooking = ({ setWaiting }) => {
+const LoadBooking = ({ setWaiting, setShowRiderTitle }) => {
   useLoadBooking(setWaiting);
   const { showAlert } = dispatchables();
 
   const CancelRideBooking = async () => {
     const booking_id = getItemFromLs("book_id");
-    console.log(booking_id);
     try {
       const response = await UpdateBooking(booking_id, "cancelled");
       showAlert(response);
       setWaiting(false);
+      setShowRiderTitle(true)
     } catch (error) {
       const { detail } = error.data ?? "default";
       showAlert(detail, "info");
@@ -28,7 +28,8 @@ const LoadBooking = ({ setWaiting }) => {
     <motion.div
       initial={{ y: 1000, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      exit={{ opacity: 0, transition: { duration: 3 } }}
+      exit={{ opacity: 0 }}
+      transition={{ ease: "easeIn", duration: 1 }}
       className="bg-white w-full py-20 z-50 h-[calc(100vh-20vh)]"
     >
       <div>

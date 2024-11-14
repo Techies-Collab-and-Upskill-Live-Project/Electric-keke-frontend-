@@ -17,11 +17,14 @@ const RiderIndex = ({ setRiderTitle }) => {
     <Loader className="mx-auto size-32" type="spin2" />
   ) : (
     <motion.div
-      onAnimationComplete={() => {}}
       key="riders-list"
       initial={{ x: 200, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      exit={{ x: -200, opacity: 0, transition: { duration: 3 } }}
+      exit={{
+        x: -200,
+        opacity: 0,
+        transition: { duration: 1, ease: "easeInOut" },
+      }}
       transition={{ duration: 0.65 }}
       className="available-riders__wrapper"
     >

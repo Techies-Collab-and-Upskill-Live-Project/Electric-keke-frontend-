@@ -7,32 +7,40 @@ import { XIcon } from "lucide-react";
 import { useState } from "react";
 
 const Riders = () => {
-  const { pathname } = useLocation();
+  const location = useLocation();
   const [riderTitle, setRiderTitle] = useState("Available Riders");
+  const [showRiderTitle, setShowRiderTitle] = useState(true);
+
   return (
     <Section darkLogo={true} mobileHeaderStyle="mobile-header">
       <div className="rider-container">
         <div className="relative">
-          <div className="rider-sub-header">
-            <h2 className="font-bold text-2xl md:text-[28px] lg:text-[2rem]">
-              {riderTitle}
-            </h2>
+          {showRiderTitle && (
+            <div className="rider-sub-header">
+              <h2 className="font-bold text-2xl md:text-[28px] lg:text-[2rem]">
+                {riderTitle}
+              </h2>
 
-            <Btn
-              href="/riders"
-              styling="rounded-full bg-transparent p-0"
-              icon={<XIcon color="black" />}
-              onClick={() => setRiderTitle("Available Riders")}
-            />
-          </div>
+              <Btn
+                href="/riders"
+                styling="rounded-full bg-transparent p-0"
+                icon={<XIcon color="black" />}
+                onClick={() => setRiderTitle("Available Riders")}
+              />
+            </div>
+          )}
 
           <AnimatePresence mode="wait">
-            <Routes>
+            <Routes location={location} key={location.pathname}>
               <Route
                 index
                 element={<RiderIndex setRiderTitle={setRiderTitle} />}
               />
-              <Route path="/:id" element={<RiderInfo />} />
+
+              <Route
+                path="/:id"
+                element={<RiderInfo setShowRiderTitle={setShowRiderTitle} />}
+              />
             </Routes>
           </AnimatePresence>
         </div>
