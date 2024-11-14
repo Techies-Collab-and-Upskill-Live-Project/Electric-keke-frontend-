@@ -29,7 +29,7 @@ const ModalFormInput = ({
         name={name}
         value={value}
         onChange={handleChange}
-        className="text-eiteen w-10/12 outline-none border-none"
+        className="w-10/12 border-none outline-none text-eiteen"
       />
       {showTarget && (
         <div>
@@ -70,7 +70,7 @@ const BookingModalForm = ({ closeModal }) => {
         throw new Error("Open an accont");
       }
       await closeModal();
-      navigate("/riders/list");
+      navigate("/riders");
     } catch (error) {
       showAlert("Login to book a ride", "info");
     }

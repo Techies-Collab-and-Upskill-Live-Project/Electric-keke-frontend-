@@ -4,7 +4,7 @@ import CustomError from "@/services/custom-error/CustomError";
 export const GetAvailableRiders = async () => {
   try {
     const { data } = await clientRequest({ url: "/bookings/riders/" });
-    console.log(data);
+    // console.log(data);
     return data;
   } catch (error) {
     throw new CustomError("Internal Server Error", {

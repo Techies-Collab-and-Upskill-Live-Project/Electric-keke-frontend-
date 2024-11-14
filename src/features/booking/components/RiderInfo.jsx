@@ -20,7 +20,8 @@ const RiderInfo = () => {
     loading();
     const bookData = getItemFromLs("book-data");
     try {
-      await BookRide(bookData);
+      const { id } = await BookRide(bookData);
+      addItemToLs("book_id", id);
       unloading();
       showAlert("Wait a moment");
       setWaiting(true);
@@ -54,7 +55,7 @@ const RiderInfo = () => {
               <motion.div className="w-full max-w-96 h-fit md:h-[174px]">
                 <div>
                   <p className="text-2xl">
-                    License plate: {rider?.plate_number || 'NL'}
+                    License plate: {rider?.plate_number || "NL"}
                   </p>
                   <p className="mt-3 text-2xl md:mt-4">
                     Keke Color: {rider?.color || "NL"}

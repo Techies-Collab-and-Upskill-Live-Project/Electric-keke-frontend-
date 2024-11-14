@@ -20,36 +20,36 @@ export const NotificationProvider = ({ children }) => {
     openModal: openNotificationModal,
   } = useModal();
 
-  useEffect(() => {
-    if (!isAuthenticated) return;
-    const accessToken = getItemFromLs("accessToken");
+  // useEffect(() => {
+  //   if (!isAuthenticated) return;
+  //   const accessToken = getItemFromLs("accessToken");
 
-    SOCKET.current = new WebSocket(
-      `${ws_base_url}/notifications/?token=${accessToken}`
-    );
+  //   SOCKET.current = new WebSocket(
+  //     `${ws_base_url}/notifications/?token=${accessToken}`
+  //   );
 
-    if (!isAuthenticated) {
-      showNotification(null);
-      SOCKET.current.close();
-      console.log("socket closed");
-    }
+  //   if (!isAuthenticated) {
+  //     showNotification(null);
+  //     SOCKET.current.close();
+  //     console.log("socket closed");
+  //   }
 
-    SOCKET.current.onopen = () =>
-      console.log("connected to notification SOCKET");
+  //   SOCKET.current.onopen = () =>
+  //     console.log("connected to notification SOCKET");
 
-    SOCKET.current.onerror = () =>
-      console.log("connected to notification SOCKET failed");
+  //   SOCKET.current.onerror = () =>
+  //     console.log("connected to notification SOCKET failed");
 
-    SOCKET.current.onmessage = (event) => {
-      const notification = PARSEDATA(event.data);
-      console.log(notification);
-      showNotification(notification);
-    };
+  //   SOCKET.current.onmessage = (event) => {
+  //     const notification = PARSEDATA(event.data);
+  //     console.log(notification);
+  //     showNotification(notification);
+  //   };
 
-    return () => {
-      if (SOCKET.current) SOCKET.current.close();
-    };
-  }, [isAuthenticated]);
+  //   return () => {
+  //     if (SOCKET.current) SOCKET.current.close();
+  //   };
+  // }, [isAuthenticated]);
 
   return (
     <NotificationContext.Provider

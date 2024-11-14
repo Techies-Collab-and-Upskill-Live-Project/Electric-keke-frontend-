@@ -21,8 +21,8 @@ export const UpdateBooking = async (bookingId, status = "accepted") => {
       method: "patch",
       data: { status },
     });
-    console.log(detail);
-    updateItemInLs("bookData", { type: updateStats[status] }, "object");
+    // console.log(detail);
+    updateItemInLs("bookData", { type: updateStats[status] ?? 'cancelled' }, "object");
     return detail;
   } catch (error) {
     const errordata = error.data.response?.data || {

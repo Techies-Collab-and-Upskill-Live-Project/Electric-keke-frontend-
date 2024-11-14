@@ -2,12 +2,27 @@ import Btn from "@/components/btn/Btn";
 import Loader from "@/components/loaders/Loader";
 import Heading from "@/components/Heading";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
 import { useLoadBooking } from "../hooks/useLoadBooking";
+import { UpdateBooking } from "@/services/UpdateBooking";
+import { getItemFromLs } from "@/utils/ls";
+import dispatchables from "@/utils/dispatchables";
 
 const LoadBooking = ({ setWaiting }) => {
-
   useLoadBooking(setWaiting);
+  const { showAlert } = dispatchables();
+
+  const CancelRideBooking = async () => {
+    const booking_id = getItemFromLs("book_id");
+    console.log(booking_id);
+    try {
+      const response = await UpdateBooking(booking_id, "cancelled");
+      showAlert(response);
+      setWaiting(false);
+    } catch (error) {
+      const { detail } = error.data ?? "default";
+      showAlert(detail, "info");
+    }
+  };
 
   return (
     <motion.div
@@ -33,6 +48,7 @@ const LoadBooking = ({ setWaiting }) => {
           <Btn
             text="Cancel Request"
             styling="w-full btn btn--lg btn--primary"
+            onClick={CancelRideBooking}
           />
         </div>
       </div>
