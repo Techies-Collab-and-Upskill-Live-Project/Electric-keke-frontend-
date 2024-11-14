@@ -3,6 +3,7 @@ import { Modal, ModalSheet, ModalTrigger } from "./_custom-ui/Modal";
 import Btn from "./btn/Btn";
 
 const CustomModal = ({
+  defaultClass = 'modal',
   children,
   trigger: Trigger,
   triggerProps,
@@ -33,7 +34,7 @@ const CustomModal = ({
           <ModalSheet
             initial={animateMSI}
             animate={animateMSA}
-            styling={`modal ${modalStyling}`}
+            styling={`${defaultClass} ${modalStyling}`}
           >
             {showCloseBtn && (
               <Btn

@@ -7,7 +7,6 @@ const FooterBlockListItem = ({
   href,
   styling = "footer-link",
 }) => {
-  console.log(href)
   return (
     <li className={styling}>
       <Link smooth to={href} className="size-full">

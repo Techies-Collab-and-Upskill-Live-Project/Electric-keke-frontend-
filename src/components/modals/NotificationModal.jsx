@@ -14,10 +14,11 @@ const NotificationModal = ({ openModal, isModalOpen, closeModal }) => {
       modalStyling="modal__notification pb-20"
       animateMSI={{ opacity: 0, x: -200 }}
       animateMSA={{ opacity: 1, x: 0 }}
+      defaultClass="bg-white"
     >
       <div className="flex-spread px-4 md:px-[50px] pt-4 md:pt-16">
-        <div className="flex-center gap-x-6 border-b pb-1">
-          <h2 className="font-josefin font-bold">Notification</h2>
+        <div className="pb-1 border-b flex-center gap-x-6">
+          <h2 className="font-bold font-josefin">Notification</h2>
 
           <CustomBadge
             styling="size-10 flex-center rounded-full process--shadow"
