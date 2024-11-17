@@ -1,4 +1,7 @@
 import { icons } from "@/assets";
+import person1 from '../assets/images/rider1.png';
+import person2 from '../assets/images/rider2.png';
+import person3 from '../assets/images/rider3.png';
 
 export const HeroImage = {
   main: "/hero_bg1.png",
@@ -235,5 +238,26 @@ export const footer_blocks = [
       { icon: icons.SocialXIcon, href: "/" },
     ],
     listContainerStyle: "flex-center gap-5 mt-5",
+  },
+];
+
+export const team_members = [
+  {
+    name: "Lawal Mohammed",
+    photo: person1,
+    location: "United Kingdom",
+    role: "CEO",
+  },
+  {
+    name: "Airxist",
+    photo: person2,
+    location: "Nigeria",
+    role: "Chief Operating Officer",
+  },
+  {
+    name: "Emem David",
+    photo: person3,
+    location: "Rwanda",
+    role: "Chief Technology Officer",
   },
 ];

@@ -3,8 +3,8 @@ import React from "react";
 const TeamMember = ({ photo, name, location, role }) => {
   return (
     <div className="team-member">
-      <div className="w-full border">
-        <img src={photo} alt={name} className="size-full" />
+      <div className="w-full h-[170px]">
+        <img src={photo} alt={name} className="image rounded-ml" />
       </div>
 
       <div className="team-member__details">
