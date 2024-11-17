@@ -23,6 +23,7 @@ const AuthProvider = ({ children }) => {
   const AuthenticateLogout = () => {
     deletItemFromLs("isAuthenticated");
     setIsAuthenticated(false);
+    resetUser(null);
     navigate("/");
   };
 

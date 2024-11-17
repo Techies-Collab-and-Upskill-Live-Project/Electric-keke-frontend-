@@ -41,8 +41,10 @@ const BriefingBox = ({
             {showBtn && (
               <div className="mt-8">
                 <Btn
+                  linkBtnWidth="w-[171px] inline-block"
+                  href="/about"
                   text="Learn More"
-                  styling="btn--hero btn--primary w-[171px]"
+                  styling="btn--hero btn--primary"
                 />
               </div>
             )}
